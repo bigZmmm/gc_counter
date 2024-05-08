@@ -1,0 +1,99 @@
+begin_groups
+32
+group
+1
+0 0 y 1 p6 
+group
+1
+1 0 y 1 p5 
+group
+1
+2 0 y 1 p3 
+group
+1
+3 0 y 1 p14 
+group
+1
+4 0 x 1 p10 
+group
+1
+5 0 x 1 p6 
+group
+1
+6 0 x 1 p3 
+group
+1
+7 0 y 1 p11 
+group
+1
+8 0 x 1 p7 
+group
+1
+9 0 y 1 p4 
+group
+1
+10 0 y 1 p2 
+group
+1
+11 0 x 1 p16 
+group
+1
+12 0 x 1 p13 
+group
+1
+13 0 y 1 p15 
+group
+1
+14 0 x 1 p5 
+group
+1
+15 0 x 1 p9 
+group
+1
+16 0 y 1 p1 
+group
+1
+17 0 y 1 p10 
+group
+1
+18 0 x 1 p15 
+group
+1
+19 0 x 1 p2 
+group
+1
+20 0 y 1 p13 
+group
+1
+21 0 y 1 p9 
+group
+1
+22 0 x 1 p12 
+group
+1
+23 0 x 1 p4 
+group
+1
+24 0 x 1 p1 
+group
+1
+25 0 y 1 p7 
+group
+1
+26 0 y 1 p12 
+group
+1
+27 0 x 1 p8 
+group
+1
+28 0 x 1 p14 
+group
+1
+29 0 x 1 p11 
+group
+1
+30 0 y 1 p8 
+group
+1
+31 0 y 1 p16 
+end_groups

@@ -1,0 +1,81 @@
+Parsing...   Atom x(p1)
+  Atom x(p1)
+  Atom y(p1)
+  Atom y(p1)
+[0.000s CPU, 0.003s wall-clock]
+Instantiating...
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 61 rules.
+Computing model... [0.000s CPU, 0.000s wall-clock]
+87 relevant atoms
+0 auxiliary atoms
+87 final queue length
+121 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.000s CPU, 0.003s wall-clock]
+  Atom y(p6)
+  Atom y(p5)
+  Atom y(p3)
+  Atom y(p14)
+  Atom x(p10)
+  Atom x(p6)
+  Atom x(p3)
+  Atom y(p11)
+  Atom y(p8)
+  Atom y(p4)
+  Atom y(p2)
+  Atom x(p16)
+  Atom x(p13)
+  Atom y(p15)
+  Atom x(p5)
+  Atom x(p9)
+  Atom y(p1)
+  Atom y(p10)
+  Atom x(p15)
+  Atom x(p2)
+  Atom y(p13)
+  Atom y(p9)
+  Atom x(p12)
+  Atom x(p4)
+  Atom x(p1)
+  Atom y(p7)
+  Atom y(p12)
+  Atom x(p8)
+  Atom x(p14)
+  Atom x(p11)
+  Atom x(p7)
+  Atom y(p16)
+Computing fact groups...
+Finding invariants... 4 initial candidates
+[0.000s CPU, 0.000s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+32 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.000s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building implied facts dictionary...... [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+0 implied effects removed
+0 effect conditions simplified
+0 implied preconditions added
+Building mutex information... [0.000s CPU, 0.000s wall-clock]
+Writing translation key... Detect oneof combinable... True
+[0.000s CPU, 0.000s wall-clock]
+[0.000s CPU, 0.001s wall-clock]
+Writing mutex key... [0.000s CPU, 0.000s wall-clock]
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.000s CPU, 0.009s wall-clock]

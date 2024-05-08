@@ -1,0 +1,130 @@
+GC LAMA (Jule 2012 version)
+
+GCLAMA没有使用lama的landmark功能，并且不知道多值表示对规划器能力的影响
+
+
+License:
+GC_LAMA was written by Khoi Nguyen, Vien Tran, Son Tran and Enrico Pontelli.
+copyright (c) 2012 NMSU.
+Distributed under the GNU General Public License (GPL,
+see separate licence file).
+This program uses source code of the LAMA 2008, (c) 2008 by Silvia Richter and Matthias Westphal. 
+
+Note of Caution: GC_LAMA's parser is built upon the LAMA's parser for classical planner. 
+The syntax is slightly different. In conformant setting, a initial state is usually described by a AND formula, e.g.,
+(and       
+      (oneof  (x p1)  (x p2)  (x p3)  )
+      (oneof  (y p1)  (y p2)  (y p3)  )
+      (oneof  (z p1)  (z p2)  (z p3)  ))
+ )
+
+where in GC_LAMA, we only list all the formula, e.g.,
+
+      (oneof  (x p1)  (x p2)  (x p3)  )
+      (oneof  (y p1)  (y p2)  (y p3)  )
+      (oneof  (z p1)  (z p2)  (z p3)  ))
+
+
+We attached a few example files in the folder "examples".
+
+If you encounter further problems, please email me at knguyen@cs.nmsu.edu.
+
+Lastly, I would be happy to know if you are using LAMA. Just drop me a
+short email at the above address. Then I can also inform you about bug
+fixes and new versions.
+
+The following description is adapted from the LAMA 2008 README
+(thanks to Silvia Richter and Matthias Westphal for LAMA 2008 and Malte Helmert for the FastDownward planenr).
+
+Structure
+=========
+
+GC_LAMA(like LAMA 2008) runs in three separate phases: translation, knowledge
+compilation, and search. These are partitioned into three separate
+programs.  The three directories "translate", "preprocess" and
+"search" contain these programs.
+
+Documentation
+=============
+
+1. In the doc folder, you can find the paper "GC_LAMA.pdf" which describes the planner.
+We also attached the file "lama.pdf" for reference to LAMA 2008.
+
+2. The translation phase is modified to parse many problems for conformant planning. 
+It also compute the Initial Belief State which is stored in the file "belief" in the main folder.
+对转换阶段进行了修改，以适应一致性规划
+
+3. "sas-format.txt" in the "doc" directory is a description of the
+   translator output format. 
+
+4. "pre-format.txt" in the "doc" directory is a description of the
+   output format of the knowledge compilation component
+   ("preprocess").
+
+5. Currently, I did not know how much multi-value variables affects the performance of my planner.
+
+
+Build Instructions
+==================
+
+Parts of the planner are implemented in C++, and parts are implemented
+in Python.
+
+The C++ code was only tested under g++ and uses hash tables from the
+original STL which are part of the g++ libraries but not of the C++
+standard. So if you want to make the planner run under a different C++
+environment, you will need to adjust the parts of the planner that use
+these features.
+
+Statically compiled executables are provided with this distribution.
+To recompile the code on a standard Unix-ish system, just run "build"
+in this directory to build the C++ components of the planner:
+
+    # ./build
+
+The executables will be placed in the respective directories. (If this
+does not work, simply compile and link all the C++ source files you
+find in each directory.)
+
+The Python code is interpreted and thus does not need compilation.
+However, you will need a Python interpreter, version 2.5 or newer, to
+run it. If you are on a non-Unix system, you will probably need to
+install Python by following the instructions at
+http://www.python.org/. If you are on a Unix-ish system, check if the
+correct version of Python is installed already by typing "python2.5"
+in a shell. If this does not result in an error message, you are fine.
+If you do get an error, but have a *newer* version of Python installed
+(such as Python 2.5), you can also run the translator under this newer
+version. In this case, you will need to change the first line of
+translate/translate.py to match your system setup. The translator will
+*not* work with Python 2.4 or older. If you only have an older version
+of Python (or none) installed, go ahead and install a newer one with
+your Unix system's package manager (e.g. with "apt-get install
+python2.5" on a Debian system). Different versions of Python can
+peacefully coexist, so this should not wreck your system setup.
+
+Running the Planner
+===================
+
+To run the planner, you can use the script "plan" in this
+directory with the following arguments:
+
+   # ./plan <domain_path> <problem_path> <result_path> <true/false>
+
+If you set the the last parameter to be true, the planner will display the reasons for inserting actions into the possible plan. 
+If you only need the conformant plan, set the last parameter to be false.
+
+The result plan will be stored in <result_path>.1 or "finalplan" file in the main folder.
+We also store the plan in IPC2008 format in the file "C_Plan" in main folder.
+
+
+Questions and Feedback
+======================
+
+Please feel free to e-mail us at knguyen@cs.nmsu.edu if you
+have any questions, encounter bugs, or would like to discuss any
+issues regarding the planner.
+
+Have fun,
+
+Khoi Nguyen, Vien Tran, Son Tran, Enrico Pontelli
