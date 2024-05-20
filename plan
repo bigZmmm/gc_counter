@@ -17,7 +17,7 @@ run_planner() {
 check_input_files() {
     if [ ! -e "$1" ]; then
 	echo "Domain file \"$1\" does not exist."
-	exit 1
+	exit 
     fi
     if [ ! -e "$2" ]; then
 	echo "Problem file \"$2\" does not exist."

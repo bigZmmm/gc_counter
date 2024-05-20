@@ -28,6 +28,7 @@
 using namespace std;
 
 Prevail::Prevail(istream &in) {
+    // cout<<var<<"--"<<prev<<endl;
     in >> var >> prev;
 }
 
@@ -45,22 +46,29 @@ Operator::Operator(istream &in, bool axiom) {
         check_magic(in, "begin_operator");
         in >> ws;
         getline(in, name);
+        
+        // if(name.compare("unstack a b")==0)
+        //     cout<<"测试"<<name<<endl;
+
         int count;
+        /*读取前置条件个数，对前置条件进行输入*/
         in >> count;
         for(int i = 0; i < count; i++)
             prevail.push_back(Prevail(in));
+        /*读取条件影响个数，并对条件影响进行输入*/
         in >> count;
         for(int i = 0; i < count; i++)
             pre_post.push_back(PrePost(in));
-	int op_cost;
-	in >> op_cost;
-	// Note: increase cost of all actions by 1 to deal with
-	// 0-cost actions (needed for bounded search).
-	cost = g_use_metric ? op_cost + 1 : 1;
+
+        int op_cost;
+        in >> op_cost;
+        // Note: increase cost of all actions by 1 to deal with
+        // 0-cost actions (needed for bounded search).
+        cost = g_use_metric ? op_cost + 1 : 1;
         check_magic(in, "end_operator");
     } else {
         name = "<axiom>";
-	cost = 0;
+	    cost = 0;
         check_magic(in, "begin_rule");
         pre_post.push_back(PrePost(in));
         check_magic(in, "end_rule");

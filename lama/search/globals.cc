@@ -38,6 +38,7 @@ using namespace std;
 #include "landmarks_graph.h"
 #include "landmarks_graph_rpg_sasp.h"
 #include "ff_heuristic.h"
+#include "counter.h"
 
 void check_magic(istream &in, string magic) {
     string word;
@@ -105,7 +106,6 @@ void read_axioms(istream &in) {
     for(int i = 0; i < count; i++)
         g_axioms.push_back(Operator(in, true));
     
-    
     g_original_values = g_initial_state->vars;	
     g_axiom_evaluator = new AxiomEvaluator;
     g_axiom_evaluator->evaluate(*g_initial_state);
@@ -138,9 +138,9 @@ void read_everything(istream &in, bool generate_landmarks, bool reasonable_order
     check_magic(in, "end_SG");
     DomainTransitionGraph::read_all(in);
     if(generate_landmarks){
-	if(!g_ff_heur)
-	    g_ff_heur = new FFHeuristic;
-	build_landmarks_graph(reasonable_orders);
+        if(!g_ff_heur)
+            g_ff_heur = new FFHeuristic;
+        build_landmarks_graph(reasonable_orders);
     }
     g_initial_state->set_landmarks_for_initial_state();
 }
@@ -168,18 +168,31 @@ void dump_everything() {
 }
 
 vector<string> atom_names;*/
+
+/*g_original_values = g_initial_state->vars;*/
+/*保存s0状态的所有变量赋值*/
 vector<int> g_original_values;
 bool g_display;
+/*main中read_everything读入metric*/
 bool g_use_metric;
+/*main中read_everything读入variable*/
 vector<string> g_variable_name;
+/*多值变量的范围*/
 vector<int> g_variable_domain;
 vector<int> g_axiom_layers;
+
 vector<int> g_default_axiom_values;
+/*main中read_everything中 g_initial_state = new State(in);*/
 State *g_initial_state;
+/*main中read_everything读入goal*/
 vector<pair<int, int> > g_goal;
+/*main中read_everything读入operators*/
 vector<Operator> g_operators;
+/*main中read_everything读入axioms*/
 vector<Operator> g_axioms;
+// g_axiom_evaluator->evaluate(*g_initial_state);
 AxiomEvaluator *g_axiom_evaluator;
+/*main中read_everything读入SG*/
 SuccessorGenerator *g_successor_generator;
 vector<DomainTransitionGraph *> g_transition_graphs;
 CausalGraph *g_causal_graph;
@@ -190,3 +203,4 @@ FFHeuristic *g_ff_heur;
 LandmarksCountHeuristic *g_lm_heur;
 LandmarksGraph *g_lgraph;
 bool g_flag = false; 
+

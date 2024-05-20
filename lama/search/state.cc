@@ -44,9 +44,9 @@ State::State() {
 State::State(istream &in) {
     check_magic(in, "begin_state");
     for(int i = 0; i < g_variable_domain.size(); i++) {
-	int var;
-	cin >> var;
-	vars.push_back(var);
+        int var;
+        cin >> var;
+        vars.push_back(var);
     }
     check_magic(in, "end_state");
 
@@ -57,29 +57,29 @@ State::State(istream &in) {
 
 void State::update_reached_lms(const Operator &op) {
     if(g_lgraph == NULL)
-	return;
+	    return;
     for(int j = 0; j < op.get_pre_post().size(); j++) {
-	const PrePost &pre_post = op.get_pre_post()[j];
-	// Test whether this effect got applied (it may have been conditional)
-	if((*this)[pre_post.var] == pre_post.post) {
-	    const LandmarkNode* node_p = 
-		g_lgraph->landmark_reached(make_pair(pre_post.var, pre_post.post));
-	    if(node_p != 0) {
-		if(reached_lms.find(node_p) == reached_lms.end()) {
-		    //cout << endl << "New LM reached! +++++++ ";
-		    //g_lgraph->dump_node(node_p);
-		    // Only add leaves of landmark graph to reached
-		    const LandmarkNode& node = *node_p;
-		    if(landmark_is_leaf(node, reached_lms)) { 
-			//cout << "inserting new LM into reached. (1)" << endl; 
-			reached_lms.insert(node_p);
-			reached_lms_cost += node_p->min_cost;
-		    } 
-		    //else
-		    //cout << "not inserting into reached, has parents" << endl;
-		}
-	    }
-	}
+        const PrePost &pre_post = op.get_pre_post()[j];
+        // Test whether this effect got applied (it may have been conditional)
+        if((*this)[pre_post.var] == pre_post.post) {
+            const LandmarkNode* node_p = 
+            g_lgraph->landmark_reached(make_pair(pre_post.var, pre_post.post));
+            if(node_p != 0) {
+            if(reached_lms.find(node_p) == reached_lms.end()) {
+                //cout << endl << "New LM reached! +++++++ ";
+                //g_lgraph->dump_node(node_p);
+                // Only add leaves of landmark graph to reached
+                const LandmarkNode& node = *node_p;
+                if(landmark_is_leaf(node, reached_lms)) { 
+                //cout << "inserting new LM into reached. (1)" << endl; 
+                reached_lms.insert(node_p);
+                reached_lms_cost += node_p->min_cost;
+                } 
+                //else
+                //cout << "not inserting into reached, has parents" << endl;
+            }
+            }
+        }
     }
     const set<LandmarkNode*>& nodes = g_lgraph->get_nodes();
     set<LandmarkNode*>::const_iterator it = nodes.begin();
@@ -118,9 +118,9 @@ State::State(const State &predecessor, const Operator &op)
 
     // Update values affected by operator.
     for(int i = 0; i < op.get_pre_post().size(); i++) {
-	const PrePost &pre_post = op.get_pre_post()[i];
-	if(pre_post.does_fire(predecessor))
-	    vars[pre_post.var] = pre_post.post;
+        const PrePost &pre_post = op.get_pre_post()[i];
+        if(pre_post.does_fire(predecessor))
+            vars[pre_post.var] = pre_post.post;
     }
     g_axiom_evaluator->evaluate(*this);
     // Update set of reached landmarks.

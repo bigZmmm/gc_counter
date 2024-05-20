@@ -69,6 +69,8 @@ class Task(object):
       print "  %s" % fact
     print "Goal:"
     self.goal.dump()
+    print "Oneof:"
+    
     print "Actions:"
     for action in self.actions:
       action.dump()

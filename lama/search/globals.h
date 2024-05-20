@@ -41,6 +41,7 @@ class SuccessorGenerator;
 class FFHeuristic;
 class LandmarksCountHeuristic;
 class LandmarksGraph;
+class Counter;
 
 void read_everything(istream &in, bool generate_landmarks, bool reasonable_orders);
 void dump_everything();
@@ -80,4 +81,5 @@ extern LandmarksCountHeuristic *g_lm_heur;
 extern LandmarksGraph *g_lgraph;
 
 extern bool g_flag;
+
 #endif

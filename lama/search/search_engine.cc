@@ -51,7 +51,6 @@ void SearchEngine::set_plan(const Plan &p) {
 void SearchEngine::search() {
     initialize();
     solved = false;
-    while(step() == IN_PROGRESS)
-	;
+    while(step() == IN_PROGRESS);
 }
 

@@ -9,7 +9,7 @@ PROFILE_OBJECTS = $(OBJECTS:%.o=%.profile.o)
 PROFILE_TARGET = profile-$(TARGET)
 PROFILE_PARAMETERS =
 
-CC_OPTIONS = -ansi -Wall -O3 -Wno-sign-compare -pedantic -Werror
+CC_OPTIONS = -ansi -Wall -O3 -Wno-sign-compare -pedantic -Werror 
 # CC_OPTIONS += -march=pentium3
 PROFILE_OPTIONS = -pg -O3
 LINK_OPTIONS =
@@ -34,7 +34,7 @@ $(OBJECTS): %.o: %.cc
 	$(CC) $(CC_OPTIONS) -c $< -o obj/$@
 
 $(PROFILE_OBJECTS): %.profile.o: %.cc
-	$(CC) $(CC_OPTIONS) $(PROFILE_OPTIONS) -c $< -o obj/$@
+	$(CC) $(CC_OPTIONS) $(PROFILE_OPTIONS) -c $< -o obj/$@ 
 
 clean:
 	rm -f $(OBJECTS:%=obj/%) $(PROFILE_OBJECTS:%=obj/%) *~

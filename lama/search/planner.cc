@@ -30,6 +30,7 @@
 #include "landmarks_graph.h"
 #include "landmarks_graph_rpg_sasp.h"
 #include "landmarks_count_heuristic.h"
+#include "counter.h"
 
 #include <memory>
 #include <cassert>
@@ -44,6 +45,7 @@
 
 using namespace std;
 
+
 void show_action();
 bool solve_belief_state(BestFirstSearchEngine* engine);
 int save_plan(const vector<const Operator *> &plan, const string& filename, int iteration);
@@ -56,6 +58,7 @@ void print_heuristics_used(bool ff_heuristic, bool ff_preferred_operators,
 			   bool landmarks_heuristic_preferred_operators);
 
 BestFirstSearchEngine *search_subplan(State *init_state, bool ff_heuristic, bool ff_preferred_operators);
+
 int main(int argc, const char **argv) {
     struct tms start, search_start, search_end, end;
     struct tms landmarks_generation_start, landmarks_generation_end;
@@ -121,8 +124,11 @@ int main(int argc, const char **argv) {
     
 	/*landmarks_generation_start时间*/
 	times(&landmarks_generation_start);
-    read_everything(cin, generate_landmarks, reasonable_orders);
+    
+	/*将output中的数据全部读入到类中*/
+	read_everything(cin, generate_landmarks, reasonable_orders);
     // dump_everything();
+
     times(&landmarks_generation_end);
     int landmarks_generation_ms = (landmarks_generation_end.tms_utime - 
 				   landmarks_generation_start.tms_utime) * 10;
@@ -173,6 +179,12 @@ int main(int argc, const char **argv) {
         g_axioms[i].dump();
     }
 */
+	
+	// set<string> variable = counter->getVariables();
+	// for(set<string>::iterator var=variable.begin();var!=variable.end();var++)
+	// 	cout<<"(declare-const "<<*var<<" Bool)"<<endl;
+	// std::cout << __cplusplus << std::endl;
+
 	/*这个循环只会一次，相当于没有*/
     do{
 		iteration_no++;
@@ -232,6 +244,12 @@ int main(int argc, const char **argv) {
 		bool ctask;
 		//times(&search_start);
 		/*不断对第一个状态进行求解，ctask为false时，一直循环*/
+		
+		/*这里要调用一次反例求解，得到一个初始状态*/
+		Counter *counter = new Counter();
+		counter->printfhello();
+		// counter->conputerCounter();
+		// delete counter;
 		do {
 			engine->search();
 			//times(&search_end);
@@ -244,7 +262,10 @@ int main(int argc, const char **argv) {
 				plan_cost = save_plan(engine->get_plan(), plan_filename, iteration_no);
 			}
 			/*为true说明找到了解，不用再遍历后面的解了*/
+			/*为false：1 plan中某个前置条件对于某个状态不满足，且没有subplan可以使其满足*/
+			/*这里是对其他的信仰状态进行求解*/
 			ctask = solve_belief_state(engine);
+			
 			if (!ctask)
 				cout << "reach dead end!" << endl;
 		}
@@ -291,7 +312,7 @@ void show_action()
 		g_operators[i].dump();
 }
 
-
+/*subengine：求解s0的求解器*/
 bool solve_belief_state(BestFirstSearchEngine* subengine)
 {
      //show_action();
@@ -299,13 +320,12 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
      ifstream infile;
 
      std::string name;
+	 /*var：对应g_variable_name下标,val：该变量的值*/
      vector<pair<int,int> > prev_values;
      vector<pair<int,int> > new_values;
      State* current_state;
      State* previous_state;
      State* check_plan_state;
-     
-     
      vector<const Operator *> plan;
      vector<const Operator *> subplan;
      bool first = true;
@@ -319,7 +339,8 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
      int belief_size = 0;
      int last_modified = 0;
      bool valid_plan = false;
-
+	 
+	 /*将s0的plan插入*/
      subplan.insert(subplan.end(),subengine->get_plan().begin(),subengine->get_plan().end());
 
 	 /*将当前状态赋值为初始状态*/
@@ -331,32 +352,43 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
      /*这个也是初始状态*/
 	 check_plan_state = new State();
      check_plan_state->assign(*g_initial_state);
-     
+     int size111=0;
 	 do 
      {
 		cout << "iteration " << iter << endl;
-		/*belief所有的初始状态*/
+		
+		/*读取belief文件中所有的初始状态*/
 		infile.open("belief", ios::in);
 		int bstate =0;     
 		
+		/*新的开始*/
 		subplan.insert(subplan.end(),plan.begin(),plan.end());
-		plan.clear();     
-		/*遍历每一个确定性的初始状态*/
-		/*修改：这里每次循环，不再是每次读取belief，而是每次反例添加后，再对这个反例插入，并且再用的plan验证所有的反例，最后调用一次SMT求解器*/
+		plan.clear();
+		
+		/*遍历belief中的每一个状态*/
+		/*修改：改变这里每次循环，不再是读取belief，而是每次反例添加后，再对这个反例插入，并且再用的plan验证所有的反例，最后调用一次SMT求解器*/
 		while(getline(infile, name))
 		{
 			// 已经读取完一个状态
 			
+
 			if(name == "END_BELIEF") {
-				cout<<endl;
+				/*每次循环都要调用一次*/
+				
+				
 				/*如果是第一次，不搜索*/
 				if(first)
 				{
+					// cout << "Initial State:" << endl;
+    				// g_initial_state->dump();
 					belief_size++;
 					//cout << "first time, no search" << endl;
 					first = false;
+					/*赋予prev刚刚读取的状态*/
 					prev_values = new_values;
 					//restore values when there is axiom
+					
+					/*初始化g_initial_state*/
 					g_initial_state->vars = g_original_values;
 					//restore values when there is axiom
 					for(int i=0;i<prev_values.size();i++)
@@ -368,26 +400,32 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 				}
 				else
 				{
+					// cout << "Initial State:" << endl;
+   					//  g_initial_state->dump();
+					/*第0次循环就要一直增加belief_size的大小*/
 					if(iter==0) belief_size++;
-					/*确定该plan满足所有的状态，退出*/
+					/*last_modified == belief_size，确定plan满足belief_size个状态，退出，*/
+					
+					/*第iter==0时不可能，因为有一个不满足就会赋予last_modified=0*/
+					/*用于后两次循环*/
 					if(last_modified == belief_size)
 					{
 						valid_plan = true;
 						break;
 					}
-					/*?*/
+					/*保存s0状态的所有变量赋值*/
 					g_original_values = g_initial_state->vars;
-					/*后面这个是否变了?*/
+					/*设置为当前状态，用于规划器求解*/
 					current_state->assign(*g_initial_state);
 					if(g_display)
 					{
 						current_state->dump();
 					}
-					/*和subplan.insert有什么区别?*/
 					plan.insert(plan.end(),subplan.begin(),subplan.end());
 
 					//check plan
-					bool fill_in = false; //this variable determines if the previous plan satisfies current initial state
+					bool fill_in = false; //是否之前的规划满足当前状态 this variable determines if the previous plan satisfies current initial state
+					/*赋值为当前状态，检查是否之前的plan满足当前状态*/
 					check_plan_state->assign(*g_initial_state);
 					if(g_display)
 					{
@@ -398,7 +436,7 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 					/*检查之前的plan是否满足现在的
 						改用SMT，这一步没必要，因为当前这个初始状态肯定是不满足的*/
 					for(int i=0;i<plan.size();i++)
-					{       
+					{ 
 						/*找到操作下标*/
 						int j;
 						for(j=0;j<g_operators.size();j++)
@@ -430,7 +468,7 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 						/*到达的状态包含目标状态，转而对下一个状态处理，last_modified++*/
 						if(check_plan_state->satisfy_subgoal(g_goal))
 						{
-							/*?*/
+							/*满足的状态值+1*/
 							last_modified++;
 							if(g_display)
 							{
@@ -439,8 +477,10 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 										dump_goal();*/
 								cout << "previous plan satisfies current initial state " << endl;
 							}
+							/*状态已经满足，previous_state赋值为当前状态，进入下一次循环*/
 							previous_state->assign(*g_initial_state);
 							prev_values = new_values;
+							/*初始化g_initial_state*/
 							for(int i=0;i<prev_values.size();i++)
 							{
 								g_initial_state->negate_var(prev_values[i].first);
@@ -451,11 +491,15 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 						}
 					}
 					//check plan
-					/*?*/
+
+					/**/
 					last_modified = 0;
-		//			plan.insert(plan.end(),subsubengine->get_plan().begin(),subsubengine->get_plan().end());
+					//plan.insert(plan.end(),subsubengine->get_plan().begin(),subsubengine->get_plan().end());
+					
+					/*plan使得该状态不能到达目标状态 | plan中有动作不适用*/
 					int i=0;
 					/*之前的plan，不适用当前状态，在当前状态中进行插入*/
+					/**/
 					while(i<plan.size())
 					{
 						/*找到当前的opera下标*/
@@ -464,15 +508,20 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 						{
 							if(g_operators[j].get_name().compare(plan[i]->get_name()) == 0) break;
 						}
-						/*?操作对当前状态是一致性可适用*/
+
+						/*如果前置条件和条件影响是相同的变量，则两个都检查，否则只需要检查前置条件*/
+						/*满足前置条件或者即满足前置条件，又满足条件影响*/
 						if(g_operators[j].is_conformant_applicable(*current_state))
 						{
 							vector<pair <int, int> > sub_goal;
 							vector<const Operator *> sub_plan;					
-							/*子目标为动作的前置条件or effect 条件? 可适用是condition_sub_goal*/
+							/*前一个状态在该plan下的条件影响 */
 							sub_goal = g_operators[j].condition_sub_goal(*previous_state);
-							/*?*/
+							
+							/*如果有一个的条件影响是不满足的，那么后面的都不再进行子目标的求解*/
+							/*？？？？*/
 							if(maintain_maximum == false) sub_goal.clear();				
+							
 							/*当前状态不满足这个子目标*/
 							if(!current_state->satisfy_subgoal(sub_goal))
 							{
@@ -485,10 +534,12 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 											cout << "  " << g_variable_name[sub_goal[d].first] << ": "
 											<< sub_goal[d].second << endl;
 								}
+
 								/*找到这个子规划*/
 								subsubengine = search_subplan(current_state,sub_goal,true,true);
+								size111++;
 								//cout << "subsub 1 " << endl;
-								/*这个插入不是只插入一部分吗?*/
+								/*插入到第i个动作前*/
 								if(subsubengine->found_solution())
 								{
 									sub_plan = subsubengine->get_plan();
@@ -496,8 +547,9 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 									plan.insert(plan.begin()+i,subsubengine->get_plan().begin(),subsubengine->get_plan().end());
 									if(g_display)
 									{
-										cout << "insert the following actions into plan:" << endl;
+										cout << "insert the following actions into plan--confor:" << endl;
 									}
+									/*当前状态后移*/
 									for(int k=0;k<sub_plan.size();k++)
 									{
 										/*下标k*/
@@ -510,13 +562,14 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 										{
 											g_operators[h].dump();
 										}
-										/*当前状态后移*/
 										current_state->assign(State(*current_state, g_operators[h]));
 									}
 									i=i+subsubengine->get_plan().size();
 								}
+								/*下面不满足是直接退出？*/
 								else
 								{
+									cout<<"没有找到！"<<endl;
 									maintain_maximum = false;
 								}
 								
@@ -530,13 +583,13 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 							//current_state->dump();
 							i++;
 						}
-						/*不是一致性可适用?*/
+						/*不满足前置条件*/
 						else
 						{
 							//cout << "not applicable";
 							//g_operators[j].dump();
 							vector<pair <int, int> > sub_goal;
-							/*不可适用是conformant_sub_goal*/
+							/*当前状态不满足的前置条件和条件影响*/
 							sub_goal = g_operators[j].conformant_sub_goal(*current_state);
 							if(g_display)
 							{
@@ -548,7 +601,7 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 							}
 							vector<const Operator *> sub_plan;					
 							subsubengine = search_subplan(current_state,sub_goal,true,true);
-
+							size111++;
 							//cout << " subsub 2" << endl;
 							if (!subsubengine->found_solution())
 							{
@@ -559,11 +612,13 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 								return false;
 							}
 							sub_plan = subsubengine->get_plan();
+							/*将子plan插入第i个动作前*/
 							plan.insert(plan.begin()+i,subsubengine->get_plan().begin(),subsubengine->get_plan().end());
 							if(g_display)
 							{
 								cout << "insert the following actions into plan:" << endl;
 							}
+							/*将当前状态后移*/
 							for(int k=0;k<sub_plan.size();k++)
 							{
 								int h;
@@ -579,6 +634,7 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 							}
 							current_state->assign(State(*current_state, g_operators[j]));
 							i=i+subsubengine->get_plan().size()+1;
+							
 							delete subsubengine;
 
 						}
@@ -587,9 +643,10 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 					{
 						cout << "check if we need to insert actions after the plan to satisfy goal" << endl;
 					}
-					/*再找一遍，看经过上面的操作后，最终到达了哪一步*/
-					subsubengine = search_subplan(current_state,g_goal,true,true);
 
+					/*再找一遍，查看经过上面的操作后，最终能否到达目标状态*/
+					subsubengine = search_subplan(current_state,g_goal,true,true);
+					size111++;
 					if (!subsubengine->found_solution())
 					{
 						if(g_display) 
@@ -599,6 +656,8 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 						return false;
 					}
 					prev_values = new_values;
+					
+					/*初始化*/
 					//restore values
 					g_initial_state->vars = g_original_values;
 					//restore values
@@ -608,8 +667,11 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 					}
 					new_values = vector<pair<int, int> > ();
 					subplan.clear();
-					/*将新找到的完全插入*/
+					
+					/*将新形成的plan与之前的plan连接*/
 					subplan.insert(subplan.end(),subsubengine->get_plan().begin(),subsubengine->get_plan().end());
+					/*此状态前满足的状态*/
+					
 					if(g_display)
 					{
 						if(subsubengine->get_plan().size()==0)
@@ -632,6 +694,7 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 					}
 					delete subsubengine;
 				}
+				
 			}
 			/*还没有将一个完整的状态读入*/
 			/*修改：不需要读取，只需要把这个当成反例输入，变成新的初始状态
@@ -639,23 +702,26 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 			*/
 			else
 			{
-
+				/*修改：学习这个对初始状态进行插入*/
 				int var,val;
-				var = -1;			
+				var = -1;		
+					
 				for(int i = 0 ; i < g_variable_name.size() ; i++)
 				{
+					/*读取的name后面有一个空格，长度会+1*/
 					if(name.find(g_variable_name[i]) == 0 && name.size() == g_variable_name[i].size()+1)
 					{
 						var = i;
-						cout << g_variable_name[i]<<" ";
+						// cout << g_variable_name[i]<<" ";
 					}
 				}
 				getline(infile, name);
 				stringstream ss(name);
 				ss >> val;
-				cout << val << endl;
+				// cout << val << endl;
 				if (var!=-1) {
 					g_initial_state->set_var(var,val);
+					/*var：对应g_variable_name下标,val：该变量的值*/
 					new_values.push_back(make_pair(var,val));
 				}
 			}
@@ -667,19 +733,22 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 		iter++;
     }
     while(iter < 3);
-    
+    plan.pop_back();
+	Counter *counter = new Counter;
+	counter->conputerCounter(plan);
 	
 	if(!valid_plan) return false;
     ofstream outfile;
     outfile.open("finalplan", ios::out);
-    cout << "final plan: plan_size "<<plan.size()<< endl;
     for(int k=0;k<plan.size();k++)
     {
 		cout << plan[k]->get_name() << endl;
 		outfile << plan[k]->get_name() << endl;
     }
      outfile.close();     
-
+		cout<<"belief_size:"<<belief_size<<endl;
+	cout<<"operate size:"<<size111<<endl;
+	cout << "final plan: plan_size "<<plan.size()<< endl;
 	//ofstream outfile;       
 	outfile.open("C_Plan", ios::out);
 	int numberofactions = 0;

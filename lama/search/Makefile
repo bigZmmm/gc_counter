@@ -6,6 +6,8 @@ HEADERS = heuristic.h ff_heuristic.h wa_star_search.h \
 	  landmarks_graph.h \
 	  landmarks_graph_rpg_sasp.h \
 	  landmarks_count_heuristic.h \
+	  counter.h \
+	  z3_counter.h \
 
 SOURCES = planner.cc $(HEADERS:%.h=%.cc)
 OBJECTS = $(SOURCES:%.cc=%.o)
@@ -14,9 +16,9 @@ RELEASE_OBJECTS = $(SOURCES:%.cc=%.release.o)
 
 CC = g++
 DEPEND = g++ -MM
-CCOPT =      -Wall -W -Wno-sign-compare -ansi -pedantic  -O3 -Wno-deprecated
-RELEASEOPT = -Wall -W -Wno-sign-compare -ansi -pedantic  -DNDEBUG -O3 -m64 -Wno-deprecated
-LINKOPT =
+CCOPT =      -Wall -W -Wno-sign-compare  -pedantic  -O3 -Wno-deprecated 
+RELEASEOPT = -Wall -W -Wno-sign-compare  -pedantic  -DNDEBUG -O3 -m64 -Wno-deprecated 
+LINKOPT = -lz3
 
 ## debug, don't optimize
 CCOPT += -g
@@ -41,17 +43,17 @@ PROFILES = $(PROFILE_ARGS:%=PROFILE-%)
 vpath %.o obj
 
 search: $(OBJECTS)
-	$(CC) $(LINKOPT) $(OBJECTS:%=obj/%) -o search
+	$(CC) $(LINKOPT) $(OBJECTS:%=obj/%) -o search -lz3
 
 profile-search: $(PROFILE_OBJECTS)
 	$(CC) $(LINKOPT) $(PROFLINKOPT) $(PROFOPT) $(PROFILE_OBJECTS:%=obj/%) \
-          -o profile-search
+          -o profile-search -lz3
 
-release: release-search
+release: release-search 
 
 release-search: $(RELEASE_OBJECTS)
 	$(CC) $(RELEASEOPT) $(RELEASE_OBJECTS:%=obj/%) \
-	  -o release-search
+	  -o release-search -lz3
 
 PROFILES = $(PROFILE_ARGS:%=PROFILE-%)
 
@@ -61,13 +63,13 @@ $(PROFILES): PROFILE-%: profile-search
 	gprof profile-search | ./cleanup-profile > $@
 
 $(OBJECTS): %.o: %.cc
-	$(CC) $(CCOPT) -c $< -o obj/$@
+	$(CC) $(CCOPT) -c $< -o obj/$@ 
 
 $(PROFILE_OBJECTS): %.profile.o: %.cc
 	$(CC) $(CCOPT) $(PROFOPT) -c $< -o obj/$@
 
 $(RELEASE_OBJECTS): %.release.o: %.cc
-	$(CC) $(RELEASEOPT) -c $< -o obj/$@
+	$(CC) $(RELEASEOPT) -c $< -o obj/$@ 
 
 clean:
 	rm -f $(OBJECTS:%=obj/%) $(PROFILE_OBJECTS:%=obj/%) $(RELEASE_OBJECTS:%=obj/%) *~ *.pyc

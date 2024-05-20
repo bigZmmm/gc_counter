@@ -65,7 +65,7 @@ public:
 
   void strip_unimportant_effects();
   bool is_redundant() const;
-
+  
   void dump() const;
   void generate_cpp_input(ofstream &outfile) const;
   string get_name() const {return name;}

@@ -341,7 +341,7 @@ def unsolvable_sas_task(msg):
 def pddl_to_sas(task):
     with timers.timing("Instantiating", block=True):
         relaxed_reachable, atoms, actions, axioms = instantiate.explore(task)
-    for atom in atoms:
+    for atom in actions:
 	atom.dump()
     if not relaxed_reachable:
         return unsolvable_sas_task("No relaxed solution")
@@ -393,6 +393,7 @@ def pddl_to_sas(task):
     with timers.timing("Writing translation key"):
         write_translation_key(translation_key),
 	write_oneof_file(translation_key,task,actions)
+    
     with timers.timing("Writing mutex key"):
         write_mutex_key(mutex_key)
     return sas_task
@@ -532,21 +533,39 @@ def detect_combinable(task, actions):
     return True
 
 def write_oneof_file(translation_key, task, actions):
+    # for action in actions:
+    #  action.dump()
     belief_file = file("belief", "w")
+    oneof_file = file("oneof","w")
     oneofs = task.oneofs
     ors = task.ors
+    # addin
+    print(111211)
+         
     belief_state = task.belief_state
+    # 如果or不为空 分为三种写入oneof
     if ors != []:
+	 print >> oneof_file, "ORS\n",
+	 print >> oneof_file, "%d\n" % len(belief_state),
 	 for state in belief_state:
+		print("state1: ")
 		for atom in state:
 			atom_valuename = atom.print_atom(-1)
 			atom_valuename_str = str(atom_valuename)
+			print(atom_valuename_str+" ")
+			flag=0
 			for var_no, var_key in enumerate(translation_key):
 				for value, value_name in enumerate(var_key):
 			    		if atom_valuename_str.find(value_name) != -1: 
 						print >> belief_file, "var%d \n" % var_no,
 						print >> belief_file, "%d \n" % value,
-	 	print >> belief_file, "END_BELIEF"
+						print >> oneof_file, "var%d \n" % var_no,
+						print >> oneof_file, "%d \n" % value,
+						flag=1    
+		print >> oneof_file, ", "
+		print >> belief_file, "END_BELIEF"
+	 print >> oneof_file, "END_ONEOF"
+        # print('\n')
     else:
 	    with timers.timing("Detect oneof combinable"):
 		oneof_combinable = detect_combinable(task, actions)
@@ -555,6 +574,7 @@ def write_oneof_file(translation_key, task, actions):
 	    for oneof in oneofs:
 	  	if oneof.get_len() > maxlen:
 			maxlen = oneof.get_len()
+	    print("maxlen: "+str(maxlen))
 	    #oneof_combinable = True
 	    axiom_goal = False
 	    #for oneof in oneofs:
@@ -572,6 +592,7 @@ def write_oneof_file(translation_key, task, actions):
 		for oneof in oneofs:
 			oneofsize = oneofsize * len(oneof.parts)
 		for n in range(0,oneofsize):
+			print("state2: ")
 			for i in range(0,len(oneofs)):
 				bucketsize = 1
 				for j in range(i+1,len(oneofs)):
@@ -579,6 +600,7 @@ def write_oneof_file(translation_key, task, actions):
 				index_i = (n / bucketsize) % len(oneofs[i].parts)
 				oneof_valuename = oneofs[i].print_atom(index_i)
 				oneof_valuename_str = str(oneof_valuename)
+				print(oneof_valuename_str)
 				for var_no, var_key in enumerate(translation_key):
 					for value, value_name in enumerate(var_key):
 			    			if oneof_valuename_str.find(value_name) != -1: 
@@ -587,20 +609,73 @@ def write_oneof_file(translation_key, task, actions):
 			print >> belief_file, "END_BELIEF"			
 	    else:
 		    for n in range(0,maxlen):
+			print("state3: ")
 			for oneof in oneofs:
 				oneof_valuename = oneof.print_atom(n),
 				oneof_valuename_str = str(oneof_valuename)
+				print(oneof_valuename_str)
 				for var_no, var_key in enumerate(translation_key):
 					for value, value_name in enumerate(var_key):
 			    			if oneof_valuename_str.find(value_name) != -1: 
 							print >> belief_file, "var%d \n" % var_no,
 							print >> belief_file, "%d \n" % value,
 			print >> belief_file, "END_BELIEF"
+        # 将oneof存储到oneof文件中
+	    if not oneof_combinable:
+	     oneofsize = len(oneofs)
+	     print >> oneof_file, "ONEOF\n",
+	     print >> oneof_file, "%d\n" % oneofsize,
+	     for oneof in oneofs:
+	      oneofLen = len(oneof.parts)  
+	      for i in range(oneofLen):
+	       oneof_valuename = oneof.print_atom(i),
+	       oneof_valuename_str = str(oneof_valuename)
+	       flag=0
+	       for var_no, var_key in enumerate(translation_key):
+	        for value, value_name in enumerate(var_key):
+ 	         if oneof_valuename_str.find(value_name) != -1:
+ 	          print >> oneof_file, "var%d \n" % var_no,
+ 	          print >> oneof_file, "%d \n" % value,
+ 	          flag=1
+	       if flag==0:
+	        print >> oneof_file, "NULL\n",
+	        print >> oneof_file, ", "
+	       else:
+	        print >> oneof_file, ", "
+	      print >> oneof_file, "END_ONEOF"
+	    else:
+		    print >> oneof_file, "ORS\n",
+		    print >> oneof_file, "%d\n" % maxlen,
+		    for n in range(0,maxlen):
+			for oneof in oneofs:
+				oneof_valuename = oneof.print_atom(n),
+				oneof_valuename_str = str(oneof_valuename)
+				flag = 0
+				for var_no, var_key in enumerate(translation_key):
+					for value, value_name in enumerate(var_key):
+			    			if oneof_valuename_str.find(value_name) != -1: 
+							print >> oneof_file, "var%d \n" % var_no,
+							print >> oneof_file, "%d \n" % value,
+							flag=1
+			print >> oneof_file, ", "
+		    print >> oneof_file, "END_ONEOF"  
+	    print("ONEOFS:")
+	    for oneof in oneofs:
+	     oneofLen = len(oneof.parts)
+	     print("oneof(")
+	     for i in range(oneofLen):
+	      oneof_valuename = oneof.print_atom(i),
+	      oneof_valuename_str = str(oneof_valuename)
+	      if i != oneofLen-1:
+	       print(oneof_valuename_str+',')
+	      else:
+	       print(oneof_valuename_str)   
+
 
 
 def write_mutex_key(mutex_key):
     invariants_file = file("all.groups", "w")
-    print >> invariants_file, "begin_groups"
+    print >> invariants_file, "begi         n_groups"
     print >> invariants_file, len(mutex_key)
     for group in mutex_key:
         #print map(str, group)
@@ -635,11 +710,10 @@ if __name__ == "__main__":
     timer = timers.Timer()
     with timers.timing("Parsing"):
         task = pddl.open()
-
     # EXPERIMENTAL!
     # import psyco
     # psyco.full()
-
+    print("1231\n")
     sas_task = pddl_to_sas(task)
     with timers.timing("Writing output"):
         sas_task.output(file("output.sas", "w"))

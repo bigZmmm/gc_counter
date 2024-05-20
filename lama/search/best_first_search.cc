@@ -130,13 +130,17 @@ int BestFirstSearchEngine::step() {
 		if(!is_dead_end()) {
 			if(check_goal())
 				return SOLVED;
+			/*发现更小的启发式值*/
 			if(check_progress()) {
+				/*输出启发式值*/
 				report_progress();
 				reward_progress();
 			}
+			/*生成当前状态的后续状态，插入到*/
 			generate_successors(parent_ptr);
 		}
     }
+	/*返回下一个状态*/
     return fetch_next_state();
 }
 
@@ -208,9 +212,9 @@ bool BestFirstSearchEngine::check_progress() {
 void BestFirstSearchEngine::report_progress() {
     cout << "Best heuristic value: ";
     for(int i = 0; i < heuristics.size(); i++) {
-	cout << best_heuristic_values[i];
-	if(i != heuristics.size() - 1)
-	    cout << "/";
+		cout << best_heuristic_values[i];
+		if(i != heuristics.size() - 1)
+			cout << "/";
     }
     cout << " [expanded " << closed_list.size() << " state(s)]" << endl;
 }
@@ -231,47 +235,47 @@ void BestFirstSearchEngine::reward_progress() {
 	    open_lists[i].priority -= 1000;
 }  
 
+/*生成后续状态并将其添加到开放列表的逻辑，同时考虑优先运算符和启发式值的影响*/
 void BestFirstSearchEngine::generate_successors(const State *parent_ptr) {
     vector<const Operator *> all_operators;
     g_successor_generator->generate_applicable_ops(current_state, all_operators);
 
     vector<const Operator *> preferred_operators;
     for(int i = 0; i < preferred_operator_heuristics.size(); i++) {
-	Heuristic *heur = preferred_operator_heuristics[i];
-	if(!heur->is_dead_end())
-	    heur->get_preferred_operators(preferred_operators);
-    }
+		Heuristic *heur = preferred_operator_heuristics[i];
+		if(!heur->is_dead_end())
+			heur->get_preferred_operators(preferred_operators);
+		}
+		/*对open_lists中所有的都运用这些操作*/
+		for(int i = 0; i < open_lists.size(); i++) {
 
-    for(int i = 0; i < open_lists.size(); i++) {
+		//addin 只用到了最佳优先搜索
+ 		//	Heuristic *heur = open_lists[i].heuristic;
+			
+			Heuristic *heur = l_ff_heur;
 
-//addin
-//	Heuristic *heur = open_lists[i].heuristic;
-	Heuristic *heur = l_ff_heur;
+			if(!heur->is_dead_end()) {
+				int h = heur->get_heuristic();
+				OpenList<OpenListEntry> &open = open_lists[i].open;
+				vector<const Operator *> &ops = open_lists[i].only_preferred_operators ?preferred_operators : all_operators;
+				for(int j = 0; j < ops.size(); j++) {
+					// Tie braker criterium ensures breadth-first search on plateaus
+					// (will be equal to depth of node if no action costs are used,
+					// and cost of node otherwise)
+					int tie_braker = parent_ptr->get_g_value() + ops[j]->get_cost();
 
-	if(!heur->is_dead_end()) {
-	    int h = heur->get_heuristic();
-	    OpenList<OpenListEntry> &open = open_lists[i].open;
-	    vector<const Operator *> &ops =
-		open_lists[i].only_preferred_operators ?
-		preferred_operators : all_operators;
-	    for(int j = 0; j < ops.size(); j++) {
-		// Tie braker criterium ensures breadth-first search on plateaus
-		// (will be equal to depth of node if no action costs are used,
-		// and cost of node otherwise)
-		int tie_braker = parent_ptr->get_g_value() + ops[j]->get_cost();
-		open.insert(make_pair(h, tie_braker), 
-			    OpenListEntry(parent_ptr, ops[j], h));
-	    }
-	}
-    }
+					open.insert(make_pair(h, tie_braker), OpenListEntry(parent_ptr, ops[j], h));
+				}
+			}
+		}
     generated_states += all_operators.size();
 }
 
 int BestFirstSearchEngine::fetch_next_state() {
     OpenListInfo *open_info = select_open_queue();
     if(!open_info) {
-	cout << "Completely explored state space -- no solution!" << endl;
-	return FAILED;
+		cout << "Completely explored state space -- no solution!" << endl;
+		return FAILED;
     }
 
     OpenListEntry next = open_info->open.remove_min();
@@ -284,11 +288,11 @@ int BestFirstSearchEngine::fetch_next_state() {
     return IN_PROGRESS;
 }
 
+/*根据open_lists[i].priority找到最小的open_lists[i]*/
 OpenListInfo *BestFirstSearchEngine::select_open_queue() {
     OpenListInfo *best = 0;
     for(int i = 0; i < open_lists.size(); i++)
-	if(!open_lists[i].open.empty() &&
-	   (best == 0 || open_lists[i].priority < best->priority))
+	if(!open_lists[i].open.empty() &&(best == 0 || open_lists[i].priority < best->priority))
 	    best = &open_lists[i];
     return best;
 }

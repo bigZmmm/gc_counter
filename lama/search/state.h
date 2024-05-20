@@ -55,6 +55,7 @@ class State {
     
 public:
 //addin
+    /*var就是所有的fact*/
     vector<int> vars; // values for vars
     int reached_lms_cost;
 
@@ -68,17 +69,19 @@ public:
     State(istream &in);
     State(const State &predecessor, const Operator &op);
 
+    /*使当前变量的值为最大值减1，如：总共5个值则设置为4
+        表示为<none of those>*/
     void negate_var(int index){
-	vars[index] = g_variable_domain[index]-1;
+	    vars[index] = g_variable_domain[index]-1;
     }
     void set_var(int index, int value) {
-	vars[index] = value;
+	    vars[index] = value;
     }
     int &operator[](int index) {
-	return vars[index];
+	    return vars[index];
     }
     int operator[](int index) const {
-	return vars[index];
+	    return vars[index];
     }
 
     //addin

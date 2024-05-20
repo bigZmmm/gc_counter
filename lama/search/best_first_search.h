@@ -92,7 +92,6 @@ public:
 //    std::vector<OpenListInfo> l_open_lists;
 
 
-
     inline const Operator *get_current_operator() const {
         // Used by LandmarksCountHeuristic
 	return current_operator;

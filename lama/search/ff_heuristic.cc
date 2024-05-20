@@ -54,22 +54,22 @@ FFHeuristic::FFHeuristic(bool use_cache)
 		propositions[var][val].is_termination_condition = true;
 		goal_propositions.push_back(&propositions[var][val]);
 		termination_propositions.push_back(&propositions[var][val]);
-
     }
 
     // Build unary operators for operators and axioms.
     for(int i = 0; i < g_operators.size(); i++)
-	build_unary_operators(g_operators[i]);
+		build_unary_operators(g_operators[i]);
     for(int i = 0; i < g_axioms.size(); i++) {
-	build_unary_operators(g_axioms[i]);
+		build_unary_operators(g_axioms[i]);
 	}
 
-    // Cross-reference unary operators.
+    // Cross-reference unary operators.交叉引用一元操作符
+	/*一元运算符*/
     for(int i = 0; i < unary_operators.size(); i++) {
-	UnaryOperator *op = &unary_operators[i];
-	//dump(op);
-	for(int j = 0; j < op->precondition.size(); j++)
-	    op->precondition[j]->precondition_of.push_back(op);
+		UnaryOperator *op = &unary_operators[i];
+		//dump(op);
+		for(int j = 0; j < op->precondition.size(); j++)
+			op->precondition[j]->precondition_of.push_back(op);
     }
     // Set flag that before heuristic values can be used, computation 
     // (relaxed exploration) needs to be done
@@ -82,14 +82,14 @@ FFHeuristic::~FFHeuristic() {
 void FFHeuristic::set_additional_goals(const std::vector<pair<int, int> >& add_goals) {
     //Clear previous additional goals.
     for(int i = 0; i < termination_propositions.size(); i++) {
-	int var = termination_propositions[i]->var, val = termination_propositions[i]->val;
-	propositions[var][val].is_termination_condition = false;
+		int var = termination_propositions[i]->var, val = termination_propositions[i]->val;
+		propositions[var][val].is_termination_condition = false;
     }
     termination_propositions.clear();
     for(int i = 0; i < g_goal.size(); i++) {
-	int var = g_goal[i].first, val = g_goal[i].second;
-	propositions[var][val].is_termination_condition = true;
-	termination_propositions.push_back(&propositions[var][val]);
+		int var = g_goal[i].first, val = g_goal[i].second;
+		propositions[var][val].is_termination_condition = true;
+		termination_propositions.push_back(&propositions[var][val]);
     }
     // Build new additional goal propositions.
     for(int i = 0; i < add_goals.size(); i++) {

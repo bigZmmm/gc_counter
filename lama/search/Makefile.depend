@@ -1,7 +1,8 @@
 planner.o: planner.cc best_first_search.h closed_list.h closed_list.cc \
  open_list.h open_list.cc search_engine.h state.h landmarks_types.h \
  globals.h wa_star_search.h ff_heuristic.h heuristic.h operator.h \
- landmarks_graph.h landmarks_graph_rpg_sasp.h landmarks_count_heuristic.h
+ landmarks_graph.h landmarks_graph_rpg_sasp.h landmarks_count_heuristic.h \
+ counter.h
 heuristic.o: heuristic.cc heuristic.h state.h landmarks_types.h globals.h \
  operator.h
 ff_heuristic.o: ff_heuristic.cc ff_heuristic.h heuristic.h globals.h \
@@ -14,7 +15,8 @@ domain_transition_graph.o: domain_transition_graph.cc \
  domain_transition_graph.h globals.h operator.h state.h landmarks_types.h
 globals.o: globals.cc globals.h axioms.h domain_transition_graph.h \
  operator.h state.h landmarks_types.h successor_generator.h \
- landmarks_graph.h landmarks_graph_rpg_sasp.h ff_heuristic.h heuristic.h
+ landmarks_graph.h landmarks_graph_rpg_sasp.h ff_heuristic.h heuristic.h \
+ counter.h
 operator.o: operator.cc globals.h operator.h state.h landmarks_types.h
 state.o: state.cc state.h landmarks_types.h globals.h axioms.h operator.h \
  landmarks_graph.h
@@ -39,10 +41,14 @@ landmarks_count_heuristic.o: landmarks_count_heuristic.cc \
  heuristic.h landmarks_graph.h operator.h best_first_search.h \
  closed_list.h closed_list.cc open_list.h open_list.cc search_engine.h \
  ff_heuristic.h successor_generator.h
+counter.o: counter.cc counter.h globals.h state.h landmarks_types.h \
+ operator.h z3_counter.h
+z3_counter.o: z3_counter.cc z3_counter.h
 planner.profile.o: planner.cc best_first_search.h closed_list.h closed_list.cc \
  open_list.h open_list.cc search_engine.h state.h landmarks_types.h \
  globals.h wa_star_search.h ff_heuristic.h heuristic.h operator.h \
- landmarks_graph.h landmarks_graph_rpg_sasp.h landmarks_count_heuristic.h
+ landmarks_graph.h landmarks_graph_rpg_sasp.h landmarks_count_heuristic.h \
+ counter.h
 heuristic.profile.o: heuristic.cc heuristic.h state.h landmarks_types.h globals.h \
  operator.h
 ff_heuristic.profile.o: ff_heuristic.cc ff_heuristic.h heuristic.h globals.h \
@@ -55,7 +61,8 @@ domain_transition_graph.profile.o: domain_transition_graph.cc \
  domain_transition_graph.h globals.h operator.h state.h landmarks_types.h
 globals.profile.o: globals.cc globals.h axioms.h domain_transition_graph.h \
  operator.h state.h landmarks_types.h successor_generator.h \
- landmarks_graph.h landmarks_graph_rpg_sasp.h ff_heuristic.h heuristic.h
+ landmarks_graph.h landmarks_graph_rpg_sasp.h ff_heuristic.h heuristic.h \
+ counter.h
 operator.profile.o: operator.cc globals.h operator.h state.h landmarks_types.h
 state.profile.o: state.cc state.h landmarks_types.h globals.h axioms.h operator.h \
  landmarks_graph.h
@@ -80,3 +87,6 @@ landmarks_count_heuristic.profile.o: landmarks_count_heuristic.cc \
  heuristic.h landmarks_graph.h operator.h best_first_search.h \
  closed_list.h closed_list.cc open_list.h open_list.cc search_engine.h \
  ff_heuristic.h successor_generator.h
+counter.profile.o: counter.cc counter.h globals.h state.h landmarks_types.h \
+ operator.h z3_counter.h
+z3_counter.profile.o: z3_counter.cc z3_counter.h
