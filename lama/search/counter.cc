@@ -399,7 +399,7 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
 }
 
 void Counter::addActionToGoal(Plan plan){
-    dump_everything();
+    // dump_everything();
     regret_smt = "(assert (and true ";
     string preference = " (not (and ";
     set<string> preference_var;
@@ -433,11 +433,11 @@ void Counter::addActionToGoal(Plan plan){
     // cout<<regret_smt<<endl;
 
 
-    // cout<<plan.size()+1+1<<endl;
-    // for(int i=0;i<plan.size();i++){
-        
-    //     cout<<plan[i]->get_name();
-    // }
+    cout<<"规划长度："<<plan.size()<<endl;
+    for(int i=0;i<plan.size();i++){
+        cout<<plan[i]->get_name()<<" ";
+    }
+    cout<<endl;
 }
 
 void Counter::addRestraintToTime0(){
@@ -478,36 +478,39 @@ bool Counter::conputerCounter(Plan plan){
 		smt+="(declare-const ";
         smt+=*iter;
         smt+=" Bool)\n";
-        cout<<"(declare-const "<<*iter<<" Bool)"<<endl;
+        // cout<<"(declare-const "<<*iter<<" Bool)"<<endl;
 	// std::cout << __cplusplus << std::endl;
     }
     smt+=init_smt;
-    cout<<init_smt<<endl;
+    // cout<<init_smt<<endl;
     smt+=regret_smt;
-    cout<<regret_smt<<endl;
+    // cout<<regret_smt<<endl;
     smt+=sasrestraint_smt;
-    cout<<sasrestraint_smt<<endl;
+    // cout<<sasrestraint_smt<<endl;
     /*调用z3求解器求反例，并且进行提取*/
     map<int,int> sample;
     Z3_counter *zz = new Z3_counter();
     bool isFind = zz->extracCounter(smt,&sample);
     delete zz;
-    cout<<"修改前："<<endl;
-    for(int i = 0 ; i < g_variable_name.size() ; i++){
-        cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
-    }
+    // cout<<"修改前："<<endl;
+    // for(int i = 0 ; i < g_variable_name.size() ; i++){
+    //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
+    // }
+    cout<<isFind<<endl;
     if(isFind){
         for(int i=0;i<g_initial_state->vars.size();i++){
           int var = indextovar[i];
           if(sample.find(var)!=sample.end())
               g_initial_state->set_var(i,sample[var]);
         }
-        cout<<"修改后："<<endl;
-        for(int i = 0 ; i < g_variable_name.size() ; i++){
-            cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
-        }   
+        // cout<<"修改后："<<endl;
+        // for(int i = 0 ; i < g_variable_name.size() ; i++){
+        //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
+        // }  
+        clearAll();
         return true;
     }else{
+        clearAll();
         return false;
     }
     

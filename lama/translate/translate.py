@@ -587,39 +587,41 @@ def write_oneof_file(translation_key, task, actions):
 	 #   for part in originalgoal.parts:
     	#	if isinstance(part, pddl.Disjunction):
 	#		oneof_combinable = False
-	    if not oneof_combinable:
-		oneofsize = 1
-		for oneof in oneofs:
-			oneofsize = oneofsize * len(oneof.parts)
-		for n in range(0,oneofsize):
-			print("state2: ")
-			for i in range(0,len(oneofs)):
-				bucketsize = 1
-				for j in range(i+1,len(oneofs)):
-					bucketsize = bucketsize * len(oneofs[j].parts)
-				index_i = (n / bucketsize) % len(oneofs[i].parts)
-				oneof_valuename = oneofs[i].print_atom(index_i)
-				oneof_valuename_str = str(oneof_valuename)
-				print(oneof_valuename_str)
-				for var_no, var_key in enumerate(translation_key):
-					for value, value_name in enumerate(var_key):
-			    			if oneof_valuename_str.find(value_name) != -1: 
-							print >> belief_file, "var%d \n" % var_no,
-							print >> belief_file, "%d \n" % value,
-			print >> belief_file, "END_BELIEF"			
-	    else:
-		    for n in range(0,maxlen):
-			print("state3: ")
-			for oneof in oneofs:
-				oneof_valuename = oneof.print_atom(n),
-				oneof_valuename_str = str(oneof_valuename)
-				print(oneof_valuename_str)
-				for var_no, var_key in enumerate(translation_key):
-					for value, value_name in enumerate(var_key):
-			    			if oneof_valuename_str.find(value_name) != -1: 
-							print >> belief_file, "var%d \n" % var_no,
-							print >> belief_file, "%d \n" % value,
-			print >> belief_file, "END_BELIEF"
+        #  start
+	    # if not oneof_combinable:
+		# oneofsize = 1
+		# for oneof in oneofs:
+		# 	oneofsize = oneofsize * len(oneof.parts)
+		# for n in range(0,oneofsize):
+		# 	print("state2: ")
+		# 	for i in range(0,len(oneofs)):
+		# 		bucketsize = 1
+		# 		for j in range(i+1,len(oneofs)):
+		# 			bucketsize = bucketsize * len(oneofs[j].parts)
+		# 		index_i = (n / bucketsize) % len(oneofs[i].parts)
+		# 		oneof_valuename = oneofs[i].print_atom(index_i)
+		# 		oneof_valuename_str = str(oneof_valuename)
+		# 		print(oneof_valuename_str)
+		# 		for var_no, var_key in enumerate(translation_key):
+		# 			for value, value_name in enumerate(var_key):
+		# 	    			if oneof_valuename_str.find(value_name) != -1: 
+		# 					print >> belief_file, "var%d \n" % var_no,
+		# 					print >> belief_file, "%d \n" % value,
+		# 	print >> belief_file, "END_BELIEF"			
+	    # else:
+		#     for n in range(0,maxlen):
+		# 	print("state3: ")
+		# 	for oneof in oneofs:
+		# 		oneof_valuename = oneof.print_atom(n),
+		# 		oneof_valuename_str = str(oneof_valuename)
+		# 		print(oneof_valuename_str)
+		# 		for var_no, var_key in enumerate(translation_key):
+		# 			for value, value_name in enumerate(var_key):
+		# 	    			if oneof_valuename_str.find(value_name) != -1: 
+		# 					print >> belief_file, "var%d \n" % var_no,
+		# 					print >> belief_file, "%d \n" % value,
+		# 	print >> belief_file, "END_BELIEF"
+        # end
         # 将oneof存储到oneof文件中
 	    if not oneof_combinable:
 	     oneofsize = len(oneofs)

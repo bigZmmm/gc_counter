@@ -203,4 +203,5 @@ FFHeuristic *g_ff_heur;
 LandmarksCountHeuristic *g_lm_heur;
 LandmarksGraph *g_lgraph;
 bool g_flag = false; 
+Counter *counter;
 

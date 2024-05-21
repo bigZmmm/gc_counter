@@ -81,5 +81,6 @@ extern LandmarksCountHeuristic *g_lm_heur;
 extern LandmarksGraph *g_lgraph;
 
 extern bool g_flag;
+extern Counter *counter;
 
 #endif

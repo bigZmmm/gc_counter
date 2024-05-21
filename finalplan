@@ -1,2 +1,4 @@
-follow_label l2
-follow_label l2
+start n1
+start n2
+travel n1 n2
+travel n2 n1

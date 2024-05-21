@@ -82,6 +82,17 @@ public:
     string varToSmt(int var,int l,int i);
     void addRestraintToTime0();
     void regretCurFact(const Operator *a,set<string> *preference_var,pair<int,int> now_facts,set<pair<int,int> > *new_facts,int time_stept);
+    void clearAll(){
+        init_smt.clear();
+        init_smt.shrink_to_fit();
+        regret_smt.clear();
+        regret_smt.shrink_to_fit();
+        smt.clear();
+        smt.shrink_to_fit();
+        sasrestraint_smt.clear();
+        sasrestraint_smt.shrink_to_fit();
+        variables.clear();
+    }
 };
 
 #endif

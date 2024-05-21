@@ -2,99 +2,92 @@ begin_metric
 0
 end_metric
 begin_variables
-18
+8
 var0 2 -1
 var1 2 -1
 var2 2 -1
 var3 2 -1
 var4 2 -1
 var5 2 -1
-var6 2 -1
+var6 2 0
 var7 2 -1
-var8 2 -1
-var9 2 -1
-var10 2 -1
-var11 2 -1
-var12 2 -1
-var13 2 -1
-var14 2 -1
-var15 2 -1
-var16 2 -1
-var17 2 -1
 end_variables
 begin_state
-0
-0
-0
-1
-1
-0
 1
 1
 1
 1
 0
-1
-0
-0
-1
 1
 1
 0
 end_state
 begin_goal
-3
-1 0
-9 0
-11 0
+1
+6 0
 end_goal
+5
+begin_operator
+can_move 
+0
+3
+1 1 1 3 -1 0
+1 2 1 3 -1 0
+2 1 0 2 0 3 -1 1
+0
+end_operator
+begin_operator
+north 
+0
+5
+2 3 0 5 0 2 -1 0
+2 2 0 3 0 2 -1 1
+0 3 -1 1
+2 3 0 5 0 5 -1 1
+2 2 0 3 0 7 -1 0
+0
+end_operator
+begin_operator
+south 
+0
+5
+2 3 0 7 0 2 -1 0
+2 2 0 3 0 2 -1 1
+0 3 -1 1
+2 2 0 3 0 5 -1 0
+2 3 0 7 0 7 -1 1
+0
+end_operator
+begin_operator
+east 
+0
+5
+2 3 0 4 0 0 -1 0
+2 0 0 3 0 0 -1 1
+2 0 0 3 0 1 -1 0
+0 3 -1 1
+2 3 0 4 0 4 -1 1
+0
+end_operator
+begin_operator
+west 
+0
+5
+2 1 0 3 0 0 -1 0
+2 0 0 3 0 0 -1 1
+2 1 0 3 0 1 -1 1
+0 3 -1 1
+2 0 0 3 0 4 -1 0
+0
+end_operator
 2
-begin_operator
-follow_label l1
-0
-18
-2 3 0 6 0 0 -1 0
-2 8 0 12 0 0 -1 0
-2 0 0 13 0 0 -1 1
-2 0 0 14 0 0 -1 1
-2 3 0 6 0 1 -1 0
-2 8 0 12 0 1 -1 0
-2 0 0 13 0 6 -1 0
-2 8 0 7 0 6 -1 0
-2 3 0 6 0 6 -1 1
-2 17 0 6 0 6 -1 1
-2 0 0 14 0 8 -1 0
-2 17 0 6 0 8 -1 0
-2 8 0 7 0 8 -1 1
-2 8 0 12 0 8 -1 1
-2 0 0 14 0 9 -1 0
-2 17 0 6 0 9 -1 0
-2 0 0 13 0 11 -1 0
-2 8 0 7 0 11 -1 0
-0
-end_operator
-begin_operator
-follow_label l2
-0
-18
-2 5 0 6 0 0 -1 0
-2 8 0 15 0 0 -1 0
-2 0 0 10 0 0 -1 1
-2 0 0 16 0 0 -1 1
-2 5 0 6 0 1 -1 0
-2 8 0 15 0 1 -1 0
-2 0 0 16 0 6 -1 0
-2 8 0 2 0 6 -1 0
-2 4 0 6 0 6 -1 1
-2 5 0 6 0 6 -1 1
-2 0 0 10 0 8 -1 0
-2 4 0 6 0 8 -1 0
-2 8 0 2 0 8 -1 1
-2 8 0 15 0 8 -1 1
-2 0 0 10 0 9 -1 0
-2 4 0 6 0 9 -1 0
-2 0 0 16 0 11 -1 0
-2 8 0 2 0 11 -1 0
-0
-end_operator
-0
+begin_rule
+1
+7 0
+6 1 0
+end_rule
+begin_rule
+1
+0 0
+6 1 0
+end_rule

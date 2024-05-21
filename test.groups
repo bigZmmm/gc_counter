@@ -1,54 +1,24 @@
 var0:
-  0: Atom at_node(n0)
+  0: Atom x(one)
   1: <none of those>
 var1:
-  0: Atom visited(n0)
+  0: Atom x(two)
   1: <none of those>
 var2:
-  0: Atom edge_label(n2, n1, l2)
+  0: Atom y(one)
   1: <none of those>
 var3:
-  0: Atom edge_label(n1, n0, l1)
+  0: Atom canmove()
   1: <none of those>
 var4:
-  0: Atom edge_label(n1, n2, l2)
+  0: Atom x(zero)
   1: <none of those>
 var5:
-  0: Atom edge_label(n1, n0, l2)
+  0: Atom y(two)
   1: <none of those>
 var6:
-  0: Atom at_node(n1)
+  0: Atom new-axiom@0()
   1: <none of those>
 var7:
-  0: Atom edge_label(n2, n1, l1)
-  1: <none of those>
-var8:
-  0: Atom at_node(n2)
-  1: <none of those>
-var9:
-  0: Atom visited(n2)
-  1: <none of those>
-var10:
-  0: Atom edge_label(n0, n2, l2)
-  1: <none of those>
-var11:
-  0: Atom visited(n1)
-  1: <none of those>
-var12:
-  0: Atom edge_label(n2, n0, l1)
-  1: <none of those>
-var13:
-  0: Atom edge_label(n0, n1, l1)
-  1: <none of those>
-var14:
-  0: Atom edge_label(n0, n2, l1)
-  1: <none of those>
-var15:
-  0: Atom edge_label(n2, n0, l2)
-  1: <none of those>
-var16:
-  0: Atom edge_label(n0, n1, l2)
-  1: <none of those>
-var17:
-  0: Atom edge_label(n1, n2, l1)
+  0: Atom y(zero)
   1: <none of those>
