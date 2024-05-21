@@ -41,7 +41,9 @@ class Counter
     typedef std::vector<const Operator *> Plan;
     ONEOFS oneofs;
     set<string> variables;
-    map<int,int> indextovar; 
+    map<int,int> indextovar;
+    long long belief_size;
+    map<pair<int,int>,vector<PrePost>> axiomtovar;
     string init_smt;
     string regret_smt;
     string smt;
@@ -53,6 +55,9 @@ public:
     }
     set<string> getVariables(){
         return variables;
+    }
+    int getBelief_size(){
+        return belief_size;
     }
     void printfhello(){
         if(oneofs.type)

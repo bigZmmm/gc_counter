@@ -39,6 +39,7 @@ string Counter::varToSmt(int var,int l,int i){
 }
 
 Counter::Counter(){
+    belief_size=1;
     /*读取oneof进入*/
     ifstream infile;
     infile.open("oneof", ios::in);
@@ -117,6 +118,27 @@ Counter::Counter(){
         }
         indextovar.insert(pair<int,int>(i,var));
     }
+    /*计算信仰状态数量*/
+    if(oneofs.type)
+        belief_size=oneofs.lens;
+    else
+    for(int i=0;i<oneofs.lens;i++){
+        belief_size*=oneofs.oneof[i].len;
+    }
+    /*保存axiom*/
+    /*如果有axiom，要添加axiom的约束*/
+    for(int i=0;i<g_axioms.size();i++){
+        vector<PrePost> prepost = g_axioms[i].get_pre_post();
+        for(int j=0;j<prepost.size();j++){
+            pair<int,int> vari = pair<int,int>(prepost[j].var,prepost[j].post);
+            if(axiomtovar.find(vari)==axiomtovar.end()){
+                vector<PrePost> now;
+                axiomtovar.insert(pair<pair<int,int>,vector<PrePost>>(vari,now));
+            }
+            axiomtovar[vari].push_back(prepost[j]);
+        }
+    }
+
     // for(int i = 0 ; i < g_variable_name.size() ; i++){
     //     cout<<indextovar[i]<<" "<<i<<endl;
     // }
@@ -138,6 +160,9 @@ void Counter::initToSmt(){
             for(int j=0;j<oneofs.oneof[i].len;j++){
                 for(int k=0;k<oneofs.oneof[i].size[j];k++){
                     isunKnownFact[oneofs.oneof[i].var[nowindex]]=1;
+                    /*为unkonwn的fact初始一定要设置为假的*/
+                    // g_initial_state->set_var(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex]);
+                    g_initial_state->negate_var(oneofs.oneof[i].var[nowindex]);
                     nowindex++;
                 }
             }
@@ -227,7 +252,7 @@ void Counter::initToSmt(){
             if(isunKnownFact[i]==0){
                 string var0 = varToSmt(i,g_initial_state->vars[i],0);
                 variables.insert(var0);
-                cout<<var0<<endl;
+                // cout<<var0<<endl;
                 init_smt+=" ";
                 init_smt+=var0;
                 init_smt+="\n";
@@ -371,12 +396,12 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
     notdel_smt+="))";
     // cout<<"add:"<<add_smt<<" del:"<<notdel_smt<<endl<<endl;
     /*提取回归的前置条件*/
-    for(int i=0;i<prevail.size();i++){
-        string vari = varToSmt(prevail[i].var,prevail[i].prev,time_step-1);
-        preference_var->insert(vari);
-        variables.insert(vari);
-        new_facts->insert(pair<int,int>(prevail[i].var,prevail[i].prev));
-    }
+    // for(int i=0;i<prevail.size();i++){
+    //     string vari = varToSmt(prevail[i].var,prevail[i].prev,time_step-1);
+    //     // preference_var->insert(vari);
+    //     variables.insert(vari);
+    //     new_facts->insert(pair<int,int>(prevail[i].var,prevail[i].prev));
+    // }
     
     fact_regret_smt+="(and ";
     fact_regret_smt+=add_smt;
@@ -405,13 +430,14 @@ void Counter::addActionToGoal(Plan plan){
     set<string> preference_var;
     set<pair<int,int> > now_facts;
     int plan_size = plan.size();
-    /*添加目标状态*/
+    /*添加目标状态:*/
     for(int i = 0; i < g_goal.size(); i++){
         string var_goal = varToSmt(g_goal[i].first,g_goal[i].second,plan_size);
         preference_var.insert(var_goal);
         variables.insert(var_goal);
         now_facts.insert(pair<int, int>(g_goal[i].first, g_goal[i].second));
     }
+
     /*从目标状态开始进行回归*/
     for(int i=plan_size-1;i>=0;i--){
         set< pair<int,int> > new_facts;
@@ -484,7 +510,7 @@ bool Counter::conputerCounter(Plan plan){
     smt+=init_smt;
     // cout<<init_smt<<endl;
     smt+=regret_smt;
-    // cout<<regret_smt<<endl;
+    cout<<regret_smt<<endl;
     smt+=sasrestraint_smt;
     // cout<<sasrestraint_smt<<endl;
     /*调用z3求解器求反例，并且进行提取*/

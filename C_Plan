@@ -1,5 +1,5 @@
 0
 %%
-4 (start n1) (start n2) (travel n1 n2) (travel n2 n1) 
+0 
 %%
-linear 4 0 1 2 3 
+linear 0 

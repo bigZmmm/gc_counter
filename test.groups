@@ -1,24 +1,27 @@
 var0:
-  0: Atom x(one)
-  1: <none of those>
-var1:
-  0: Atom x(two)
-  1: <none of those>
-var2:
-  0: Atom y(one)
-  1: <none of those>
-var3:
-  0: Atom canmove()
-  1: <none of those>
-var4:
-  0: Atom x(zero)
-  1: <none of those>
-var5:
-  0: Atom y(two)
-  1: <none of those>
-var6:
   0: Atom new-axiom@0()
   1: <none of those>
+var1:
+  0: Atom locker_damaged(w1)
+  1: <none of those>
+var2:
+  0: Atom pos(w2)
+  1: <none of those>
+var3:
+  0: Atom pos(w1)
+  1: <none of those>
+var4:
+  0: Atom locker_damaged(w2)
+  1: <none of those>
+var5:
+  0: Atom closed(w1)
+  1: <none of those>
+var6:
+  0: Atom locked(w1)
+  1: <none of those>
 var7:
-  0: Atom y(zero)
+  0: Atom locked(w2)
+  1: <none of those>
+var8:
+  0: Atom closed(w2)
   1: <none of those>

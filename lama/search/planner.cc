@@ -459,14 +459,14 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 					
 					delete subsubengine;
 				} 
-				cout << "apply ";
-				g_operators[j].dump();		
-				current_state->dump();		
+				// cout << "apply ";
+				// g_operators[j].dump();		
+				// current_state->dump();		
 				/*当前状态和后续状态都后移*/
 				current_state->assign(State(*current_state, g_operators[j]));
 				previous_state->assign(State(*previous_state, g_operators[j]));
 				
-				current_state->dump();
+				// current_state->dump();
 				i++;
 			}
 			/*不满足前置条件*/
@@ -574,7 +574,6 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 			}
 		}
 		delete subsubengine;
-				
 	}
 	// plan.insert(plan.end(),subplan.begin(),subplan.end());
 	subplan.clear();
@@ -587,7 +586,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		outfile << plan[k]->get_name() << endl;
     }
     outfile.close();     
-	cout<<"belief_size:"<<belief_size<<endl;
+	
+	cout<<"belief_size:"<<counter->getBelief_size()<<endl;
 	cout<<"operate size:"<<operateTimes<<endl;
 	cout << "final plan: plan_size "<<plan.size()<< endl;
 	cout<<"iteration:"<<iteration<<endl;
@@ -1063,7 +1063,7 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
     }
     while(iter < 3);
 	// Counter *counter = new Counter;
-	counter->conputerCounter(plan);
+	// counter->conputerCounter(plan);
 	
 	if(!valid_plan) return false;
     ofstream outfile;
