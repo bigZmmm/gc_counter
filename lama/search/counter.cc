@@ -39,72 +39,6 @@ string Counter::varToSmt(int var,int l,int i){
 }
 
 Counter::Counter(){
-    belief_size=1;
-    /*读取oneof进入*/
-    ifstream infile;
-    infile.open("oneof", ios::in);
-    string line;
-    /*读取类型*/
-    getline(infile, line);
-    if(line=="ORS")
-        oneofs.type=true;
-    else 
-        oneofs.type=false;
-    /*读取数量*/
-    getline(infile, line);
-    istringstream ss(line);
-    ss >> oneofs.lens;
-    for(int i=0;i<oneofs.lens;i++){
-        oneof_item tmp;
-        tmp.len=0;
-        oneofs.oneof.push_back(tmp);
-    }
-    int index=0,andsize=0,prevar=-1;
-    while(getline(infile, line)){
-        if(line==", "){
-            oneofs.oneof[index].size.push_back(andsize);
-            andsize=0;
-        }
-        if(line=="END_ONEOF"||(line==", "&&oneofs.type==true)){
-            oneofs.oneof[index].len = oneofs.oneof[index].size.size();
-            index++;
-        }
-        else if(line!=", "){
-            andsize++;
-            int var,val;
-            if(line=="NULL"){
-                var = prevar;
-                val = g_variable_domain[var]-1;
-                if (var!=-1) {
-                    /*var：对应g_variable_name下标,val：该变量的值*/
-                    oneofs.oneof[index].var.push_back(var);
-                    oneofs.oneof[index].val.push_back(val);
-                }
-            }
-            else{
-                var = -1;		
-                for(int i = 0 ; i < g_variable_name.size() ; i++)
-                {
-                    /*读取的name后面有一个空格，长度会+1*/
-                    if(line.find(g_variable_name[i]) == 0 && line.size() == g_variable_name[i].size()+1)
-                    {
-                        var = i;
-                        // cout << g_variable_name[i]<<" ";
-                    }
-                }
-                getline(infile, line);
-                stringstream ss(line);
-                ss >> val;
-                if (var!=-1) {
-                    /*var：对应g_variable_name下标,val：该变量的值*/
-                    oneofs.oneof[index].var.push_back(var);
-                    oneofs.oneof[index].val.push_back(val);
-                }
-                prevar=var;
-            }
-            
-        }
-    }
     /*找到vari与var对应下标*/
     for(int i = 0 ; i < g_variable_name.size() ; i++){
         string name = g_variable_name[i];
@@ -118,8 +52,94 @@ Counter::Counter(){
         }
         indextovar.insert(pair<int,int>(i,var));
     }
+    oneofs.orlens=0;
+    belief_size=1;
+    /*读取oneof进入*/
+    ifstream infile;
+    infile.open("oneof", ios::in);
+    string line;
+    /*读取类型*/
+    getline(infile, line);
+    cout<<line<<endl;
+    if(line=="ORS")
+        oneofs.type=1;
+    else if(line=="OR")
+        oneofs.type=3;
+    else {
+        oneofs.type=2;
+    }
+    cout<<oneofs.type<<endl;
+    /*读取数量 针对于oneof和其他的读取*/
+    getline(infile, line);
+    istringstream ss(line);
+    if(oneofs.type==3){
+        ss >> oneofs.orlens;
+        for(int i=0;i<oneofs.orlens;i++){
+            oneof_item tmp;
+            tmp.len=0;
+            oneofs.oneof.push_back(tmp);
+        }       
+    }
+    else{
+        ss >> oneofs.lens;
+        for(int i=0;i<oneofs.lens;i++){
+            oneof_item tmp;
+            tmp.len=0;
+            oneofs.oneof.push_back(tmp);
+        }   
+    }
+    int index=0,andsize=0,prevar=-1;
+    while(getline(infile, line)){
+        cout<<line<<endl;
+        if(line==", "){
+            oneofs.oneof[index].size.push_back(andsize);
+            andsize=0;
+        }
+        if(line=="ONEOF"){
+            getline(infile, line);
+            istringstream ss(line);
+            ss >> oneofs.lens;
+            for(int i=0;i<oneofs.lens;i++){
+                oneof_item tmp;
+                tmp.len=0;
+                oneofs.oneof.push_back(tmp);
+            }
+        }
+        else if(line=="END_ONEOF"||line=="END_OR"||(line==", "&&oneofs.type==1)){
+            oneofs.oneof[index].len = oneofs.oneof[index].size.size();
+            cout<<index<<"-"<<oneofs.oneof[index].len<<endl;
+            index++;
+        }
+        else if(line!=", "){
+            andsize++;
+            int var,val;
+            var = -1;		
+            for(int i = 0 ; i < g_variable_name.size() ; i++)
+            {
+                /*读取的name后面有一个空格，长度会+1*/
+                if(line.find(g_variable_name[i]) == 0 && line.size() == g_variable_name[i].size()+1)
+                {
+                    var = i;
+                    // cout << g_variable_name[i]<<" ";
+                }
+            }
+            getline(infile, line);
+            stringstream ss(line);
+            ss >> val;
+            
+            // if(val==-1){
+            //     val = g_variable_domain[var]-1;
+            // }
+            if (var!=-1) {
+                /*var：对应g_variable_name下标,val：该变量的值*/
+                oneofs.oneof[index].var.push_back(var);
+                oneofs.oneof[index].val.push_back(val);
+            } 
+        }
+    }
+    
     /*计算信仰状态数量*/
-    if(oneofs.type)
+    if(oneofs.type==2)
         belief_size=oneofs.lens;
     else
     for(int i=0;i<oneofs.lens;i++){
@@ -138,12 +158,24 @@ Counter::Counter(){
             axiomtovar[vari].push_back(prepost[j]);
         }
     }
-
+    cout<<"axiom"<<endl;
+    for(auto ot : axiomtovar){
+        for(int i=0;i<ot.second.size();i++){
+            cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
+            for(int j=0;j<ot.second[i].cond.size();j++){
+                cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
+            }
+            cout<<")"<<endl;
+        }
+        cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+    }
     // for(int i = 0 ; i < g_variable_name.size() ; i++){
     //     cout<<indextovar[i]<<" "<<i<<endl;
     // }
-
 }
+
+/*在生成oneof和or时，为实现其中的not a，如果为负数，则为not（var=val）
+,为了避开val=0这一情况，在编译时将值减小1，这里再加上1为正确值*/
 void Counter::initToSmt(){
     init_smt="(assert (and\n";
     /*1.转换初始状态的SMT公式，并且记录所有的变量*/
@@ -153,7 +185,7 @@ void Counter::initToSmt(){
     int *isunKnownFact = (int*)calloc(var_len,sizeof(int));
     memset(isunKnownFact,0,var_len);
     /*多种状态的oneof*/
-    if(oneofs.type){
+    if(oneofs.type==1){
         /*第一次循环，识别known_fact*/
         for(int i=0;i<oneofs.lens;i++){
             int nowindex=0;
@@ -168,14 +200,17 @@ void Counter::initToSmt(){
             }
         }
         int state_size=0;
-        /*添加known_fact*/
+        /*添加known_fact,但要确保不是axiom*/
         for(int i=0;i<var_len;i++){
             if(isunKnownFact[i]==0){
-                string var0 = varToSmt(i,g_initial_state->vars[i],0);
-                variables.insert(var0);
-                init_smt+=" ";
-                init_smt+=var0;
-                init_smt+="\n";
+                cout<<"123:"<<(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end())<<endl;
+                if(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end()){
+                    string var0 = varToSmt(i,g_initial_state->vars[i],0);
+                    variables.insert(var0);
+                    init_smt+=" ";
+                    init_smt+=var0;
+                    init_smt+="\n";
+                }
             }else{
                 state_size++;
             }
@@ -236,12 +271,27 @@ void Counter::initToSmt(){
         }
         
     }else{
-        /*第一次循环，识别known_fact*/
-        for(int i=0;i<oneofs.lens;i++){
+        /*第一次循环，识别known_fact，oneof和or中没有的则为known_fact*/
+        /*先识别or中的*/
+        for(int i=0;i<oneofs.orlens;i++){
             int nowindex=0;
+            /*识别or中的*/
             for(int j=0;j<oneofs.oneof[i].len;j++){
                 for(int k=0;k<oneofs.oneof[i].size[j];k++){
                     isunKnownFact[oneofs.oneof[i].var[nowindex]]=1;
+                    nowindex++;
+                }
+            }
+        }
+        
+        /*再识别oneof中的*/
+        for(int i=0;i<oneofs.lens;i++){
+            int nowindex=0;
+            int index = oneofs.orlens+i;
+            /*识别or中的*/
+            for(int j=0;j<oneofs.oneof[index].len;j++){
+                for(int k=0;k<oneofs.oneof[index].size[j];k++){
+                    isunKnownFact[oneofs.oneof[index].var[nowindex]]=1;
                     nowindex++;
                 }
             }
@@ -250,18 +300,20 @@ void Counter::initToSmt(){
         /*添加known_fact*/
         for(int i=0;i<var_len;i++){
             if(isunKnownFact[i]==0){
-                string var0 = varToSmt(i,g_initial_state->vars[i],0);
-                variables.insert(var0);
-                // cout<<var0<<endl;
-                init_smt+=" ";
-                init_smt+=var0;
-                init_smt+="\n";
+                if(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end()){
+                    string var0 = varToSmt(i,g_initial_state->vars[i],0);
+                    variables.insert(var0);
+                    // cout<<var0<<endl;
+                    init_smt+=" ";
+                    init_smt+=var0;
+                    init_smt+="\n";
+                }
             }else{
                 state_size++;
             }
         }
         /*遍历所有的oneof,生存oneof的smt代码*/
-        for(int i=0;i<oneofs.lens;i++){
+        for(int i=0;i<oneofs.lens+oneofs.orlens;i++){
             int nowindex;
             /*判断是否oneof里面参数的变量都是一样的，只需要判定第一个每个oneof中的第一个var*/
             int is1var = true;
@@ -290,14 +342,22 @@ void Counter::initToSmt(){
                         for(int m=0;m<oneofs.oneof[i].size[k];m++){
                             string var0="";
                             if(k==j){
-                                var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
+                                if(oneofs.oneof[i].val[nowindex]<0){
+                                    var0+=varToSmt(oneofs.oneof[i].var[nowindex],-(oneofs.oneof[i].val[nowindex]+1),0);
+                                }
+                                else
+                                    var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
                             }else{
                                 var0+=varToSmt(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].var[nowindex]]-1,0);
                             }
-                            nowindex++;
                             variables.insert(var0);
+                            if((k==j)&&(oneofs.oneof[i].val[nowindex]<0))
+                                tmp+="(not ";
                             tmp+=var0;
+                            if((k==j)&&(oneofs.oneof[i].val[nowindex]<0))
+                                tmp+=")";
                             tmp+=" ";
+                            nowindex++;
                         }
                     }
                     tmp+=")";
@@ -305,20 +365,29 @@ void Counter::initToSmt(){
                 else if(is1var)
                     for(int m=0;m<oneofs.oneof[i].size[j];m++){
                         string var0="";
-                        var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
-                        nowindex++;
+                        if(oneofs.oneof[i].val[nowindex]<0)
+                            var0+=varToSmt(oneofs.oneof[i].var[nowindex],-(oneofs.oneof[i].val[nowindex]+1),0);
+                        else
+                            var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
                         variables.insert(var0);
+                        if(oneofs.oneof[i].val[nowindex]<0)
+                            tmp+="(not ";
                         tmp+=var0;
+                        if(oneofs.oneof[i].val[nowindex]<0)
+                            tmp+=")";
                         tmp+=" ";
+                        nowindex++;
                     }
                 first_or+=tmp;
                 first_or+=" ";
+                if(i>=oneofs.orlens)
                 all_state.push_back(tmp);
             }
             first_or+=")";
             // cout<<first_or<<endl;
             init_smt+=first_or;
             init_smt+="\n";
+            if(i>=oneofs.orlens)
             for(int j=0;j<oneofs.oneof[i].len-1;j++){
                 int k=j+1;
                 do{
@@ -343,15 +412,17 @@ void Counter::initToSmt(){
     delete isunKnownFact;
 }
 
+void Counter::addAxiomSmt(pair<int,int> vari,string *pre_smt,int timestep){
+
+}
+
 void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<int,int> now_facts,set<pair<int,int> > *new_facts,int time_step){
     // cout<<a->get_name()<<"--"<<g_variable_name[now_facts.first] << ": " << now_facts.second<<" "<<time_step<<endl;
-    
     string fact_regret_smt="(or ",add_smt = "(or false ",notdel_smt="(not (or false ";
     string cur_fact = varToSmt(now_facts.first,now_facts.second,time_step);
     string now_fact = varToSmt(now_facts.first,now_facts.second,time_step-1);
     variables.insert(now_fact);
     new_facts->insert(now_facts);
-
     vector<PrePost> prepost = a->get_pre_post();
     vector<Prevail> prevail = a->get_prevail();
     for(int i=0;i<prepost.size();i++){
@@ -402,7 +473,6 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
     //     variables.insert(vari);
     //     new_facts->insert(pair<int,int>(prevail[i].var,prevail[i].prev));
     // }
-    
     fact_regret_smt+="(and ";
     fact_regret_smt+=add_smt;
     fact_regret_smt+=" ";
@@ -429,6 +499,7 @@ void Counter::addActionToGoal(Plan plan){
     string preference = " (not (and ";
     set<string> preference_var;
     set<pair<int,int> > now_facts;
+    set< pair<int,int> > new_facts;
     int plan_size = plan.size();
     /*添加目标状态:*/
     for(int i = 0; i < g_goal.size(); i++){
@@ -436,16 +507,93 @@ void Counter::addActionToGoal(Plan plan){
         preference_var.insert(var_goal);
         variables.insert(var_goal);
         now_facts.insert(pair<int, int>(g_goal[i].first, g_goal[i].second));
+        
     }
-
+    for(auto now_fact:now_facts){
+        cout<<now_fact.first<<" "<<now_fact.second<<endl;
+        new_facts.insert(now_fact);
+        if(axiomtovar.find(now_fact)!=axiomtovar.end()){
+            vector<PrePost> pre_post = axiomtovar[now_fact];
+            string vari = varToSmt(now_fact.first,now_fact.second,plan_size);
+            variables.insert(vari);
+            string axiom_smt="(= ";
+            axiom_smt+=vari;
+            axiom_smt+=" (or ";
+            for(int i=0;i<pre_post.size();i++){
+                string one_axiom="(and ";
+                string varj = varToSmt(pre_post[i].var,pre_post[i].pre,plan_size);
+                // variables.insert(varj);
+                // one_axiom+=varj;
+                // one_axiom+=" ";
+                // new_facts.insert(pair<int,int>(pre_post[i].var,pre_post[i].pre));
+                // cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
+                for(int j=0;j<pre_post[i].cond.size();j++){
+                    varj = varToSmt(pre_post[i].cond[j].var,pre_post[i].cond[j].prev,plan_size);
+                    variables.insert(varj);
+                    one_axiom+=varj;
+                    one_axiom+=" ";
+                    new_facts.insert(pair<int,int>(pre_post[i].cond[j].var,pre_post[i].cond[j].prev));
+                    // cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
+                }
+                one_axiom+=") ";
+                axiom_smt+=one_axiom;
+                // cout<<")"<<endl;
+            }
+            axiom_smt+="))\n";
+            // cout<<axiom_smt<<endl;
+            regret_smt+=axiom_smt;
+            // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+        }
+    }
+    now_facts.clear();
+    now_facts=new_facts;
+    new_facts.clear();
     /*从目标状态开始进行回归*/
     for(int i=plan_size-1;i>=0;i--){
-        set< pair<int,int> > new_facts;
+        /*对nowfact添加axiom*/
+         /*添加axiom*/
+        //  cout<<"size:"<<now_facts.size()<<endl;
+        
         for(set<pair<int, int> >::iterator iter=now_facts.begin(); iter!=now_facts.end(); iter++){
             regretCurFact(plan[i],&preference_var,pair<int,int>(iter->first,iter->second),&new_facts,i+1);
         }
         now_facts.clear();
-        now_facts=new_facts;
+        for(auto new_fact:new_facts){
+            // cout<<now_fact.first<<" "<<now_fact.second<<endl;
+            now_facts.insert(new_fact);
+            if(axiomtovar.find(new_fact)!=axiomtovar.end()){
+                vector<PrePost> pre_post = axiomtovar[new_fact];
+                string vari = varToSmt(new_fact.first,new_fact.second,i+1);
+                variables.insert(vari);
+                string axiom_smt="(= ";
+                axiom_smt+=vari;
+                axiom_smt+=" (or ";
+                for(int k=0;k<pre_post.size();k++){
+                    string one_axiom="(and ";
+                    string varj = varToSmt(pre_post[k].var,pre_post[k].pre,i+1);
+                    // variables.insert(varj);
+                    // one_axiom+=varj;
+                    // one_axiom+=" ";
+                    // now_facts.insert(pair<int,int>(pre_post[k].var,pre_post[k].pre));
+                    // cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
+                    for(int j=0;j<pre_post[k].cond.size();j++){
+                        varj = varToSmt(pre_post[k].cond[j].var,pre_post[k].cond[j].prev,i+1);
+                        variables.insert(varj);
+                        one_axiom+=varj;
+                        one_axiom+=" ";
+                        now_facts.insert(pair<int,int>(pre_post[k].cond[j].var,pre_post[k].cond[j].prev));
+                        // cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
+                    }
+                    one_axiom+=") ";
+                    axiom_smt+=one_axiom;
+                    // cout<<")"<<endl;
+                }
+                axiom_smt+="))\n";
+                // cout<<axiom_smt<<endl;
+                regret_smt+=axiom_smt;
+                // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+            }
+        }
         new_facts.clear();
     }
     /*回归完，对preference进行拼接*/
@@ -457,7 +605,6 @@ void Counter::addActionToGoal(Plan plan){
     regret_smt+=preference;
     regret_smt+="))";
     // cout<<regret_smt<<endl;
-
 
     cout<<"规划长度："<<plan.size()<<endl;
     for(int i=0;i<plan.size();i++){
@@ -510,7 +657,7 @@ bool Counter::conputerCounter(Plan plan){
     smt+=init_smt;
     // cout<<init_smt<<endl;
     smt+=regret_smt;
-    cout<<regret_smt<<endl;
+    // cout<<regret_smt<<endl;
     smt+=sasrestraint_smt;
     // cout<<sasrestraint_smt<<endl;
     /*调用z3求解器求反例，并且进行提取*/

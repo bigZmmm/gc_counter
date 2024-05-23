@@ -176,7 +176,7 @@ def parse_task(task_pddl):
   else:
     yield []
     init = objects_opt
-
+	# or is just here(2024.05.22)
   assert init[0] == ":init"
   oneofs = []
   initial = []

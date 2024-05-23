@@ -298,7 +298,7 @@ def translate_task(strips_to_sas, ranges, mutex_dict, mutex_ranges, init, goals,
             actions, axioms, goals)
     init = init + axiom_init
     #axioms.sort(key=lambda axiom: axiom.name)
-    #for axiom in axioms:
+    # for axiom in axioms:
     #  axiom.dump()
 
     init_values = [rang - 1 for rang in ranges]
@@ -341,8 +341,8 @@ def unsolvable_sas_task(msg):
 def pddl_to_sas(task):
     with timers.timing("Instantiating", block=True):
         relaxed_reachable, atoms, actions, axioms = instantiate.explore(task)
-    for atom in actions:
-	atom.dump()
+    # for atom in actions:
+	# atom.dump()
     if not relaxed_reachable:
         return unsolvable_sas_task("No relaxed solution")
 
@@ -541,10 +541,92 @@ def write_oneof_file(translation_key, task, actions):
     ors = task.ors
     # addin
     print(111211)
-         
+    for or1 in ors:
+     or1.dump()
+     orLen = len(or1.parts)  
+     print(orLen)
+     for i in range(orLen):
+      #   negate()表示反
+      plan=0
+      or_valuename = or1.negate().print_atom(i),
+      or_valuename_str = str(or_valuename)
+    #   print(or_valuename_str)
+      for var_no, var_key in enumerate(translation_key):
+       for value, value_name in enumerate(var_key):
+        if or_valuename_str.find(value_name) != -1:
+         print(var_no)
+         print(-1)
+         plan=1
+      or_valuename = or1.print_atom(i),
+      or_valuename_str = str(or_valuename)
+    #   print(or_valuename_str)
+      for var_no, var_key in enumerate(translation_key):
+       for value, value_name in enumerate(var_key):
+        if or_valuename_str.find(value_name) != -1:
+         print(var_no)
+         print(value)
+    for or1 in oneofs:
+     or1.dump()
     belief_state = task.belief_state
     # 如果or不为空 分为三种写入oneof
     if ors != []:
+	#  print >> oneof_file, "OR\n",
+	#  print >> oneof_file, "%d\n" % len(ors),
+	#  for or1 in ors:
+	# #   or1.dump()
+	#   orLen = len(or1.parts)  
+	# #   print(orLen)
+	#   for i in range(orLen):
+    #   #   negate()表示反
+	#    plan=0
+	#    or_valuename = or1.negate().print_atom(i),
+	#    or_valuename_str = str(or_valuename)
+    # #   print(or_valuename_str)
+	#    for var_no, var_key in enumerate(translation_key):
+	#     for value, value_name in enumerate(var_key):
+	#      if or_valuename_str.find(value_name) != -1:
+	#       print >> oneof_file,"var%d \n" % var_no,
+	#       tmp = value+1
+	#       print >> oneof_file,"-%d\n" %tmp,
+	#       print >> oneof_file,", \n",
+	#       plan=1
+	#    or_valuename = or1.print_atom(i),
+	#    or_valuename_str = str(or_valuename)
+    # #   print(or_valuename_str)
+	#    for var_no, var_key in enumerate(translation_key):
+	#     for value, value_name in enumerate(var_key):
+	#      if or_valuename_str.find(value_name) != -1:
+	#       print >> oneof_file,"var%d \n" % var_no,
+	#       print >> oneof_file,"%d \n" % value,
+	#       print >> oneof_file,", \n",
+    #     # print('\n')
+	#   print >> oneof_file, "END_OR\n",
+	#  oneofsize = len(oneofs)
+	#  print >> oneof_file, "ONEOF\n",
+	#  print >> oneof_file, "%d\n" % oneofsize,
+	#  for oneof in oneofs:
+	#   oneofLen = len(oneof.parts)  
+	#   for i in range(oneofLen):
+	#    oneof_valuename = oneof.print_atom(i),
+	#    oneof_valuename_str = str(oneof_valuename)
+	#    flag=0
+	#    for var_no, var_key in enumerate(translation_key):
+	#     for value, value_name in enumerate(var_key):
+	#      if oneof_valuename_str.find(value_name) != -1:
+	#       print >> oneof_file, "var%d \n" % var_no,
+	#       print >> oneof_file, "%d \n" % value,
+	#       print >> oneof_file, ", "
+	#    oneof_valuename = oneof.negate().print_atom(i),
+	#    oneof_valuename_str = str(oneof_valuename)
+	#    for var_no, var_key in enumerate(translation_key):
+	#     for value, value_name in enumerate(var_key):
+	#      if oneof_valuename_str.find(value_name) != -1:
+	#       print >> oneof_file, "var%d \n" % var_no,
+	#       tmp = value+1
+	#       print >> oneof_file, "-%d\n" % tmp, 
+	#       print >> oneof_file, ", "
+	#   print >> oneof_file, "END_ONEOF"
+
 	 print >> oneof_file, "ORS\n",
 	 print >> oneof_file, "%d\n" % len(belief_state),
 	 for state in belief_state:
@@ -565,7 +647,6 @@ def write_oneof_file(translation_key, task, actions):
 		print >> oneof_file, ", "
 		print >> belief_file, "END_BELIEF"
 	 print >> oneof_file, "END_ONEOF"
-        # print('\n')
     else:
 	    with timers.timing("Detect oneof combinable"):
 		oneof_combinable = detect_combinable(task, actions)
@@ -638,12 +719,16 @@ def write_oneof_file(translation_key, task, actions):
  	         if oneof_valuename_str.find(value_name) != -1:
  	          print >> oneof_file, "var%d \n" % var_no,
  	          print >> oneof_file, "%d \n" % value,
- 	          flag=1
-	       if flag==0:
-	        print >> oneof_file, "NULL\n",
-	        print >> oneof_file, ", "
-	       else:
-	        print >> oneof_file, ", "
+	       oneof_valuename = oneof.negate().print_atom(i),
+	       oneof_valuename_str = str(oneof_valuename)
+	       flag=0
+	       for var_no, var_key in enumerate(translation_key):
+	        for value, value_name in enumerate(var_key):
+ 	         if oneof_valuename_str.find(value_name) != -1:
+ 	          print >> oneof_file, "var%d \n" % var_no,
+ 	          tmp = value+1
+ 	          print >> oneof_file, "-%d\n" % tmp,
+	       print >> oneof_file, ", "
 	      print >> oneof_file, "END_ONEOF"
 	    else:
 		    print >> oneof_file, "ORS\n",

@@ -245,32 +245,49 @@ int main(int argc, const char **argv) {
 		bool ctask;
 		//times(&search_start);
 		/*不断对第一个状态进行求解，ctask为false时，一直循环*/
-		
+		for(int i=0;i<g_variable_domain.size();i++){
+			cout<<i<<"-"<<g_variable_domain[i]<<endl;
+		}
 		/*这里要调用一次反例求解，得到一个初始状态*/
+		g_initial_state->dump();
 		vector<const Operator *> Plan;
 		counter = new Counter();
-		// counter->printfhello();
+		counter->printfhello();
+		cout<<1111<<endl;
 		counter->conputerCounter(Plan);
 		
 		// counter->conputerCounter();
 		// delete counter;
+		fail_time=0;
+		// int j=0;
 		do {
+			// cout<<"第"<<j<<"次"<<endl;
+			/*这个和里面的不一样?里面能解决,这里不能解?*/
 			engine->search();
-			//times(&search_end);
 			
+			//times(&search_end);
+			g_initial_state->dump();
 			if(engine->found_solution())
 			{
 				/*输出s0状态*/
-				g_initial_state->dump();
+				// g_initial_state->dump();
 				/*plan_filename表示输入时需要保存信息的位置*/
+				cout<<engine->get_plan().size()<<endl;
 				plan_cost = save_plan(engine->get_plan(), plan_filename, iteration_no);
+			}else{
+				/*如果无解就换初始状态*/
+				cout<<"一开始就没有解！？"<<endl;
 			}
 			/*为true说明找到了解，不用再遍历后面的解了*/
 			/*为false：1 plan中某个前置条件对于某个状态不满足，且没有subplan可以使其满足*/
 			/*这里是对其他的信仰状态进行求解*/
 			ctask = solve_belief_state_ite(engine);
-			if (!ctask)
+			if (!ctask){
 				cout << "reach dead end!" << endl;
+				fail_time++;
+			}
+				
+			// j++;
 		}
 		while (!ctask);
 
@@ -366,7 +383,6 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		/*判断是否还有反例*/
 		previous_state->assign(*g_initial_state);
 		if(!counter->conputerCounter(plan)){
-			cout<<"进来了？"<<endl;
 			valid_plan=true;
 			break;
 		}
@@ -501,7 +517,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 				/*将子plan插入第i个动作前*/
 				plan.insert(plan.begin()+i,subsubengine->get_plan().begin(),subsubengine->get_plan().end());
 				cout<<"3.plan"<<endl;
-				printPlan(plan);
+				printPlan(sub_plan);
 				if(g_display)
 				{
 					cout << "insert the following actions into plan:" << endl;
@@ -591,6 +607,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	cout<<"operate size:"<<operateTimes<<endl;
 	cout << "final plan: plan_size "<<plan.size()<< endl;
 	cout<<"iteration:"<<iteration<<endl;
+	cout<<"fail_time:"<<fail_time<<endl;
 	//ofstream outfile;       
 	outfile.open("C_Plan", ios::out);
 	int numberofactions = 0;
@@ -708,8 +725,8 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 				/*如果是第一次，不搜索*/
 				if(first)
 				{
-					cout << "Initial State:" << endl;
-    				g_initial_state->dump();
+					// cout << "Initial State:" << endl;
+    				// g_initial_state->dump();
 					belief_size++;
 					//cout << "first time, no search" << endl;
 					first = false;
@@ -729,8 +746,8 @@ bool solve_belief_state(BestFirstSearchEngine* subengine)
 				}
 				else
 				{
-					cout << "Initial State:" << endl;
-   					 g_initial_state->dump();
+					// cout << "Initial State:" << endl;
+   					//  g_initial_state->dump();
 					/*第0次循环就要一直增加belief_size的大小*/
 					if(iter==0) belief_size++;
 					/*last_modified == belief_size，确定plan满足belief_size个状态，退出，*/
@@ -1132,7 +1149,8 @@ int save_plan(const vector<const Operator *> &plan, const string& filename, int 
     ofstream outfile;
     int plan_cost = 0;
     bool separate_outfiles = true; // IPC conditions, change to false for a single outfile.
-    if(separate_outfiles) {
+    cout<<"g_use_metric:"<<g_use_metric<<endl;
+	if(separate_outfiles) {
 		// Write a separat output file for each plan found by iterative search
 		stringstream it_no;
 		it_no << iteration;

@@ -82,5 +82,6 @@ extern LandmarksGraph *g_lgraph;
 
 extern bool g_flag;
 extern Counter *counter;
+extern int fail_time;
 
 #endif

@@ -1,5 +1,5 @@
 0
 %%
-0 
+23 (put-down d) (pick-up b) (stack b a) (pick-up c) (stack c b) (pick-up d) (stack d c) (unstack d a) (unstack b d) (unstack b a) (unstack a b) (unstack d c) (unstack c b) (unstack c d) (unstack a c) (unstack a d) (unstack c a) (put-down c) (put-down a) (unstack d b) (put-down b) (pick-up a) (unstack b c) 
 %%
-linear 0 
+linear 121 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 15 18 19 0 1 20 14 21 18 12 19 13 3 17 5 0 22 1 20 3 17 8 1 20 5 0 10 21 18 19 13 22 1 20 3 17 19 5 0 21 18 13 22 1 20 13 3 17 15 8 19 5 0 9 1 20 7 5 0 21 18 19 5 0 16 3 17 10 21 18 8 1 20 11 15 5 0 21 18 11 5 0 14 21 16 18 3 17 21 18 12 3 17 5 6 1 2 11 0 3 4 5 6 

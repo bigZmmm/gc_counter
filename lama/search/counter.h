@@ -27,8 +27,9 @@ struct oneof_item
 
 struct ONEOFS
 {
-    /*true:多个状态 false:多个oneof*/
-    bool type;
+    /*1:oneof-combine后的状态 2:全是oneof 3：包括有or*/
+    int type;
+    int orlens;
     int lens;
     vector<oneof_item> oneof;
     ~ONEOFS(){
@@ -60,32 +61,76 @@ public:
         return belief_size;
     }
     void printfhello(){
-        if(oneofs.type)
-            cout<<"ONEOF:";
-        for(int i=0;i<oneofs.lens;i++){
-            if(!oneofs.type)
-               cout<<"ONEOF:"<<oneofs.oneof[i].len<<" ";
-            int nowindex=0;
-            for(int j=0;j<oneofs.oneof[i].len;j++){    
-                // cout<<oneofs.oneof[i].size[j]<<" ";
-                for(int k=0;k<oneofs.oneof[i].size[j];k++){
-                    cout<<g_variable_name[oneofs.oneof[i].var[nowindex]]<<":"<<oneofs.oneof[i].val[nowindex];
-                    if(k!=oneofs.oneof[i].size[j]-1)
-                        cout<<",";
-                    else
-                        cout<<";";
-                    nowindex++;
+        cout<<"::"<<oneofs.type<<endl;
+        if(oneofs.type==1){
+
+        }else if(oneofs.type==2){
+
+        }else if(oneofs.type==3){
+            for(int i=0;i<oneofs.orlens;i++){
+                int nowindex=0;
+                cout<<"OR:"<<oneofs.oneof[i].len<<" ";
+                for(int j=0;j<oneofs.oneof[i].len;j++){    
+                    // cout<<oneofs.oneof[i].size[j]<<" ";
+                    for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                        cout<<g_variable_name[oneofs.oneof[i].var[nowindex]]<<":"<<oneofs.oneof[i].val[nowindex];
+                        if(k!=oneofs.oneof[i].size[j]-1)
+                            cout<<",";
+                        else
+                            cout<<";";
+                        nowindex++;
+                    }
                 }
-            }
-            if(!oneofs.type)
                 cout<<endl;      
+            }
+            for(int i=0;i<oneofs.lens;i++){
+                cout<<"231"<<endl;
+                int index=i+oneofs.orlens;
+                cout<<"ONEOF:"<<oneofs.oneof[index].len<<" ";
+                int nowindex=0;
+                for(int j=0;j<oneofs.oneof[index].len;j++){    
+                    // cout<<oneofs.oneof[i].size[j]<<" ";
+                    for(int k=0;k<oneofs.oneof[index].size[j];k++){
+                        cout<<g_variable_name[oneofs.oneof[index].var[nowindex]]<<":"<<oneofs.oneof[index].val[nowindex];
+                        if(k!=oneofs.oneof[index].size[j]-1)
+                            cout<<",";
+                        else
+                            cout<<";";
+                        nowindex++;
+                    }
+                }
+                cout<<endl;      
+            }
         }
+
+
+        // if(oneofs.type==3)
+        //     cout<<"ONEOF:";
+        // for(int i=0;i<oneofs.lens;i++){
+        //     if(!oneofs.type)
+        //        cout<<"ONEOF:"<<oneofs.oneof[i].len<<" ";
+        //     int nowindex=0;
+        //     for(int j=0;j<oneofs.oneof[i].len;j++){    
+        //         // cout<<oneofs.oneof[i].size[j]<<" ";
+        //         for(int k=0;k<oneofs.oneof[i].size[j];k++){
+        //             cout<<g_variable_name[oneofs.oneof[i].var[nowindex]]<<":"<<oneofs.oneof[i].val[nowindex];
+        //             if(k!=oneofs.oneof[i].size[j]-1)
+        //                 cout<<",";
+        //             else
+        //                 cout<<";";
+        //             nowindex++;
+        //         }
+        //     }
+        //     if(!oneofs.type)
+        //         cout<<endl;      
+        // }
     }
     void initToSmt();
     bool conputerCounter(Plan plan);
     void addActionToGoal(Plan plan);
     string varToSmt(int var,int l,int i);
     void addRestraintToTime0();
+    void addAxiomSmt(pair<int,int> vari,string *pre_smt,int timestep);
     void regretCurFact(const Operator *a,set<string> *preference_var,pair<int,int> now_facts,set<pair<int,int> > *new_facts,int time_stept);
     void clearAll(){
         init_smt.clear();

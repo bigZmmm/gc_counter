@@ -1,27 +1,63 @@
 var0:
-  0: Atom new-axiom@0()
-  1: <none of those>
+  0: Atom on(c, c)
+  1: Atom ontable(c)
+  2: Atom on(c, e)
+  3: Atom on(c, a)
+  4: Atom holding(c)
+  5: Atom on(c, b)
+  6: Atom on(c, d)
+  7: <none of those>
 var1:
-  0: Atom locker_damaged(w1)
-  1: <none of those>
+  0: Atom on(d, d)
+  1: Atom holding(d)
+  2: Atom on(d, a)
+  3: Atom on(d, c)
+  4: Atom on(d, e)
+  5: Atom ontable(d)
+  6: Atom on(d, b)
+  7: <none of those>
 var2:
-  0: Atom pos(w2)
-  1: <none of those>
+  0: Atom ontable(b)
+  1: Atom on(b, b)
+  2: Atom on(b, e)
+  3: Atom holding(b)
+  4: Atom on(b, c)
+  5: Atom on(b, d)
+  6: Atom on(b, a)
+  7: <none of those>
 var3:
-  0: Atom pos(w1)
-  1: <none of those>
+  0: Atom on(e, c)
+  1: Atom on(e, e)
+  2: Atom holding(e)
+  3: Atom on(e, b)
+  4: Atom ontable(e)
+  5: Atom on(e, a)
+  6: Atom on(e, d)
+  7: <none of those>
 var4:
-  0: Atom locker_damaged(w2)
-  1: <none of those>
+  0: Atom on(a, e)
+  1: Atom on(a, c)
+  2: Atom ontable(a)
+  3: Atom on(a, a)
+  4: Atom holding(a)
+  5: Atom on(a, d)
+  6: Atom on(a, b)
+  7: <none of those>
 var5:
-  0: Atom closed(w1)
+  0: Atom handempty()
   1: <none of those>
 var6:
-  0: Atom locked(w1)
+  0: Atom clear(a)
   1: <none of those>
 var7:
-  0: Atom locked(w2)
+  0: Atom clear(c)
   1: <none of those>
 var8:
-  0: Atom closed(w2)
+  0: Atom clear(d)
+  1: <none of those>
+var9:
+  0: Atom clear(e)
+  1: <none of those>
+var10:
+  0: Atom clear(b)
   1: <none of those>

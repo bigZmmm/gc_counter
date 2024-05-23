@@ -183,7 +183,8 @@ bool BestFirstSearchEngine::check_goal() {
 			for(int i = 0; i < g_goal.size(); i++)
 			if(current_state[g_goal[i].first] != g_goal[i].second)
 				return false;
-		//cout << "Solution found!" << endl;
+		cout << "Solution found!" << endl;
+		
 		Plan plan;
 		closed_list.trace_path(current_state, plan);
 		set_plan(plan);
