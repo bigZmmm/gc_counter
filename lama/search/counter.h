@@ -11,6 +11,7 @@
 #include "z3++.h"
 #include <z3++.h>
 #include <map>
+#include "sys/time.h"
 using namespace std;
 struct oneof_item
 {
@@ -37,6 +38,7 @@ struct ONEOFS
     }
 };
 
+
 class Counter
 {
     typedef std::vector<const Operator *> Plan;
@@ -49,6 +51,7 @@ class Counter
     string regret_smt;
     string smt;
     string sasrestraint_smt;
+    int total_counter;
 public:
     Counter();
     ~Counter(){
@@ -124,6 +127,9 @@ public:
         //     if(!oneofs.type)
         //         cout<<endl;      
         // }
+    }
+    int getTotal_counter(){
+        return total_counter;
     }
     void initToSmt();
     bool conputerCounter(Plan plan);

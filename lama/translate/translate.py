@@ -570,83 +570,83 @@ def write_oneof_file(translation_key, task, actions):
     belief_state = task.belief_state
     # 如果or不为空 分为三种写入oneof
     if ors != []:
-	#  print >> oneof_file, "OR\n",
-	#  print >> oneof_file, "%d\n" % len(ors),
-	#  for or1 in ors:
-	# #   or1.dump()
-	#   orLen = len(or1.parts)  
-	# #   print(orLen)
-	#   for i in range(orLen):
-    #   #   negate()表示反
-	#    plan=0
-	#    or_valuename = or1.negate().print_atom(i),
-	#    or_valuename_str = str(or_valuename)
-    # #   print(or_valuename_str)
-	#    for var_no, var_key in enumerate(translation_key):
-	#     for value, value_name in enumerate(var_key):
-	#      if or_valuename_str.find(value_name) != -1:
-	#       print >> oneof_file,"var%d \n" % var_no,
-	#       tmp = value+1
-	#       print >> oneof_file,"-%d\n" %tmp,
-	#       print >> oneof_file,", \n",
-	#       plan=1
-	#    or_valuename = or1.print_atom(i),
-	#    or_valuename_str = str(or_valuename)
-    # #   print(or_valuename_str)
-	#    for var_no, var_key in enumerate(translation_key):
-	#     for value, value_name in enumerate(var_key):
-	#      if or_valuename_str.find(value_name) != -1:
-	#       print >> oneof_file,"var%d \n" % var_no,
-	#       print >> oneof_file,"%d \n" % value,
-	#       print >> oneof_file,", \n",
-    #     # print('\n')
-	#   print >> oneof_file, "END_OR\n",
-	#  oneofsize = len(oneofs)
-	#  print >> oneof_file, "ONEOF\n",
-	#  print >> oneof_file, "%d\n" % oneofsize,
-	#  for oneof in oneofs:
-	#   oneofLen = len(oneof.parts)  
-	#   for i in range(oneofLen):
-	#    oneof_valuename = oneof.print_atom(i),
-	#    oneof_valuename_str = str(oneof_valuename)
-	#    flag=0
-	#    for var_no, var_key in enumerate(translation_key):
-	#     for value, value_name in enumerate(var_key):
-	#      if oneof_valuename_str.find(value_name) != -1:
-	#       print >> oneof_file, "var%d \n" % var_no,
-	#       print >> oneof_file, "%d \n" % value,
-	#       print >> oneof_file, ", "
-	#    oneof_valuename = oneof.negate().print_atom(i),
-	#    oneof_valuename_str = str(oneof_valuename)
-	#    for var_no, var_key in enumerate(translation_key):
-	#     for value, value_name in enumerate(var_key):
-	#      if oneof_valuename_str.find(value_name) != -1:
-	#       print >> oneof_file, "var%d \n" % var_no,
-	#       tmp = value+1
-	#       print >> oneof_file, "-%d\n" % tmp, 
-	#       print >> oneof_file, ", "
-	#   print >> oneof_file, "END_ONEOF"
+	 print >> oneof_file, "OR\n",
+	 print >> oneof_file, "%d\n" % len(ors),
+	 for or1 in ors:
+	#   or1.dump()
+	  orLen = len(or1.parts)  
+	#   print(orLen)
+	  for i in range(orLen):
+      #   negate()表示反
+	   plan=0
+	   or_valuename = or1.negate().print_atom(i),
+	   or_valuename_str = str(or_valuename)
+    #   print(or_valuename_str)
+	   for var_no, var_key in enumerate(translation_key):
+	    for value, value_name in enumerate(var_key):
+	     if or_valuename_str.find(value_name) != -1:
+	      print >> oneof_file,"var%d \n" % var_no,
+	      tmp = value+1
+	      print >> oneof_file,"-%d\n" %tmp,
+	      print >> oneof_file,", \n",
+	      plan=1
+	   or_valuename = or1.print_atom(i),
+	   or_valuename_str = str(or_valuename)
+    #   print(or_valuename_str)
+	   for var_no, var_key in enumerate(translation_key):
+	    for value, value_name in enumerate(var_key):
+	     if or_valuename_str.find(value_name) != -1:
+	      print >> oneof_file,"var%d \n" % var_no,
+	      print >> oneof_file,"%d \n" % value,
+	      print >> oneof_file,", \n",
+        # print('\n')
+	  print >> oneof_file, "END_OR\n",
+	 oneofsize = len(oneofs)
+	 print >> oneof_file, "ONEOF\n",
+	 print >> oneof_file, "%d\n" % oneofsize,
+	 for oneof in oneofs:
+	  oneofLen = len(oneof.parts)  
+	  for i in range(oneofLen):
+	   oneof_valuename = oneof.print_atom(i),
+	   oneof_valuename_str = str(oneof_valuename)
+	   flag=0
+	   for var_no, var_key in enumerate(translation_key):
+	    for value, value_name in enumerate(var_key):
+	     if oneof_valuename_str.find(value_name) != -1:
+	      print >> oneof_file, "var%d \n" % var_no,
+	      print >> oneof_file, "%d \n" % value,
+	      print >> oneof_file, ", "
+	   oneof_valuename = oneof.negate().print_atom(i),
+	   oneof_valuename_str = str(oneof_valuename)
+	   for var_no, var_key in enumerate(translation_key):
+	    for value, value_name in enumerate(var_key):
+	     if oneof_valuename_str.find(value_name) != -1:
+	      print >> oneof_file, "var%d \n" % var_no,
+	      tmp = value+1
+	      print >> oneof_file, "-%d\n" % tmp, 
+	      print >> oneof_file, ", "
+	  print >> oneof_file, "END_ONEOF"
 
-	 print >> oneof_file, "ORS\n",
-	 print >> oneof_file, "%d\n" % len(belief_state),
-	 for state in belief_state:
-		print("state1: ")
-		for atom in state:
-			atom_valuename = atom.print_atom(-1)
-			atom_valuename_str = str(atom_valuename)
-			print(atom_valuename_str+" ")
-			flag=0
-			for var_no, var_key in enumerate(translation_key):
-				for value, value_name in enumerate(var_key):
-			    		if atom_valuename_str.find(value_name) != -1: 
-						print >> belief_file, "var%d \n" % var_no,
-						print >> belief_file, "%d \n" % value,
-						print >> oneof_file, "var%d \n" % var_no,
-						print >> oneof_file, "%d \n" % value,
-						flag=1    
-		print >> oneof_file, ", "
-		print >> belief_file, "END_BELIEF"
-	 print >> oneof_file, "END_ONEOF"
+	#  print >> oneof_file, "ORS\n",
+	#  print >> oneof_file, "%d\n" % len(belief_state),
+	#  for state in belief_state:
+	# 	print("state1: ")
+	# 	for atom in state:
+	# 		atom_valuename = atom.print_atom(-1)
+	# 		atom_valuename_str = str(atom_valuename)
+	# 		print(atom_valuename_str+" ")
+	# 		flag=0
+	# 		for var_no, var_key in enumerate(translation_key):
+	# 			for value, value_name in enumerate(var_key):
+	# 		    		if atom_valuename_str.find(value_name) != -1: 
+	# 					print >> belief_file, "var%d \n" % var_no,
+	# 					print >> belief_file, "%d \n" % value,
+	# 					print >> oneof_file, "var%d \n" % var_no,
+	# 					print >> oneof_file, "%d \n" % value,
+	# 					flag=1    
+	# 	print >> oneof_file, ", "
+	# 	print >> belief_file, "END_BELIEF"
+	#  print >> oneof_file, "END_ONEOF"
     else:
 	    with timers.timing("Detect oneof combinable"):
 		oneof_combinable = detect_combinable(task, actions)
@@ -658,6 +658,32 @@ def write_oneof_file(translation_key, task, actions):
 	    print("maxlen: "+str(maxlen))
 	    #oneof_combinable = True
 	    axiom_goal = False
+	    # oneofsize = len(oneofs)
+	    # print >> oneof_file, "ONEOF\n",
+	    # print >> oneof_file, "%d\n" % oneofsize,
+	    # for oneof in oneofs:
+	    #  oneofLen = len(oneof.parts)  
+	    #  for i in range(oneofLen):
+	    #   oneof_valuename = oneof.print_atom(i),
+	    #   oneof_valuename_str = str(oneof_valuename)
+	    #   flag=0
+	    #   for var_no, var_key in enumerate(translation_key):
+	    #    for value, value_name in enumerate(var_key):
+	    #     if oneof_valuename_str.find(value_name) != -1:
+	    #      print >> oneof_file, "var%d \n" % var_no,
+	    #      print >> oneof_file, "%d \n" % value,
+	    #   oneof_valuename = oneof.negate().print_atom(i),
+	    #   oneof_valuename_str = str(oneof_valuename)
+	    #   flag=0
+	    #   for var_no, var_key in enumerate(translation_key):
+	    #    for value, value_name in enumerate(var_key):
+	    #     if oneof_valuename_str.find(value_name) != -1:
+	    #      print >> oneof_file, "var%d \n" % var_no,
+	    #      tmp = value+1
+	    #      print >> oneof_file, "-%d\n" % tmp,
+	    #   print >> oneof_file, ", "
+	    #  print >> oneof_file, "END_ONEOF"
+         
 	    #for oneof in oneofs:
 		#for part in oneof.parts:
 		#	if not isinstance(part, pddl.Atom) and not isinstance(part, pddl.NegatedAtom):

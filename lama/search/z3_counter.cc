@@ -7,7 +7,8 @@ bool Z3_counter::extracCounter(std::string smt,std::map<int,int> *sample) {
     solver s(c);
     s.add(c.parse_string(smt.c_str()));
     // std::cout<<s<<"\n";
-    std::cout << s.check() << "\n";
+    // std::cout << s.check() << "\n";
+    // std::cout << s.check() << "\n";
     /*0:unsat 1:sat 2:unknown*/
     int issat = s.check();
     if(issat==1){
@@ -15,7 +16,7 @@ bool Z3_counter::extracCounter(std::string smt,std::map<int,int> *sample) {
         model m = s.get_model();
         /*n为所有的变量数*/
         int n=m.num_consts();
-        std::cout<<n<<std::endl;
+        std::cout<<"SMT变量数:"<<n<<std::endl;
         /*读取变量名以及变量的真值*/
         for(int i=0;i<n;i++){
             func_decl cnst = m.get_const_decl(i);

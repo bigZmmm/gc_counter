@@ -39,6 +39,9 @@ string Counter::varToSmt(int var,int l,int i){
 }
 
 Counter::Counter(){
+    struct tms start, end;
+    total_counter=0;
+    times(&start);
     /*找到vari与var对应下标*/
     for(int i = 0 ; i < g_variable_name.size() ; i++){
         string name = g_variable_name[i];
@@ -60,7 +63,7 @@ Counter::Counter(){
     string line;
     /*读取类型*/
     getline(infile, line);
-    cout<<line<<endl;
+    // cout<<line<<endl;
     if(line=="ORS")
         oneofs.type=1;
     else if(line=="OR")
@@ -90,7 +93,7 @@ Counter::Counter(){
     }
     int index=0,andsize=0,prevar=-1;
     while(getline(infile, line)){
-        cout<<line<<endl;
+        // cout<<line<<endl;
         if(line==", "){
             oneofs.oneof[index].size.push_back(andsize);
             andsize=0;
@@ -107,7 +110,7 @@ Counter::Counter(){
         }
         else if(line=="END_ONEOF"||line=="END_OR"||(line==", "&&oneofs.type==1)){
             oneofs.oneof[index].len = oneofs.oneof[index].size.size();
-            cout<<index<<"-"<<oneofs.oneof[index].len<<endl;
+            // cout<<index<<"-"<<oneofs.oneof[index].len<<endl;
             index++;
         }
         else if(line!=", "){
@@ -161,17 +164,20 @@ Counter::Counter(){
     cout<<"axiom"<<endl;
     for(auto ot : axiomtovar){
         for(int i=0;i<ot.second.size();i++){
-            cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
+            // cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
             for(int j=0;j<ot.second[i].cond.size();j++){
-                cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
+                // cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
             }
-            cout<<")"<<endl;
+            // cout<<")"<<endl;
         }
-        cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+        // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
     }
     // for(int i = 0 ; i < g_variable_name.size() ; i++){
     //     cout<<indextovar[i]<<" "<<i<<endl;
     // }
+    times(&end);
+    int total_ms = (end.tms_utime - start.tms_utime) * 10;
+    total_counter+=total_ms;
 }
 
 /*在生成oneof和or时，为实现其中的not a，如果为负数，则为not（var=val）
@@ -203,7 +209,7 @@ void Counter::initToSmt(){
         /*添加known_fact,但要确保不是axiom*/
         for(int i=0;i<var_len;i++){
             if(isunKnownFact[i]==0){
-                cout<<"123:"<<(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end())<<endl;
+                // cout<<"123:"<<(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end())<<endl;
                 if(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end()){
                     string var0 = varToSmt(i,g_initial_state->vars[i],0);
                     variables.insert(var0);
@@ -335,7 +341,7 @@ void Counter::initToSmt(){
             for(int j=0;j<oneofs.oneof[i].len;j++){
                 string tmp="";
                 /*构造oneof的初始SMT*/
-                if(!is1var){
+                if(!is1var&&oneofs.type==2){
                     tmp+="(and ";
                     nowindex=0;
                     for(int k=0;k<oneofs.oneof[i].len;k++){
@@ -362,7 +368,7 @@ void Counter::initToSmt(){
                     }
                     tmp+=")";
                 }
-                else if(is1var)
+                else if(is1var||oneofs.type==3)
                     for(int m=0;m<oneofs.oneof[i].size[j];m++){
                         string var0="";
                         if(oneofs.oneof[i].val[nowindex]<0)
@@ -640,6 +646,8 @@ void Counter::addRestraintToTime0(){
 }
 
 bool Counter::conputerCounter(Plan plan){
+    struct tms start, end;
+    times(&start);
     smt="";
     /*转换初始状态为SMT公式*/
     initToSmt();
@@ -670,6 +678,9 @@ bool Counter::conputerCounter(Plan plan){
     //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
     // }
     cout<<isFind<<endl;
+    times(&end);
+    int total_ms = (end.tms_utime - start.tms_utime) * 10;
+    total_counter+=total_ms;
     if(isFind){
         for(int i=0;i<g_initial_state->vars.size();i++){
           int var = indextovar[i];

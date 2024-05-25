@@ -193,150 +193,151 @@ def parse_task(task_pddl):
     else:
         initial.append(conditions.Atom(fact[0], fact[1:]))
   if ors != []:
-	for oneof in oneofs:
-  	        tmp_state = []
-		oneof.dump()
-		for i in range(0,len(oneof.parts)):
-			for j in range(0,len(belief_state)):
-				state_set = belief_state[j]
-				tmp_state_set = set()
-				for x in state_set:
-					tmp_state_set.add(x)
-				tmp_state_set.add(oneof.parts[i])
-				tmp_state.append(tmp_state_set)
-		for i in range(0,len(belief_state)):
-			belief_state.pop()
+	print("here!")
+	# for oneof in oneofs:
+  # 	        tmp_state = []
+	# 	oneof.dump()
+	# 	for i in range(0,len(oneof.parts)):
+	# 		for j in range(0,len(belief_state)):
+	# 			state_set = belief_state[j]
+	# 			tmp_state_set = set()
+	# 			for x in state_set:
+	# 				tmp_state_set.add(x)
+	# 			tmp_state_set.add(oneof.parts[i])
+	# 			tmp_state.append(tmp_state_set)
+	# 	for i in range(0,len(belief_state)):
+	# 		belief_state.pop()
 
-		'''print "belief after cartesian product"'''
-		for x in tmp_state:
-			'''print "state"
-			for atom in x:
-				print atom'''
-			belief_state.append(x)
-		index_to_remove = []
-		for i in range(0,len(belief_state)):
-			remove = False
-			tmp_state_set = belief_state[i]
-			'''print "checking state"
-			for atom in tmp_state_set:
-				print atom'''
-			for orclause in ors:
-				'''print "using or"
-				orclause.dump()'''
-				skip = False
-				for k in range(0,len(orclause.parts)):
-					if isinstance(orclause.parts[k], conditions.Atom):
-						skip = True
-						break
-				if skip == True:
-					continue
-				else:
-					remove = True
-					for k in range(0,len(orclause.parts)):
-						if orclause.parts[k].negate() not in tmp_state_set:
-							remove = False
-							break
-					if remove == True:
-						if tmp_state_set in belief_state:
-							'''print "remove state"
-							for atom in tmp_state_set:
-								print atom
-							print "because"
-							orclause.dump()'''
-							index_to_remove.insert(0,i)						
-						break
-			if remove == False:
-				for oneof in oneofs:
-					skip = False
-					for part in oneof.parts:
-						if part in  tmp_state_set:
-							for other_part in oneof.parts:
-								if other_part != part and other_part in  tmp_state_set:
-									skip = True
-									if tmp_state_set in belief_state:
-										index_to_remove.insert(0,i)						
-										break
-							if skip == True:
-								break
-						if skip == True:
-							break
-					if skip == True:
-						break
-		for i in range(0, len(index_to_remove)):
-			belief_state.pop(index_to_remove[i])
-		print "size of belief state"
-		print len(belief_state)
-		print "we are here"
+	# 	'''print "belief after cartesian product"'''
+	# 	for x in tmp_state:
+	# 		'''print "state"
+	# 		for atom in x:
+	# 			print atom'''
+	# 		belief_state.append(x)
+	# 	index_to_remove = []
+	# 	for i in range(0,len(belief_state)):
+	# 		remove = False
+	# 		tmp_state_set = belief_state[i]
+	# 		'''print "checking state"
+	# 		for atom in tmp_state_set:
+	# 			print atom'''
+	# 		for orclause in ors:
+	# 			'''print "using or"
+	# 			orclause.dump()'''
+	# 			skip = False
+	# 			for k in range(0,len(orclause.parts)):
+	# 				if isinstance(orclause.parts[k], conditions.Atom):
+	# 					skip = True
+	# 					break
+	# 			if skip == True:
+	# 				continue
+	# 			else:
+	# 				remove = True
+	# 				for k in range(0,len(orclause.parts)):
+	# 					if orclause.parts[k].negate() not in tmp_state_set:
+	# 						remove = False
+	# 						break
+	# 				if remove == True:
+	# 					if tmp_state_set in belief_state:
+	# 						'''print "remove state"
+	# 						for atom in tmp_state_set:
+	# 							print atom
+	# 						print "because"
+	# 						orclause.dump()'''
+	# 						index_to_remove.insert(0,i)						
+	# 					break
+	# 		if remove == False:
+	# 			for oneof in oneofs:
+	# 				skip = False
+	# 				for part in oneof.parts:
+	# 					if part in  tmp_state_set:
+	# 						for other_part in oneof.parts:
+	# 							if other_part != part and other_part in  tmp_state_set:
+	# 								skip = True
+	# 								if tmp_state_set in belief_state:
+	# 									index_to_remove.insert(0,i)						
+	# 									break
+	# 						if skip == True:
+	# 							break
+	# 					if skip == True:
+	# 						break
+	# 				if skip == True:
+	# 					break
+	# 	for i in range(0, len(index_to_remove)):
+	# 		belief_state.pop(index_to_remove[i])
+	# 	print "size of belief state"
+	# 	print len(belief_state)
+	# 	print "we are here"
  				
-		'''print "belief after removing invalid state"
-		for x in belief_state:
-			print "state"
-			for atom in x:
-				print atom'''
-	index_to_remove = []
-	for i in range(0,len(belief_state)):
-		tmp_state_set = belief_state[i]
-		for orclause in ors:
-			remove = False
-			stop = False
-			for k in range(0,len(orclause.parts)):
-				if isinstance(orclause.parts[k], conditions.Atom):
-					print orclause.parts[k]
-					if orclause.parts[k] in tmp_state_set:
-						stop = True
-						break
-				elif isinstance(orclause.parts[k], conditions.NegatedAtom):
-					if orclause.parts[k].negate() not in tmp_state_set:
-						stop = True
-						break
-			if stop == False:
-				remove = True
-			if remove == True:
-				if tmp_state_set in belief_state:
-					index_to_remove.insert(0,i)						
-					'''print "remove state"
-					for atom in tmp_state_set:
-						print atom
-					print "because"
-					orclause.dump()'''
-					break
-	for i in range(0, len(index_to_remove)):
-		belief_state.pop(index_to_remove[i]) 
-	print "size of belief state"
-	print len(belief_state)
-	'''for tmp_state_set in belief_state:
-		print "state"
-		for atom in tmp_state_set:
-			print atom'''
-	if len(belief_state) > 0:
-		state_set = belief_state[0]
-		for atom in state_set:
-			initial.append(atom)
-	'''oneofsize = 1
-	for oneof in oneofs:
-		oneofsize = oneofsize * len(oneof.parts)
-	belief_state = {}
-	exclude_list = []
-	for n in range(0,oneofsize):
-		for i in range(0,len(oneofs)):
-			bucketsize = 1
-			for j in range(i+1,len(oneofs)):
-				bucketsize = bucketsize * len(oneofs[j].parts)
-			index_i = (n / bucketsize) % len(oneofs[i].parts)
-			oneof_valuename = oneofs[i].print_atom(index_i)
-			oneof_valuename_str = str(oneof_valuename)
-			skip_loop = false
-			for var_no, var_key in enumerate(translation_key):
-				for value, value_name in enumerate(var_key):
-		    			if oneof_valuename_str.find(value_name) != -1: 
-						if var_no in belief_state:
-							if belief_state[var_no] = value:
+	# 	'''print "belief after removing invalid state"
+	# 	for x in belief_state:
+	# 		print "state"
+	# 		for atom in x:
+	# 			print atom'''
+	# index_to_remove = []
+	# for i in range(0,len(belief_state)):
+	# 	tmp_state_set = belief_state[i]
+	# 	for orclause in ors:
+	# 		remove = False
+	# 		stop = False
+	# 		for k in range(0,len(orclause.parts)):
+	# 			if isinstance(orclause.parts[k], conditions.Atom):
+	# 				print orclause.parts[k]
+	# 				if orclause.parts[k] in tmp_state_set:
+	# 					stop = True
+	# 					break
+	# 			elif isinstance(orclause.parts[k], conditions.NegatedAtom):
+	# 				if orclause.parts[k].negate() not in tmp_state_set:
+	# 					stop = True
+	# 					break
+	# 		if stop == False:
+	# 			remove = True
+	# 		if remove == True:
+	# 			if tmp_state_set in belief_state:
+	# 				index_to_remove.insert(0,i)						
+	# 				'''print "remove state"
+	# 				for atom in tmp_state_set:
+	# 					print atom
+	# 				print "because"
+	# 				orclause.dump()'''
+	# 				break
+	# for i in range(0, len(index_to_remove)):
+	# 	belief_state.pop(index_to_remove[i]) 
+	# print "size of belief state"
+	# print len(belief_state)
+	# '''for tmp_state_set in belief_state:
+	# 	print "state"
+	# 	for atom in tmp_state_set:
+	# 		print atom'''
+	# if len(belief_state) > 0:
+	# 	state_set = belief_state[0]
+	# 	for atom in state_set:
+	# 		initial.append(atom)
+	# '''oneofsize = 1
+	# for oneof in oneofs:
+	# 	oneofsize = oneofsize * len(oneof.parts)
+	# belief_state = {}
+	# exclude_list = []
+	# for n in range(0,oneofsize):
+	# 	for i in range(0,len(oneofs)):
+	# 		bucketsize = 1
+	# 		for j in range(i+1,len(oneofs)):
+	# 			bucketsize = bucketsize * len(oneofs[j].parts)
+	# 		index_i = (n / bucketsize) % len(oneofs[i].parts)
+	# 		oneof_valuename = oneofs[i].print_atom(index_i)
+	# 		oneof_valuename_str = str(oneof_valuename)
+	# 		skip_loop = false
+	# 		for var_no, var_key in enumerate(translation_key):
+	# 			for value, value_name in enumerate(var_key):
+	# 	    			if oneof_valuename_str.find(value_name) != -1: 
+	# 					if var_no in belief_state:
+	# 						if belief_state[var_no] = value:
 								
 								
 							
-						print >> belief_file, "var%d \n" % var_no,
-						print >> belief_file, "%d \n" % value,
-		print >> belief_file, "END_BELIEF"'''			
+	# 					print >> belief_file, "var%d \n" % var_no,
+	# 					print >> belief_file, "%d \n" % value,
+	# 	print >> belief_file, "END_BELIEF"'''			
 	
   else:
 	for oneof in oneofs: 

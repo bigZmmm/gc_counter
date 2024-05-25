@@ -277,6 +277,9 @@ int main(int argc, const char **argv) {
 			}else{
 				/*如果无解就换初始状态*/
 				cout<<"一开始就没有解！？"<<endl;
+				cout<<"no validplan found!"<<endl;
+				if(fail_time>0)
+				break;
 			}
 			/*为true说明找到了解，不用再遍历后面的解了*/
 			/*为false：1 plan中某个前置条件对于某个状态不满足，且没有subplan可以使其满足*/
@@ -408,7 +411,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 			/*如果前置条件和条件影响是相同的变量，则两个都检查，否则只需要检查前置条件*/
 			/*满足前置条件或者即满足前置条件，又满足条件影响*/
 			/**/
-			cout<<i<<"是否满足:"<<g_operators[j].is_conformant_applicable(*current_state)<<endl;
+			// cout<<i<<"是否满足:"<<g_operators[j].is_conformant_applicable(*current_state)<<endl;
 			if(g_operators[j].is_conformant_applicable(*current_state))
 			{
 				vector<pair <int, int> > sub_goal;
@@ -419,7 +422,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 				/*如果有一个的条件影响是不满足的，那么后面的都不再进行子目标的求解*/
 				/*？？？？*/
 				if(maintain_maximum == false) sub_goal.clear();				
-				cout<<!current_state->satisfy_subgoal(sub_goal)<<endl;
+				// cout<<!current_state->satisfy_subgoal(sub_goal)<<endl;
 				/*当前状态不满足这个子目标*/
 				if(!current_state->satisfy_subgoal(sub_goal))
 				{
@@ -608,6 +611,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	cout << "final plan: plan_size "<<plan.size()<< endl;
 	cout<<"iteration:"<<iteration<<endl;
 	cout<<"fail_time:"<<fail_time<<endl;
+	cout<<"counter time:"<<counter->getTotal_counter()/ 1000.0 << " seconds" << endl;
 	//ofstream outfile;       
 	outfile.open("C_Plan", ios::out);
 	int numberofactions = 0;

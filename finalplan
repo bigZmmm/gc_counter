@@ -1,120 +1,101 @@
+stack b a
+unstack d c
+unstack b a
+unstack b d
+unstack a b
+pick-up b
+unstack d b
+unstack c d
+unstack a c
+unstack b c
+unstack c a
+unstack d a
+put-down d
+unstack a b
+put-down a
+unstack b c
+put-down b
+pick-up c
+put-down c
+unstack a d
+pick-up a
+put-down a
+unstack c b
+pick-up c
+put-down c
+unstack b d
+unstack d b
+pick-up d
 put-down d
 pick-up b
-stack b a
+put-down b
+unstack c d
+pick-up c
+put-down c
+unstack d a
+pick-up d
+put-down d
+pick-up a
+put-down a
+unstack c d
+pick-up c
+put-down c
+unstack d b
+pick-up d
+put-down d
+unstack b a
+pick-up b
+put-down b
+unstack d a
+pick-up d
+put-down d
+unstack b a
+pick-up b
+put-down b
+unstack a c
+pick-up a
+put-down a
+unstack d b
+pick-up d
+put-down d
+unstack b c
+pick-up b
+put-down b
+unstack d c
+unstack a c
+pick-up a
+put-down a
+unstack c d
+pick-up c
+put-down c
+pick-up d
+put-down d
+unstack a b
+unstack c a
+pick-up c
+put-down c
+unstack a b
+pick-up a
+put-down a
+unstack b d
+pick-up b
+put-down b
+unstack a d
+pick-up a
+put-down a
+unstack d c
+pick-up d
+put-down d
 pick-up c
 stack c b
 pick-up d
 stack d c
-unstack d a
-unstack b d
-unstack b a
-unstack a b
 unstack d c
+put-down d
 unstack c b
-unstack c d
-unstack a c
-unstack a d
-unstack c a
 put-down c
-unstack a d
-put-down a
-unstack d b
-put-down d
-pick-up b
-put-down b
-unstack a c
-pick-up a
-put-down a
-unstack c b
-unstack d b
-unstack c d
-pick-up c
-put-down c
-pick-up d
-put-down d
-unstack b c
-pick-up b
-put-down b
-pick-up c
-put-down c
-unstack b d
-pick-up b
-put-down b
-pick-up d
-put-down d
-unstack a b
-pick-up a
-put-down a
-unstack d b
-unstack c d
-unstack b c
-pick-up b
-put-down b
-pick-up c
-put-down c
-unstack d b
-pick-up d
-put-down d
-pick-up a
-put-down a
-unstack c d
-unstack b c
-pick-up b
-put-down b
-unstack c d
-pick-up c
-put-down c
-unstack a d
-unstack b d
-unstack d b
-pick-up d
-put-down d
-unstack b a
-pick-up b
-put-down b
-unstack d a
-pick-up d
-put-down d
-pick-up a
-put-down a
-unstack d b
-pick-up d
-put-down d
-unstack c a
-pick-up c
-put-down c
-unstack a b
-pick-up a
-put-down a
-unstack b d
-pick-up b
-put-down b
-unstack d c
-unstack a d
-pick-up d
-put-down d
-pick-up a
-put-down a
-unstack d c
-pick-up d
-put-down d
-unstack a c
-pick-up a
-unstack c a
-put-down a
-pick-up c
-put-down c
-pick-up a
-put-down a
-unstack c b
-pick-up c
-put-down c
-pick-up d
-stack d c
 pick-up b
 stack b a
-unstack d c
-put-down d
 pick-up c
 stack c b
 pick-up d
