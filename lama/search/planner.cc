@@ -215,8 +215,7 @@ int main(int argc, const char **argv) {
 			// use -1 for none.
 			engine = new WAStarSearchEngine(wastar_weight, wastar_bound);  
 		/*默认这个，gclama并没有改变*/
-		else
-			engine = new BestFirstSearchEngine;
+		
 
 		print_heuristics_used(ff_heuristic, ff_preferred_operators, 
 					landmarks_heuristic, landmarks_preferred_operators);
@@ -232,13 +231,7 @@ int main(int argc, const char **argv) {
 					landmarks_preferred_operators);
 		*/
 		}
-		if(ff_heuristic || ff_preferred_operators) {
-		//	    if(!g_ff_heur)
-		//		g_ff_heur = new FFHeuristic;
-			/*修改了*/
-			engine->add_heuristic( ff_heuristic,
-					ff_preferred_operators);
-		} 
+		
 
 		// Search
 		int plan_cost = INT_MAX;
@@ -252,10 +245,18 @@ int main(int argc, const char **argv) {
 		g_initial_state->dump();
 		vector<const Operator *> Plan;
 		counter = new Counter();
-		counter->printfhello();
-		cout<<1111<<endl;
+		// counter->printfhello();
+		// cout<<1111<<endl;
 		counter->conputerCounter(Plan);
 		
+		engine = new BestFirstSearchEngine;
+		if(ff_heuristic || ff_preferred_operators) {
+		//	    if(!g_ff_heur)
+		//		g_ff_heur = new FFHeuristic;
+			/*修改了*/
+			engine->add_heuristic( ff_heuristic,
+					ff_preferred_operators);
+		} 
 		// counter->conputerCounter();
 		// delete counter;
 		fail_time=0;
@@ -263,10 +264,11 @@ int main(int argc, const char **argv) {
 		do {
 			// cout<<"第"<<j<<"次"<<endl;
 			/*这个和里面的不一样?里面能解决,这里不能解?*/
+			g_initial_state->dump();
 			engine->search();
 			
 			//times(&search_end);
-			g_initial_state->dump();
+			
 			if(engine->found_solution())
 			{
 				/*输出s0状态*/
@@ -380,7 +382,15 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	 for(;;){
 		iteration++;
 		cout<<"第"<<iteration<<"次迭代"<<endl;
+		
 		plan.insert(plan.end(),subplan.begin(),subplan.end());
+		cout<<"规划长度:"<<plan.size()<<endl;
+		
+		counter->optimizePlantest(plan);
+		plan.clear();
+		plan.insert(plan.end(),counter->newplan.begin(),counter->newplan.end());
+		counter->newplan.clear();
+
 		// cout<<"1.plan"<<endl;
 		// printPlan(plan);
 		/*判断是否还有反例*/
@@ -446,8 +456,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 						sub_plan = subsubengine->get_plan();
 						/*insert(a,b,c)  将b-c插入到a位置*/
 						plan.insert(plan.begin()+i,subsubengine->get_plan().begin(),subsubengine->get_plan().end());
-						cout<<"2.plan"<<endl;
-						printPlan(plan);
+						// cout<<"2.plan"<<endl;
+						// printPlan(plan);
 						if(g_display)
 						{
 							cout << "insert the following actions into plan--confor:" << endl;
@@ -519,8 +529,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 				sub_plan = subsubengine->get_plan();
 				/*将子plan插入第i个动作前*/
 				plan.insert(plan.begin()+i,subsubengine->get_plan().begin(),subsubengine->get_plan().end());
-				cout<<"3.plan"<<endl;
-				printPlan(sub_plan);
+				// cout<<"3.plan"<<endl;
+				// printPlan(sub_plan);
 				if(g_display)
 				{
 					cout << "insert the following actions into plan:" << endl;
@@ -550,8 +560,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 			cout << "check if we need to insert actions after the plan to satisfy goal" << endl;
 		}
 		/*当前状态*/
-		cout<<"当前状态"<<endl;
-		current_state->dump();
+		// cout<<"当前状态"<<endl;
+		// current_state->dump();
 		/*再找一遍，查看经过上面的操作后，最终能否到达目标状态*/
 		subsubengine = search_subplan(current_state,g_goal,true,true);
 		operateTimes++;
@@ -568,8 +578,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		
 		/*将新形成的plan与之前的plan连接*/
 		subplan.insert(subplan.end(),subsubengine->get_plan().begin(),subsubengine->get_plan().end());
-		cout<<"4.plan"<<endl;
-		printPlan(subplan);
+		// cout<<"4.plan"<<endl;
+		// printPlan(subplan);
 		/*此状态前满足的状态*/
 		
 		if(g_display)
@@ -594,6 +604,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		}
 		delete subsubengine;
 	}
+	
 	// plan.insert(plan.end(),subplan.begin(),subplan.end());
 	subplan.clear();
 	if(!valid_plan) return false;
@@ -605,7 +616,11 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		outfile << plan[k]->get_name() << endl;
     }
     outfile.close();     
-	
+	// counter->optimizePlan(plan);
+	// counter->optimizePlantest(plan);
+	// counter->conputerCounter(counter->newplan);
+	// counter->optimizePlan(counter->newplan);
+	cout<<"减："<<counter->sum<<endl;
 	cout<<"belief_size:"<<counter->getBelief_size()<<endl;
 	cout<<"operate size:"<<operateTimes<<endl;
 	cout << "final plan: plan_size "<<plan.size()<< endl;

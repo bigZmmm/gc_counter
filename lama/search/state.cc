@@ -115,7 +115,8 @@ State::State(const State &predecessor, const Operator &op)
     : vars(predecessor.vars), reached_lms(predecessor.reached_lms), 
       reached_lms_cost(predecessor.reached_lms_cost) {
     assert(!op.is_axiom());
-
+    
+    
     // Update values affected by operator.
     for(int i = 0; i < op.get_pre_post().size(); i++) {
         const PrePost &pre_post = op.get_pre_post()[i];
@@ -261,6 +262,21 @@ void State::assign(State s)  {
     //g_default_axiom_values = vars;
     g_value = s.g_value;
     reached_lms_cost = s.reached_lms_cost; 
+}
+
+bool State::isOneState(State s){
+    // cout<<"1231"<<endl;
+    bool isOne = true;
+    for(int i=0;i<g_variable_domain.size();i++){
+        // cout<<"111"<<endl;
+        // this->dump();
+        if(vars[i]!=s.vars[i]){
+            isOne = false;
+            break;
+        }
+    }
+    // cout<<isOne<<endl;
+    return isOne;
 }
 
 bool State::satisfy_subgoal(vector<pair <int, int> > sub_goal) const {

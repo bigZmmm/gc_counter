@@ -1,32 +1,37 @@
-Parsing... here!
-[0.000s CPU, 0.001s wall-clock]
+Parsing...   Atom obj_at(o1, p1_1)
+  Atom obj_at(o1, p1_1)
+  Atom obj_at(o2, p1_1)
+  Atom obj_at(o2, p1_1)
+  Atom obj_at(o3, p1_1)
+  Atom obj_at(o3, p1_1)
+[0.000s CPU, 0.008s wall-clock]
 1231
 
 Instantiating...
 Normalizing task... [0.000s CPU, 0.000s wall-clock]
-Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
 Normalizing Datalog program...
 Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
 Preparing model... [0.000s CPU, 0.001s wall-clock]
-Generated 27 rules.
-Computing model... [0.000s CPU, 0.002s wall-clock]
-102 relevant atoms
-88 auxiliary atoms
-190 final queue length
-805 total queue pushes
-Completing instantiation... [0.000s CPU, 0.002s wall-clock]
-Instantiating: [0.000s CPU, 0.007s wall-clock]
+Generated 15 rules.
+Computing model... [0.030s CPU, 0.024s wall-clock]
+1743 relevant atoms
+571 auxiliary atoms
+2314 final queue length
+32872 total queue pushes
+Completing instantiation... [0.000s CPU, 0.006s wall-clock]
+Instantiating: [0.030s CPU, 0.034s wall-clock]
 Computing fact groups...
-Finding invariants... 10 initial candidates
-[0.000s CPU, 0.001s wall-clock]
+Finding invariants... 9 initial candidates
+[0.000s CPU, 0.000s wall-clock]
 Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
-Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.001s wall-clock]
 Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
 Choosing groups...
-29 uncovered facts
-Choosing groups: [0.000s CPU, 0.000s wall-clock]
+0 uncovered facts
+Choosing groups: [0.010s CPU, 0.001s wall-clock]
 Building translation key... [0.000s CPU, 0.000s wall-clock]
-Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Computing fact groups: [0.010s CPU, 0.002s wall-clock]
 Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
 Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
 Building implied facts dictionary...... [0.000s CPU, 0.000s wall-clock]
@@ -34,287 +39,623 @@ Translating task...
 Processing axioms...
 Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
 Processing axioms: [0.000s CPU, 0.000s wall-clock]
-Translating task: [0.010s CPU, 0.002s wall-clock]
+Translating task: [0.000s CPU, 0.005s wall-clock]
 0 implied effects removed
 0 effect conditions simplified
 0 implied preconditions added
-Building mutex information... [0.000s CPU, 0.000s wall-clock]
+Building mutex information... [0.000s CPU, 0.001s wall-clock]
 Writing translation key... 111211
-  Disjunction
-    NegatedAtom on(a, b)
-    NegatedAtom on(b, a)
-2
-2
--1
-1
--1
-  Disjunction
-    NegatedAtom on(a, c)
-    NegatedAtom on(c, a)
-2
-5
--1
-14
--1
-  Disjunction
-    NegatedAtom on(a, d)
-    NegatedAtom on(d, a)
-2
-16
--1
-26
--1
-  Disjunction
-    NegatedAtom on(b, c)
-    NegatedAtom on(c, b)
-2
-17
--1
-0
--1
-  Disjunction
-    NegatedAtom on(b, d)
-    NegatedAtom on(d, b)
-2
-19
--1
-11
--1
-  Disjunction
-    NegatedAtom on(c, d)
-    NegatedAtom on(d, c)
-2
-8
--1
-7
--1
-  Disjunction
-    NegatedAtom on(a, b)
-    NegatedAtom on(b, c)
-    NegatedAtom on(c, a)
-3
-2
--1
-17
--1
-14
--1
-  Disjunction
-    NegatedAtom on(a, b)
-    NegatedAtom on(b, d)
-    NegatedAtom on(d, a)
-3
-2
--1
-19
--1
-26
--1
-  Disjunction
-    NegatedAtom on(a, c)
-    NegatedAtom on(c, b)
-    NegatedAtom on(b, a)
-3
-5
--1
-0
--1
-1
--1
-  Disjunction
-    NegatedAtom on(a, c)
-    NegatedAtom on(c, d)
-    NegatedAtom on(d, a)
-3
-5
--1
-8
--1
-26
--1
-  Disjunction
-    NegatedAtom on(a, d)
-    NegatedAtom on(d, b)
-    NegatedAtom on(b, a)
-3
-16
--1
-11
--1
-1
--1
-  Disjunction
-    NegatedAtom on(a, d)
-    NegatedAtom on(d, c)
-    NegatedAtom on(c, a)
-3
-16
--1
-7
--1
-14
--1
-  Disjunction
-    NegatedAtom on(b, c)
-    NegatedAtom on(c, d)
-    NegatedAtom on(d, b)
-3
-17
--1
-8
--1
-11
--1
-  Disjunction
-    NegatedAtom on(b, d)
-    NegatedAtom on(d, c)
-    NegatedAtom on(c, b)
-3
-19
--1
-7
--1
-0
--1
-  Disjunction
-    NegatedAtom on(a, b)
-    NegatedAtom on(b, c)
-    NegatedAtom on(c, d)
-    NegatedAtom on(d, a)
-4
-2
--1
-17
--1
-8
--1
-26
--1
-  Disjunction
-    NegatedAtom on(a, b)
-    NegatedAtom on(b, d)
-    NegatedAtom on(d, c)
-    NegatedAtom on(c, a)
-4
-2
--1
-19
--1
-7
--1
-14
--1
-  Disjunction
-    NegatedAtom on(a, c)
-    NegatedAtom on(c, b)
-    NegatedAtom on(b, d)
-    NegatedAtom on(d, a)
-4
-5
--1
-0
--1
-19
--1
-26
--1
-  Disjunction
-    NegatedAtom on(a, c)
-    NegatedAtom on(c, d)
-    NegatedAtom on(d, b)
-    NegatedAtom on(b, a)
-4
-5
--1
-8
--1
-11
--1
-1
--1
-  Disjunction
-    NegatedAtom on(a, d)
-    NegatedAtom on(d, b)
-    NegatedAtom on(b, c)
-    NegatedAtom on(c, a)
-4
-16
--1
-11
--1
-17
--1
-14
--1
-  Disjunction
-    NegatedAtom on(a, d)
-    NegatedAtom on(d, c)
-    NegatedAtom on(c, b)
-    NegatedAtom on(b, a)
-4
-16
--1
-7
--1
-0
--1
-1
--1
   Conjunction
-    Atom handempty()
-    Atom holding(a)
-    Atom holding(b)
-    Atom holding(c)
-    Atom holding(d)
+    Atom obj_at(o1, p1_1)
+    Atom obj_at(o1, p1_2)
+    Atom obj_at(o1, p1_3)
+    Atom obj_at(o1, p1_4)
+    Atom obj_at(o1, p1_5)
+    Atom obj_at(o1, p1_6)
+    Atom obj_at(o1, p1_7)
+    Atom obj_at(o1, p1_8)
+    Atom obj_at(o1, p1_9)
+    Atom obj_at(o1, p1_10)
+    Atom obj_at(o1, p2_1)
+    Atom obj_at(o1, p2_2)
+    Atom obj_at(o1, p2_3)
+    Atom obj_at(o1, p2_4)
+    Atom obj_at(o1, p2_5)
+    Atom obj_at(o1, p2_6)
+    Atom obj_at(o1, p2_7)
+    Atom obj_at(o1, p2_8)
+    Atom obj_at(o1, p2_9)
+    Atom obj_at(o1, p2_10)
+    Atom obj_at(o1, p3_1)
+    Atom obj_at(o1, p3_2)
+    Atom obj_at(o1, p3_3)
+    Atom obj_at(o1, p3_4)
+    Atom obj_at(o1, p3_5)
+    Atom obj_at(o1, p3_6)
+    Atom obj_at(o1, p3_7)
+    Atom obj_at(o1, p3_8)
+    Atom obj_at(o1, p3_9)
+    Atom obj_at(o1, p3_10)
+    Atom obj_at(o1, p4_1)
+    Atom obj_at(o1, p4_2)
+    Atom obj_at(o1, p4_3)
+    Atom obj_at(o1, p4_4)
+    Atom obj_at(o1, p4_5)
+    Atom obj_at(o1, p4_6)
+    Atom obj_at(o1, p4_7)
+    Atom obj_at(o1, p4_8)
+    Atom obj_at(o1, p4_9)
+    Atom obj_at(o1, p4_10)
+    Atom obj_at(o1, p5_1)
+    Atom obj_at(o1, p5_2)
+    Atom obj_at(o1, p5_3)
+    Atom obj_at(o1, p5_4)
+    Atom obj_at(o1, p5_5)
+    Atom obj_at(o1, p5_6)
+    Atom obj_at(o1, p5_7)
+    Atom obj_at(o1, p5_8)
+    Atom obj_at(o1, p5_9)
+    Atom obj_at(o1, p5_10)
+    Atom obj_at(o1, p6_1)
+    Atom obj_at(o1, p6_2)
+    Atom obj_at(o1, p6_3)
+    Atom obj_at(o1, p6_4)
+    Atom obj_at(o1, p6_5)
+    Atom obj_at(o1, p6_6)
+    Atom obj_at(o1, p6_7)
+    Atom obj_at(o1, p6_8)
+    Atom obj_at(o1, p6_9)
+    Atom obj_at(o1, p6_10)
+    Atom obj_at(o1, p7_1)
+    Atom obj_at(o1, p7_2)
+    Atom obj_at(o1, p7_3)
+    Atom obj_at(o1, p7_4)
+    Atom obj_at(o1, p7_5)
+    Atom obj_at(o1, p7_6)
+    Atom obj_at(o1, p7_7)
+    Atom obj_at(o1, p7_8)
+    Atom obj_at(o1, p7_9)
+    Atom obj_at(o1, p7_10)
+    Atom obj_at(o1, p8_1)
+    Atom obj_at(o1, p8_2)
+    Atom obj_at(o1, p8_3)
+    Atom obj_at(o1, p8_4)
+    Atom obj_at(o1, p8_5)
+    Atom obj_at(o1, p8_6)
+    Atom obj_at(o1, p8_7)
+    Atom obj_at(o1, p8_8)
+    Atom obj_at(o1, p8_9)
+    Atom obj_at(o1, p8_10)
+    Atom obj_at(o1, p9_1)
+    Atom obj_at(o1, p9_2)
+    Atom obj_at(o1, p9_3)
+    Atom obj_at(o1, p9_4)
+    Atom obj_at(o1, p9_5)
+    Atom obj_at(o1, p9_6)
+    Atom obj_at(o1, p9_7)
+    Atom obj_at(o1, p9_8)
+    Atom obj_at(o1, p9_9)
+    Atom obj_at(o1, p9_10)
+    Atom obj_at(o1, p10_1)
+    Atom obj_at(o1, p10_2)
+    Atom obj_at(o1, p10_3)
+    Atom obj_at(o1, p10_4)
+    Atom obj_at(o1, p10_5)
+    Atom obj_at(o1, p10_6)
+    Atom obj_at(o1, p10_7)
+    Atom obj_at(o1, p10_8)
+    Atom obj_at(o1, p10_9)
+    Atom obj_at(o1, p10_10)
   Conjunction
-    Atom holding(a)
-    Atom clear(a)
-    Atom on(b, a)
-    Atom on(c, a)
-    Atom on(d, a)
+    Atom obj_at(o2, p1_1)
+    Atom obj_at(o2, p1_2)
+    Atom obj_at(o2, p1_3)
+    Atom obj_at(o2, p1_4)
+    Atom obj_at(o2, p1_5)
+    Atom obj_at(o2, p1_6)
+    Atom obj_at(o2, p1_7)
+    Atom obj_at(o2, p1_8)
+    Atom obj_at(o2, p1_9)
+    Atom obj_at(o2, p1_10)
+    Atom obj_at(o2, p2_1)
+    Atom obj_at(o2, p2_2)
+    Atom obj_at(o2, p2_3)
+    Atom obj_at(o2, p2_4)
+    Atom obj_at(o2, p2_5)
+    Atom obj_at(o2, p2_6)
+    Atom obj_at(o2, p2_7)
+    Atom obj_at(o2, p2_8)
+    Atom obj_at(o2, p2_9)
+    Atom obj_at(o2, p2_10)
+    Atom obj_at(o2, p3_1)
+    Atom obj_at(o2, p3_2)
+    Atom obj_at(o2, p3_3)
+    Atom obj_at(o2, p3_4)
+    Atom obj_at(o2, p3_5)
+    Atom obj_at(o2, p3_6)
+    Atom obj_at(o2, p3_7)
+    Atom obj_at(o2, p3_8)
+    Atom obj_at(o2, p3_9)
+    Atom obj_at(o2, p3_10)
+    Atom obj_at(o2, p4_1)
+    Atom obj_at(o2, p4_2)
+    Atom obj_at(o2, p4_3)
+    Atom obj_at(o2, p4_4)
+    Atom obj_at(o2, p4_5)
+    Atom obj_at(o2, p4_6)
+    Atom obj_at(o2, p4_7)
+    Atom obj_at(o2, p4_8)
+    Atom obj_at(o2, p4_9)
+    Atom obj_at(o2, p4_10)
+    Atom obj_at(o2, p5_1)
+    Atom obj_at(o2, p5_2)
+    Atom obj_at(o2, p5_3)
+    Atom obj_at(o2, p5_4)
+    Atom obj_at(o2, p5_5)
+    Atom obj_at(o2, p5_6)
+    Atom obj_at(o2, p5_7)
+    Atom obj_at(o2, p5_8)
+    Atom obj_at(o2, p5_9)
+    Atom obj_at(o2, p5_10)
+    Atom obj_at(o2, p6_1)
+    Atom obj_at(o2, p6_2)
+    Atom obj_at(o2, p6_3)
+    Atom obj_at(o2, p6_4)
+    Atom obj_at(o2, p6_5)
+    Atom obj_at(o2, p6_6)
+    Atom obj_at(o2, p6_7)
+    Atom obj_at(o2, p6_8)
+    Atom obj_at(o2, p6_9)
+    Atom obj_at(o2, p6_10)
+    Atom obj_at(o2, p7_1)
+    Atom obj_at(o2, p7_2)
+    Atom obj_at(o2, p7_3)
+    Atom obj_at(o2, p7_4)
+    Atom obj_at(o2, p7_5)
+    Atom obj_at(o2, p7_6)
+    Atom obj_at(o2, p7_7)
+    Atom obj_at(o2, p7_8)
+    Atom obj_at(o2, p7_9)
+    Atom obj_at(o2, p7_10)
+    Atom obj_at(o2, p8_1)
+    Atom obj_at(o2, p8_2)
+    Atom obj_at(o2, p8_3)
+    Atom obj_at(o2, p8_4)
+    Atom obj_at(o2, p8_5)
+    Atom obj_at(o2, p8_6)
+    Atom obj_at(o2, p8_7)
+    Atom obj_at(o2, p8_8)
+    Atom obj_at(o2, p8_9)
+    Atom obj_at(o2, p8_10)
+    Atom obj_at(o2, p9_1)
+    Atom obj_at(o2, p9_2)
+    Atom obj_at(o2, p9_3)
+    Atom obj_at(o2, p9_4)
+    Atom obj_at(o2, p9_5)
+    Atom obj_at(o2, p9_6)
+    Atom obj_at(o2, p9_7)
+    Atom obj_at(o2, p9_8)
+    Atom obj_at(o2, p9_9)
+    Atom obj_at(o2, p9_10)
+    Atom obj_at(o2, p10_1)
+    Atom obj_at(o2, p10_2)
+    Atom obj_at(o2, p10_3)
+    Atom obj_at(o2, p10_4)
+    Atom obj_at(o2, p10_5)
+    Atom obj_at(o2, p10_6)
+    Atom obj_at(o2, p10_7)
+    Atom obj_at(o2, p10_8)
+    Atom obj_at(o2, p10_9)
+    Atom obj_at(o2, p10_10)
   Conjunction
-    Atom holding(a)
-    Atom ontable(a)
-    Atom on(a, b)
-    Atom on(a, c)
-    Atom on(a, d)
-  Conjunction
-    Atom holding(b)
-    Atom clear(b)
-    Atom on(a, b)
-    Atom on(c, b)
-    Atom on(d, b)
-  Conjunction
-    Atom holding(b)
-    Atom ontable(b)
-    Atom on(b, a)
-    Atom on(b, c)
-    Atom on(b, d)
-  Conjunction
-    Atom holding(c)
-    Atom clear(c)
-    Atom on(a, c)
-    Atom on(b, c)
-    Atom on(d, c)
-  Conjunction
-    Atom holding(c)
-    Atom ontable(c)
-    Atom on(c, a)
-    Atom on(c, b)
-    Atom on(c, d)
-  Conjunction
-    Atom holding(d)
-    Atom clear(d)
-    Atom on(a, d)
-    Atom on(b, d)
-    Atom on(c, d)
-  Conjunction
-    Atom holding(d)
-    Atom ontable(d)
-    Atom on(d, a)
-    Atom on(d, b)
-    Atom on(d, c)
-[0.000s CPU, 0.005s wall-clock]
-Writing mutex key... [0.000s CPU, 0.000s wall-clock]
-Writing output... [0.000s CPU, 0.001s wall-clock]
-Done! [0.010s CPU, 0.018s wall-clock]
+    Atom obj_at(o3, p1_1)
+    Atom obj_at(o3, p1_2)
+    Atom obj_at(o3, p1_3)
+    Atom obj_at(o3, p1_4)
+    Atom obj_at(o3, p1_5)
+    Atom obj_at(o3, p1_6)
+    Atom obj_at(o3, p1_7)
+    Atom obj_at(o3, p1_8)
+    Atom obj_at(o3, p1_9)
+    Atom obj_at(o3, p1_10)
+    Atom obj_at(o3, p2_1)
+    Atom obj_at(o3, p2_2)
+    Atom obj_at(o3, p2_3)
+    Atom obj_at(o3, p2_4)
+    Atom obj_at(o3, p2_5)
+    Atom obj_at(o3, p2_6)
+    Atom obj_at(o3, p2_7)
+    Atom obj_at(o3, p2_8)
+    Atom obj_at(o3, p2_9)
+    Atom obj_at(o3, p2_10)
+    Atom obj_at(o3, p3_1)
+    Atom obj_at(o3, p3_2)
+    Atom obj_at(o3, p3_3)
+    Atom obj_at(o3, p3_4)
+    Atom obj_at(o3, p3_5)
+    Atom obj_at(o3, p3_6)
+    Atom obj_at(o3, p3_7)
+    Atom obj_at(o3, p3_8)
+    Atom obj_at(o3, p3_9)
+    Atom obj_at(o3, p3_10)
+    Atom obj_at(o3, p4_1)
+    Atom obj_at(o3, p4_2)
+    Atom obj_at(o3, p4_3)
+    Atom obj_at(o3, p4_4)
+    Atom obj_at(o3, p4_5)
+    Atom obj_at(o3, p4_6)
+    Atom obj_at(o3, p4_7)
+    Atom obj_at(o3, p4_8)
+    Atom obj_at(o3, p4_9)
+    Atom obj_at(o3, p4_10)
+    Atom obj_at(o3, p5_1)
+    Atom obj_at(o3, p5_2)
+    Atom obj_at(o3, p5_3)
+    Atom obj_at(o3, p5_4)
+    Atom obj_at(o3, p5_5)
+    Atom obj_at(o3, p5_6)
+    Atom obj_at(o3, p5_7)
+    Atom obj_at(o3, p5_8)
+    Atom obj_at(o3, p5_9)
+    Atom obj_at(o3, p5_10)
+    Atom obj_at(o3, p6_1)
+    Atom obj_at(o3, p6_2)
+    Atom obj_at(o3, p6_3)
+    Atom obj_at(o3, p6_4)
+    Atom obj_at(o3, p6_5)
+    Atom obj_at(o3, p6_6)
+    Atom obj_at(o3, p6_7)
+    Atom obj_at(o3, p6_8)
+    Atom obj_at(o3, p6_9)
+    Atom obj_at(o3, p6_10)
+    Atom obj_at(o3, p7_1)
+    Atom obj_at(o3, p7_2)
+    Atom obj_at(o3, p7_3)
+    Atom obj_at(o3, p7_4)
+    Atom obj_at(o3, p7_5)
+    Atom obj_at(o3, p7_6)
+    Atom obj_at(o3, p7_7)
+    Atom obj_at(o3, p7_8)
+    Atom obj_at(o3, p7_9)
+    Atom obj_at(o3, p7_10)
+    Atom obj_at(o3, p8_1)
+    Atom obj_at(o3, p8_2)
+    Atom obj_at(o3, p8_3)
+    Atom obj_at(o3, p8_4)
+    Atom obj_at(o3, p8_5)
+    Atom obj_at(o3, p8_6)
+    Atom obj_at(o3, p8_7)
+    Atom obj_at(o3, p8_8)
+    Atom obj_at(o3, p8_9)
+    Atom obj_at(o3, p8_10)
+    Atom obj_at(o3, p9_1)
+    Atom obj_at(o3, p9_2)
+    Atom obj_at(o3, p9_3)
+    Atom obj_at(o3, p9_4)
+    Atom obj_at(o3, p9_5)
+    Atom obj_at(o3, p9_6)
+    Atom obj_at(o3, p9_7)
+    Atom obj_at(o3, p9_8)
+    Atom obj_at(o3, p9_9)
+    Atom obj_at(o3, p9_10)
+    Atom obj_at(o3, p10_1)
+    Atom obj_at(o3, p10_2)
+    Atom obj_at(o3, p10_3)
+    Atom obj_at(o3, p10_4)
+    Atom obj_at(o3, p10_5)
+    Atom obj_at(o3, p10_6)
+    Atom obj_at(o3, p10_7)
+    Atom obj_at(o3, p10_8)
+    Atom obj_at(o3, p10_9)
+    Atom obj_at(o3, p10_10)
+Detect oneof combinable... True
+[0.000s CPU, 0.001s wall-clock]
+maxlen: 100
+ONEOFS:
+oneof(
+((' Atom obj_at(o1, p1_1)',),),
+((' Atom obj_at(o1, p1_2)',),),
+((' Atom obj_at(o1, p1_3)',),),
+((' Atom obj_at(o1, p1_4)',),),
+((' Atom obj_at(o1, p1_5)',),),
+((' Atom obj_at(o1, p1_6)',),),
+((' Atom obj_at(o1, p1_7)',),),
+((' Atom obj_at(o1, p1_8)',),),
+((' Atom obj_at(o1, p1_9)',),),
+((' Atom obj_at(o1, p1_10)',),),
+((' Atom obj_at(o1, p2_1)',),),
+((' Atom obj_at(o1, p2_2)',),),
+((' Atom obj_at(o1, p2_3)',),),
+((' Atom obj_at(o1, p2_4)',),),
+((' Atom obj_at(o1, p2_5)',),),
+((' Atom obj_at(o1, p2_6)',),),
+((' Atom obj_at(o1, p2_7)',),),
+((' Atom obj_at(o1, p2_8)',),),
+((' Atom obj_at(o1, p2_9)',),),
+((' Atom obj_at(o1, p2_10)',),),
+((' Atom obj_at(o1, p3_1)',),),
+((' Atom obj_at(o1, p3_2)',),),
+((' Atom obj_at(o1, p3_3)',),),
+((' Atom obj_at(o1, p3_4)',),),
+((' Atom obj_at(o1, p3_5)',),),
+((' Atom obj_at(o1, p3_6)',),),
+((' Atom obj_at(o1, p3_7)',),),
+((' Atom obj_at(o1, p3_8)',),),
+((' Atom obj_at(o1, p3_9)',),),
+((' Atom obj_at(o1, p3_10)',),),
+((' Atom obj_at(o1, p4_1)',),),
+((' Atom obj_at(o1, p4_2)',),),
+((' Atom obj_at(o1, p4_3)',),),
+((' Atom obj_at(o1, p4_4)',),),
+((' Atom obj_at(o1, p4_5)',),),
+((' Atom obj_at(o1, p4_6)',),),
+((' Atom obj_at(o1, p4_7)',),),
+((' Atom obj_at(o1, p4_8)',),),
+((' Atom obj_at(o1, p4_9)',),),
+((' Atom obj_at(o1, p4_10)',),),
+((' Atom obj_at(o1, p5_1)',),),
+((' Atom obj_at(o1, p5_2)',),),
+((' Atom obj_at(o1, p5_3)',),),
+((' Atom obj_at(o1, p5_4)',),),
+((' Atom obj_at(o1, p5_5)',),),
+((' Atom obj_at(o1, p5_6)',),),
+((' Atom obj_at(o1, p5_7)',),),
+((' Atom obj_at(o1, p5_8)',),),
+((' Atom obj_at(o1, p5_9)',),),
+((' Atom obj_at(o1, p5_10)',),),
+((' Atom obj_at(o1, p6_1)',),),
+((' Atom obj_at(o1, p6_2)',),),
+((' Atom obj_at(o1, p6_3)',),),
+((' Atom obj_at(o1, p6_4)',),),
+((' Atom obj_at(o1, p6_5)',),),
+((' Atom obj_at(o1, p6_6)',),),
+((' Atom obj_at(o1, p6_7)',),),
+((' Atom obj_at(o1, p6_8)',),),
+((' Atom obj_at(o1, p6_9)',),),
+((' Atom obj_at(o1, p6_10)',),),
+((' Atom obj_at(o1, p7_1)',),),
+((' Atom obj_at(o1, p7_2)',),),
+((' Atom obj_at(o1, p7_3)',),),
+((' Atom obj_at(o1, p7_4)',),),
+((' Atom obj_at(o1, p7_5)',),),
+((' Atom obj_at(o1, p7_6)',),),
+((' Atom obj_at(o1, p7_7)',),),
+((' Atom obj_at(o1, p7_8)',),),
+((' Atom obj_at(o1, p7_9)',),),
+((' Atom obj_at(o1, p7_10)',),),
+((' Atom obj_at(o1, p8_1)',),),
+((' Atom obj_at(o1, p8_2)',),),
+((' Atom obj_at(o1, p8_3)',),),
+((' Atom obj_at(o1, p8_4)',),),
+((' Atom obj_at(o1, p8_5)',),),
+((' Atom obj_at(o1, p8_6)',),),
+((' Atom obj_at(o1, p8_7)',),),
+((' Atom obj_at(o1, p8_8)',),),
+((' Atom obj_at(o1, p8_9)',),),
+((' Atom obj_at(o1, p8_10)',),),
+((' Atom obj_at(o1, p9_1)',),),
+((' Atom obj_at(o1, p9_2)',),),
+((' Atom obj_at(o1, p9_3)',),),
+((' Atom obj_at(o1, p9_4)',),),
+((' Atom obj_at(o1, p9_5)',),),
+((' Atom obj_at(o1, p9_6)',),),
+((' Atom obj_at(o1, p9_7)',),),
+((' Atom obj_at(o1, p9_8)',),),
+((' Atom obj_at(o1, p9_9)',),),
+((' Atom obj_at(o1, p9_10)',),),
+((' Atom obj_at(o1, p10_1)',),),
+((' Atom obj_at(o1, p10_2)',),),
+((' Atom obj_at(o1, p10_3)',),),
+((' Atom obj_at(o1, p10_4)',),),
+((' Atom obj_at(o1, p10_5)',),),
+((' Atom obj_at(o1, p10_6)',),),
+((' Atom obj_at(o1, p10_7)',),),
+((' Atom obj_at(o1, p10_8)',),),
+((' Atom obj_at(o1, p10_9)',),),
+((' Atom obj_at(o1, p10_10)',),)
+oneof(
+((' Atom obj_at(o2, p1_1)',),),
+((' Atom obj_at(o2, p1_2)',),),
+((' Atom obj_at(o2, p1_3)',),),
+((' Atom obj_at(o2, p1_4)',),),
+((' Atom obj_at(o2, p1_5)',),),
+((' Atom obj_at(o2, p1_6)',),),
+((' Atom obj_at(o2, p1_7)',),),
+((' Atom obj_at(o2, p1_8)',),),
+((' Atom obj_at(o2, p1_9)',),),
+((' Atom obj_at(o2, p1_10)',),),
+((' Atom obj_at(o2, p2_1)',),),
+((' Atom obj_at(o2, p2_2)',),),
+((' Atom obj_at(o2, p2_3)',),),
+((' Atom obj_at(o2, p2_4)',),),
+((' Atom obj_at(o2, p2_5)',),),
+((' Atom obj_at(o2, p2_6)',),),
+((' Atom obj_at(o2, p2_7)',),),
+((' Atom obj_at(o2, p2_8)',),),
+((' Atom obj_at(o2, p2_9)',),),
+((' Atom obj_at(o2, p2_10)',),),
+((' Atom obj_at(o2, p3_1)',),),
+((' Atom obj_at(o2, p3_2)',),),
+((' Atom obj_at(o2, p3_3)',),),
+((' Atom obj_at(o2, p3_4)',),),
+((' Atom obj_at(o2, p3_5)',),),
+((' Atom obj_at(o2, p3_6)',),),
+((' Atom obj_at(o2, p3_7)',),),
+((' Atom obj_at(o2, p3_8)',),),
+((' Atom obj_at(o2, p3_9)',),),
+((' Atom obj_at(o2, p3_10)',),),
+((' Atom obj_at(o2, p4_1)',),),
+((' Atom obj_at(o2, p4_2)',),),
+((' Atom obj_at(o2, p4_3)',),),
+((' Atom obj_at(o2, p4_4)',),),
+((' Atom obj_at(o2, p4_5)',),),
+((' Atom obj_at(o2, p4_6)',),),
+((' Atom obj_at(o2, p4_7)',),),
+((' Atom obj_at(o2, p4_8)',),),
+((' Atom obj_at(o2, p4_9)',),),
+((' Atom obj_at(o2, p4_10)',),),
+((' Atom obj_at(o2, p5_1)',),),
+((' Atom obj_at(o2, p5_2)',),),
+((' Atom obj_at(o2, p5_3)',),),
+((' Atom obj_at(o2, p5_4)',),),
+((' Atom obj_at(o2, p5_5)',),),
+((' Atom obj_at(o2, p5_6)',),),
+((' Atom obj_at(o2, p5_7)',),),
+((' Atom obj_at(o2, p5_8)',),),
+((' Atom obj_at(o2, p5_9)',),),
+((' Atom obj_at(o2, p5_10)',),),
+((' Atom obj_at(o2, p6_1)',),),
+((' Atom obj_at(o2, p6_2)',),),
+((' Atom obj_at(o2, p6_3)',),),
+((' Atom obj_at(o2, p6_4)',),),
+((' Atom obj_at(o2, p6_5)',),),
+((' Atom obj_at(o2, p6_6)',),),
+((' Atom obj_at(o2, p6_7)',),),
+((' Atom obj_at(o2, p6_8)',),),
+((' Atom obj_at(o2, p6_9)',),),
+((' Atom obj_at(o2, p6_10)',),),
+((' Atom obj_at(o2, p7_1)',),),
+((' Atom obj_at(o2, p7_2)',),),
+((' Atom obj_at(o2, p7_3)',),),
+((' Atom obj_at(o2, p7_4)',),),
+((' Atom obj_at(o2, p7_5)',),),
+((' Atom obj_at(o2, p7_6)',),),
+((' Atom obj_at(o2, p7_7)',),),
+((' Atom obj_at(o2, p7_8)',),),
+((' Atom obj_at(o2, p7_9)',),),
+((' Atom obj_at(o2, p7_10)',),),
+((' Atom obj_at(o2, p8_1)',),),
+((' Atom obj_at(o2, p8_2)',),),
+((' Atom obj_at(o2, p8_3)',),),
+((' Atom obj_at(o2, p8_4)',),),
+((' Atom obj_at(o2, p8_5)',),),
+((' Atom obj_at(o2, p8_6)',),),
+((' Atom obj_at(o2, p8_7)',),),
+((' Atom obj_at(o2, p8_8)',),),
+((' Atom obj_at(o2, p8_9)',),),
+((' Atom obj_at(o2, p8_10)',),),
+((' Atom obj_at(o2, p9_1)',),),
+((' Atom obj_at(o2, p9_2)',),),
+((' Atom obj_at(o2, p9_3)',),),
+((' Atom obj_at(o2, p9_4)',),),
+((' Atom obj_at(o2, p9_5)',),),
+((' Atom obj_at(o2, p9_6)',),),
+((' Atom obj_at(o2, p9_7)',),),
+((' Atom obj_at(o2, p9_8)',),),
+((' Atom obj_at(o2, p9_9)',),),
+((' Atom obj_at(o2, p9_10)',),),
+((' Atom obj_at(o2, p10_1)',),),
+((' Atom obj_at(o2, p10_2)',),),
+((' Atom obj_at(o2, p10_3)',),),
+((' Atom obj_at(o2, p10_4)',),),
+((' Atom obj_at(o2, p10_5)',),),
+((' Atom obj_at(o2, p10_6)',),),
+((' Atom obj_at(o2, p10_7)',),),
+((' Atom obj_at(o2, p10_8)',),),
+((' Atom obj_at(o2, p10_9)',),),
+((' Atom obj_at(o2, p10_10)',),)
+oneof(
+((' Atom obj_at(o3, p1_1)',),),
+((' Atom obj_at(o3, p1_2)',),),
+((' Atom obj_at(o3, p1_3)',),),
+((' Atom obj_at(o3, p1_4)',),),
+((' Atom obj_at(o3, p1_5)',),),
+((' Atom obj_at(o3, p1_6)',),),
+((' Atom obj_at(o3, p1_7)',),),
+((' Atom obj_at(o3, p1_8)',),),
+((' Atom obj_at(o3, p1_9)',),),
+((' Atom obj_at(o3, p1_10)',),),
+((' Atom obj_at(o3, p2_1)',),),
+((' Atom obj_at(o3, p2_2)',),),
+((' Atom obj_at(o3, p2_3)',),),
+((' Atom obj_at(o3, p2_4)',),),
+((' Atom obj_at(o3, p2_5)',),),
+((' Atom obj_at(o3, p2_6)',),),
+((' Atom obj_at(o3, p2_7)',),),
+((' Atom obj_at(o3, p2_8)',),),
+((' Atom obj_at(o3, p2_9)',),),
+((' Atom obj_at(o3, p2_10)',),),
+((' Atom obj_at(o3, p3_1)',),),
+((' Atom obj_at(o3, p3_2)',),),
+((' Atom obj_at(o3, p3_3)',),),
+((' Atom obj_at(o3, p3_4)',),),
+((' Atom obj_at(o3, p3_5)',),),
+((' Atom obj_at(o3, p3_6)',),),
+((' Atom obj_at(o3, p3_7)',),),
+((' Atom obj_at(o3, p3_8)',),),
+((' Atom obj_at(o3, p3_9)',),),
+((' Atom obj_at(o3, p3_10)',),),
+((' Atom obj_at(o3, p4_1)',),),
+((' Atom obj_at(o3, p4_2)',),),
+((' Atom obj_at(o3, p4_3)',),),
+((' Atom obj_at(o3, p4_4)',),),
+((' Atom obj_at(o3, p4_5)',),),
+((' Atom obj_at(o3, p4_6)',),),
+((' Atom obj_at(o3, p4_7)',),),
+((' Atom obj_at(o3, p4_8)',),),
+((' Atom obj_at(o3, p4_9)',),),
+((' Atom obj_at(o3, p4_10)',),),
+((' Atom obj_at(o3, p5_1)',),),
+((' Atom obj_at(o3, p5_2)',),),
+((' Atom obj_at(o3, p5_3)',),),
+((' Atom obj_at(o3, p5_4)',),),
+((' Atom obj_at(o3, p5_5)',),),
+((' Atom obj_at(o3, p5_6)',),),
+((' Atom obj_at(o3, p5_7)',),),
+((' Atom obj_at(o3, p5_8)',),),
+((' Atom obj_at(o3, p5_9)',),),
+((' Atom obj_at(o3, p5_10)',),),
+((' Atom obj_at(o3, p6_1)',),),
+((' Atom obj_at(o3, p6_2)',),),
+((' Atom obj_at(o3, p6_3)',),),
+((' Atom obj_at(o3, p6_4)',),),
+((' Atom obj_at(o3, p6_5)',),),
+((' Atom obj_at(o3, p6_6)',),),
+((' Atom obj_at(o3, p6_7)',),),
+((' Atom obj_at(o3, p6_8)',),),
+((' Atom obj_at(o3, p6_9)',),),
+((' Atom obj_at(o3, p6_10)',),),
+((' Atom obj_at(o3, p7_1)',),),
+((' Atom obj_at(o3, p7_2)',),),
+((' Atom obj_at(o3, p7_3)',),),
+((' Atom obj_at(o3, p7_4)',),),
+((' Atom obj_at(o3, p7_5)',),),
+((' Atom obj_at(o3, p7_6)',),),
+((' Atom obj_at(o3, p7_7)',),),
+((' Atom obj_at(o3, p7_8)',),),
+((' Atom obj_at(o3, p7_9)',),),
+((' Atom obj_at(o3, p7_10)',),),
+((' Atom obj_at(o3, p8_1)',),),
+((' Atom obj_at(o3, p8_2)',),),
+((' Atom obj_at(o3, p8_3)',),),
+((' Atom obj_at(o3, p8_4)',),),
+((' Atom obj_at(o3, p8_5)',),),
+((' Atom obj_at(o3, p8_6)',),),
+((' Atom obj_at(o3, p8_7)',),),
+((' Atom obj_at(o3, p8_8)',),),
+((' Atom obj_at(o3, p8_9)',),),
+((' Atom obj_at(o3, p8_10)',),),
+((' Atom obj_at(o3, p9_1)',),),
+((' Atom obj_at(o3, p9_2)',),),
+((' Atom obj_at(o3, p9_3)',),),
+((' Atom obj_at(o3, p9_4)',),),
+((' Atom obj_at(o3, p9_5)',),),
+((' Atom obj_at(o3, p9_6)',),),
+((' Atom obj_at(o3, p9_7)',),),
+((' Atom obj_at(o3, p9_8)',),),
+((' Atom obj_at(o3, p9_9)',),),
+((' Atom obj_at(o3, p9_10)',),),
+((' Atom obj_at(o3, p10_1)',),),
+((' Atom obj_at(o3, p10_2)',),),
+((' Atom obj_at(o3, p10_3)',),),
+((' Atom obj_at(o3, p10_4)',),),
+((' Atom obj_at(o3, p10_5)',),),
+((' Atom obj_at(o3, p10_6)',),),
+((' Atom obj_at(o3, p10_7)',),),
+((' Atom obj_at(o3, p10_8)',),),
+((' Atom obj_at(o3, p10_9)',),),
+((' Atom obj_at(o3, p10_10)',),)
+[0.020s CPU, 0.025s wall-clock]
+Writing mutex key... [0.000s CPU, 0.001s wall-clock]
+Writing output... [0.010s CPU, 0.001s wall-clock]
+Done! [0.070s CPU, 0.078s wall-clock]

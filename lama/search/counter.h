@@ -38,15 +38,35 @@ struct ONEOFS
     }
 };
 
+struct state_var{
+    vector<int> vars; 
+    int frequency;
+};
 
 class Counter
 {
+public:
     typedef std::vector<const Operator *> Plan;
     ONEOFS oneofs;
+    int sum;
+    Plan newplan;
+    
     set<string> variables;
+    vector<State*> counterset;
+    vector<vector<State*>> planSet;
+
+    vector<state_var> counterset_new;
+    vector<string> everyplanvarset; 
+
     map<int,int> indextovar;
     long long belief_size;
     map<pair<int,int>,vector<PrePost>> axiomtovar;
+    
+    /*处理过的反例,如果重复三次处理这个,那么不再处理它,直到没有找到反例,再把他们放出来
+    考虑最后怎么放,一次性放完,或者是一个个放
+    */
+    map<string,state_var> appearcounter;
+    
     string init_smt;
     string regret_smt;
     string smt;
@@ -106,7 +126,6 @@ public:
             }
         }
 
-
         // if(oneofs.type==3)
         //     cout<<"ONEOF:";
         // for(int i=0;i<oneofs.lens;i++){
@@ -138,6 +157,8 @@ public:
     void addRestraintToTime0();
     void addAxiomSmt(pair<int,int> vari,string *pre_smt,int timestep);
     void regretCurFact(const Operator *a,set<string> *preference_var,pair<int,int> now_facts,set<pair<int,int> > *new_facts,int time_stept);
+    void optimizePlan(Plan plan);
+    void optimizePlantest(Plan plan);
     void clearAll(){
         init_smt.clear();
         init_smt.shrink_to_fit();

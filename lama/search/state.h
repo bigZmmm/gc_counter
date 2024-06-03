@@ -86,6 +86,7 @@ public:
 
     //addin
     void assign(State s);
+    bool isOneState(State s);
 
     void dump() const;
     bool operator<(const State &other) const;

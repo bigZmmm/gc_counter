@@ -15,6 +15,7 @@
 #include <string>
 #include <utility>
 #include "z3_counter.h"
+#include "state.h"
 using namespace std;
 
 string Counter::varToSmt(int var,int l,int i){
@@ -38,8 +39,92 @@ string Counter::varToSmt(int var,int l,int i){
     return g_variable_name[var]+"-"+a+"-"+b;
 }
 
+string stateToString(State* s){
+    string tmp = "";
+    for(int i=0;i<s->vars.size();i++){
+        if(s->vars[i]!=(g_variable_domain[i]-1)){
+            tmp+=to_string(i);
+            tmp+="-";
+            tmp+=to_string(s->vars[i]);
+            tmp+='.';
+        }
+    }
+    return tmp;
+}
+
+string stateToString2(state_var s){
+    string tmp = "";
+    for(int i=0;i<s.vars.size();i++){
+        if(s.vars[i]!=(g_variable_domain[i]-1)){
+            tmp+=to_string(i);
+            tmp+="-";
+            tmp+=to_string(s.vars[i]);
+            tmp+='.';
+        }
+    }
+    return tmp;
+}
+
+/*状态后移*/
+void applyAction(state_var *predecessor, const Operator &op){
+    /*test*/
+    // for(int i=0;i<predecessor->vars.size();i++){
+    //     cout<<g_variable_name[i]<<"-"<<predecessor->vars[i]<<endl;
+    // }
+
+    vector<Prevail> prevail = op.get_prevail();
+    vector<PrePost> prepost = op.get_pre_post();
+    
+    bool isApply =true;
+    /*第一步判断是否满足前置条件*/
+    if(prevail.size()==0)
+        isApply = true;
+    else{
+        for(int i=0;i<prevail.size();i++){
+            if(prevail[i].prev!=predecessor->vars[prevail[i].var]){
+                isApply = false;
+                break;
+            }
+        }
+    }
+
+    //第二步,根据prepost,赋予新值
+    vector<pair<int,int>> changevar;
+    if(isApply)
+    for(int i = 0; i < prepost.size(); i++) {
+        int flag=true;
+        for(int j = 0; j < prepost[i].cond.size(); j++){
+            /*test*/
+            // cout<<prepost[i].cond[j].prev<<"条件--状态"<<predecessor->vars[prepost[i].cond[j].var]<<endl;
+            if(prepost[i].cond[j].prev!=predecessor->vars[prepost[i].cond[j].var]){
+                flag=false;
+                break;
+            }
+        }
+        if((prepost[i].pre!=-1)&&(prepost[i].pre!=predecessor->vars[prepost[i].var]))
+            flag=false;
+        if(flag){
+            // predecessor->vars[prepost[i].var] = prepost[i].post;
+            changevar.push_back(pair<int,int>(prepost[i].var,prepost[i].post));
+            /*test*/
+            // cout<<"要改变的变量"<<i<<g_variable_name[prepost[i].var]<<"为"<<prepost[i].post<<endl;
+        }
+    }
+    for(int i=0;i<changevar.size();i++){
+        predecessor->vars[changevar[i].first] = changevar[i].second;
+    }
+    /*test*/
+    // cout<<"动作后"<<endl;
+    // for(int i=0;i<predecessor->vars.size();i++){
+    //     cout<<g_variable_name[i]<<"-"<<predecessor->vars[i]<<endl;
+    // }
+
+}
+
+
 Counter::Counter(){
     struct tms start, end;
+    sum=0;
     total_counter=0;
     times(&start);
     /*找到vari与var对应下标*/
@@ -164,13 +249,13 @@ Counter::Counter(){
     cout<<"axiom"<<endl;
     for(auto ot : axiomtovar){
         for(int i=0;i<ot.second.size();i++){
-            // cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
+            cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
             for(int j=0;j<ot.second[i].cond.size();j++){
-                // cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
+                cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
             }
-            // cout<<")"<<endl;
+            cout<<")"<<endl;
         }
-        // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+        cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
     }
     // for(int i = 0 ; i < g_variable_name.size() ; i++){
     //     cout<<indextovar[i]<<" "<<i<<endl;
@@ -178,6 +263,225 @@ Counter::Counter(){
     times(&end);
     int total_ms = (end.tms_utime - start.tms_utime) * 10;
     total_counter+=total_ms;
+}
+
+void Counter::optimizePlan(Plan plan){
+    /*test*/
+    // cout<<"修改前规划长度:"<<plan.size()<<endl;
+    // for(int i=0;i<plan.size();i++){
+    //     cout<<plan[i]->get_name()<<" ";        
+    // }
+    int plansize = plan.size(),countersize = counterset.size();
+    int planrepeat[plansize+10]={0};
+    /*test*/
+    for(int i=counterset.size()-1;i>counterset.size()-3;i--){
+        cout<<i<<"次"<<endl;
+        counterset[i]->dump();
+        cout<<stateToString(counterset[i])<<endl;
+    }
+    planSet.push_back(counterset);
+    int now = 0;
+    for(int i=0;i<plansize;i++){
+        vector<State*> curCounterset;
+         /*所有的状态后移*/
+        // cout<<plan[i]->get_name()<<":"<<endl;
+        for(int j=0;j<countersize;j++){
+            State* curState = new State();
+            int h;
+            for(h=0;h<g_operators.size();h++)
+            {
+                if(g_operators[h].get_name().compare(plan[i]->get_name()) == 0) break;
+            }
+            // curState = new State(*planSet[i][j],g_operators[h]);
+            // planSet[i][j]->dump();
+            curState->assign(State(*planSet[i][j],g_operators[h]));
+            // curState->dump();
+            // planSet[i][j]->dump();
+            // planSet[i][j]->dump();
+            curCounterset.push_back(curState);
+        }
+        planSet.push_back(curCounterset);
+        /*后移后，判断是否有与之前相同的状态*/
+        // cout<<"size:"<<curCounterset.size()<<endl;
+        for(int j=0;j<=i;j++){
+            /*每次规划中的都要遍历一次*/
+            bool isidentical = true;
+            for(int k=0;k<countersize;k++){
+                // curCounterset[k]->dump();
+                // cout<<curCounterset[k]->isOneState(*planSet[j][k])<<endl;
+                if(!curCounterset[k]->isOneState(*planSet[j][k])){
+                    isidentical=false;
+                    break;
+                }
+            }
+            if(isidentical){
+                cout<<"这里有相同的状态"<<j<<"->"<<(i+1)<<endl;
+                planrepeat[j]=i+1;
+                now++;
+            }
+        }
+    }
+    
+    /*test*/
+    // for(int i=0;i<countersize;i++){
+    //     cout<<i<<endl;
+    //     planSet[plansize][i]->dump();
+    // }
+
+    for(int i=0;i<plansize+1;i++){
+        string tmp="";
+        for(int j=0;j<countersize;j++){
+            tmp+=stateToString(planSet[i][j]);
+        }
+        cout<<tmp<<endl;
+    }
+
+    for(int i=0;i<plansize+1;i++){
+        cout<<planrepeat[i]<<" ";
+    }
+    for(int i=0;i<plansize+1;i++){
+        if(i>0){
+            newplan.push_back(plan[i-1]);
+        }
+        /*将动作往后移动*/
+        while(planrepeat[i]>i){
+            i = planrepeat[i];
+        }  
+
+    }
+    cout<<"重复的次数："<<now<<endl;
+    sum+=now;
+    // cout<<endl;
+    // conputerCounter(newplan);
+
+    for(int i=0;i<planSet.size();i++){
+        // State* curState;
+        // for(int j=0;j<planSet[i].size();j++){
+        //     curState =planSet[i][j];
+        //     delete curState;
+        // }
+        planSet[i].clear();
+        planSet[i].shrink_to_fit();
+    }
+    planSet.clear();
+    planSet.shrink_to_fit();
+
+}
+
+void Counter::optimizePlantest(Plan plan){
+    /*test*/
+    // cout<<"修改前规划长度:"<<plan.size()<<endl;
+    // for(int i=0;i<plan.size();i++){
+    //     cout<<plan[i]->get_name()<<" ";        
+    // }
+    // 初始反例集要和map中的一样
+    
+    int plansize = plan.size(),countersize = counterset_new.size();
+    int planrepeat[plansize+10]={0};
+    vector<state_var> curStates;
+    curStates = counterset_new;
+    string statesstring="";
+    
+    for(int i=0;i<countersize;i++){
+        statesstring+=stateToString2(curStates[i]);
+    }
+    cout<<statesstring<<endl;
+    everyplanvarset.push_back(statesstring);
+    statesstring="";
+    
+    /*test*/
+    // for(int i=counterset.size()-1;i>counterset.size()-3;i--){
+    //     cout<<i<<"次"<<endl;
+    //     counterset[i]->dump();
+    //     cout<<stateToString(counterset[i])<<endl;
+    // }
+    // planSet.push_back(counterset);
+    int now = 0;
+    for(int i=0;i<plansize;i++){
+        // vector<State*> curCounterset;
+         /*所有的状态后移*/
+        // cout<<plan[i]->get_name()<<":"<<endl;
+        for(int j=0;j<countersize;j++){
+            int h;
+            for(h=0;h<g_operators.size();h++)
+            {
+                if(g_operators[h].get_name().compare(plan[i]->get_name()) == 0) break;
+            }
+            applyAction(&curStates[j],g_operators[h]);
+            statesstring+=stateToString2(curStates[j]);
+            // curState = new State(*planSet[i][j],g_operators[h]);
+            // planSet[i][j]->dump();
+            // curState->assign(State(*planSet[i][j],g_operators[h]));
+            // curState->dump();
+            // planSet[i][j]->dump();
+            // planSet[i][j]->dump();
+            // curCounterset.push_back(curState);
+        }
+        // planSet.push_back(curCounterset);
+        everyplanvarset.push_back(statesstring);
+        
+        /*后移后，判断是否有与之前相同的状态*/
+        // cout<<"size:"<<curCounterset.size()<<endl;
+        for(int j=0;j<=i;j++){
+            /*每次规划中的都要遍历一次*/
+            bool isidentical = true;
+            // for(int k=0;k<countersize;k++){
+            //     // curCounterset[k]->dump();
+            //     // cout<<curCounterset[k]->isOneState(*planSet[j][k])<<endl;
+            //     if(!curCounterset[k]->isOneState(*planSet[j][k])){
+            //         isidentical=false;
+            //         break;
+            //     }
+            // }
+            if((statesstring.size()==everyplanvarset[j].size())&&(statesstring.compare(everyplanvarset[j])==0)){
+                // cout<<"这里有相同的状态"<<j<<"->"<<(i+1)<<endl;
+                planrepeat[j]=i+1;
+                now++;
+            }
+        }
+        statesstring="";
+    }
+    
+    /*test*/
+    // for(int i=0;i<countersize;i++){
+    //     cout<<i<<endl;
+    //     planSet[plansize][i]->dump();
+    // }
+    // cout<<everyplanvarset[plansize]<<endl;
+    // cout<<endl;
+    // for(int i=0;i<plansize+1;i++){
+    //     cout<<everyplanvarset[i]<<endl;
+    // }
+    for(int i=0;i<plansize+1;i++){
+        cout<<planrepeat[i]<<" ";
+    }
+
+    for(int i=0;i<plansize+1;i++){
+        if(i>0){
+            newplan.push_back(plan[i-1]);
+        }
+        /*将动作往后移动*/
+        while(planrepeat[i]>i){
+            i = planrepeat[i];
+        }  
+    }
+    cout<<"重复的次数："<<now<<endl;
+    sum+=now;
+    // cout<<endl;
+    // conputerCounter(newplan);
+
+    // for(int i=0;i<planSet.size();i++){
+    //     // State* curState;
+    //     // for(int j=0;j<planSet[i].size();j++){
+    //     //     curState =planSet[i][j];
+    //     //     delete curState;
+    //     // }
+    //     planSet[i].clear();
+    //     planSet[i].shrink_to_fit();
+    // }
+    everyplanvarset.clear();
+    everyplanvarset.shrink_to_fit();
+
 }
 
 /*在生成oneof和or时，为实现其中的not a，如果为负数，则为not（var=val）
@@ -648,6 +952,12 @@ void Counter::addRestraintToTime0(){
 bool Counter::conputerCounter(Plan plan){
     struct tms start, end;
     times(&start);
+    
+    // for(int i=0;i<counterset.size();i++){
+    //     cout<<i<<"次"<<endl;
+    //     counterset[i]->dump();
+    // }
+    
     smt="";
     /*转换初始状态为SMT公式*/
     initToSmt();
@@ -691,6 +1001,32 @@ bool Counter::conputerCounter(Plan plan){
         // for(int i = 0 ; i < g_variable_name.size() ; i++){
         //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
         // }  
+    
+        /*test*/
+        // cout<<"hear"<<endl;
+
+        /*将之前的反例保存,如果出现多次,那么加入*/
+        string statestring = stateToString(g_initial_state);
+        if(appearcounter.find(statestring)==appearcounter.end()){
+            state_var tmp;
+            tmp.frequency=1;
+            tmp.vars = g_initial_state->vars;
+            appearcounter.insert(pair<string,state_var>(statestring,tmp));
+            /*不出现多次才能保存*/
+            // State *nowState = new State;
+            // nowState->assign(*g_initial_state);
+            // counterset.push_back(nowState);
+
+            counterset_new.push_back(tmp);
+        }else{
+            appearcounter[statestring].frequency++;
+        }
+
+        /*test*/
+        for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
+            cout<<t->first<<endl;
+        }
+
         clearAll();
         return true;
     }else{
