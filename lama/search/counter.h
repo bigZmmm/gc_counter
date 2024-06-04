@@ -50,7 +50,10 @@ public:
     ONEOFS oneofs;
     int sum;
     Plan newplan;
-    
+    /*表示删除部分例子后的SMT无反例*/
+    bool isfind;
+    /*表示删除的例子是否能解*/
+    bool counterissolvered;
     set<string> variables;
     vector<State*> counterset;
     vector<vector<State*>> planSet;
@@ -159,6 +162,7 @@ public:
     void regretCurFact(const Operator *a,set<string> *preference_var,pair<int,int> now_facts,set<pair<int,int> > *new_facts,int time_stept);
     void optimizePlan(Plan plan);
     void optimizePlantest(Plan plan);
+    bool invokeZ3();
     void clearAll(){
         init_smt.clear();
         init_smt.shrink_to_fit();

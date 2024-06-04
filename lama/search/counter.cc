@@ -87,7 +87,6 @@ void applyAction(state_var *predecessor, const Operator &op){
             }
         }
     }
-
     //第二步,根据prepost,赋予新值
     vector<pair<int,int>> changevar;
     if(isApply)
@@ -113,17 +112,18 @@ void applyAction(state_var *predecessor, const Operator &op){
     for(int i=0;i<changevar.size();i++){
         predecessor->vars[changevar[i].first] = changevar[i].second;
     }
+    
     /*test*/
     // cout<<"动作后"<<endl;
     // for(int i=0;i<predecessor->vars.size();i++){
     //     cout<<g_variable_name[i]<<"-"<<predecessor->vars[i]<<endl;
     // }
-
 }
 
 
 Counter::Counter(){
     struct tms start, end;
+    isfind=false;
     sum=0;
     total_counter=0;
     times(&start);
@@ -246,7 +246,7 @@ Counter::Counter(){
             axiomtovar[vari].push_back(prepost[j]);
         }
     }
-    cout<<"axiom"<<endl;
+    cout<<"axiom:"<<axiomtovar.size()<<endl;
     for(auto ot : axiomtovar){
         for(int i=0;i<ot.second.size();i++){
             cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
@@ -265,6 +265,7 @@ Counter::Counter(){
     total_counter+=total_ms;
 }
 
+/*不再使用*/
 void Counter::optimizePlan(Plan plan){
     /*test*/
     // cout<<"修改前规划长度:"<<plan.size()<<endl;
@@ -385,20 +386,11 @@ void Counter::optimizePlantest(Plan plan){
     for(int i=0;i<countersize;i++){
         statesstring+=stateToString2(curStates[i]);
     }
-    cout<<statesstring<<endl;
+    // cout<<statesstring<<endl;
     everyplanvarset.push_back(statesstring);
     statesstring="";
-    
-    /*test*/
-    // for(int i=counterset.size()-1;i>counterset.size()-3;i--){
-    //     cout<<i<<"次"<<endl;
-    //     counterset[i]->dump();
-    //     cout<<stateToString(counterset[i])<<endl;
-    // }
-    // planSet.push_back(counterset);
     int now = 0;
     for(int i=0;i<plansize;i++){
-        // vector<State*> curCounterset;
          /*所有的状态后移*/
         // cout<<plan[i]->get_name()<<":"<<endl;
         for(int j=0;j<countersize;j++){
@@ -409,15 +401,7 @@ void Counter::optimizePlantest(Plan plan){
             }
             applyAction(&curStates[j],g_operators[h]);
             statesstring+=stateToString2(curStates[j]);
-            // curState = new State(*planSet[i][j],g_operators[h]);
-            // planSet[i][j]->dump();
-            // curState->assign(State(*planSet[i][j],g_operators[h]));
-            // curState->dump();
-            // planSet[i][j]->dump();
-            // planSet[i][j]->dump();
-            // curCounterset.push_back(curState);
         }
-        // planSet.push_back(curCounterset);
         everyplanvarset.push_back(statesstring);
         
         /*后移后，判断是否有与之前相同的状态*/
@@ -425,14 +409,6 @@ void Counter::optimizePlantest(Plan plan){
         for(int j=0;j<=i;j++){
             /*每次规划中的都要遍历一次*/
             bool isidentical = true;
-            // for(int k=0;k<countersize;k++){
-            //     // curCounterset[k]->dump();
-            //     // cout<<curCounterset[k]->isOneState(*planSet[j][k])<<endl;
-            //     if(!curCounterset[k]->isOneState(*planSet[j][k])){
-            //         isidentical=false;
-            //         break;
-            //     }
-            // }
             if((statesstring.size()==everyplanvarset[j].size())&&(statesstring.compare(everyplanvarset[j])==0)){
                 // cout<<"这里有相同的状态"<<j<<"->"<<(i+1)<<endl;
                 planrepeat[j]=i+1;
@@ -448,14 +424,58 @@ void Counter::optimizePlantest(Plan plan){
     //     planSet[plansize][i]->dump();
     // }
     // cout<<everyplanvarset[plansize]<<endl;
-    // cout<<endl;
+    cout<<endl;
     // for(int i=0;i<plansize+1;i++){
     //     cout<<everyplanvarset[i]<<endl;
     // }
+    /*再对目标状态运用axiom*/
+    for(int k=0;k<curStates.size();k++){
+        for(auto ot : axiomtovar){
+            bool issatisfy=false;
+            /*如果满足其中一个，那么就会break出来*/
+            for(int i=0;i<ot.second.size();i++){
+                // cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
+                if(curStates[k].vars[ot.second[i].var]!=ot.second[i].pre)
+                    continue;
+                for(int j=0;j<ot.second[i].cond.size();j++){
+                    // cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
+                    if(curStates[k].vars[ot.second[i].cond[j].var]!=ot.second[i].cond[j].prev)
+                        continue;
+                }
+                // cout<<")"<<endl;
+                issatisfy=true;
+                break;
+            }
+            if(issatisfy)
+                curStates[k].vars[ot.first.first] = ot.first.second;
+            // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+        }
+    }
+
+    /*遍历curstate_验证是否为有效解*/
+    int isvalidplan=true;
+    for(int i=0;i<curStates.size();i++){
+        for(int j=0;j<g_goal.size();j++){
+            /*test*/
+            // cout<<"当前对比:"<<curStates[i].vars[g_goal[j].first]<<"与"<<g_goal[j].second<<endl;
+            if(curStates[i].vars[g_goal[j].first]!=g_goal[j].second)
+                isvalidplan=false;
+        }
+
+    }
+    
+
+    if(isvalidplan){
+        cout<<"规划解为有效解！"<<endl;
+        counterissolvered=true;
+    }else{
+        cout<<"规划解还不是有效解！"<<endl;
+        counterissolvered=false;
+    }
+    cout<<endl;
     for(int i=0;i<plansize+1;i++){
         cout<<planrepeat[i]<<" ";
     }
-
     for(int i=0;i<plansize+1;i++){
         if(i>0){
             newplan.push_back(plan[i-1]);
@@ -466,22 +486,12 @@ void Counter::optimizePlantest(Plan plan){
         }  
     }
     cout<<"重复的次数："<<now<<endl;
+    cout<<"规划解长度"<<newplan.size()<<endl;
     sum+=now;
     // cout<<endl;
     // conputerCounter(newplan);
-
-    // for(int i=0;i<planSet.size();i++){
-    //     // State* curState;
-    //     // for(int j=0;j<planSet[i].size();j++){
-    //     //     curState =planSet[i][j];
-    //     //     delete curState;
-    //     // }
-    //     planSet[i].clear();
-    //     planSet[i].shrink_to_fit();
-    // }
     everyplanvarset.clear();
     everyplanvarset.shrink_to_fit();
-
 }
 
 /*在生成oneof和or时，为实现其中的not a，如果为负数，则为not（var=val）
@@ -715,6 +725,23 @@ void Counter::initToSmt(){
             }
             all_state.clear();
         }
+        /*添加状态大于1的初始反例*/
+        if(!isfind)
+        for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
+            if(t->second.frequency>1){
+                string forbiden_initial=" (not (and ";
+                for(int i=0;i<t->second.vars.size();i++){
+                    if(isunKnownFact[i]){
+                        forbiden_initial+=varToSmt(i,t->second.vars[i],0);
+                        forbiden_initial+=" ";
+                    }
+                }
+                forbiden_initial+="))";
+                init_smt+=forbiden_initial;
+                init_smt+="\n";
+            }
+        }
+
     }
     // cout<<endl<<variables.size()<<endl;
     init_smt+="))";
@@ -820,7 +847,7 @@ void Counter::addActionToGoal(Plan plan){
         
     }
     for(auto now_fact:now_facts){
-        cout<<now_fact.first<<" "<<now_fact.second<<endl;
+        // cout<<now_fact.first<<" "<<now_fact.second<<endl;
         new_facts.insert(now_fact);
         if(axiomtovar.find(now_fact)!=axiomtovar.end()){
             vector<PrePost> pre_post = axiomtovar[now_fact];
@@ -916,11 +943,11 @@ void Counter::addActionToGoal(Plan plan){
     regret_smt+="))";
     // cout<<regret_smt<<endl;
 
-    cout<<"规划长度："<<plan.size()<<endl;
-    for(int i=0;i<plan.size();i++){
-        cout<<plan[i]->get_name()<<" ";
-    }
-    cout<<endl;
+    // cout<<"规划长度："<<plan.size()<<endl;
+    // for(int i=0;i<plan.size();i++){
+    //     cout<<plan[i]->get_name()<<" ";
+    // }
+    // cout<<endl;
 }
 
 void Counter::addRestraintToTime0(){
@@ -949,6 +976,76 @@ void Counter::addRestraintToTime0(){
     // cout<<sasrestraint_smt<<endl;
 }
 
+bool Counter::invokeZ3(){
+     /*调用z3求解器求反例，并且进行提取*/
+    map<int,int> sample;
+    Z3_counter *zz = new Z3_counter();
+    bool isFind = zz->extracCounter(smt,&sample);
+    
+    // cout<<"修改前："<<endl;
+    // for(int i = 0 ; i < g_variable_name.size() ; i++){
+    //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
+    // }
+    cout<<isFind<<endl;
+    if(isFind){
+        for(int i=0;i<g_initial_state->vars.size();i++){
+          int var = indextovar[i];
+          if(sample.find(var)!=sample.end())
+              g_initial_state->set_var(i,sample[var]);
+        }
+        // cout<<"修改后："<<endl;
+        // for(int i = 0 ; i < g_variable_name.size() ; i++){
+        //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
+        // }  
+    
+        /*test*/
+        // cout<<"hear"<<endl;
+        /*将之前的反例保存,如果出现多次,那么加入*/
+        string statestring = stateToString(g_initial_state);
+        if(appearcounter.find(statestring)==appearcounter.end()){
+            state_var tmp;
+            tmp.frequency=1;
+            tmp.vars = g_initial_state->vars;
+            appearcounter.insert(pair<string,state_var>(statestring,tmp));
+            /*不出现多次才能保存*/
+            counterset_new.push_back(tmp);
+        }else{
+            appearcounter[statestring].frequency++;
+            cout<<"已经出现过"<<endl;
+            /*如果出现过，那么再重新计算反例*/
+            // return invokeZ3();
+        }
+        /*test*/
+        int k=1;
+        for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
+            cout<<"状态"<<k<<"出现在反例集中的次数："<<t->second.frequency<<endl;
+            k++;
+        }
+        delete zz;
+        return true;
+    }else{
+        /*如果没有找到反例了，再放开约束看一下*/
+        /*则再对约束中的n个进行求解*/
+        if(!isfind){
+            isfind=true;
+            initToSmt();
+            smt="";
+            for(set<string>::iterator iter=variables.begin(); iter!=variables.end(); iter++){
+                smt+="(declare-const ";
+                smt+=*iter;
+                smt+=" Bool)\n";
+            }
+            smt+=init_smt;
+            smt+=regret_smt;
+            smt+=sasrestraint_smt;
+            isFind = zz->extracCounter(smt,&sample);
+            cout<<isFind<<endl;
+        }
+        delete zz;
+        return false;
+    }
+}
+
 bool Counter::conputerCounter(Plan plan){
     struct tms start, end;
     times(&start);
@@ -957,7 +1054,6 @@ bool Counter::conputerCounter(Plan plan){
     //     cout<<i<<"次"<<endl;
     //     counterset[i]->dump();
     // }
-    
     smt="";
     /*转换初始状态为SMT公式*/
     initToSmt();
@@ -979,59 +1075,12 @@ bool Counter::conputerCounter(Plan plan){
     smt+=sasrestraint_smt;
     // cout<<sasrestraint_smt<<endl;
     /*调用z3求解器求反例，并且进行提取*/
-    map<int,int> sample;
-    Z3_counter *zz = new Z3_counter();
-    bool isFind = zz->extracCounter(smt,&sample);
-    delete zz;
-    // cout<<"修改前："<<endl;
-    // for(int i = 0 ; i < g_variable_name.size() ; i++){
-    //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
-    // }
-    cout<<isFind<<endl;
+    int isvaliplan = false;
+    isvaliplan = invokeZ3();
+    clearAll();
     times(&end);
     int total_ms = (end.tms_utime - start.tms_utime) * 10;
     total_counter+=total_ms;
-    if(isFind){
-        for(int i=0;i<g_initial_state->vars.size();i++){
-          int var = indextovar[i];
-          if(sample.find(var)!=sample.end())
-              g_initial_state->set_var(i,sample[var]);
-        }
-        // cout<<"修改后："<<endl;
-        // for(int i = 0 ; i < g_variable_name.size() ; i++){
-        //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
-        // }  
-    
-        /*test*/
-        // cout<<"hear"<<endl;
-
-        /*将之前的反例保存,如果出现多次,那么加入*/
-        string statestring = stateToString(g_initial_state);
-        if(appearcounter.find(statestring)==appearcounter.end()){
-            state_var tmp;
-            tmp.frequency=1;
-            tmp.vars = g_initial_state->vars;
-            appearcounter.insert(pair<string,state_var>(statestring,tmp));
-            /*不出现多次才能保存*/
-            // State *nowState = new State;
-            // nowState->assign(*g_initial_state);
-            // counterset.push_back(nowState);
-
-            counterset_new.push_back(tmp);
-        }else{
-            appearcounter[statestring].frequency++;
-        }
-
-        /*test*/
-        for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
-            cout<<t->first<<endl;
-        }
-
-        clearAll();
-        return true;
-    }else{
-        clearAll();
-        return false;
-    }
+    return isvaliplan;
     
 }

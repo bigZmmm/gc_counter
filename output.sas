@@ -2,5327 +2,19916 @@ begin_metric
 0
 end_metric
 begin_variables
-4
-var0 103 -1
-var1 103 -1
-var2 103 -1
-var3 101 -1
+11
+var0 66 -1
+var1 66 -1
+var2 66 -1
+var3 66 -1
+var4 66 -1
+var5 66 -1
+var6 66 -1
+var7 66 -1
+var8 66 -1
+var9 66 -1
+var10 65 -1
 end_variables
 begin_state
-6
-52
-99
-79
+55
+38
+3
+9
+24
+27
+54
+44
+2
+16
+11
 end_state
 begin_goal
-3
-0 4
-1 62
-2 70
+10
+0 17
+1 4
+2 46
+3 56
+4 61
+5 11
+6 35
+7 7
+8 56
+9 22
 end_goal
-663
+2484
 begin_operator
-pickup o1 p5_5
+move p4-4 p3-4
 1
-3 79
+10 11
 1
-1 0 81 0 -1 50
+0 10 11 19
 0
 end_operator
 begin_operator
-pickup o2 p5_5
+move p4-4 p5-4
 1
-3 79
+10 11
 1
-1 1 15 1 -1 80
+0 10 11 44
 0
 end_operator
 begin_operator
-pickup o3 p5_5
+move p4-4 p4-3
 1
-3 79
+10 11
 1
-1 2 61 2 -1 85
+0 10 11 53
 0
 end_operator
 begin_operator
-move p5_5 p4_5
+move p4-4 p4-5
 1
-3 79
+10 11
 1
-0 3 79 69
+0 10 11 62
 0
 end_operator
 begin_operator
-move p5_5 p6_5
+push o1 p4-4 p3-4
 1
-3 79
+10 11
 1
-0 3 79 59
+1 1 28 1 -1 58
 0
 end_operator
 begin_operator
-move p5_5 p5_4
+push o2 p4-4 p3-4
 1
-3 79
+10 11
 1
-0 3 79 17
+1 4 5 4 -1 51
 0
 end_operator
 begin_operator
-move p5_5 p5_6
+push o3 p4-4 p3-4
 1
-3 79
+10 11
 1
-0 3 79 27
+1 2 28 2 -1 10
 0
 end_operator
 begin_operator
-move p4_5 p3_5
+push o4 p4-4 p3-4
 1
-3 69
+10 11
 1
-0 3 69 28
+1 5 4 5 -1 36
 0
 end_operator
 begin_operator
-move p4_5 p5_5
+push o5 p4-4 p3-4
 1
-3 69
+10 11
 1
-0 3 69 79
+1 8 4 8 -1 39
 0
 end_operator
 begin_operator
-move p4_5 p4_4
+push o6 p4-4 p3-4
 1
-3 69
+10 11
 1
-0 3 69 39
+1 6 40 6 -1 63
 0
 end_operator
 begin_operator
-move p4_5 p4_6
+push o7 p4-4 p3-4
 1
-3 69
+10 11
 1
-0 3 69 51
+1 9 25 9 -1 38
 0
 end_operator
 begin_operator
-pickup o1 p4_5
+push o8 p4-4 p3-4
 1
-3 69
+10 11
 1
-1 0 8 0 -1 50
+1 7 0 7 -1 30
 0
 end_operator
 begin_operator
-pickup o2 p4_5
+push o9 p4-4 p3-4
 1
-3 69
+10 11
 1
-1 1 35 1 -1 80
+1 3 8 3 -1 46
 0
 end_operator
 begin_operator
-pickup o3 p4_5
+push o10 p4-4 p3-4
 1
-3 69
+10 11
 1
-1 2 3 2 -1 85
+1 0 10 0 -1 42
 0
 end_operator
 begin_operator
-move p6_5 p5_5
+push o1 p4-4 p5-4
 1
-3 59
+10 11
 1
-0 3 59 79
+1 1 28 1 -1 59
 0
 end_operator
 begin_operator
-move p6_5 p7_5
+push o2 p4-4 p5-4
 1
-3 59
+10 11
 1
-0 3 59 8
+1 4 5 4 -1 63
 0
 end_operator
 begin_operator
-move p6_5 p6_4
+push o3 p4-4 p5-4
 1
-3 59
+10 11
 1
-0 3 59 10
+1 2 28 2 -1 63
 0
 end_operator
 begin_operator
-move p6_5 p6_6
+push o4 p4-4 p5-4
 1
-3 59
+10 11
 1
-0 3 59 96
+1 5 4 5 -1 52
 0
 end_operator
 begin_operator
-pickup o1 p6_5
+push o5 p4-4 p5-4
 1
-3 59
+10 11
 1
-1 0 85 0 -1 50
+1 8 4 8 -1 3
 0
 end_operator
 begin_operator
-pickup o2 p6_5
+push o6 p4-4 p5-4
 1
-3 59
+10 11
 1
-1 1 6 1 -1 80
+1 6 40 6 -1 38
 0
 end_operator
 begin_operator
-pickup o3 p6_5
+push o7 p4-4 p5-4
 1
-3 59
+10 11
 1
-1 2 28 2 -1 85
+1 9 25 9 -1 9
 0
 end_operator
 begin_operator
-move p5_4 p4_4
+push o8 p4-4 p5-4
 1
-3 17
+10 11
 1
-0 3 17 39
+1 7 0 7 -1 13
 0
 end_operator
 begin_operator
-move p5_4 p6_4
+push o9 p4-4 p5-4
 1
-3 17
+10 11
 1
-0 3 17 10
+1 3 8 3 -1 3
 0
 end_operator
 begin_operator
-move p5_4 p5_3
+push o10 p4-4 p5-4
 1
-3 17
+10 11
 1
-0 3 17 18
+1 0 10 0 -1 1
 0
 end_operator
 begin_operator
-move p5_4 p5_5
+push o1 p4-4 p4-3
 1
-3 17
+10 11
 1
-0 3 17 79
+1 1 28 1 -1 54
 0
 end_operator
 begin_operator
-pickup o1 p5_4
+push o2 p4-4 p4-3
 1
-3 17
+10 11
 1
-1 0 18 0 -1 50
+1 4 5 4 -1 7
 0
 end_operator
 begin_operator
-pickup o2 p5_4
+push o3 p4-4 p4-3
 1
-3 17
+10 11
 1
-1 1 74 1 -1 80
+1 2 28 2 -1 15
 0
 end_operator
 begin_operator
-pickup o3 p5_4
+push o4 p4-4 p4-3
 1
-3 17
+10 11
 1
-1 2 95 2 -1 85
+1 5 4 5 -1 9
 0
 end_operator
 begin_operator
-move p5_6 p4_6
+push o5 p4-4 p4-3
 1
-3 27
+10 11
 1
-0 3 27 51
+1 8 4 8 -1 13
 0
 end_operator
 begin_operator
-move p5_6 p6_6
+push o6 p4-4 p4-3
 1
-3 27
+10 11
 1
-0 3 27 96
+1 6 40 6 -1 37
 0
 end_operator
 begin_operator
-move p5_6 p5_5
+push o7 p4-4 p4-3
 1
-3 27
+10 11
 1
-0 3 27 79
+1 9 25 9 -1 1
 0
 end_operator
 begin_operator
-move p5_6 p5_7
+push o8 p4-4 p4-3
 1
-3 27
+10 11
 1
-0 3 27 93
+1 7 0 7 -1 36
 0
 end_operator
 begin_operator
-pickup o1 p5_6
+push o9 p4-4 p4-3
 1
-3 27
+10 11
 1
-1 0 87 0 -1 50
+1 3 8 3 -1 34
 0
 end_operator
 begin_operator
-pickup o2 p5_6
+push o10 p4-4 p4-3
 1
-3 27
+10 11
 1
-1 1 56 1 -1 80
+1 0 10 0 -1 15
 0
 end_operator
 begin_operator
-pickup o3 p5_6
+push o1 p4-4 p4-5
 1
-3 27
+10 11
 1
-1 2 26 2 -1 85
+1 1 28 1 -1 21
 0
 end_operator
 begin_operator
-move p3_5 p2_5
+push o2 p4-4 p4-5
 1
-3 28
+10 11
 1
-0 3 28 24
+1 4 5 4 -1 9
 0
 end_operator
 begin_operator
-move p3_5 p4_5
+push o3 p4-4 p4-5
 1
-3 28
+10 11
 1
-0 3 28 69
+1 2 28 2 -1 47
 0
 end_operator
 begin_operator
-move p3_5 p3_4
+push o4 p4-4 p4-5
 1
-3 28
+10 11
 1
-0 3 28 58
+1 5 4 5 -1 7
 0
 end_operator
 begin_operator
-move p3_5 p3_6
+push o5 p4-4 p4-5
 1
-3 28
+10 11
 1
-0 3 28 46
+1 8 4 8 -1 1
 0
 end_operator
 begin_operator
-pickup o1 p3_5
+push o6 p4-4 p4-5
 1
-3 28
+10 11
 1
-1 0 51 0 -1 50
+1 6 40 6 -1 49
 0
 end_operator
 begin_operator
-pickup o2 p3_5
+push o7 p4-4 p4-5
 1
-3 28
+10 11
 1
-1 1 51 1 -1 80
+1 9 25 9 -1 17
 0
 end_operator
 begin_operator
-pickup o3 p3_5
+push o8 p4-4 p4-5
 1
-3 28
+10 11
 1
-1 2 52 2 -1 85
+1 7 0 7 -1 43
 0
 end_operator
 begin_operator
-move p4_4 p3_4
+push o9 p4-4 p4-5
 1
-3 39
+10 11
 1
-0 3 39 58
+1 3 8 3 -1 64
 0
 end_operator
 begin_operator
-move p4_4 p5_4
+push o10 p4-4 p4-5
 1
-3 39
+10 11
 1
-0 3 39 17
+1 0 10 0 -1 27
 0
 end_operator
 begin_operator
-move p4_4 p4_3
+move p3-4 p2-4
 1
-3 39
+10 19
 1
-0 3 39 30
+0 10 19 40
 0
 end_operator
 begin_operator
-move p4_4 p4_5
+move p3-4 p4-4
 1
-3 39
+10 19
 1
-0 3 39 69
+0 10 19 11
 0
 end_operator
 begin_operator
-pickup o1 p4_4
+move p3-4 p3-3
 1
-3 39
+10 19
 1
-1 0 74 0 -1 50
+0 10 19 42
 0
 end_operator
 begin_operator
-pickup o2 p4_4
+move p3-4 p3-5
 1
-3 39
+10 19
 1
-1 1 71 1 -1 80
+0 10 19 26
 0
 end_operator
 begin_operator
-pickup o3 p4_4
+move p5-4 p4-4
 1
-3 39
+10 44
 1
-1 2 77 2 -1 85
+0 10 44 11
 0
 end_operator
 begin_operator
-move p4_6 p3_6
+move p5-4 p6-4
 1
-3 51
+10 44
 1
-0 3 51 46
+0 10 44 16
 0
 end_operator
 begin_operator
-move p4_6 p5_6
+move p5-4 p5-3
 1
-3 51
+10 44
 1
-0 3 51 27
+0 10 44 15
 0
 end_operator
 begin_operator
-move p4_6 p4_5
+move p5-4 p5-5
 1
-3 51
+10 44
 1
-0 3 51 69
+0 10 44 36
 0
 end_operator
 begin_operator
-move p4_6 p4_7
+move p4-3 p3-3
 1
-3 51
+10 53
 1
-0 3 51 85
+0 10 53 42
 0
 end_operator
 begin_operator
-pickup o1 p4_6
+move p4-3 p5-3
 1
-3 51
+10 53
 1
-1 0 48 0 -1 50
+0 10 53 15
 0
 end_operator
 begin_operator
-pickup o2 p4_6
+move p4-3 p4-2
 1
-3 51
+10 53
 1
-1 1 39 1 -1 80
+0 10 53 13
 0
 end_operator
 begin_operator
-pickup o3 p4_6
+move p4-3 p4-4
 1
-3 51
+10 53
 1
-1 2 101 2 -1 85
+0 10 53 11
 0
 end_operator
 begin_operator
-move p7_5 p6_5
+move p4-5 p3-5
 1
-3 8
+10 62
 1
-0 3 8 59
+0 10 62 26
 0
 end_operator
 begin_operator
-move p7_5 p8_5
+move p4-5 p5-5
 1
-3 8
+10 62
 1
-0 3 8 41
+0 10 62 36
 0
 end_operator
 begin_operator
-move p7_5 p7_4
+move p4-5 p4-4
 1
-3 8
+10 62
 1
-0 3 8 57
+0 10 62 11
 0
 end_operator
 begin_operator
-move p7_5 p7_6
+move p4-5 p4-6
 1
-3 8
+10 62
 1
-0 3 8 14
+0 10 62 54
 0
 end_operator
 begin_operator
-pickup o1 p7_5
+push o1 p3-4 p2-4
 1
-3 8
+10 19
 1
-1 0 99 0 -1 50
+1 1 58 1 -1 12
 0
 end_operator
 begin_operator
-pickup o2 p7_5
+push o2 p3-4 p2-4
 1
-3 8
+10 19
 1
-1 1 54 1 -1 80
+1 4 51 4 -1 0
 0
 end_operator
 begin_operator
-pickup o3 p7_5
+push o3 p3-4 p2-4
 1
-3 8
+10 19
 1
-1 2 32 2 -1 85
+1 2 10 2 -1 26
 0
 end_operator
 begin_operator
-move p6_4 p5_4
+push o4 p3-4 p2-4
 1
-3 10
+10 19
 1
-0 3 10 17
+1 5 36 5 -1 30
 0
 end_operator
 begin_operator
-move p6_4 p7_4
+push o5 p3-4 p2-4
 1
-3 10
+10 19
 1
-0 3 10 57
+1 8 39 8 -1 58
 0
 end_operator
 begin_operator
-move p6_4 p6_3
+push o6 p3-4 p2-4
 1
-3 10
+10 19
 1
-0 3 10 9
+1 6 63 6 -1 25
 0
 end_operator
 begin_operator
-move p6_4 p6_5
+push o7 p3-4 p2-4
 1
-3 10
+10 19
 1
-0 3 10 59
+1 9 38 9 -1 0
 0
 end_operator
 begin_operator
-pickup o1 p6_4
+push o8 p3-4 p2-4
 1
-3 10
+10 19
 1
-1 0 55 0 -1 50
+1 7 30 7 -1 6
 0
 end_operator
 begin_operator
-pickup o2 p6_4
+push o9 p3-4 p2-4
 1
-3 10
+10 19
 1
-1 1 33 1 -1 80
+1 3 46 3 -1 42
 0
 end_operator
 begin_operator
-pickup o3 p6_4
+push o10 p3-4 p2-4
 1
-3 10
+10 19
 1
-1 2 91 2 -1 85
+1 0 42 0 -1 16
 0
 end_operator
 begin_operator
-move p6_6 p5_6
+push o1 p3-4 p4-4
 1
-3 96
+10 19
 1
-0 3 96 27
+1 1 58 1 -1 28
 0
 end_operator
 begin_operator
-move p6_6 p7_6
+push o2 p3-4 p4-4
 1
-3 96
+10 19
 1
-0 3 96 14
+1 4 51 4 -1 5
 0
 end_operator
 begin_operator
-move p6_6 p6_5
+push o3 p3-4 p4-4
 1
-3 96
+10 19
 1
-0 3 96 59
+1 2 10 2 -1 28
 0
 end_operator
 begin_operator
-move p6_6 p6_7
+push o4 p3-4 p4-4
 1
-3 96
+10 19
 1
-0 3 96 49
+1 5 36 5 -1 4
 0
 end_operator
 begin_operator
-pickup o1 p6_6
+push o5 p3-4 p4-4
 1
-3 96
+10 19
 1
-1 0 80 0 -1 50
+1 8 39 8 -1 4
 0
 end_operator
 begin_operator
-pickup o2 p6_6
+push o6 p3-4 p4-4
 1
-3 96
+10 19
 1
-1 1 67 1 -1 80
+1 6 63 6 -1 40
 0
 end_operator
 begin_operator
-pickup o3 p6_6
+push o7 p3-4 p4-4
 1
-3 96
+10 19
 1
-1 2 63 2 -1 85
+1 9 38 9 -1 25
 0
 end_operator
 begin_operator
-move p5_3 p4_3
+push o8 p3-4 p4-4
 1
-3 18
+10 19
 1
-0 3 18 30
+1 7 30 7 -1 0
 0
 end_operator
 begin_operator
-move p5_3 p6_3
+push o9 p3-4 p4-4
 1
-3 18
+10 19
 1
-0 3 18 9
+1 3 46 3 -1 8
 0
 end_operator
 begin_operator
-move p5_3 p5_2
+push o10 p3-4 p4-4
 1
-3 18
+10 19
 1
-0 3 18 67
+1 0 42 0 -1 10
 0
 end_operator
 begin_operator
-move p5_3 p5_4
+push o1 p3-4 p3-3
 1
-3 18
+10 19
 1
-0 3 18 17
+1 1 58 1 -1 61
 0
 end_operator
 begin_operator
-pickup o1 p5_3
+push o2 p3-4 p3-3
 1
-3 18
+10 19
 1
-1 0 12 0 -1 50
+1 4 51 4 -1 29
 0
 end_operator
 begin_operator
-pickup o2 p5_3
+push o3 p3-4 p3-3
 1
-3 18
+10 19
 1
-1 1 23 1 -1 80
+1 2 10 2 -1 9
 0
 end_operator
 begin_operator
-pickup o3 p5_3
+push o4 p3-4 p3-3
 1
-3 18
+10 19
 1
-1 2 27 2 -1 85
+1 5 36 5 -1 45
 0
 end_operator
 begin_operator
-move p5_7 p4_7
+push o5 p3-4 p3-3
 1
-3 93
+10 19
 1
-0 3 93 85
+1 8 39 8 -1 47
 0
 end_operator
 begin_operator
-move p5_7 p6_7
+push o6 p3-4 p3-3
 1
-3 93
+10 19
 1
-0 3 93 49
+1 6 63 6 -1 46
 0
 end_operator
 begin_operator
-move p5_7 p5_6
+push o7 p3-4 p3-3
 1
-3 93
+10 19
 1
-0 3 93 27
+1 9 38 9 -1 42
 0
 end_operator
 begin_operator
-move p5_7 p5_8
+push o8 p3-4 p3-3
 1
-3 93
+10 19
 1
-0 3 93 92
+1 7 30 7 -1 25
 0
 end_operator
 begin_operator
-pickup o1 p5_7
+push o9 p3-4 p3-3
 1
-3 93
+10 19
 1
-1 0 57 0 -1 50
+1 3 46 3 -1 2
 0
 end_operator
 begin_operator
-pickup o2 p5_7
+push o10 p3-4 p3-3
 1
-3 93
+10 19
 1
-1 1 84 1 -1 80
+1 0 42 0 -1 7
 0
 end_operator
 begin_operator
-pickup o3 p5_7
+push o1 p3-4 p3-5
 1
-3 93
+10 19
 1
-1 2 88 2 -1 85
+1 1 58 1 -1 6
 0
 end_operator
 begin_operator
-move p2_5 p1_5
+push o2 p3-4 p3-5
 1
-3 24
+10 19
 1
-0 3 24 70
+1 4 51 4 -1 44
 0
 end_operator
 begin_operator
-move p2_5 p3_5
+push o3 p3-4 p3-5
 1
-3 24
+10 19
 1
-0 3 24 28
+1 2 10 2 -1 16
 0
 end_operator
 begin_operator
-move p2_5 p2_4
+push o4 p3-4 p3-5
 1
-3 24
+10 19
 1
-0 3 24 88
+1 5 36 5 -1 32
 0
 end_operator
 begin_operator
-move p2_5 p2_6
+push o5 p3-4 p3-5
 1
-3 24
+10 19
 1
-0 3 24 72
+1 8 39 8 -1 44
 0
 end_operator
 begin_operator
-pickup o1 p2_5
+push o6 p3-4 p3-5
 1
-3 24
+10 19
 1
-1 0 75 0 -1 50
+1 6 63 6 -1 15
 0
 end_operator
 begin_operator
-pickup o2 p2_5
+push o7 p3-4 p3-5
 1
-3 24
+10 19
 1
-1 1 73 1 -1 80
+1 9 38 9 -1 45
 0
 end_operator
 begin_operator
-pickup o3 p2_5
+push o8 p3-4 p3-5
 1
-3 24
+10 19
 1
-1 2 4 2 -1 85
+1 7 30 7 -1 24
 0
 end_operator
 begin_operator
-move p3_4 p2_4
+push o9 p3-4 p3-5
 1
-3 58
+10 19
 1
-0 3 58 88
+1 3 46 3 -1 58
 0
 end_operator
 begin_operator
-move p3_4 p4_4
+push o10 p3-4 p3-5
 1
-3 58
+10 19
 1
-0 3 58 39
+1 0 42 0 -1 35
 0
 end_operator
 begin_operator
-move p3_4 p3_3
+push o1 p5-4 p4-4
 1
-3 58
+10 44
 1
-0 3 58 38
+1 1 59 1 -1 28
 0
 end_operator
 begin_operator
-move p3_4 p3_5
+push o2 p5-4 p4-4
 1
-3 58
+10 44
 1
-0 3 58 28
+1 4 63 4 -1 5
 0
 end_operator
 begin_operator
-pickup o1 p3_4
+push o3 p5-4 p4-4
 1
-3 58
+10 44
 1
-1 0 84 0 -1 50
+1 2 63 2 -1 28
 0
 end_operator
 begin_operator
-pickup o2 p3_4
+push o4 p5-4 p4-4
 1
-3 58
+10 44
 1
-1 1 17 1 -1 80
+1 5 52 5 -1 4
 0
 end_operator
 begin_operator
-pickup o3 p3_4
+push o5 p5-4 p4-4
 1
-3 58
+10 44
 1
-1 2 96 2 -1 85
+1 8 3 8 -1 4
 0
 end_operator
 begin_operator
-move p3_6 p2_6
+push o6 p5-4 p4-4
 1
-3 46
+10 44
 1
-0 3 46 72
+1 6 38 6 -1 40
 0
 end_operator
 begin_operator
-move p3_6 p4_6
+push o7 p5-4 p4-4
 1
-3 46
+10 44
 1
-0 3 46 51
+1 9 9 9 -1 25
 0
 end_operator
 begin_operator
-move p3_6 p3_5
+push o8 p5-4 p4-4
 1
-3 46
+10 44
 1
-0 3 46 28
+1 7 13 7 -1 0
 0
 end_operator
 begin_operator
-move p3_6 p3_7
+push o9 p5-4 p4-4
 1
-3 46
+10 44
 1
-0 3 46 19
+1 3 3 3 -1 8
 0
 end_operator
 begin_operator
-pickup o1 p3_6
+push o10 p5-4 p4-4
 1
-3 46
+10 44
 1
-1 0 15 0 -1 50
+1 0 1 0 -1 10
 0
 end_operator
 begin_operator
-pickup o2 p3_6
+push o1 p5-4 p6-4
 1
-3 46
+10 44
 1
-1 1 43 1 -1 80
+1 1 59 1 -1 63
 0
 end_operator
 begin_operator
-pickup o3 p3_6
+push o2 p5-4 p6-4
 1
-3 46
+10 44
 1
-1 2 53 2 -1 85
+1 4 63 4 -1 19
 0
 end_operator
 begin_operator
-move p4_3 p3_3
+push o3 p5-4 p6-4
 1
-3 30
+10 44
 1
-0 3 30 38
+1 2 63 2 -1 57
 0
 end_operator
 begin_operator
-move p4_3 p5_3
+push o4 p5-4 p6-4
 1
-3 30
+10 44
 1
-0 3 30 18
+1 5 52 5 -1 58
 0
 end_operator
 begin_operator
-move p4_3 p4_2
+push o5 p5-4 p6-4
 1
-3 30
+10 44
 1
-0 3 30 71
+1 8 3 8 -1 41
 0
 end_operator
 begin_operator
-move p4_3 p4_4
+push o6 p5-4 p6-4
 1
-3 30
+10 44
 1
-0 3 30 39
+1 6 38 6 -1 17
 0
 end_operator
 begin_operator
-pickup o1 p4_3
+push o7 p5-4 p6-4
 1
-3 30
+10 44
 1
-1 0 37 0 -1 50
+1 9 9 9 -1 24
 0
 end_operator
 begin_operator
-pickup o2 p4_3
+push o8 p5-4 p6-4
 1
-3 30
+10 44
 1
-1 1 55 1 -1 80
+1 7 13 7 -1 19
 0
 end_operator
 begin_operator
-pickup o3 p4_3
+push o9 p5-4 p6-4
 1
-3 30
+10 44
 1
-1 2 81 2 -1 85
+1 3 3 3 -1 4
 0
 end_operator
 begin_operator
-move p4_7 p3_7
+push o10 p5-4 p6-4
 1
-3 85
+10 44
 1
-0 3 85 19
+1 0 1 0 -1 37
 0
 end_operator
 begin_operator
-move p4_7 p5_7
+push o1 p5-4 p5-3
 1
-3 85
+10 44
 1
-0 3 85 93
+1 1 59 1 -1 37
 0
 end_operator
 begin_operator
-move p4_7 p4_6
+push o2 p5-4 p5-3
 1
-3 85
+10 44
 1
-0 3 85 51
+1 4 63 4 -1 30
 0
 end_operator
 begin_operator
-move p4_7 p4_8
+push o3 p5-4 p5-3
 1
-3 85
+10 44
 1
-0 3 85 32
+1 2 63 2 -1 1
 0
 end_operator
 begin_operator
-pickup o1 p4_7
+push o4 p5-4 p5-3
 1
-3 85
+10 44
 1
-1 0 79 0 -1 50
+1 5 52 5 -1 28
 0
 end_operator
 begin_operator
-pickup o2 p4_7
+push o5 p5-4 p5-3
 1
-3 85
+10 44
 1
-1 1 10 1 -1 80
+1 8 3 8 -1 54
 0
 end_operator
 begin_operator
-pickup o3 p4_7
+push o6 p5-4 p5-3
 1
-3 85
+10 44
 1
-1 2 34 2 -1 85
+1 6 38 6 -1 22
 0
 end_operator
 begin_operator
-move p8_5 p7_5
+push o7 p5-4 p5-3
 1
-3 41
+10 44
 1
-0 3 41 8
+1 9 9 9 -1 40
 0
 end_operator
 begin_operator
-move p8_5 p9_5
+push o8 p5-4 p5-3
 1
-3 41
+10 44
 1
-0 3 41 56
+1 7 13 7 -1 1
 0
 end_operator
 begin_operator
-move p8_5 p8_4
+push o9 p5-4 p5-3
 1
-3 41
+10 44
 1
-0 3 41 89
+1 3 3 3 -1 17
 0
 end_operator
 begin_operator
-move p8_5 p8_6
+push o10 p5-4 p5-3
 1
-3 41
-1
-0 3 41 1
-0
-end_operator
-begin_operator
-pickup o1 p8_5
-1
-3 41
-1
-1 0 19 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p8_5
-1
-3 41
-1
-1 1 37 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p8_5
-1
-3 41
-1
-1 2 84 2 -1 85
-0
-end_operator
-begin_operator
-move p7_4 p6_4
-1
-3 57
-1
-0 3 57 10
-0
-end_operator
-begin_operator
-move p7_4 p8_4
-1
-3 57
-1
-0 3 57 89
-0
-end_operator
-begin_operator
-move p7_4 p7_3
-1
-3 57
-1
-0 3 57 66
-0
-end_operator
-begin_operator
-move p7_4 p7_5
-1
-3 57
-1
-0 3 57 8
-0
-end_operator
-begin_operator
-pickup o1 p7_4
-1
-3 57
-1
-1 0 30 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p7_4
-1
-3 57
-1
-1 1 20 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p7_4
-1
-3 57
-1
-1 2 76 2 -1 85
-0
-end_operator
-begin_operator
-move p7_6 p6_6
-1
-3 14
-1
-0 3 14 96
-0
-end_operator
-begin_operator
-move p7_6 p8_6
-1
-3 14
-1
-0 3 14 1
-0
-end_operator
-begin_operator
-move p7_6 p7_5
-1
-3 14
-1
-0 3 14 8
-0
-end_operator
-begin_operator
-move p7_6 p7_7
-1
-3 14
-1
-0 3 14 94
-0
-end_operator
-begin_operator
-pickup o1 p7_6
-1
-3 14
-1
-1 0 58 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p7_6
-1
-3 14
-1
-1 1 48 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p7_6
-1
-3 14
-1
-1 2 41 2 -1 85
-0
-end_operator
-begin_operator
-move p6_3 p5_3
-1
-3 9
-1
-0 3 9 18
-0
-end_operator
-begin_operator
-move p6_3 p7_3
-1
-3 9
-1
-0 3 9 66
-0
-end_operator
-begin_operator
-move p6_3 p6_2
-1
-3 9
-1
-0 3 9 68
-0
-end_operator
-begin_operator
-move p6_3 p6_4
-1
-3 9
-1
-0 3 9 10
-0
-end_operator
-begin_operator
-pickup o1 p6_3
-1
-3 9
-1
-1 0 62 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p6_3
-1
-3 9
-1
-1 1 92 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p6_3
-1
-3 9
-1
-1 2 51 2 -1 85
-0
-end_operator
-begin_operator
-move p6_7 p5_7
-1
-3 49
-1
-0 3 49 93
-0
-end_operator
-begin_operator
-move p6_7 p7_7
-1
-3 49
-1
-0 3 49 94
-0
-end_operator
-begin_operator
-move p6_7 p6_6
-1
-3 49
-1
-0 3 49 96
-0
-end_operator
-begin_operator
-move p6_7 p6_8
-1
-3 49
-1
-0 3 49 20
-0
-end_operator
-begin_operator
-pickup o1 p6_7
-1
-3 49
-1
-1 0 16 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p6_7
-1
-3 49
-1
-1 1 31 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p6_7
-1
-3 49
-1
-1 2 97 2 -1 85
-0
-end_operator
-begin_operator
-move p5_2 p4_2
-1
-3 67
-1
-0 3 67 71
-0
-end_operator
-begin_operator
-move p5_2 p6_2
-1
-3 67
-1
-0 3 67 68
-0
-end_operator
-begin_operator
-move p5_2 p5_1
-1
-3 67
-1
-0 3 67 7
-0
-end_operator
-begin_operator
-move p5_2 p5_3
-1
-3 67
-1
-0 3 67 18
-0
-end_operator
-begin_operator
-pickup o1 p5_2
-1
-3 67
-1
-1 0 44 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p5_2
-1
-3 67
-1
-1 1 98 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p5_2
-1
-3 67
-1
-1 2 72 2 -1 85
-0
-end_operator
-begin_operator
-move p5_8 p4_8
-1
-3 92
-1
-0 3 92 32
-0
-end_operator
-begin_operator
-move p5_8 p6_8
-1
-3 92
-1
-0 3 92 20
-0
-end_operator
-begin_operator
-move p5_8 p5_7
-1
-3 92
-1
-0 3 92 93
-0
-end_operator
-begin_operator
-move p5_8 p5_9
-1
-3 92
-1
-0 3 92 36
-0
-end_operator
-begin_operator
-pickup o1 p5_8
-1
-3 92
-1
-1 0 95 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p5_8
-1
-3 92
-1
-1 1 2 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p5_8
-1
-3 92
-1
-1 2 17 2 -1 85
-0
-end_operator
-begin_operator
-move p1_5 p2_5
-1
-3 70
-1
-0 3 70 24
-0
-end_operator
-begin_operator
-move p1_5 p1_4
-1
-3 70
-1
-0 3 70 29
-0
-end_operator
-begin_operator
-move p1_5 p1_6
-1
-3 70
-1
-0 3 70 40
-0
-end_operator
-begin_operator
-pickup o1 p1_5
-1
-3 70
-1
-1 0 72 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p1_5
-1
-3 70
-1
-1 1 95 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p1_5
-1
-3 70
-1
-1 2 35 2 -1 85
-0
-end_operator
-begin_operator
-move p2_4 p1_4
-1
-3 88
-1
-0 3 88 29
-0
-end_operator
-begin_operator
-move p2_4 p3_4
-1
-3 88
-1
-0 3 88 58
-0
-end_operator
-begin_operator
-move p2_4 p2_3
-1
-3 88
-1
-0 3 88 52
-0
-end_operator
-begin_operator
-move p2_4 p2_5
-1
-3 88
-1
-0 3 88 24
-0
-end_operator
-begin_operator
-pickup o1 p2_4
-1
-3 88
-1
-1 0 46 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p2_4
-1
-3 88
-1
-1 1 7 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p2_4
-1
-3 88
-1
-1 2 58 2 -1 85
-0
-end_operator
-begin_operator
-move p2_6 p1_6
-1
-3 72
-1
-0 3 72 40
-0
-end_operator
-begin_operator
-move p2_6 p3_6
-1
-3 72
-1
-0 3 72 46
-0
-end_operator
-begin_operator
-move p2_6 p2_5
-1
-3 72
-1
-0 3 72 24
-0
-end_operator
-begin_operator
-move p2_6 p2_7
-1
-3 72
-1
-0 3 72 11
-0
-end_operator
-begin_operator
-pickup o1 p2_6
-1
-3 72
-1
-1 0 70 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p2_6
-1
-3 72
-1
-1 1 40 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p2_6
-1
-3 72
-1
-1 2 38 2 -1 85
-0
-end_operator
-begin_operator
-move p3_3 p2_3
-1
-3 38
-1
-0 3 38 52
-0
-end_operator
-begin_operator
-move p3_3 p4_3
-1
-3 38
-1
-0 3 38 30
-0
-end_operator
-begin_operator
-move p3_3 p3_2
-1
-3 38
-1
-0 3 38 95
-0
-end_operator
-begin_operator
-move p3_3 p3_4
-1
-3 38
-1
-0 3 38 58
-0
-end_operator
-begin_operator
-pickup o1 p3_3
-1
-3 38
-1
-1 0 36 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p3_3
-1
-3 38
-1
-1 1 25 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p3_3
-1
-3 38
-1
-1 2 74 2 -1 85
-0
-end_operator
-begin_operator
-drop o1 p3_3
-1
-3 38
-1
-1 0 50 0 -1 4
-0
-end_operator
-begin_operator
-drop o2 p3_3
-1
-3 38
-1
-1 1 80 1 -1 62
-0
-end_operator
-begin_operator
-drop o3 p3_3
-1
-3 38
-1
-1 2 85 2 -1 70
-0
-end_operator
-begin_operator
-move p3_7 p2_7
-1
-3 19
-1
-0 3 19 11
-0
-end_operator
-begin_operator
-move p3_7 p4_7
-1
-3 19
-1
-0 3 19 85
-0
-end_operator
-begin_operator
-move p3_7 p3_6
-1
-3 19
-1
-0 3 19 46
-0
-end_operator
-begin_operator
-move p3_7 p3_8
-1
-3 19
-1
-0 3 19 37
-0
-end_operator
-begin_operator
-pickup o1 p3_7
-1
-3 19
-1
-1 0 78 0 -1 50
-0
-end_operator
-begin_operator
-pickup o2 p3_7
-1
-3 19
-1
-1 1 86 1 -1 80
-0
-end_operator
-begin_operator
-pickup o3 p3_7
-1
-3 19
-1
-1 2 29 2 -1 85
-0
-end_operator
-begin_operator
-move p4_2 p3_2
-1
-3 71
-1
-0 3 71 95
-0
-end_operator
-begin_operator
-move p4_2 p5_2
-1
-3 71
-1
-0 3 71 67
-0
-end_operator
-begin_operator
-move p4_2 p4_1
-1
-3 71
-1
-0 3 71 23
-0
-end_operator
-begin_operator
-move p4_2 p4_3
-1
-3 71
-1
-0 3 71 30
-0
-end_operator
-begin_operator
-pickup o1 p4_2
-1
-3 71
+10 44
 1
 1 0 1 0 -1 50
 0
 end_operator
 begin_operator
-pickup o2 p4_2
+push o1 p5-4 p5-5
 1
-3 71
+10 44
 1
-1 1 82 1 -1 80
+1 1 59 1 -1 47
 0
 end_operator
 begin_operator
-pickup o3 p4_2
+push o2 p5-4 p5-5
 1
-3 71
+10 44
 1
-1 2 37 2 -1 85
+1 4 63 4 -1 46
 0
 end_operator
 begin_operator
-move p4_8 p3_8
+push o3 p5-4 p5-5
 1
-3 32
+10 44
 1
-0 3 32 37
+1 2 63 2 -1 37
 0
 end_operator
 begin_operator
-move p4_8 p5_8
+push o4 p5-4 p5-5
 1
-3 32
+10 44
 1
-0 3 32 92
+1 5 52 5 -1 14
 0
 end_operator
 begin_operator
-move p4_8 p4_7
+push o5 p5-4 p5-5
 1
-3 32
+10 44
 1
-0 3 32 85
+1 8 3 8 -1 17
 0
 end_operator
 begin_operator
-move p4_8 p4_9
+push o6 p5-4 p5-5
 1
-3 32
+10 44
 1
-0 3 32 87
+1 6 38 6 -1 8
 0
 end_operator
 begin_operator
-pickup o1 p4_8
+push o7 p5-4 p5-5
 1
-3 32
+10 44
 1
-1 0 9 0 -1 50
+1 9 9 9 -1 48
 0
 end_operator
 begin_operator
-pickup o2 p4_8
+push o8 p5-4 p5-5
 1
-3 32
+10 44
 1
-1 1 34 1 -1 80
+1 7 13 7 -1 48
 0
 end_operator
 begin_operator
-pickup o3 p4_8
+push o9 p5-4 p5-5
 1
-3 32
+10 44
 1
-1 2 31 2 -1 85
+1 3 3 3 -1 30
 0
 end_operator
 begin_operator
-move p9_5 p8_5
+push o10 p5-4 p5-5
 1
-3 56
+10 44
 1
-0 3 56 41
+1 0 1 0 -1 60
 0
 end_operator
 begin_operator
-move p9_5 p10_5
+push o1 p4-3 p3-3
 1
-3 56
+10 53
 1
-0 3 56 25
+1 1 54 1 -1 61
 0
 end_operator
 begin_operator
-move p9_5 p9_4
+push o2 p4-3 p3-3
 1
-3 56
+10 53
 1
-0 3 56 16
+1 4 7 4 -1 29
 0
 end_operator
 begin_operator
-move p9_5 p9_6
+push o3 p4-3 p3-3
 1
-3 56
+10 53
 1
-0 3 56 26
+1 2 15 2 -1 9
 0
 end_operator
 begin_operator
-pickup o1 p9_5
+push o4 p4-3 p3-3
 1
-3 56
+10 53
 1
-1 0 92 0 -1 50
+1 5 9 5 -1 45
 0
 end_operator
 begin_operator
-pickup o2 p9_5
+push o5 p4-3 p3-3
 1
-3 56
+10 53
 1
-1 1 19 1 -1 80
+1 8 13 8 -1 47
 0
 end_operator
 begin_operator
-pickup o3 p9_5
+push o6 p4-3 p3-3
 1
-3 56
+10 53
 1
-1 2 42 2 -1 85
+1 6 37 6 -1 46
 0
 end_operator
 begin_operator
-move p8_4 p7_4
+push o7 p4-3 p3-3
 1
-3 89
+10 53
 1
-0 3 89 57
+1 9 1 9 -1 42
 0
 end_operator
 begin_operator
-move p8_4 p9_4
+push o8 p4-3 p3-3
 1
-3 89
+10 53
 1
-0 3 89 16
+1 7 36 7 -1 25
 0
 end_operator
 begin_operator
-move p8_4 p8_3
+push o9 p4-3 p3-3
 1
-3 89
+10 53
 1
-0 3 89 12
+1 3 34 3 -1 2
 0
 end_operator
 begin_operator
-move p8_4 p8_5
+push o10 p4-3 p3-3
 1
-3 89
+10 53
 1
-0 3 89 41
+1 0 15 0 -1 7
 0
 end_operator
 begin_operator
-pickup o1 p8_4
+push o1 p4-3 p5-3
 1
-3 89
+10 53
 1
-1 0 83 0 -1 50
+1 1 54 1 -1 37
 0
 end_operator
 begin_operator
-pickup o2 p8_4
+push o2 p4-3 p5-3
 1
-3 89
+10 53
 1
-1 1 75 1 -1 80
+1 4 7 4 -1 30
 0
 end_operator
 begin_operator
-pickup o3 p8_4
+push o3 p4-3 p5-3
 1
-3 89
+10 53
 1
-1 2 49 2 -1 85
+1 2 15 2 -1 1
 0
 end_operator
 begin_operator
-move p8_6 p7_6
+push o4 p4-3 p5-3
 1
-3 1
+10 53
 1
-0 3 1 14
+1 5 9 5 -1 28
 0
 end_operator
 begin_operator
-move p8_6 p9_6
+push o5 p4-3 p5-3
 1
-3 1
+10 53
 1
-0 3 1 26
+1 8 13 8 -1 54
 0
 end_operator
 begin_operator
-move p8_6 p8_5
+push o6 p4-3 p5-3
 1
-3 1
+10 53
 1
-0 3 1 41
+1 6 37 6 -1 22
 0
 end_operator
 begin_operator
-move p8_6 p8_7
+push o7 p4-3 p5-3
 1
-3 1
+10 53
 1
-0 3 1 53
+1 9 1 9 -1 40
 0
 end_operator
 begin_operator
-pickup o1 p8_6
+push o8 p4-3 p5-3
 1
-3 1
+10 53
+1
+1 7 36 7 -1 1
+0
+end_operator
+begin_operator
+push o9 p4-3 p5-3
+1
+10 53
+1
+1 3 34 3 -1 17
+0
+end_operator
+begin_operator
+push o10 p4-3 p5-3
+1
+10 53
+1
+1 0 15 0 -1 50
+0
+end_operator
+begin_operator
+push o1 p4-3 p4-2
+1
+10 53
+1
+1 1 54 1 -1 50
+0
+end_operator
+begin_operator
+push o2 p4-3 p4-2
+1
+10 53
+1
+1 4 7 4 -1 3
+0
+end_operator
+begin_operator
+push o3 p4-3 p4-2
+1
+10 53
+1
+1 2 15 2 -1 22
+0
+end_operator
+begin_operator
+push o4 p4-3 p4-2
+1
+10 53
+1
+1 5 9 5 -1 6
+0
+end_operator
+begin_operator
+push o5 p4-3 p4-2
+1
+10 53
+1
+1 8 13 8 -1 21
+0
+end_operator
+begin_operator
+push o6 p4-3 p4-2
+1
+10 53
+1
+1 6 37 6 -1 41
+0
+end_operator
+begin_operator
+push o7 p4-3 p4-2
+1
+10 53
+1
+1 9 1 9 -1 6
+0
+end_operator
+begin_operator
+push o8 p4-3 p4-2
+1
+10 53
+1
+1 7 36 7 -1 29
+0
+end_operator
+begin_operator
+push o9 p4-3 p4-2
+1
+10 53
+1
+1 3 34 3 -1 14
+0
+end_operator
+begin_operator
+push o10 p4-3 p4-2
+1
+10 53
+1
+1 0 15 0 -1 9
+0
+end_operator
+begin_operator
+push o1 p4-3 p4-4
+1
+10 53
+1
+1 1 54 1 -1 28
+0
+end_operator
+begin_operator
+push o2 p4-3 p4-4
+1
+10 53
+1
+1 4 7 4 -1 5
+0
+end_operator
+begin_operator
+push o3 p4-3 p4-4
+1
+10 53
+1
+1 2 15 2 -1 28
+0
+end_operator
+begin_operator
+push o4 p4-3 p4-4
+1
+10 53
+1
+1 5 9 5 -1 4
+0
+end_operator
+begin_operator
+push o5 p4-3 p4-4
+1
+10 53
+1
+1 8 13 8 -1 4
+0
+end_operator
+begin_operator
+push o6 p4-3 p4-4
+1
+10 53
+1
+1 6 37 6 -1 40
+0
+end_operator
+begin_operator
+push o7 p4-3 p4-4
+1
+10 53
+1
+1 9 1 9 -1 25
+0
+end_operator
+begin_operator
+push o8 p4-3 p4-4
+1
+10 53
+1
+1 7 36 7 -1 0
+0
+end_operator
+begin_operator
+push o9 p4-3 p4-4
+1
+10 53
+1
+1 3 34 3 -1 8
+0
+end_operator
+begin_operator
+push o10 p4-3 p4-4
+1
+10 53
+1
+1 0 15 0 -1 10
+0
+end_operator
+begin_operator
+push o1 p4-5 p3-5
+1
+10 62
+1
+1 1 21 1 -1 6
+0
+end_operator
+begin_operator
+push o2 p4-5 p3-5
+1
+10 62
+1
+1 4 9 4 -1 44
+0
+end_operator
+begin_operator
+push o3 p4-5 p3-5
+1
+10 62
+1
+1 2 47 2 -1 16
+0
+end_operator
+begin_operator
+push o4 p4-5 p3-5
+1
+10 62
+1
+1 5 7 5 -1 32
+0
+end_operator
+begin_operator
+push o5 p4-5 p3-5
+1
+10 62
+1
+1 8 1 8 -1 44
+0
+end_operator
+begin_operator
+push o6 p4-5 p3-5
+1
+10 62
+1
+1 6 49 6 -1 15
+0
+end_operator
+begin_operator
+push o7 p4-5 p3-5
+1
+10 62
+1
+1 9 17 9 -1 45
+0
+end_operator
+begin_operator
+push o8 p4-5 p3-5
+1
+10 62
+1
+1 7 43 7 -1 24
+0
+end_operator
+begin_operator
+push o9 p4-5 p3-5
+1
+10 62
+1
+1 3 64 3 -1 58
+0
+end_operator
+begin_operator
+push o10 p4-5 p3-5
+1
+10 62
+1
+1 0 27 0 -1 35
+0
+end_operator
+begin_operator
+push o1 p4-5 p5-5
+1
+10 62
+1
+1 1 21 1 -1 47
+0
+end_operator
+begin_operator
+push o2 p4-5 p5-5
+1
+10 62
+1
+1 4 9 4 -1 46
+0
+end_operator
+begin_operator
+push o3 p4-5 p5-5
+1
+10 62
+1
+1 2 47 2 -1 37
+0
+end_operator
+begin_operator
+push o4 p4-5 p5-5
+1
+10 62
+1
+1 5 7 5 -1 14
+0
+end_operator
+begin_operator
+push o5 p4-5 p5-5
+1
+10 62
+1
+1 8 1 8 -1 17
+0
+end_operator
+begin_operator
+push o6 p4-5 p5-5
+1
+10 62
+1
+1 6 49 6 -1 8
+0
+end_operator
+begin_operator
+push o7 p4-5 p5-5
+1
+10 62
+1
+1 9 17 9 -1 48
+0
+end_operator
+begin_operator
+push o8 p4-5 p5-5
+1
+10 62
+1
+1 7 43 7 -1 48
+0
+end_operator
+begin_operator
+push o9 p4-5 p5-5
+1
+10 62
+1
+1 3 64 3 -1 30
+0
+end_operator
+begin_operator
+push o10 p4-5 p5-5
+1
+10 62
+1
+1 0 27 0 -1 60
+0
+end_operator
+begin_operator
+push o1 p4-5 p4-4
+1
+10 62
+1
+1 1 21 1 -1 28
+0
+end_operator
+begin_operator
+push o2 p4-5 p4-4
+1
+10 62
+1
+1 4 9 4 -1 5
+0
+end_operator
+begin_operator
+push o3 p4-5 p4-4
+1
+10 62
+1
+1 2 47 2 -1 28
+0
+end_operator
+begin_operator
+push o4 p4-5 p4-4
+1
+10 62
+1
+1 5 7 5 -1 4
+0
+end_operator
+begin_operator
+push o5 p4-5 p4-4
+1
+10 62
+1
+1 8 1 8 -1 4
+0
+end_operator
+begin_operator
+push o6 p4-5 p4-4
+1
+10 62
+1
+1 6 49 6 -1 40
+0
+end_operator
+begin_operator
+push o7 p4-5 p4-4
+1
+10 62
+1
+1 9 17 9 -1 25
+0
+end_operator
+begin_operator
+push o8 p4-5 p4-4
+1
+10 62
+1
+1 7 43 7 -1 0
+0
+end_operator
+begin_operator
+push o9 p4-5 p4-4
+1
+10 62
+1
+1 3 64 3 -1 8
+0
+end_operator
+begin_operator
+push o10 p4-5 p4-4
+1
+10 62
+1
+1 0 27 0 -1 10
+0
+end_operator
+begin_operator
+push o1 p4-5 p4-6
+1
+10 62
+1
+1 1 21 1 -1 32
+0
+end_operator
+begin_operator
+push o2 p4-5 p4-6
+1
+10 62
+1
+1 4 9 4 -1 14
+0
+end_operator
+begin_operator
+push o3 p4-5 p4-6
+1
+10 62
+1
+1 2 47 2 -1 40
+0
+end_operator
+begin_operator
+push o4 p4-5 p4-6
+1
+10 62
+1
+1 5 7 5 -1 47
+0
+end_operator
+begin_operator
+push o5 p4-5 p4-6
+1
+10 62
+1
+1 8 1 8 -1 6
+0
+end_operator
+begin_operator
+push o6 p4-5 p4-6
+1
+10 62
+1
+1 6 49 6 -1 44
+0
+end_operator
+begin_operator
+push o7 p4-5 p4-6
+1
+10 62
+1
+1 9 17 9 -1 21
+0
+end_operator
+begin_operator
+push o8 p4-5 p4-6
+1
+10 62
+1
+1 7 43 7 -1 51
+0
+end_operator
+begin_operator
+push o9 p4-5 p4-6
+1
+10 62
+1
+1 3 64 3 -1 28
+0
+end_operator
+begin_operator
+push o10 p4-5 p4-6
+1
+10 62
+1
+1 0 27 0 -1 63
+0
+end_operator
+begin_operator
+move p2-4 p1-4
+1
+10 40
+1
+0 10 40 7
+0
+end_operator
+begin_operator
+move p2-4 p3-4
+1
+10 40
+1
+0 10 40 19
+0
+end_operator
+begin_operator
+move p2-4 p2-3
+1
+10 40
+1
+0 10 40 10
+0
+end_operator
+begin_operator
+move p2-4 p2-5
+1
+10 40
+1
+0 10 40 25
+0
+end_operator
+begin_operator
+move p3-3 p2-3
+1
+10 42
+1
+0 10 42 10
+0
+end_operator
+begin_operator
+move p3-3 p4-3
+1
+10 42
+1
+0 10 42 53
+0
+end_operator
+begin_operator
+move p3-3 p3-2
+1
+10 42
+1
+0 10 42 27
+0
+end_operator
+begin_operator
+move p3-3 p3-4
+1
+10 42
+1
+0 10 42 19
+0
+end_operator
+begin_operator
+move p3-5 p2-5
+1
+10 26
+1
+0 10 26 25
+0
+end_operator
+begin_operator
+move p3-5 p4-5
+1
+10 26
+1
+0 10 26 62
+0
+end_operator
+begin_operator
+move p3-5 p3-4
+1
+10 26
+1
+0 10 26 19
+0
+end_operator
+begin_operator
+move p3-5 p3-6
+1
+10 26
+1
+0 10 26 41
+0
+end_operator
+begin_operator
+move p6-4 p5-4
+1
+10 16
+1
+0 10 16 44
+0
+end_operator
+begin_operator
+move p6-4 p7-4
+1
+10 16
+1
+0 10 16 22
+0
+end_operator
+begin_operator
+move p6-4 p6-3
+1
+10 16
+1
+0 10 16 17
+0
+end_operator
+begin_operator
+move p6-4 p6-5
+1
+10 16
+1
+0 10 16 2
+0
+end_operator
+begin_operator
+move p5-3 p4-3
+1
+10 15
+1
+0 10 15 53
+0
+end_operator
+begin_operator
+move p5-3 p6-3
+1
+10 15
+1
+0 10 15 17
+0
+end_operator
+begin_operator
+move p5-3 p5-2
+1
+10 15
+1
+0 10 15 58
+0
+end_operator
+begin_operator
+move p5-3 p5-4
+1
+10 15
+1
+0 10 15 44
+0
+end_operator
+begin_operator
+move p5-5 p4-5
+1
+10 36
+1
+0 10 36 62
+0
+end_operator
+begin_operator
+move p5-5 p6-5
+1
+10 36
+1
+0 10 36 2
+0
+end_operator
+begin_operator
+move p5-5 p5-4
+1
+10 36
+1
+0 10 36 44
+0
+end_operator
+begin_operator
+move p5-5 p5-6
+1
+10 36
+1
+0 10 36 12
+0
+end_operator
+begin_operator
+move p4-2 p3-2
+1
+10 13
+1
+0 10 13 27
+0
+end_operator
+begin_operator
+move p4-2 p5-2
+1
+10 13
+1
+0 10 13 58
+0
+end_operator
+begin_operator
+move p4-2 p4-1
+1
+10 13
+1
+0 10 13 29
+0
+end_operator
+begin_operator
+move p4-2 p4-3
+1
+10 13
+1
+0 10 13 53
+0
+end_operator
+begin_operator
+move p4-6 p3-6
+1
+10 54
+1
+0 10 54 41
+0
+end_operator
+begin_operator
+move p4-6 p5-6
+1
+10 54
+1
+0 10 54 12
+0
+end_operator
+begin_operator
+move p4-6 p4-5
+1
+10 54
+1
+0 10 54 62
+0
+end_operator
+begin_operator
+move p4-6 p4-7
+1
+10 54
+1
+0 10 54 55
+0
+end_operator
+begin_operator
+push o1 p2-4 p1-4
+1
+10 40
+1
+1 1 12 1 -1 41
+0
+end_operator
+begin_operator
+push o2 p2-4 p1-4
+1
+10 40
+1
+1 4 0 4 -1 20
+0
+end_operator
+begin_operator
+push o3 p2-4 p1-4
+1
+10 40
+1
+1 2 26 2 -1 61
+0
+end_operator
+begin_operator
+push o4 p2-4 p1-4
+1
+10 40
+1
+1 5 30 5 -1 34
+0
+end_operator
+begin_operator
+push o5 p2-4 p1-4
+1
+10 40
+1
+1 8 58 8 -1 23
+0
+end_operator
+begin_operator
+push o6 p2-4 p1-4
+1
+10 40
+1
+1 6 25 6 -1 32
+0
+end_operator
+begin_operator
+push o7 p2-4 p1-4
+1
+10 40
+1
+1 9 0 9 -1 23
+0
+end_operator
+begin_operator
+push o8 p2-4 p1-4
+1
+10 40
+1
+1 7 6 7 -1 39
+0
+end_operator
+begin_operator
+push o9 p2-4 p1-4
+1
+10 40
+1
+1 3 42 3 -1 12
+0
+end_operator
+begin_operator
+push o10 p2-4 p1-4
+1
+10 40
+1
+1 0 16 0 -1 22
+0
+end_operator
+begin_operator
+push o1 p2-4 p3-4
+1
+10 40
+1
+1 1 12 1 -1 58
+0
+end_operator
+begin_operator
+push o2 p2-4 p3-4
+1
+10 40
+1
+1 4 0 4 -1 51
+0
+end_operator
+begin_operator
+push o3 p2-4 p3-4
+1
+10 40
+1
+1 2 26 2 -1 10
+0
+end_operator
+begin_operator
+push o4 p2-4 p3-4
+1
+10 40
+1
+1 5 30 5 -1 36
+0
+end_operator
+begin_operator
+push o5 p2-4 p3-4
+1
+10 40
+1
+1 8 58 8 -1 39
+0
+end_operator
+begin_operator
+push o6 p2-4 p3-4
+1
+10 40
+1
+1 6 25 6 -1 63
+0
+end_operator
+begin_operator
+push o7 p2-4 p3-4
+1
+10 40
+1
+1 9 0 9 -1 38
+0
+end_operator
+begin_operator
+push o8 p2-4 p3-4
+1
+10 40
+1
+1 7 6 7 -1 30
+0
+end_operator
+begin_operator
+push o9 p2-4 p3-4
+1
+10 40
+1
+1 3 42 3 -1 46
+0
+end_operator
+begin_operator
+push o10 p2-4 p3-4
+1
+10 40
+1
+1 0 16 0 -1 42
+0
+end_operator
+begin_operator
+push o1 p2-4 p2-3
+1
+10 40
+1
+1 1 12 1 -1 29
+0
+end_operator
+begin_operator
+push o2 p2-4 p2-3
+1
+10 40
+1
+1 4 0 4 -1 58
+0
+end_operator
+begin_operator
+push o3 p2-4 p2-3
+1
+10 40
+1
+1 2 26 2 -1 45
+0
+end_operator
+begin_operator
+push o4 p2-4 p2-3
+1
+10 40
+1
+1 5 30 5 -1 44
+0
+end_operator
+begin_operator
+push o5 p2-4 p2-3
+1
+10 40
+1
+1 8 58 8 -1 34
+0
+end_operator
+begin_operator
+push o6 p2-4 p2-3
+1
+10 40
+1
+1 6 25 6 -1 10
+0
+end_operator
+begin_operator
+push o7 p2-4 p2-3
+1
+10 40
+1
+1 9 0 9 -1 60
+0
+end_operator
+begin_operator
+push o8 p2-4 p2-3
+1
+10 40
+1
+1 7 6 7 -1 8
+0
+end_operator
+begin_operator
+push o9 p2-4 p2-3
+1
+10 40
+1
+1 3 42 3 -1 40
+0
+end_operator
+begin_operator
+push o10 p2-4 p2-3
+1
+10 40
+1
+1 0 16 0 -1 32
+0
+end_operator
+begin_operator
+push o1 p2-4 p2-5
+1
+10 40
+1
+1 1 12 1 -1 7
+0
+end_operator
+begin_operator
+push o2 p2-4 p2-5
+1
+10 40
+1
+1 4 0 4 -1 43
+0
+end_operator
+begin_operator
+push o3 p2-4 p2-5
+1
+10 40
+1
+1 2 26 2 -1 23
+0
+end_operator
+begin_operator
+push o4 p2-4 p2-5
+1
+10 40
+1
+1 5 30 5 -1 35
+0
+end_operator
+begin_operator
+push o5 p2-4 p2-5
+1
+10 40
+1
+1 8 58 8 -1 61
+0
+end_operator
+begin_operator
+push o6 p2-4 p2-5
+1
+10 40
+1
+1 6 25 6 -1 31
+0
+end_operator
+begin_operator
+push o7 p2-4 p2-5
+1
+10 40
+1
+1 9 0 9 -1 59
+0
+end_operator
+begin_operator
+push o8 p2-4 p2-5
+1
+10 40
+1
+1 7 6 7 -1 11
+0
+end_operator
+begin_operator
+push o9 p2-4 p2-5
+1
+10 40
+1
+1 3 42 3 -1 37
+0
+end_operator
+begin_operator
+push o10 p2-4 p2-5
+1
+10 40
+1
+1 0 16 0 -1 24
+0
+end_operator
+begin_operator
+push o1 p3-3 p2-3
+1
+10 42
+1
+1 1 61 1 -1 29
+0
+end_operator
+begin_operator
+push o2 p3-3 p2-3
+1
+10 42
+1
+1 4 29 4 -1 58
+0
+end_operator
+begin_operator
+push o3 p3-3 p2-3
+1
+10 42
+1
+1 2 9 2 -1 45
+0
+end_operator
+begin_operator
+push o4 p3-3 p2-3
+1
+10 42
+1
+1 5 45 5 -1 44
+0
+end_operator
+begin_operator
+push o5 p3-3 p2-3
+1
+10 42
+1
+1 8 47 8 -1 34
+0
+end_operator
+begin_operator
+push o6 p3-3 p2-3
+1
+10 42
+1
+1 6 46 6 -1 10
+0
+end_operator
+begin_operator
+push o7 p3-3 p2-3
+1
+10 42
+1
+1 9 42 9 -1 60
+0
+end_operator
+begin_operator
+push o8 p3-3 p2-3
+1
+10 42
+1
+1 7 25 7 -1 8
+0
+end_operator
+begin_operator
+push o9 p3-3 p2-3
+1
+10 42
+1
+1 3 2 3 -1 40
+0
+end_operator
+begin_operator
+push o10 p3-3 p2-3
+1
+10 42
+1
+1 0 7 0 -1 32
+0
+end_operator
+begin_operator
+push o1 p3-3 p4-3
+1
+10 42
+1
+1 1 61 1 -1 54
+0
+end_operator
+begin_operator
+push o2 p3-3 p4-3
+1
+10 42
+1
+1 4 29 4 -1 7
+0
+end_operator
+begin_operator
+push o3 p3-3 p4-3
+1
+10 42
+1
+1 2 9 2 -1 15
+0
+end_operator
+begin_operator
+push o4 p3-3 p4-3
+1
+10 42
+1
+1 5 45 5 -1 9
+0
+end_operator
+begin_operator
+push o5 p3-3 p4-3
+1
+10 42
+1
+1 8 47 8 -1 13
+0
+end_operator
+begin_operator
+push o6 p3-3 p4-3
+1
+10 42
+1
+1 6 46 6 -1 37
+0
+end_operator
+begin_operator
+push o7 p3-3 p4-3
+1
+10 42
+1
+1 9 42 9 -1 1
+0
+end_operator
+begin_operator
+push o8 p3-3 p4-3
+1
+10 42
+1
+1 7 25 7 -1 36
+0
+end_operator
+begin_operator
+push o9 p3-3 p4-3
+1
+10 42
+1
+1 3 2 3 -1 34
+0
+end_operator
+begin_operator
+push o10 p3-3 p4-3
+1
+10 42
+1
+1 0 7 0 -1 15
+0
+end_operator
+begin_operator
+push o1 p3-3 p3-2
+1
+10 42
+1
+1 1 61 1 -1 57
+0
+end_operator
+begin_operator
+push o2 p3-3 p3-2
+1
+10 42
+1
+1 4 29 4 -1 35
+0
+end_operator
+begin_operator
+push o3 p3-3 p3-2
+1
+10 42
+1
+1 2 9 2 -1 12
+0
+end_operator
+begin_operator
+push o4 p3-3 p3-2
+1
+10 42
+1
+1 5 45 5 -1 51
+0
+end_operator
+begin_operator
+push o5 p3-3 p3-2
+1
+10 42
+1
+1 8 47 8 -1 42
+0
+end_operator
+begin_operator
+push o6 p3-3 p3-2
+1
+10 42
+1
+1 6 46 6 -1 53
+0
+end_operator
+begin_operator
+push o7 p3-3 p3-2
+1
+10 42
+1
+1 9 42 9 -1 36
+0
+end_operator
+begin_operator
+push o8 p3-3 p3-2
+1
+10 42
+1
+1 7 25 7 -1 22
+0
+end_operator
+begin_operator
+push o9 p3-3 p3-2
+1
+10 42
+1
+1 3 2 3 -1 59
+0
+end_operator
+begin_operator
+push o10 p3-3 p3-2
+1
+10 42
+1
+1 0 7 0 -1 3
+0
+end_operator
+begin_operator
+push o1 p3-3 p3-4
+1
+10 42
+1
+1 1 61 1 -1 58
+0
+end_operator
+begin_operator
+push o2 p3-3 p3-4
+1
+10 42
+1
+1 4 29 4 -1 51
+0
+end_operator
+begin_operator
+push o3 p3-3 p3-4
+1
+10 42
+1
+1 2 9 2 -1 10
+0
+end_operator
+begin_operator
+push o4 p3-3 p3-4
+1
+10 42
+1
+1 5 45 5 -1 36
+0
+end_operator
+begin_operator
+push o5 p3-3 p3-4
+1
+10 42
+1
+1 8 47 8 -1 39
+0
+end_operator
+begin_operator
+push o6 p3-3 p3-4
+1
+10 42
+1
+1 6 46 6 -1 63
+0
+end_operator
+begin_operator
+push o7 p3-3 p3-4
+1
+10 42
+1
+1 9 42 9 -1 38
+0
+end_operator
+begin_operator
+push o8 p3-3 p3-4
+1
+10 42
+1
+1 7 25 7 -1 30
+0
+end_operator
+begin_operator
+push o9 p3-3 p3-4
+1
+10 42
+1
+1 3 2 3 -1 46
+0
+end_operator
+begin_operator
+push o10 p3-3 p3-4
+1
+10 42
+1
+1 0 7 0 -1 42
+0
+end_operator
+begin_operator
+push o1 p3-5 p2-5
+1
+10 26
+1
+1 1 6 1 -1 7
+0
+end_operator
+begin_operator
+push o2 p3-5 p2-5
+1
+10 26
+1
+1 4 44 4 -1 43
+0
+end_operator
+begin_operator
+push o3 p3-5 p2-5
+1
+10 26
+1
+1 2 16 2 -1 23
+0
+end_operator
+begin_operator
+push o4 p3-5 p2-5
+1
+10 26
+1
+1 5 32 5 -1 35
+0
+end_operator
+begin_operator
+push o5 p3-5 p2-5
+1
+10 26
+1
+1 8 44 8 -1 61
+0
+end_operator
+begin_operator
+push o6 p3-5 p2-5
+1
+10 26
+1
+1 6 15 6 -1 31
+0
+end_operator
+begin_operator
+push o7 p3-5 p2-5
+1
+10 26
+1
+1 9 45 9 -1 59
+0
+end_operator
+begin_operator
+push o8 p3-5 p2-5
+1
+10 26
+1
+1 7 24 7 -1 11
+0
+end_operator
+begin_operator
+push o9 p3-5 p2-5
+1
+10 26
+1
+1 3 58 3 -1 37
+0
+end_operator
+begin_operator
+push o10 p3-5 p2-5
+1
+10 26
+1
+1 0 35 0 -1 24
+0
+end_operator
+begin_operator
+push o1 p3-5 p4-5
+1
+10 26
+1
+1 1 6 1 -1 21
+0
+end_operator
+begin_operator
+push o2 p3-5 p4-5
+1
+10 26
+1
+1 4 44 4 -1 9
+0
+end_operator
+begin_operator
+push o3 p3-5 p4-5
+1
+10 26
+1
+1 2 16 2 -1 47
+0
+end_operator
+begin_operator
+push o4 p3-5 p4-5
+1
+10 26
+1
+1 5 32 5 -1 7
+0
+end_operator
+begin_operator
+push o5 p3-5 p4-5
+1
+10 26
+1
+1 8 44 8 -1 1
+0
+end_operator
+begin_operator
+push o6 p3-5 p4-5
+1
+10 26
+1
+1 6 15 6 -1 49
+0
+end_operator
+begin_operator
+push o7 p3-5 p4-5
+1
+10 26
+1
+1 9 45 9 -1 17
+0
+end_operator
+begin_operator
+push o8 p3-5 p4-5
+1
+10 26
+1
+1 7 24 7 -1 43
+0
+end_operator
+begin_operator
+push o9 p3-5 p4-5
+1
+10 26
+1
+1 3 58 3 -1 64
+0
+end_operator
+begin_operator
+push o10 p3-5 p4-5
+1
+10 26
+1
+1 0 35 0 -1 27
+0
+end_operator
+begin_operator
+push o1 p3-5 p3-4
+1
+10 26
+1
+1 1 6 1 -1 58
+0
+end_operator
+begin_operator
+push o2 p3-5 p3-4
+1
+10 26
+1
+1 4 44 4 -1 51
+0
+end_operator
+begin_operator
+push o3 p3-5 p3-4
+1
+10 26
+1
+1 2 16 2 -1 10
+0
+end_operator
+begin_operator
+push o4 p3-5 p3-4
+1
+10 26
+1
+1 5 32 5 -1 36
+0
+end_operator
+begin_operator
+push o5 p3-5 p3-4
+1
+10 26
+1
+1 8 44 8 -1 39
+0
+end_operator
+begin_operator
+push o6 p3-5 p3-4
+1
+10 26
+1
+1 6 15 6 -1 63
+0
+end_operator
+begin_operator
+push o7 p3-5 p3-4
+1
+10 26
+1
+1 9 45 9 -1 38
+0
+end_operator
+begin_operator
+push o8 p3-5 p3-4
+1
+10 26
+1
+1 7 24 7 -1 30
+0
+end_operator
+begin_operator
+push o9 p3-5 p3-4
+1
+10 26
+1
+1 3 58 3 -1 46
+0
+end_operator
+begin_operator
+push o10 p3-5 p3-4
+1
+10 26
+1
+1 0 35 0 -1 42
+0
+end_operator
+begin_operator
+push o1 p3-5 p3-6
+1
+10 26
+1
+1 1 6 1 -1 46
+0
+end_operator
+begin_operator
+push o2 p3-5 p3-6
+1
+10 26
+1
+1 4 44 4 -1 48
+0
+end_operator
+begin_operator
+push o3 p3-5 p3-6
+1
+10 26
+1
+1 2 16 2 -1 14
+0
+end_operator
+begin_operator
+push o4 p3-5 p3-6
+1
+10 26
+1
+1 5 32 5 -1 39
+0
+end_operator
+begin_operator
+push o5 p3-5 p3-6
+1
+10 26
+1
+1 8 44 8 -1 14
+0
+end_operator
+begin_operator
+push o6 p3-5 p3-6
+1
+10 26
+1
+1 6 15 6 -1 11
+0
+end_operator
+begin_operator
+push o7 p3-5 p3-6
+1
+10 26
+1
+1 9 45 9 -1 50
+0
+end_operator
+begin_operator
+push o8 p3-5 p3-6
+1
+10 26
+1
+1 7 24 7 -1 34
+0
+end_operator
+begin_operator
+push o9 p3-5 p3-6
+1
+10 26
+1
+1 3 58 3 -1 50
+0
+end_operator
+begin_operator
+push o10 p3-5 p3-6
+1
+10 26
+1
+1 0 35 0 -1 45
+0
+end_operator
+begin_operator
+push o1 p6-4 p5-4
+1
+10 16
+1
+1 1 63 1 -1 59
+0
+end_operator
+begin_operator
+push o2 p6-4 p5-4
+1
+10 16
+1
+1 4 19 4 -1 63
+0
+end_operator
+begin_operator
+push o3 p6-4 p5-4
+1
+10 16
+1
+1 2 57 2 -1 63
+0
+end_operator
+begin_operator
+push o4 p6-4 p5-4
+1
+10 16
+1
+1 5 58 5 -1 52
+0
+end_operator
+begin_operator
+push o5 p6-4 p5-4
+1
+10 16
+1
+1 8 41 8 -1 3
+0
+end_operator
+begin_operator
+push o6 p6-4 p5-4
+1
+10 16
+1
+1 6 17 6 -1 38
+0
+end_operator
+begin_operator
+push o7 p6-4 p5-4
+1
+10 16
+1
+1 9 24 9 -1 9
+0
+end_operator
+begin_operator
+push o8 p6-4 p5-4
+1
+10 16
+1
+1 7 19 7 -1 13
+0
+end_operator
+begin_operator
+push o9 p6-4 p5-4
+1
+10 16
+1
+1 3 4 3 -1 3
+0
+end_operator
+begin_operator
+push o10 p6-4 p5-4
+1
+10 16
+1
+1 0 37 0 -1 1
+0
+end_operator
+begin_operator
+push o1 p6-4 p7-4
+1
+10 16
+1
+1 1 63 1 -1 64
+0
+end_operator
+begin_operator
+push o2 p6-4 p7-4
+1
+10 16
+1
+1 4 19 4 -1 8
+0
+end_operator
+begin_operator
+push o3 p6-4 p7-4
+1
+10 16
+1
+1 2 57 2 -1 44
+0
+end_operator
+begin_operator
+push o4 p6-4 p7-4
+1
+10 16
+1
+1 5 58 5 -1 15
+0
+end_operator
+begin_operator
+push o5 p6-4 p7-4
+1
+10 16
+1
+1 8 41 8 -1 40
+0
+end_operator
+begin_operator
+push o6 p6-4 p7-4
+1
+10 16
+1
+1 6 17 6 -1 36
+0
+end_operator
+begin_operator
+push o7 p6-4 p7-4
+1
+10 16
+1
+1 9 24 9 -1 49
+0
+end_operator
+begin_operator
+push o8 p6-4 p7-4
+1
+10 16
+1
+1 7 19 7 -1 53
+0
+end_operator
+begin_operator
+push o9 p6-4 p7-4
+1
+10 16
+1
+1 3 4 3 -1 55
+0
+end_operator
+begin_operator
+push o10 p6-4 p7-4
+1
+10 16
+1
+1 0 37 0 -1 21
+0
+end_operator
+begin_operator
+push o1 p6-4 p6-3
+1
+10 16
+1
+1 1 63 1 -1 34
+0
+end_operator
+begin_operator
+push o2 p6-4 p6-3
+1
+10 16
+1
+1 4 19 4 -1 45
+0
+end_operator
+begin_operator
+push o3 p6-4 p6-3
+1
+10 16
+1
+1 2 57 2 -1 21
+0
+end_operator
+begin_operator
+push o4 p6-4 p6-3
+1
+10 16
+1
+1 5 58 5 -1 26
+0
+end_operator
+begin_operator
+push o5 p6-4 p6-3
+1
+10 16
+1
+1 8 41 8 -1 11
+0
+end_operator
+begin_operator
+push o6 p6-4 p6-3
+1
+10 16
+1
+1 6 17 6 -1 61
+0
+end_operator
+begin_operator
+push o7 p6-4 p6-3
+1
+10 16
+1
+1 9 24 9 -1 10
+0
+end_operator
+begin_operator
+push o8 p6-4 p6-3
+1
+10 16
+1
+1 7 19 7 -1 32
+0
+end_operator
+begin_operator
+push o9 p6-4 p6-3
+1
+10 16
+1
+1 3 4 3 -1 38
+0
+end_operator
+begin_operator
+push o10 p6-4 p6-3
+1
+10 16
+1
+1 0 37 0 -1 59
+0
+end_operator
+begin_operator
+push o1 p6-4 p6-5
+1
+10 16
+1
+1 1 63 1 -1 16
+0
+end_operator
+begin_operator
+push o2 p6-4 p6-5
+1
+10 16
+1
+1 4 19 4 -1 25
+0
+end_operator
+begin_operator
+push o3 p6-4 p6-5
+1
+10 16
+1
+1 2 57 2 -1 50
+0
+end_operator
+begin_operator
+push o4 p6-4 p6-5
+1
+10 16
+1
+1 5 58 5 -1 46
+0
+end_operator
+begin_operator
+push o5 p6-4 p6-5
+1
+10 16
+1
+1 8 41 8 -1 24
+0
+end_operator
+begin_operator
+push o6 p6-4 p6-5
+1
+10 16
+1
+1 6 17 6 -1 6
+0
+end_operator
+begin_operator
+push o7 p6-4 p6-5
+1
+10 16
+1
+1 9 24 9 -1 15
+0
+end_operator
+begin_operator
+push o8 p6-4 p6-5
+1
+10 16
+1
+1 7 19 7 -1 9
+0
+end_operator
+begin_operator
+push o9 p6-4 p6-5
+1
+10 16
+1
+1 3 4 3 -1 7
+0
+end_operator
+begin_operator
+push o10 p6-4 p6-5
+1
+10 16
+1
+1 0 37 0 -1 2
+0
+end_operator
+begin_operator
+push o1 p5-3 p4-3
+1
+10 15
+1
+1 1 37 1 -1 54
+0
+end_operator
+begin_operator
+push o2 p5-3 p4-3
+1
+10 15
+1
+1 4 30 4 -1 7
+0
+end_operator
+begin_operator
+push o3 p5-3 p4-3
+1
+10 15
+1
+1 2 1 2 -1 15
+0
+end_operator
+begin_operator
+push o4 p5-3 p4-3
+1
+10 15
+1
+1 5 28 5 -1 9
+0
+end_operator
+begin_operator
+push o5 p5-3 p4-3
+1
+10 15
+1
+1 8 54 8 -1 13
+0
+end_operator
+begin_operator
+push o6 p5-3 p4-3
+1
+10 15
+1
+1 6 22 6 -1 37
+0
+end_operator
+begin_operator
+push o7 p5-3 p4-3
+1
+10 15
+1
+1 9 40 9 -1 1
+0
+end_operator
+begin_operator
+push o8 p5-3 p4-3
+1
+10 15
+1
+1 7 1 7 -1 36
+0
+end_operator
+begin_operator
+push o9 p5-3 p4-3
+1
+10 15
+1
+1 3 17 3 -1 34
+0
+end_operator
+begin_operator
+push o10 p5-3 p4-3
+1
+10 15
+1
+1 0 50 0 -1 15
+0
+end_operator
+begin_operator
+push o1 p5-3 p6-3
+1
+10 15
+1
+1 1 37 1 -1 34
+0
+end_operator
+begin_operator
+push o2 p5-3 p6-3
+1
+10 15
+1
+1 4 30 4 -1 45
+0
+end_operator
+begin_operator
+push o3 p5-3 p6-3
+1
+10 15
+1
+1 2 1 2 -1 21
+0
+end_operator
+begin_operator
+push o4 p5-3 p6-3
+1
+10 15
+1
+1 5 28 5 -1 26
+0
+end_operator
+begin_operator
+push o5 p5-3 p6-3
+1
+10 15
+1
+1 8 54 8 -1 11
+0
+end_operator
+begin_operator
+push o6 p5-3 p6-3
+1
+10 15
+1
+1 6 22 6 -1 61
+0
+end_operator
+begin_operator
+push o7 p5-3 p6-3
+1
+10 15
+1
+1 9 40 9 -1 10
+0
+end_operator
+begin_operator
+push o8 p5-3 p6-3
+1
+10 15
+1
+1 7 1 7 -1 32
+0
+end_operator
+begin_operator
+push o9 p5-3 p6-3
+1
+10 15
+1
+1 3 17 3 -1 38
+0
+end_operator
+begin_operator
+push o10 p5-3 p6-3
+1
+10 15
+1
+1 0 50 0 -1 59
+0
+end_operator
+begin_operator
+push o1 p5-3 p5-2
+1
+10 15
+1
+1 1 37 1 -1 22
+0
+end_operator
+begin_operator
+push o2 p5-3 p5-2
+1
+10 15
+1
+1 4 30 4 -1 60
+0
+end_operator
+begin_operator
+push o3 p5-3 p5-2
+1
+10 15
+1
+1 2 1 2 -1 42
+0
+end_operator
+begin_operator
+push o4 p5-3 p5-2
+1
+10 15
+1
+1 5 28 5 -1 17
+0
+end_operator
+begin_operator
+push o5 p5-3 p5-2
+1
+10 15
+1
+1 8 54 8 -1 15
+0
+end_operator
+begin_operator
+push o6 p5-3 p5-2
+1
+10 15
+1
+1 6 22 6 -1 55
+0
+end_operator
+begin_operator
+push o7 p5-3 p5-2
+1
+10 15
+1
+1 9 40 9 -1 55
+0
+end_operator
+begin_operator
+push o8 p5-3 p5-2
+1
+10 15
+1
+1 7 1 7 -1 42
+0
+end_operator
+begin_operator
+push o9 p5-3 p5-2
+1
+10 15
+1
+1 3 17 3 -1 62
+0
+end_operator
+begin_operator
+push o10 p5-3 p5-2
+1
+10 15
+1
+1 0 50 0 -1 31
+0
+end_operator
+begin_operator
+push o1 p5-3 p5-4
+1
+10 15
+1
+1 1 37 1 -1 59
+0
+end_operator
+begin_operator
+push o2 p5-3 p5-4
+1
+10 15
+1
+1 4 30 4 -1 63
+0
+end_operator
+begin_operator
+push o3 p5-3 p5-4
+1
+10 15
+1
+1 2 1 2 -1 63
+0
+end_operator
+begin_operator
+push o4 p5-3 p5-4
+1
+10 15
+1
+1 5 28 5 -1 52
+0
+end_operator
+begin_operator
+push o5 p5-3 p5-4
+1
+10 15
+1
+1 8 54 8 -1 3
+0
+end_operator
+begin_operator
+push o6 p5-3 p5-4
+1
+10 15
+1
+1 6 22 6 -1 38
+0
+end_operator
+begin_operator
+push o7 p5-3 p5-4
+1
+10 15
+1
+1 9 40 9 -1 9
+0
+end_operator
+begin_operator
+push o8 p5-3 p5-4
+1
+10 15
+1
+1 7 1 7 -1 13
+0
+end_operator
+begin_operator
+push o9 p5-3 p5-4
+1
+10 15
+1
+1 3 17 3 -1 3
+0
+end_operator
+begin_operator
+push o10 p5-3 p5-4
+1
+10 15
+1
+1 0 50 0 -1 1
+0
+end_operator
+begin_operator
+push o1 p5-5 p4-5
+1
+10 36
+1
+1 1 47 1 -1 21
+0
+end_operator
+begin_operator
+push o2 p5-5 p4-5
+1
+10 36
+1
+1 4 46 4 -1 9
+0
+end_operator
+begin_operator
+push o3 p5-5 p4-5
+1
+10 36
+1
+1 2 37 2 -1 47
+0
+end_operator
+begin_operator
+push o4 p5-5 p4-5
+1
+10 36
+1
+1 5 14 5 -1 7
+0
+end_operator
+begin_operator
+push o5 p5-5 p4-5
+1
+10 36
+1
+1 8 17 8 -1 1
+0
+end_operator
+begin_operator
+push o6 p5-5 p4-5
+1
+10 36
+1
+1 6 8 6 -1 49
+0
+end_operator
+begin_operator
+push o7 p5-5 p4-5
+1
+10 36
+1
+1 9 48 9 -1 17
+0
+end_operator
+begin_operator
+push o8 p5-5 p4-5
+1
+10 36
+1
+1 7 48 7 -1 43
+0
+end_operator
+begin_operator
+push o9 p5-5 p4-5
+1
+10 36
+1
+1 3 30 3 -1 64
+0
+end_operator
+begin_operator
+push o10 p5-5 p4-5
+1
+10 36
+1
+1 0 60 0 -1 27
+0
+end_operator
+begin_operator
+push o1 p5-5 p6-5
+1
+10 36
+1
+1 1 47 1 -1 16
+0
+end_operator
+begin_operator
+push o2 p5-5 p6-5
+1
+10 36
+1
+1 4 46 4 -1 25
+0
+end_operator
+begin_operator
+push o3 p5-5 p6-5
+1
+10 36
+1
+1 2 37 2 -1 50
+0
+end_operator
+begin_operator
+push o4 p5-5 p6-5
+1
+10 36
+1
+1 5 14 5 -1 46
+0
+end_operator
+begin_operator
+push o5 p5-5 p6-5
+1
+10 36
+1
+1 8 17 8 -1 24
+0
+end_operator
+begin_operator
+push o6 p5-5 p6-5
+1
+10 36
+1
+1 6 8 6 -1 6
+0
+end_operator
+begin_operator
+push o7 p5-5 p6-5
+1
+10 36
+1
+1 9 48 9 -1 15
+0
+end_operator
+begin_operator
+push o8 p5-5 p6-5
+1
+10 36
+1
+1 7 48 7 -1 9
+0
+end_operator
+begin_operator
+push o9 p5-5 p6-5
+1
+10 36
+1
+1 3 30 3 -1 7
+0
+end_operator
+begin_operator
+push o10 p5-5 p6-5
+1
+10 36
+1
+1 0 60 0 -1 2
+0
+end_operator
+begin_operator
+push o1 p5-5 p5-4
+1
+10 36
+1
+1 1 47 1 -1 59
+0
+end_operator
+begin_operator
+push o2 p5-5 p5-4
+1
+10 36
+1
+1 4 46 4 -1 63
+0
+end_operator
+begin_operator
+push o3 p5-5 p5-4
+1
+10 36
+1
+1 2 37 2 -1 63
+0
+end_operator
+begin_operator
+push o4 p5-5 p5-4
+1
+10 36
+1
+1 5 14 5 -1 52
+0
+end_operator
+begin_operator
+push o5 p5-5 p5-4
+1
+10 36
+1
+1 8 17 8 -1 3
+0
+end_operator
+begin_operator
+push o6 p5-5 p5-4
+1
+10 36
+1
+1 6 8 6 -1 38
+0
+end_operator
+begin_operator
+push o7 p5-5 p5-4
+1
+10 36
+1
+1 9 48 9 -1 9
+0
+end_operator
+begin_operator
+push o8 p5-5 p5-4
+1
+10 36
+1
+1 7 48 7 -1 13
+0
+end_operator
+begin_operator
+push o9 p5-5 p5-4
+1
+10 36
+1
+1 3 30 3 -1 3
+0
+end_operator
+begin_operator
+push o10 p5-5 p5-4
+1
+10 36
+1
+1 0 60 0 -1 1
+0
+end_operator
+begin_operator
+push o1 p5-5 p5-6
+1
+10 36
+1
+1 1 47 1 -1 60
+0
+end_operator
+begin_operator
+push o2 p5-5 p5-6
+1
+10 36
+1
+1 4 46 4 -1 47
+0
+end_operator
+begin_operator
+push o3 p5-5 p5-6
+1
+10 36
+1
+1 2 37 2 -1 27
+0
+end_operator
+begin_operator
+push o4 p5-5 p5-6
+1
+10 36
+1
+1 5 14 5 -1 24
+0
+end_operator
+begin_operator
+push o5 p5-5 p5-6
+1
+10 36
+1
+1 8 17 8 -1 25
+0
+end_operator
+begin_operator
+push o6 p5-5 p5-6
+1
+10 36
+1
+1 6 8 6 -1 60
+0
+end_operator
+begin_operator
+push o7 p5-5 p5-6
+1
+10 36
+1
+1 9 48 9 -1 8
+0
+end_operator
+begin_operator
+push o8 p5-5 p5-6
+1
+10 36
+1
+1 7 48 7 -1 23
+0
+end_operator
+begin_operator
+push o9 p5-5 p5-6
+1
+10 36
+1
+1 3 30 3 -1 5
+0
+end_operator
+begin_operator
+push o10 p5-5 p5-6
+1
+10 36
+1
+1 0 60 0 -1 61
+0
+end_operator
+begin_operator
+push o1 p4-2 p3-2
+1
+10 13
+1
+1 1 50 1 -1 57
+0
+end_operator
+begin_operator
+push o2 p4-2 p3-2
+1
+10 13
+1
+1 4 3 4 -1 35
+0
+end_operator
+begin_operator
+push o3 p4-2 p3-2
+1
+10 13
+1
+1 2 22 2 -1 12
+0
+end_operator
+begin_operator
+push o4 p4-2 p3-2
+1
+10 13
+1
+1 5 6 5 -1 51
+0
+end_operator
+begin_operator
+push o5 p4-2 p3-2
+1
+10 13
+1
+1 8 21 8 -1 42
+0
+end_operator
+begin_operator
+push o6 p4-2 p3-2
+1
+10 13
+1
+1 6 41 6 -1 53
+0
+end_operator
+begin_operator
+push o7 p4-2 p3-2
+1
+10 13
+1
+1 9 6 9 -1 36
+0
+end_operator
+begin_operator
+push o8 p4-2 p3-2
+1
+10 13
+1
+1 7 29 7 -1 22
+0
+end_operator
+begin_operator
+push o9 p4-2 p3-2
+1
+10 13
+1
+1 3 14 3 -1 59
+0
+end_operator
+begin_operator
+push o10 p4-2 p3-2
+1
+10 13
+1
+1 0 9 0 -1 3
+0
+end_operator
+begin_operator
+push o1 p4-2 p5-2
+1
+10 13
+1
+1 1 50 1 -1 22
+0
+end_operator
+begin_operator
+push o2 p4-2 p5-2
+1
+10 13
+1
+1 4 3 4 -1 60
+0
+end_operator
+begin_operator
+push o3 p4-2 p5-2
+1
+10 13
+1
+1 2 22 2 -1 42
+0
+end_operator
+begin_operator
+push o4 p4-2 p5-2
+1
+10 13
+1
+1 5 6 5 -1 17
+0
+end_operator
+begin_operator
+push o5 p4-2 p5-2
+1
+10 13
+1
+1 8 21 8 -1 15
+0
+end_operator
+begin_operator
+push o6 p4-2 p5-2
+1
+10 13
+1
+1 6 41 6 -1 55
+0
+end_operator
+begin_operator
+push o7 p4-2 p5-2
+1
+10 13
+1
+1 9 6 9 -1 55
+0
+end_operator
+begin_operator
+push o8 p4-2 p5-2
+1
+10 13
+1
+1 7 29 7 -1 42
+0
+end_operator
+begin_operator
+push o9 p4-2 p5-2
+1
+10 13
+1
+1 3 14 3 -1 62
+0
+end_operator
+begin_operator
+push o10 p4-2 p5-2
+1
+10 13
+1
+1 0 9 0 -1 31
+0
+end_operator
+begin_operator
+push o1 p4-2 p4-1
+1
+10 13
+1
+1 1 50 1 -1 43
+0
+end_operator
+begin_operator
+push o2 p4-2 p4-1
+1
+10 13
+1
+1 4 3 4 -1 53
+0
+end_operator
+begin_operator
+push o3 p4-2 p4-1
+1
+10 13
+1
+1 2 22 2 -1 32
+0
+end_operator
+begin_operator
+push o4 p4-2 p4-1
+1
+10 13
+1
+1 5 6 5 -1 62
+0
+end_operator
+begin_operator
+push o5 p4-2 p4-1
+1
+10 13
+1
+1 8 21 8 -1 9
+0
+end_operator
+begin_operator
+push o6 p4-2 p4-1
+1
+10 13
+1
+1 6 41 6 -1 34
+0
+end_operator
+begin_operator
+push o7 p4-2 p4-1
+1
+10 13
+1
+1 9 6 9 -1 14
+0
+end_operator
+begin_operator
+push o8 p4-2 p4-1
+1
+10 13
+1
+1 7 29 7 -1 55
+0
+end_operator
+begin_operator
+push o9 p4-2 p4-1
+1
+10 13
+1
+1 3 14 3 -1 25
+0
+end_operator
+begin_operator
+push o10 p4-2 p4-1
+1
+10 13
+1
+1 0 9 0 -1 0
+0
+end_operator
+begin_operator
+push o1 p4-2 p4-3
+1
+10 13
+1
+1 1 50 1 -1 54
+0
+end_operator
+begin_operator
+push o2 p4-2 p4-3
+1
+10 13
+1
+1 4 3 4 -1 7
+0
+end_operator
+begin_operator
+push o3 p4-2 p4-3
+1
+10 13
+1
+1 2 22 2 -1 15
+0
+end_operator
+begin_operator
+push o4 p4-2 p4-3
+1
+10 13
+1
+1 5 6 5 -1 9
+0
+end_operator
+begin_operator
+push o5 p4-2 p4-3
+1
+10 13
+1
+1 8 21 8 -1 13
+0
+end_operator
+begin_operator
+push o6 p4-2 p4-3
+1
+10 13
+1
+1 6 41 6 -1 37
+0
+end_operator
+begin_operator
+push o7 p4-2 p4-3
+1
+10 13
+1
+1 9 6 9 -1 1
+0
+end_operator
+begin_operator
+push o8 p4-2 p4-3
+1
+10 13
+1
+1 7 29 7 -1 36
+0
+end_operator
+begin_operator
+push o9 p4-2 p4-3
+1
+10 13
+1
+1 3 14 3 -1 34
+0
+end_operator
+begin_operator
+push o10 p4-2 p4-3
+1
+10 13
+1
+1 0 9 0 -1 15
+0
+end_operator
+begin_operator
+push o1 p4-6 p3-6
+1
+10 54
+1
+1 1 32 1 -1 46
+0
+end_operator
+begin_operator
+push o2 p4-6 p3-6
+1
+10 54
+1
+1 4 14 4 -1 48
+0
+end_operator
+begin_operator
+push o3 p4-6 p3-6
+1
+10 54
+1
+1 2 40 2 -1 14
+0
+end_operator
+begin_operator
+push o4 p4-6 p3-6
+1
+10 54
+1
+1 5 47 5 -1 39
+0
+end_operator
+begin_operator
+push o5 p4-6 p3-6
+1
+10 54
+1
+1 8 6 8 -1 14
+0
+end_operator
+begin_operator
+push o6 p4-6 p3-6
+1
+10 54
+1
+1 6 44 6 -1 11
+0
+end_operator
+begin_operator
+push o7 p4-6 p3-6
+1
+10 54
+1
+1 9 21 9 -1 50
+0
+end_operator
+begin_operator
+push o8 p4-6 p3-6
+1
+10 54
+1
+1 7 51 7 -1 34
+0
+end_operator
+begin_operator
+push o9 p4-6 p3-6
+1
+10 54
+1
+1 3 28 3 -1 50
+0
+end_operator
+begin_operator
+push o10 p4-6 p3-6
+1
+10 54
+1
+1 0 63 0 -1 45
+0
+end_operator
+begin_operator
+push o1 p4-6 p5-6
+1
+10 54
+1
+1 1 32 1 -1 60
+0
+end_operator
+begin_operator
+push o2 p4-6 p5-6
+1
+10 54
+1
+1 4 14 4 -1 47
+0
+end_operator
+begin_operator
+push o3 p4-6 p5-6
+1
+10 54
+1
+1 2 40 2 -1 27
+0
+end_operator
+begin_operator
+push o4 p4-6 p5-6
+1
+10 54
+1
+1 5 47 5 -1 24
+0
+end_operator
+begin_operator
+push o5 p4-6 p5-6
+1
+10 54
+1
+1 8 6 8 -1 25
+0
+end_operator
+begin_operator
+push o6 p4-6 p5-6
+1
+10 54
+1
+1 6 44 6 -1 60
+0
+end_operator
+begin_operator
+push o7 p4-6 p5-6
+1
+10 54
+1
+1 9 21 9 -1 8
+0
+end_operator
+begin_operator
+push o8 p4-6 p5-6
+1
+10 54
+1
+1 7 51 7 -1 23
+0
+end_operator
+begin_operator
+push o9 p4-6 p5-6
+1
+10 54
+1
+1 3 28 3 -1 5
+0
+end_operator
+begin_operator
+push o10 p4-6 p5-6
+1
+10 54
+1
+1 0 63 0 -1 61
+0
+end_operator
+begin_operator
+push o1 p4-6 p4-5
+1
+10 54
+1
+1 1 32 1 -1 21
+0
+end_operator
+begin_operator
+push o2 p4-6 p4-5
+1
+10 54
+1
+1 4 14 4 -1 9
+0
+end_operator
+begin_operator
+push o3 p4-6 p4-5
+1
+10 54
+1
+1 2 40 2 -1 47
+0
+end_operator
+begin_operator
+push o4 p4-6 p4-5
+1
+10 54
+1
+1 5 47 5 -1 7
+0
+end_operator
+begin_operator
+push o5 p4-6 p4-5
+1
+10 54
+1
+1 8 6 8 -1 1
+0
+end_operator
+begin_operator
+push o6 p4-6 p4-5
+1
+10 54
+1
+1 6 44 6 -1 49
+0
+end_operator
+begin_operator
+push o7 p4-6 p4-5
+1
+10 54
+1
+1 9 21 9 -1 17
+0
+end_operator
+begin_operator
+push o8 p4-6 p4-5
+1
+10 54
+1
+1 7 51 7 -1 43
+0
+end_operator
+begin_operator
+push o9 p4-6 p4-5
+1
+10 54
+1
+1 3 28 3 -1 64
+0
+end_operator
+begin_operator
+push o10 p4-6 p4-5
+1
+10 54
+1
+1 0 63 0 -1 27
+0
+end_operator
+begin_operator
+push o1 p4-6 p4-7
+1
+10 54
+1
+1 1 32 1 -1 8
+0
+end_operator
+begin_operator
+push o2 p4-6 p4-7
+1
+10 54
+1
+1 4 14 4 -1 52
+0
+end_operator
+begin_operator
+push o3 p4-6 p4-7
+1
+10 54
+1
+1 2 40 2 -1 31
+0
+end_operator
+begin_operator
+push o4 p4-6 p4-7
+1
+10 54
+1
+1 5 47 5 -1 63
+0
+end_operator
+begin_operator
+push o5 p4-6 p4-7
+1
+10 54
+1
+1 8 6 8 -1 37
+0
+end_operator
+begin_operator
+push o6 p4-6 p4-7
+1
+10 54
+1
+1 6 44 6 -1 58
+0
+end_operator
+begin_operator
+push o7 p4-6 p4-7
+1
+10 54
+1
+1 9 21 9 -1 5
+0
+end_operator
+begin_operator
+push o8 p4-6 p4-7
+1
+10 54
+1
+1 7 51 7 -1 33
+0
+end_operator
+begin_operator
+push o9 p4-6 p4-7
+1
+10 54
+1
+1 3 28 3 -1 48
+0
+end_operator
+begin_operator
+push o10 p4-6 p4-7
+1
+10 54
+1
+1 0 63 0 -1 23
+0
+end_operator
+begin_operator
+move p1-4 p2-4
+1
+10 7
+1
+0 10 7 40
+0
+end_operator
+begin_operator
+move p1-4 p1-3
+1
+10 7
+1
+0 10 7 6
+0
+end_operator
+begin_operator
+move p1-4 p1-5
+1
+10 7
+1
+0 10 7 24
+0
+end_operator
+begin_operator
+move p2-3 p1-3
+1
+10 10
+1
+0 10 10 6
+0
+end_operator
+begin_operator
+move p2-3 p3-3
+1
+10 10
+1
+0 10 10 42
+0
+end_operator
+begin_operator
+move p2-3 p2-2
+1
+10 10
+1
+0 10 10 18
+0
+end_operator
+begin_operator
+move p2-3 p2-4
+1
+10 10
+1
+0 10 10 40
+0
+end_operator
+begin_operator
+move p2-5 p1-5
+1
+10 25
+1
+0 10 25 24
+0
+end_operator
+begin_operator
+move p2-5 p3-5
+1
+10 25
+1
+0 10 25 26
+0
+end_operator
+begin_operator
+move p2-5 p2-4
+1
+10 25
+1
+0 10 25 40
+0
+end_operator
+begin_operator
+move p2-5 p2-6
+1
+10 25
+1
+0 10 25 60
+0
+end_operator
+begin_operator
+move p3-2 p2-2
+1
+10 27
+1
+0 10 27 18
+0
+end_operator
+begin_operator
+move p3-2 p4-2
+1
+10 27
+1
+0 10 27 13
+0
+end_operator
+begin_operator
+move p3-2 p3-1
+1
+10 27
+1
+0 10 27 1
+0
+end_operator
+begin_operator
+move p3-2 p3-3
+1
+10 27
+1
+0 10 27 42
+0
+end_operator
+begin_operator
+move p3-6 p2-6
+1
+10 41
+1
+0 10 41 60
+0
+end_operator
+begin_operator
+move p3-6 p4-6
+1
+10 41
+1
+0 10 41 54
+0
+end_operator
+begin_operator
+move p3-6 p3-5
+1
+10 41
+1
+0 10 41 26
+0
+end_operator
+begin_operator
+move p3-6 p3-7
+1
+10 41
+1
+0 10 41 63
+0
+end_operator
+begin_operator
+move p7-4 p6-4
+1
+10 22
+1
+0 10 22 16
+0
+end_operator
+begin_operator
+move p7-4 p8-4
+1
+10 22
+1
+0 10 22 3
+0
+end_operator
+begin_operator
+move p7-4 p7-3
+1
+10 22
+1
+0 10 22 30
+0
+end_operator
+begin_operator
+move p7-4 p7-5
+1
+10 22
+1
+0 10 22 37
+0
+end_operator
+begin_operator
+move p6-3 p5-3
+1
+10 17
+1
+0 10 17 15
+0
+end_operator
+begin_operator
+move p6-3 p7-3
+1
+10 17
+1
+0 10 17 30
+0
+end_operator
+begin_operator
+move p6-3 p6-2
+1
+10 17
+1
+0 10 17 33
+0
+end_operator
+begin_operator
+move p6-3 p6-4
+1
+10 17
+1
+0 10 17 16
+0
+end_operator
+begin_operator
+move p6-5 p5-5
+1
+10 2
+1
+0 10 2 36
+0
+end_operator
+begin_operator
+move p6-5 p7-5
+1
+10 2
+1
+0 10 2 37
+0
+end_operator
+begin_operator
+move p6-5 p6-4
+1
+10 2
+1
+0 10 2 16
+0
+end_operator
+begin_operator
+move p6-5 p6-6
+1
+10 2
+1
+0 10 2 52
+0
+end_operator
+begin_operator
+move p5-2 p4-2
+1
+10 58
+1
+0 10 58 13
+0
+end_operator
+begin_operator
+move p5-2 p6-2
+1
+10 58
+1
+0 10 58 33
+0
+end_operator
+begin_operator
+move p5-2 p5-1
+1
+10 58
+1
+0 10 58 14
+0
+end_operator
+begin_operator
+move p5-2 p5-3
+1
+10 58
+1
+0 10 58 15
+0
+end_operator
+begin_operator
+move p5-6 p4-6
+1
+10 12
+1
+0 10 12 54
+0
+end_operator
+begin_operator
+move p5-6 p6-6
+1
+10 12
+1
+0 10 12 52
+0
+end_operator
+begin_operator
+move p5-6 p5-5
+1
+10 12
+1
+0 10 12 36
+0
+end_operator
+begin_operator
+move p5-6 p5-7
+1
+10 12
+1
+0 10 12 20
+0
+end_operator
+begin_operator
+move p4-1 p3-1
+1
+10 29
+1
+0 10 29 1
+0
+end_operator
+begin_operator
+move p4-1 p5-1
+1
+10 29
+1
+0 10 29 14
+0
+end_operator
+begin_operator
+move p4-1 p4-2
+1
+10 29
+1
+0 10 29 13
+0
+end_operator
+begin_operator
+move p4-7 p3-7
+1
+10 55
+1
+0 10 55 63
+0
+end_operator
+begin_operator
+move p4-7 p5-7
+1
+10 55
+1
+0 10 55 20
+0
+end_operator
+begin_operator
+move p4-7 p4-6
+1
+10 55
+1
+0 10 55 54
+0
+end_operator
+begin_operator
+move p4-7 p4-8
+1
+10 55
+1
+0 10 55 57
+0
+end_operator
+begin_operator
+push o1 p1-4 p2-4
+1
+10 7
+1
+1 1 41 1 -1 12
+0
+end_operator
+begin_operator
+push o2 p1-4 p2-4
+1
+10 7
+1
+1 4 20 4 -1 0
+0
+end_operator
+begin_operator
+push o3 p1-4 p2-4
+1
+10 7
+1
+1 2 61 2 -1 26
+0
+end_operator
+begin_operator
+push o4 p1-4 p2-4
+1
+10 7
+1
+1 5 34 5 -1 30
+0
+end_operator
+begin_operator
+push o5 p1-4 p2-4
+1
+10 7
+1
+1 8 23 8 -1 58
+0
+end_operator
+begin_operator
+push o6 p1-4 p2-4
+1
+10 7
+1
+1 6 32 6 -1 25
+0
+end_operator
+begin_operator
+push o7 p1-4 p2-4
+1
+10 7
+1
+1 9 23 9 -1 0
+0
+end_operator
+begin_operator
+push o8 p1-4 p2-4
+1
+10 7
+1
+1 7 39 7 -1 6
+0
+end_operator
+begin_operator
+push o9 p1-4 p2-4
+1
+10 7
+1
+1 3 12 3 -1 42
+0
+end_operator
+begin_operator
+push o10 p1-4 p2-4
+1
+10 7
+1
+1 0 22 0 -1 16
+0
+end_operator
+begin_operator
+push o1 p1-4 p1-3
+1
+10 7
+1
+1 1 41 1 -1 56
+0
+end_operator
+begin_operator
+push o2 p1-4 p1-3
+1
+10 7
+1
+1 4 20 4 -1 55
+0
+end_operator
+begin_operator
+push o3 p1-4 p1-3
+1
+10 7
+1
+1 2 61 2 -1 0
+0
+end_operator
+begin_operator
+push o4 p1-4 p1-3
+1
+10 7
+1
+1 5 34 5 -1 16
+0
+end_operator
+begin_operator
+push o5 p1-4 p1-3
+1
+10 7
+1
+1 8 23 8 -1 26
+0
+end_operator
+begin_operator
+push o6 p1-4 p1-3
+1
+10 7
+1
+1 6 32 6 -1 1
+0
+end_operator
+begin_operator
+push o7 p1-4 p1-3
+1
+10 7
+1
+1 9 23 9 -1 32
+0
+end_operator
+begin_operator
+push o8 p1-4 p1-3
+1
+10 7
+1
+1 7 39 7 -1 21
+0
+end_operator
+begin_operator
+push o9 p1-4 p1-3
+1
+10 7
+1
+1 3 12 3 -1 60
+0
+end_operator
+begin_operator
+push o10 p1-4 p1-3
+1
+10 7
+1
+1 0 22 0 -1 52
+0
+end_operator
+begin_operator
+push o1 p1-4 p1-5
+1
+10 7
+1
+1 1 41 1 -1 45
+0
+end_operator
+begin_operator
+push o2 p1-4 p1-5
+1
+10 7
+1
+1 4 20 4 -1 16
+0
+end_operator
+begin_operator
+push o3 p1-4 p1-5
+1
+10 7
+1
+1 2 61 2 -1 58
+0
+end_operator
+begin_operator
+push o4 p1-4 p1-5
+1
+10 7
+1
+1 5 34 5 -1 29
+0
+end_operator
+begin_operator
+push o5 p1-4 p1-5
+1
+10 7
+1
+1 8 23 8 -1 29
+0
+end_operator
+begin_operator
+push o6 p1-4 p1-5
+1
+10 7
+1
+1 6 32 6 -1 26
+0
+end_operator
+begin_operator
+push o7 p1-4 p1-5
+1
+10 7
+1
+1 9 23 9 -1 29
+0
+end_operator
+begin_operator
+push o8 p1-4 p1-5
+1
+10 7
+1
+1 7 39 7 -1 41
+0
+end_operator
+begin_operator
+push o9 p1-4 p1-5
+1
+10 7
+1
+1 3 12 3 -1 18
+0
+end_operator
+begin_operator
+push o10 p1-4 p1-5
+1
+10 7
+1
+1 0 22 0 -1 25
+0
+end_operator
+begin_operator
+push o1 p2-3 p1-3
+1
+10 10
+1
+1 1 29 1 -1 56
+0
+end_operator
+begin_operator
+push o2 p2-3 p1-3
+1
+10 10
+1
+1 4 58 4 -1 55
+0
+end_operator
+begin_operator
+push o3 p2-3 p1-3
+1
+10 10
+1
+1 2 45 2 -1 0
+0
+end_operator
+begin_operator
+push o4 p2-3 p1-3
+1
+10 10
+1
+1 5 44 5 -1 16
+0
+end_operator
+begin_operator
+push o5 p2-3 p1-3
+1
+10 10
+1
+1 8 34 8 -1 26
+0
+end_operator
+begin_operator
+push o6 p2-3 p1-3
+1
+10 10
+1
+1 6 10 6 -1 1
+0
+end_operator
+begin_operator
+push o7 p2-3 p1-3
+1
+10 10
+1
+1 9 60 9 -1 32
+0
+end_operator
+begin_operator
+push o8 p2-3 p1-3
+1
+10 10
+1
+1 7 8 7 -1 21
+0
+end_operator
+begin_operator
+push o9 p2-3 p1-3
+1
+10 10
+1
+1 3 40 3 -1 60
+0
+end_operator
+begin_operator
+push o10 p2-3 p1-3
+1
+10 10
+1
+1 0 32 0 -1 52
+0
+end_operator
+begin_operator
+push o1 p2-3 p3-3
+1
+10 10
+1
+1 1 29 1 -1 61
+0
+end_operator
+begin_operator
+push o2 p2-3 p3-3
+1
+10 10
+1
+1 4 58 4 -1 29
+0
+end_operator
+begin_operator
+push o3 p2-3 p3-3
+1
+10 10
+1
+1 2 45 2 -1 9
+0
+end_operator
+begin_operator
+push o4 p2-3 p3-3
+1
+10 10
+1
+1 5 44 5 -1 45
+0
+end_operator
+begin_operator
+push o5 p2-3 p3-3
+1
+10 10
+1
+1 8 34 8 -1 47
+0
+end_operator
+begin_operator
+push o6 p2-3 p3-3
+1
+10 10
+1
+1 6 10 6 -1 46
+0
+end_operator
+begin_operator
+push o7 p2-3 p3-3
+1
+10 10
+1
+1 9 60 9 -1 42
+0
+end_operator
+begin_operator
+push o8 p2-3 p3-3
+1
+10 10
+1
+1 7 8 7 -1 25
+0
+end_operator
+begin_operator
+push o9 p2-3 p3-3
+1
+10 10
+1
+1 3 40 3 -1 2
+0
+end_operator
+begin_operator
+push o10 p2-3 p3-3
+1
+10 10
+1
+1 0 32 0 -1 7
+0
+end_operator
+begin_operator
+push o1 p2-3 p2-2
+1
+10 10
+1
+1 1 29 1 -1 35
+0
+end_operator
+begin_operator
+push o2 p2-3 p2-2
+1
+10 10
+1
+1 4 58 4 -1 28
+0
+end_operator
+begin_operator
+push o3 p2-3 p2-2
+1
+10 10
+1
+1 2 45 2 -1 24
+0
+end_operator
+begin_operator
+push o4 p2-3 p2-2
+1
+10 10
+1
+1 5 44 5 -1 1
+0
+end_operator
+begin_operator
+push o5 p2-3 p2-2
+1
+10 10
+1
+1 8 34 8 -1 0
+0
+end_operator
+begin_operator
+push o6 p2-3 p2-2
+1
+10 10
+1
+1 6 10 6 -1 16
+0
+end_operator
+begin_operator
+push o7 p2-3 p2-2
+1
+10 10
+1
+1 9 60 9 -1 58
+0
+end_operator
+begin_operator
+push o8 p2-3 p2-2
+1
+10 10
+1
+1 7 8 7 -1 2
+0
+end_operator
+begin_operator
+push o9 p2-3 p2-2
+1
+10 10
+1
+1 3 40 3 -1 45
+0
+end_operator
+begin_operator
+push o10 p2-3 p2-2
+1
+10 10
+1
+1 0 32 0 -1 12
+0
+end_operator
+begin_operator
+push o1 p2-3 p2-4
+1
+10 10
+1
+1 1 29 1 -1 12
+0
+end_operator
+begin_operator
+push o2 p2-3 p2-4
+1
+10 10
+1
+1 4 58 4 -1 0
+0
+end_operator
+begin_operator
+push o3 p2-3 p2-4
+1
+10 10
+1
+1 2 45 2 -1 26
+0
+end_operator
+begin_operator
+push o4 p2-3 p2-4
+1
+10 10
+1
+1 5 44 5 -1 30
+0
+end_operator
+begin_operator
+push o5 p2-3 p2-4
+1
+10 10
+1
+1 8 34 8 -1 58
+0
+end_operator
+begin_operator
+push o6 p2-3 p2-4
+1
+10 10
+1
+1 6 10 6 -1 25
+0
+end_operator
+begin_operator
+push o7 p2-3 p2-4
+1
+10 10
+1
+1 9 60 9 -1 0
+0
+end_operator
+begin_operator
+push o8 p2-3 p2-4
+1
+10 10
+1
+1 7 8 7 -1 6
+0
+end_operator
+begin_operator
+push o9 p2-3 p2-4
+1
+10 10
+1
+1 3 40 3 -1 42
+0
+end_operator
+begin_operator
+push o10 p2-3 p2-4
+1
+10 10
+1
+1 0 32 0 -1 16
+0
+end_operator
+begin_operator
+push o1 p2-5 p1-5
+1
+10 25
+1
+1 1 7 1 -1 45
+0
+end_operator
+begin_operator
+push o2 p2-5 p1-5
+1
+10 25
+1
+1 4 43 4 -1 16
+0
+end_operator
+begin_operator
+push o3 p2-5 p1-5
+1
+10 25
+1
+1 2 23 2 -1 58
+0
+end_operator
+begin_operator
+push o4 p2-5 p1-5
+1
+10 25
+1
+1 5 35 5 -1 29
+0
+end_operator
+begin_operator
+push o5 p2-5 p1-5
+1
+10 25
+1
+1 8 61 8 -1 29
+0
+end_operator
+begin_operator
+push o6 p2-5 p1-5
+1
+10 25
+1
+1 6 31 6 -1 26
+0
+end_operator
+begin_operator
+push o7 p2-5 p1-5
+1
+10 25
+1
+1 9 59 9 -1 29
+0
+end_operator
+begin_operator
+push o8 p2-5 p1-5
+1
+10 25
+1
+1 7 11 7 -1 41
+0
+end_operator
+begin_operator
+push o9 p2-5 p1-5
+1
+10 25
+1
+1 3 37 3 -1 18
+0
+end_operator
+begin_operator
+push o10 p2-5 p1-5
+1
+10 25
+1
+1 0 24 0 -1 25
+0
+end_operator
+begin_operator
+push o1 p2-5 p3-5
+1
+10 25
+1
+1 1 7 1 -1 6
+0
+end_operator
+begin_operator
+push o2 p2-5 p3-5
+1
+10 25
+1
+1 4 43 4 -1 44
+0
+end_operator
+begin_operator
+push o3 p2-5 p3-5
+1
+10 25
+1
+1 2 23 2 -1 16
+0
+end_operator
+begin_operator
+push o4 p2-5 p3-5
+1
+10 25
+1
+1 5 35 5 -1 32
+0
+end_operator
+begin_operator
+push o5 p2-5 p3-5
+1
+10 25
+1
+1 8 61 8 -1 44
+0
+end_operator
+begin_operator
+push o6 p2-5 p3-5
+1
+10 25
+1
+1 6 31 6 -1 15
+0
+end_operator
+begin_operator
+push o7 p2-5 p3-5
+1
+10 25
+1
+1 9 59 9 -1 45
+0
+end_operator
+begin_operator
+push o8 p2-5 p3-5
+1
+10 25
+1
+1 7 11 7 -1 24
+0
+end_operator
+begin_operator
+push o9 p2-5 p3-5
+1
+10 25
+1
+1 3 37 3 -1 58
+0
+end_operator
+begin_operator
+push o10 p2-5 p3-5
+1
+10 25
+1
+1 0 24 0 -1 35
+0
+end_operator
+begin_operator
+push o1 p2-5 p2-4
+1
+10 25
+1
+1 1 7 1 -1 12
+0
+end_operator
+begin_operator
+push o2 p2-5 p2-4
+1
+10 25
+1
+1 4 43 4 -1 0
+0
+end_operator
+begin_operator
+push o3 p2-5 p2-4
+1
+10 25
+1
+1 2 23 2 -1 26
+0
+end_operator
+begin_operator
+push o4 p2-5 p2-4
+1
+10 25
+1
+1 5 35 5 -1 30
+0
+end_operator
+begin_operator
+push o5 p2-5 p2-4
+1
+10 25
+1
+1 8 61 8 -1 58
+0
+end_operator
+begin_operator
+push o6 p2-5 p2-4
+1
+10 25
+1
+1 6 31 6 -1 25
+0
+end_operator
+begin_operator
+push o7 p2-5 p2-4
+1
+10 25
+1
+1 9 59 9 -1 0
+0
+end_operator
+begin_operator
+push o8 p2-5 p2-4
+1
+10 25
+1
+1 7 11 7 -1 6
+0
+end_operator
+begin_operator
+push o9 p2-5 p2-4
+1
+10 25
+1
+1 3 37 3 -1 42
+0
+end_operator
+begin_operator
+push o10 p2-5 p2-4
+1
+10 25
+1
+1 0 24 0 -1 16
+0
+end_operator
+begin_operator
+push o1 p2-5 p2-6
+1
+10 25
+1
+1 1 7 1 -1 9
+0
+end_operator
+begin_operator
+push o2 p2-5 p2-6
+1
+10 25
+1
+1 4 43 4 -1 54
+0
+end_operator
+begin_operator
+push o3 p2-5 p2-6
+1
+10 25
+1
+1 2 23 2 -1 13
+0
+end_operator
+begin_operator
+push o4 p2-5 p2-6
+1
+10 25
+1
+1 5 35 5 -1 50
+0
+end_operator
+begin_operator
+push o5 p2-5 p2-6
+1
+10 25
+1
+1 8 61 8 -1 7
+0
+end_operator
+begin_operator
+push o6 p2-5 p2-6
+1
+10 25
+1
+1 6 31 6 -1 24
+0
+end_operator
+begin_operator
+push o7 p2-5 p2-6
+1
+10 25
+1
+1 9 59 9 -1 3
+0
+end_operator
+begin_operator
+push o8 p2-5 p2-6
+1
+10 25
+1
+1 7 11 7 -1 15
+0
+end_operator
+begin_operator
+push o9 p2-5 p2-6
+1
+10 25
+1
+1 3 37 3 -1 24
+0
+end_operator
+begin_operator
+push o10 p2-5 p2-6
+1
+10 25
+1
+1 0 24 0 -1 28
+0
+end_operator
+begin_operator
+push o1 p3-2 p2-2
+1
+10 27
+1
+1 1 57 1 -1 35
+0
+end_operator
+begin_operator
+push o2 p3-2 p2-2
+1
+10 27
+1
+1 4 35 4 -1 28
+0
+end_operator
+begin_operator
+push o3 p3-2 p2-2
+1
+10 27
+1
+1 2 12 2 -1 24
+0
+end_operator
+begin_operator
+push o4 p3-2 p2-2
+1
+10 27
+1
+1 5 51 5 -1 1
+0
+end_operator
+begin_operator
+push o5 p3-2 p2-2
+1
+10 27
+1
+1 8 42 8 -1 0
+0
+end_operator
+begin_operator
+push o6 p3-2 p2-2
+1
+10 27
+1
+1 6 53 6 -1 16
+0
+end_operator
+begin_operator
+push o7 p3-2 p2-2
+1
+10 27
+1
+1 9 36 9 -1 58
+0
+end_operator
+begin_operator
+push o8 p3-2 p2-2
+1
+10 27
+1
+1 7 22 7 -1 2
+0
+end_operator
+begin_operator
+push o9 p3-2 p2-2
+1
+10 27
+1
+1 3 59 3 -1 45
+0
+end_operator
+begin_operator
+push o10 p3-2 p2-2
+1
+10 27
+1
+1 0 3 0 -1 12
+0
+end_operator
+begin_operator
+push o1 p3-2 p4-2
+1
+10 27
+1
+1 1 57 1 -1 50
+0
+end_operator
+begin_operator
+push o2 p3-2 p4-2
+1
+10 27
+1
+1 4 35 4 -1 3
+0
+end_operator
+begin_operator
+push o3 p3-2 p4-2
+1
+10 27
+1
+1 2 12 2 -1 22
+0
+end_operator
+begin_operator
+push o4 p3-2 p4-2
+1
+10 27
+1
+1 5 51 5 -1 6
+0
+end_operator
+begin_operator
+push o5 p3-2 p4-2
+1
+10 27
+1
+1 8 42 8 -1 21
+0
+end_operator
+begin_operator
+push o6 p3-2 p4-2
+1
+10 27
+1
+1 6 53 6 -1 41
+0
+end_operator
+begin_operator
+push o7 p3-2 p4-2
+1
+10 27
+1
+1 9 36 9 -1 6
+0
+end_operator
+begin_operator
+push o8 p3-2 p4-2
+1
+10 27
+1
+1 7 22 7 -1 29
+0
+end_operator
+begin_operator
+push o9 p3-2 p4-2
+1
+10 27
+1
+1 3 59 3 -1 14
+0
+end_operator
+begin_operator
+push o10 p3-2 p4-2
+1
+10 27
+1
+1 0 3 0 -1 9
+0
+end_operator
+begin_operator
+push o1 p3-2 p3-1
+1
+10 27
+1
+1 1 57 1 -1 49
+0
+end_operator
+begin_operator
+push o2 p3-2 p3-1
+1
+10 27
+1
+1 4 35 4 -1 42
+0
+end_operator
+begin_operator
+push o3 p3-2 p3-1
+1
+10 27
+1
+1 2 12 2 -1 6
+0
+end_operator
+begin_operator
+push o4 p3-2 p3-1
+1
+10 27
+1
+1 5 51 5 -1 41
+0
+end_operator
+begin_operator
+push o5 p3-2 p3-1
+1
+10 27
+1
+1 8 42 8 -1 32
+0
+end_operator
+begin_operator
+push o6 p3-2 p3-1
+1
+10 27
+1
+1 6 53 6 -1 2
+0
+end_operator
+begin_operator
+push o7 p3-2 p3-1
+1
+10 27
+1
+1 9 36 9 -1 26
+0
+end_operator
+begin_operator
+push o8 p3-2 p3-1
+1
+10 27
+1
+1 7 22 7 -1 16
+0
+end_operator
+begin_operator
+push o9 p3-2 p3-1
+1
+10 27
+1
+1 3 59 3 -1 6
+0
+end_operator
+begin_operator
+push o10 p3-2 p3-1
+1
+10 27
+1
+1 0 3 0 -1 58
+0
+end_operator
+begin_operator
+push o1 p3-2 p3-3
+1
+10 27
+1
+1 1 57 1 -1 61
+0
+end_operator
+begin_operator
+push o2 p3-2 p3-3
+1
+10 27
+1
+1 4 35 4 -1 29
+0
+end_operator
+begin_operator
+push o3 p3-2 p3-3
+1
+10 27
+1
+1 2 12 2 -1 9
+0
+end_operator
+begin_operator
+push o4 p3-2 p3-3
+1
+10 27
+1
+1 5 51 5 -1 45
+0
+end_operator
+begin_operator
+push o5 p3-2 p3-3
+1
+10 27
+1
+1 8 42 8 -1 47
+0
+end_operator
+begin_operator
+push o6 p3-2 p3-3
+1
+10 27
+1
+1 6 53 6 -1 46
+0
+end_operator
+begin_operator
+push o7 p3-2 p3-3
+1
+10 27
+1
+1 9 36 9 -1 42
+0
+end_operator
+begin_operator
+push o8 p3-2 p3-3
+1
+10 27
+1
+1 7 22 7 -1 25
+0
+end_operator
+begin_operator
+push o9 p3-2 p3-3
+1
+10 27
+1
+1 3 59 3 -1 2
+0
+end_operator
+begin_operator
+push o10 p3-2 p3-3
+1
+10 27
+1
+1 0 3 0 -1 7
+0
+end_operator
+begin_operator
+push o1 p3-6 p2-6
+1
+10 41
+1
+1 1 46 1 -1 9
+0
+end_operator
+begin_operator
+push o2 p3-6 p2-6
+1
+10 41
+1
+1 4 48 4 -1 54
+0
+end_operator
+begin_operator
+push o3 p3-6 p2-6
+1
+10 41
+1
+1 2 14 2 -1 13
+0
+end_operator
+begin_operator
+push o4 p3-6 p2-6
+1
+10 41
+1
+1 5 39 5 -1 50
+0
+end_operator
+begin_operator
+push o5 p3-6 p2-6
+1
+10 41
+1
+1 8 14 8 -1 7
+0
+end_operator
+begin_operator
+push o6 p3-6 p2-6
+1
+10 41
+1
+1 6 11 6 -1 24
+0
+end_operator
+begin_operator
+push o7 p3-6 p2-6
+1
+10 41
+1
+1 9 50 9 -1 3
+0
+end_operator
+begin_operator
+push o8 p3-6 p2-6
+1
+10 41
+1
+1 7 34 7 -1 15
+0
+end_operator
+begin_operator
+push o9 p3-6 p2-6
+1
+10 41
+1
+1 3 50 3 -1 24
+0
+end_operator
+begin_operator
+push o10 p3-6 p2-6
+1
+10 41
+1
+1 0 45 0 -1 28
+0
+end_operator
+begin_operator
+push o1 p3-6 p4-6
+1
+10 41
+1
+1 1 46 1 -1 32
+0
+end_operator
+begin_operator
+push o2 p3-6 p4-6
+1
+10 41
+1
+1 4 48 4 -1 14
+0
+end_operator
+begin_operator
+push o3 p3-6 p4-6
+1
+10 41
+1
+1 2 14 2 -1 40
+0
+end_operator
+begin_operator
+push o4 p3-6 p4-6
+1
+10 41
+1
+1 5 39 5 -1 47
+0
+end_operator
+begin_operator
+push o5 p3-6 p4-6
+1
+10 41
+1
+1 8 14 8 -1 6
+0
+end_operator
+begin_operator
+push o6 p3-6 p4-6
+1
+10 41
+1
+1 6 11 6 -1 44
+0
+end_operator
+begin_operator
+push o7 p3-6 p4-6
+1
+10 41
+1
+1 9 50 9 -1 21
+0
+end_operator
+begin_operator
+push o8 p3-6 p4-6
+1
+10 41
+1
+1 7 34 7 -1 51
+0
+end_operator
+begin_operator
+push o9 p3-6 p4-6
+1
+10 41
+1
+1 3 50 3 -1 28
+0
+end_operator
+begin_operator
+push o10 p3-6 p4-6
+1
+10 41
+1
+1 0 45 0 -1 63
+0
+end_operator
+begin_operator
+push o1 p3-6 p3-5
+1
+10 41
+1
+1 1 46 1 -1 6
+0
+end_operator
+begin_operator
+push o2 p3-6 p3-5
+1
+10 41
+1
+1 4 48 4 -1 44
+0
+end_operator
+begin_operator
+push o3 p3-6 p3-5
+1
+10 41
+1
+1 2 14 2 -1 16
+0
+end_operator
+begin_operator
+push o4 p3-6 p3-5
+1
+10 41
+1
+1 5 39 5 -1 32
+0
+end_operator
+begin_operator
+push o5 p3-6 p3-5
+1
+10 41
+1
+1 8 14 8 -1 44
+0
+end_operator
+begin_operator
+push o6 p3-6 p3-5
+1
+10 41
+1
+1 6 11 6 -1 15
+0
+end_operator
+begin_operator
+push o7 p3-6 p3-5
+1
+10 41
+1
+1 9 50 9 -1 45
+0
+end_operator
+begin_operator
+push o8 p3-6 p3-5
+1
+10 41
+1
+1 7 34 7 -1 24
+0
+end_operator
+begin_operator
+push o9 p3-6 p3-5
+1
+10 41
+1
+1 3 50 3 -1 58
+0
+end_operator
+begin_operator
+push o10 p3-6 p3-5
+1
+10 41
+1
+1 0 45 0 -1 35
+0
+end_operator
+begin_operator
+push o1 p3-6 p3-7
+1
+10 41
+1
+1 1 46 1 -1 52
+0
+end_operator
+begin_operator
+push o2 p3-6 p3-7
+1
+10 41
+1
+1 4 48 4 -1 40
+0
+end_operator
+begin_operator
+push o3 p3-6 p3-7
+1
+10 41
+1
+1 2 14 2 -1 20
+0
+end_operator
+begin_operator
+push o4 p3-6 p3-7
+1
+10 41
+1
+1 5 39 5 -1 43
+0
+end_operator
+begin_operator
+push o5 p3-6 p3-7
+1
+10 41
+1
+1 8 14 8 -1 22
+0
+end_operator
+begin_operator
+push o6 p3-6 p3-7
+1
+10 41
+1
+1 6 11 6 -1 5
+0
+end_operator
+begin_operator
+push o7 p3-6 p3-7
+1
+10 41
+1
+1 9 50 9 -1 34
+0
+end_operator
+begin_operator
+push o8 p3-6 p3-7
+1
+10 41
+1
+1 7 34 7 -1 27
+0
+end_operator
+begin_operator
+push o9 p3-6 p3-7
+1
+10 41
+1
+1 3 50 3 -1 54
+0
+end_operator
+begin_operator
+push o10 p3-6 p3-7
+1
+10 41
+1
+1 0 45 0 -1 39
+0
+end_operator
+begin_operator
+push o1 p7-4 p6-4
+1
+10 22
+1
+1 1 64 1 -1 63
+0
+end_operator
+begin_operator
+push o2 p7-4 p6-4
+1
+10 22
+1
+1 4 8 4 -1 19
+0
+end_operator
+begin_operator
+push o3 p7-4 p6-4
+1
+10 22
+1
+1 2 44 2 -1 57
+0
+end_operator
+begin_operator
+push o4 p7-4 p6-4
+1
+10 22
+1
+1 5 15 5 -1 58
+0
+end_operator
+begin_operator
+push o5 p7-4 p6-4
+1
+10 22
+1
+1 8 40 8 -1 41
+0
+end_operator
+begin_operator
+push o6 p7-4 p6-4
+1
+10 22
+1
+1 6 36 6 -1 17
+0
+end_operator
+begin_operator
+push o7 p7-4 p6-4
+1
+10 22
+1
+1 9 49 9 -1 24
+0
+end_operator
+begin_operator
+push o8 p7-4 p6-4
+1
+10 22
+1
+1 7 53 7 -1 19
+0
+end_operator
+begin_operator
+push o9 p7-4 p6-4
+1
+10 22
+1
+1 3 55 3 -1 4
+0
+end_operator
+begin_operator
+push o10 p7-4 p6-4
+1
+10 22
+1
+1 0 21 0 -1 37
+0
+end_operator
+begin_operator
+push o1 p7-4 p8-4
+1
+10 22
+1
+1 1 64 1 -1 31
+0
+end_operator
+begin_operator
+push o2 p7-4 p8-4
+1
+10 22
+1
+1 4 8 4 -1 18
+0
+end_operator
+begin_operator
+push o3 p7-4 p8-4
+1
+10 22
+1
+1 2 44 2 -1 11
+0
+end_operator
+begin_operator
+push o4 p7-4 p8-4
+1
+10 22
+1
+1 5 15 5 -1 5
+0
+end_operator
+begin_operator
+push o5 p7-4 p8-4
+1
+10 22
+1
+1 8 40 8 -1 48
+0
+end_operator
+begin_operator
+push o6 p7-4 p8-4
+1
+10 22
+1
+1 6 36 6 -1 62
+0
+end_operator
+begin_operator
+push o7 p7-4 p8-4
+1
+10 22
+1
+1 9 49 9 -1 54
+0
+end_operator
+begin_operator
+push o8 p7-4 p8-4
+1
+10 22
+1
+1 7 53 7 -1 52
+0
+end_operator
+begin_operator
+push o9 p7-4 p8-4
+1
+10 22
+1
+1 3 55 3 -1 47
+0
+end_operator
+begin_operator
+push o10 p7-4 p8-4
+1
+10 22
+1
+1 0 21 0 -1 48
+0
+end_operator
+begin_operator
+push o1 p7-4 p7-3
+1
+10 22
+1
+1 1 64 1 -1 20
+0
+end_operator
+begin_operator
+push o2 p7-4 p7-3
+1
+10 22
+1
+1 4 8 4 -1 10
+0
+end_operator
+begin_operator
+push o3 p7-4 p7-3
+1
+10 22
+1
+1 2 44 2 -1 51
+0
+end_operator
+begin_operator
+push o4 p7-4 p7-3
+1
+10 22
+1
+1 5 15 5 -1 0
+0
+end_operator
+begin_operator
+push o5 p7-4 p7-3
+1
+10 22
+1
+1 8 40 8 -1 38
+0
+end_operator
+begin_operator
+push o6 p7-4 p7-3
+1
+10 22
+1
+1 6 36 6 -1 33
+0
+end_operator
+begin_operator
+push o7 p7-4 p7-3
+1
+10 22
+1
+1 9 49 9 -1 62
+0
+end_operator
+begin_operator
+push o8 p7-4 p7-3
+1
+10 22
+1
+1 7 53 7 -1 64
+0
+end_operator
+begin_operator
+push o9 p7-4 p7-3
+1
+10 22
+1
+1 3 55 3 -1 27
+0
+end_operator
+begin_operator
+push o10 p7-4 p7-3
+1
+10 22
+1
+1 0 21 0 -1 8
+0
+end_operator
+begin_operator
+push o1 p7-4 p7-5
+1
+10 22
+1
+1 1 64 1 -1 15
+0
+end_operator
+begin_operator
+push o2 p7-4 p7-5
+1
+10 22
+1
+1 4 8 4 -1 11
+0
+end_operator
+begin_operator
+push o3 p7-4 p7-5
+1
+10 22
+1
+1 2 44 2 -1 35
+0
+end_operator
+begin_operator
+push o4 p7-4 p7-5
+1
+10 22
+1
+1 5 15 5 -1 48
+0
+end_operator
+begin_operator
+push o5 p7-4 p7-5
+1
+10 22
+1
+1 8 40 8 -1 62
+0
+end_operator
+begin_operator
+push o6 p7-4 p7-5
+1
+10 22
+1
+1 6 36 6 -1 29
+0
+end_operator
+begin_operator
+push o7 p7-4 p7-5
+1
+10 22
+1
+1 9 49 9 -1 53
+0
+end_operator
+begin_operator
+push o8 p7-4 p7-5
+1
+10 22
+1
+1 7 53 7 -1 47
+0
+end_operator
+begin_operator
+push o9 p7-4 p7-5
+1
+10 22
+1
+1 3 55 3 -1 39
+0
+end_operator
+begin_operator
+push o10 p7-4 p7-5
+1
+10 22
+1
+1 0 21 0 -1 29
+0
+end_operator
+begin_operator
+push o1 p6-3 p5-3
+1
+10 17
+1
+1 1 34 1 -1 37
+0
+end_operator
+begin_operator
+push o2 p6-3 p5-3
+1
+10 17
+1
+1 4 45 4 -1 30
+0
+end_operator
+begin_operator
+push o3 p6-3 p5-3
+1
+10 17
+1
+1 2 21 2 -1 1
+0
+end_operator
+begin_operator
+push o4 p6-3 p5-3
+1
+10 17
+1
+1 5 26 5 -1 28
+0
+end_operator
+begin_operator
+push o5 p6-3 p5-3
+1
+10 17
+1
+1 8 11 8 -1 54
+0
+end_operator
+begin_operator
+push o6 p6-3 p5-3
+1
+10 17
+1
+1 6 61 6 -1 22
+0
+end_operator
+begin_operator
+push o7 p6-3 p5-3
+1
+10 17
+1
+1 9 10 9 -1 40
+0
+end_operator
+begin_operator
+push o8 p6-3 p5-3
+1
+10 17
+1
+1 7 32 7 -1 1
+0
+end_operator
+begin_operator
+push o9 p6-3 p5-3
+1
+10 17
+1
+1 3 38 3 -1 17
+0
+end_operator
+begin_operator
+push o10 p6-3 p5-3
+1
+10 17
 1
 1 0 59 0 -1 50
 0
 end_operator
 begin_operator
-pickup o2 p8_6
+push o1 p6-3 p7-3
 1
-3 1
+10 17
 1
-1 1 45 1 -1 80
+1 1 34 1 -1 20
 0
 end_operator
 begin_operator
-pickup o3 p8_6
+push o2 p6-3 p7-3
 1
-3 1
+10 17
 1
-1 2 79 2 -1 85
+1 4 45 4 -1 10
 0
 end_operator
 begin_operator
-move p7_3 p6_3
+push o3 p6-3 p7-3
 1
-3 66
+10 17
 1
-0 3 66 9
+1 2 21 2 -1 51
 0
 end_operator
 begin_operator
-move p7_3 p8_3
+push o4 p6-3 p7-3
 1
-3 66
+10 17
 1
-0 3 66 12
+1 5 26 5 -1 0
 0
 end_operator
 begin_operator
-move p7_3 p7_2
+push o5 p6-3 p7-3
 1
-3 66
+10 17
 1
-0 3 66 6
+1 8 11 8 -1 38
 0
 end_operator
 begin_operator
-move p7_3 p7_4
+push o6 p6-3 p7-3
 1
-3 66
+10 17
 1
-0 3 66 57
+1 6 61 6 -1 33
 0
 end_operator
 begin_operator
-pickup o1 p7_3
+push o7 p6-3 p7-3
 1
-3 66
+10 17
 1
-1 0 66 0 -1 50
+1 9 10 9 -1 62
 0
 end_operator
 begin_operator
-pickup o2 p7_3
+push o8 p6-3 p7-3
 1
-3 66
+10 17
 1
-1 1 47 1 -1 80
+1 7 32 7 -1 64
 0
 end_operator
 begin_operator
-pickup o3 p7_3
+push o9 p6-3 p7-3
 1
-3 66
+10 17
 1
-1 2 65 2 -1 85
+1 3 38 3 -1 27
 0
 end_operator
 begin_operator
-move p7_7 p6_7
+push o10 p6-3 p7-3
 1
-3 94
+10 17
 1
-0 3 94 49
+1 0 59 0 -1 8
 0
 end_operator
 begin_operator
-move p7_7 p8_7
+push o1 p6-3 p6-2
 1
-3 94
+10 17
 1
-0 3 94 53
+1 1 34 1 -1 55
 0
 end_operator
 begin_operator
-move p7_7 p7_6
+push o2 p6-3 p6-2
 1
-3 94
+10 17
 1
-0 3 94 14
+1 4 45 4 -1 38
 0
 end_operator
 begin_operator
-move p7_7 p7_8
+push o3 p6-3 p6-2
 1
-3 94
+10 17
 1
-0 3 94 82
+1 2 21 2 -1 17
 0
 end_operator
 begin_operator
-pickup o1 p7_7
+push o4 p6-3 p6-2
 1
-3 94
+10 17
 1
-1 0 22 0 -1 50
+1 5 26 5 -1 20
 0
 end_operator
 begin_operator
-pickup o2 p7_7
+push o5 p6-3 p6-2
 1
-3 94
+10 17
 1
-1 1 91 1 -1 80
+1 8 11 8 -1 20
 0
 end_operator
 begin_operator
-pickup o3 p7_7
+push o6 p6-3 p6-2
 1
-3 94
+10 17
 1
-1 2 8 2 -1 85
+1 6 61 6 -1 56
 0
 end_operator
 begin_operator
-move p6_2 p5_2
+push o7 p6-3 p6-2
 1
-3 68
+10 17
 1
-0 3 68 67
+1 9 10 9 -1 19
 0
 end_operator
 begin_operator
-move p6_2 p7_2
+push o8 p6-3 p6-2
 1
-3 68
+10 17
 1
-0 3 68 6
+1 7 32 7 -1 35
 0
 end_operator
 begin_operator
-move p6_2 p6_1
+push o9 p6-3 p6-2
 1
-3 68
+10 17
 1
-0 3 68 22
+1 3 38 3 -1 43
 0
 end_operator
 begin_operator
-move p6_2 p6_3
+push o10 p6-3 p6-2
 1
-3 68
+10 17
 1
-0 3 68 9
+1 0 59 0 -1 62
 0
 end_operator
 begin_operator
-pickup o1 p6_2
+push o1 p6-3 p6-4
 1
-3 68
+10 17
 1
-1 0 17 0 -1 50
+1 1 34 1 -1 63
 0
 end_operator
 begin_operator
-pickup o2 p6_2
+push o2 p6-3 p6-4
 1
-3 68
+10 17
 1
-1 1 30 1 -1 80
+1 4 45 4 -1 19
 0
 end_operator
 begin_operator
-pickup o3 p6_2
+push o3 p6-3 p6-4
 1
-3 68
+10 17
 1
-1 2 23 2 -1 85
+1 2 21 2 -1 57
 0
 end_operator
 begin_operator
-move p6_8 p5_8
+push o4 p6-3 p6-4
 1
-3 20
+10 17
 1
-0 3 20 92
+1 5 26 5 -1 58
 0
 end_operator
 begin_operator
-move p6_8 p7_8
+push o5 p6-3 p6-4
 1
-3 20
+10 17
 1
-0 3 20 82
+1 8 11 8 -1 41
 0
 end_operator
 begin_operator
-move p6_8 p6_7
+push o6 p6-3 p6-4
 1
-3 20
+10 17
 1
-0 3 20 49
+1 6 61 6 -1 17
 0
 end_operator
 begin_operator
-move p6_8 p6_9
+push o7 p6-3 p6-4
 1
-3 20
+10 17
 1
-0 3 20 47
+1 9 10 9 -1 24
 0
 end_operator
 begin_operator
-pickup o1 p6_8
+push o8 p6-3 p6-4
 1
-3 20
+10 17
 1
-1 0 10 0 -1 50
+1 7 32 7 -1 19
 0
 end_operator
 begin_operator
-pickup o2 p6_8
+push o9 p6-3 p6-4
 1
-3 20
+10 17
 1
-1 1 70 1 -1 80
+1 3 38 3 -1 4
 0
 end_operator
 begin_operator
-pickup o3 p6_8
+push o10 p6-3 p6-4
 1
-3 20
+10 17
 1
-1 2 30 2 -1 85
+1 0 59 0 -1 37
 0
 end_operator
 begin_operator
-move p5_1 p4_1
+push o1 p6-5 p5-5
 1
-3 7
+10 2
 1
-0 3 7 23
+1 1 16 1 -1 47
 0
 end_operator
 begin_operator
-move p5_1 p6_1
+push o2 p6-5 p5-5
 1
-3 7
+10 2
 1
-0 3 7 22
+1 4 25 4 -1 46
 0
 end_operator
 begin_operator
-move p5_1 p5_2
+push o3 p6-5 p5-5
 1
-3 7
+10 2
 1
-0 3 7 67
+1 2 50 2 -1 37
 0
 end_operator
 begin_operator
-pickup o1 p5_1
+push o4 p6-5 p5-5
 1
-3 7
+10 2
 1
-1 0 40 0 -1 50
+1 5 46 5 -1 14
 0
 end_operator
 begin_operator
-pickup o2 p5_1
+push o5 p6-5 p5-5
 1
-3 7
+10 2
 1
-1 1 60 1 -1 80
+1 8 24 8 -1 17
 0
 end_operator
 begin_operator
-pickup o3 p5_1
+push o6 p6-5 p5-5
 1
-3 7
+10 2
 1
-1 2 5 2 -1 85
+1 6 6 6 -1 8
 0
 end_operator
 begin_operator
-move p5_9 p4_9
+push o7 p6-5 p5-5
 1
-3 36
+10 2
 1
-0 3 36 87
+1 9 15 9 -1 48
 0
 end_operator
 begin_operator
-move p5_9 p6_9
+push o8 p6-5 p5-5
 1
-3 36
+10 2
 1
-0 3 36 47
+1 7 9 7 -1 48
 0
 end_operator
 begin_operator
-move p5_9 p5_8
+push o9 p6-5 p5-5
 1
-3 36
+10 2
 1
-0 3 36 92
+1 3 7 3 -1 30
 0
 end_operator
 begin_operator
-move p5_9 p5_10
+push o10 p6-5 p5-5
 1
-3 36
+10 2
 1
-0 3 36 33
+1 0 2 0 -1 60
 0
 end_operator
 begin_operator
-pickup o1 p5_9
+push o1 p6-5 p7-5
 1
-3 36
+10 2
 1
-1 0 56 0 -1 50
+1 1 16 1 -1 15
 0
 end_operator
 begin_operator
-pickup o2 p5_9
+push o2 p6-5 p7-5
 1
-3 36
+10 2
 1
-1 1 42 1 -1 80
+1 4 25 4 -1 11
 0
 end_operator
 begin_operator
-pickup o3 p5_9
+push o3 p6-5 p7-5
 1
-3 36
+10 2
 1
-1 2 90 2 -1 85
+1 2 50 2 -1 35
 0
 end_operator
 begin_operator
-move p1_4 p2_4
+push o4 p6-5 p7-5
 1
-3 29
+10 2
 1
-0 3 29 88
+1 5 46 5 -1 48
 0
 end_operator
 begin_operator
-move p1_4 p1_3
+push o5 p6-5 p7-5
 1
-3 29
+10 2
 1
-0 3 29 60
+1 8 24 8 -1 62
 0
 end_operator
 begin_operator
-move p1_4 p1_5
+push o6 p6-5 p7-5
 1
-3 29
+10 2
 1
-0 3 29 70
+1 6 6 6 -1 29
 0
 end_operator
 begin_operator
-pickup o1 p1_4
+push o7 p6-5 p7-5
 1
-3 29
+10 2
 1
-1 0 5 0 -1 50
+1 9 15 9 -1 53
 0
 end_operator
 begin_operator
-pickup o2 p1_4
+push o8 p6-5 p7-5
 1
-3 29
+10 2
 1
-1 1 53 1 -1 80
+1 7 9 7 -1 47
 0
 end_operator
 begin_operator
-pickup o3 p1_4
+push o9 p6-5 p7-5
 1
-3 29
+10 2
 1
-1 2 66 2 -1 85
+1 3 7 3 -1 39
 0
 end_operator
 begin_operator
-move p1_6 p2_6
+push o10 p6-5 p7-5
 1
-3 40
+10 2
 1
-0 3 40 72
+1 0 2 0 -1 29
 0
 end_operator
 begin_operator
-move p1_6 p1_5
+push o1 p6-5 p6-4
 1
-3 40
+10 2
 1
-0 3 40 70
+1 1 16 1 -1 63
 0
 end_operator
 begin_operator
-move p1_6 p1_7
+push o2 p6-5 p6-4
 1
-3 40
+10 2
 1
-0 3 40 86
+1 4 25 4 -1 19
 0
 end_operator
 begin_operator
-pickup o1 p1_6
+push o3 p6-5 p6-4
 1
-3 40
+10 2
 1
-1 0 76 0 -1 50
+1 2 50 2 -1 57
 0
 end_operator
 begin_operator
-pickup o2 p1_6
+push o4 p6-5 p6-4
 1
-3 40
+10 2
 1
-1 1 27 1 -1 80
+1 5 46 5 -1 58
 0
 end_operator
 begin_operator
-pickup o3 p1_6
+push o5 p6-5 p6-4
 1
-3 40
+10 2
 1
-1 2 2 2 -1 85
+1 8 24 8 -1 41
 0
 end_operator
 begin_operator
-move p2_3 p1_3
+push o6 p6-5 p6-4
 1
-3 52
+10 2
 1
-0 3 52 60
+1 6 6 6 -1 17
 0
 end_operator
 begin_operator
-move p2_3 p3_3
+push o7 p6-5 p6-4
 1
-3 52
+10 2
 1
-0 3 52 38
+1 9 15 9 -1 24
 0
 end_operator
 begin_operator
-move p2_3 p2_2
+push o8 p6-5 p6-4
 1
-3 52
+10 2
 1
-0 3 52 0
+1 7 9 7 -1 19
 0
 end_operator
 begin_operator
-move p2_3 p2_4
+push o9 p6-5 p6-4
 1
-3 52
+10 2
 1
-0 3 52 88
+1 3 7 3 -1 4
 0
 end_operator
 begin_operator
-pickup o1 p2_3
+push o10 p6-5 p6-4
 1
-3 52
+10 2
 1
-1 0 69 0 -1 50
+1 0 2 0 -1 37
 0
 end_operator
 begin_operator
-pickup o2 p2_3
+push o1 p6-5 p6-6
 1
-3 52
+10 2
 1
-1 1 41 1 -1 80
+1 1 16 1 -1 11
 0
 end_operator
 begin_operator
-pickup o3 p2_3
+push o2 p6-5 p6-6
 1
-3 52
+10 2
 1
-1 2 11 2 -1 85
+1 4 25 4 -1 17
 0
 end_operator
 begin_operator
-move p2_7 p1_7
+push o3 p6-5 p6-6
 1
-3 11
+10 2
 1
-0 3 11 86
+1 2 50 2 -1 60
 0
 end_operator
 begin_operator
-move p2_7 p3_7
+push o4 p6-5 p6-6
 1
-3 11
+10 2
 1
-0 3 11 19
+1 5 46 5 -1 61
 0
 end_operator
 begin_operator
-move p2_7 p2_6
+push o5 p6-5 p6-6
 1
-3 11
+10 2
 1
-0 3 11 72
+1 8 24 8 -1 30
 0
 end_operator
 begin_operator
-move p2_7 p2_8
+push o6 p6-5 p6-6
 1
-3 11
+10 2
 1
-0 3 11 64
+1 6 6 6 -1 42
 0
 end_operator
 begin_operator
-pickup o1 p2_7
+push o7 p6-5 p6-6
 1
-3 11
+10 2
 1
-1 0 3 0 -1 50
+1 9 15 9 -1 39
 0
 end_operator
 begin_operator
-pickup o2 p2_7
+push o8 p6-5 p6-6
 1
-3 11
+10 2
 1
-1 1 0 1 -1 80
+1 7 9 7 -1 38
 0
 end_operator
 begin_operator
-pickup o3 p2_7
+push o9 p6-5 p6-6
 1
-3 11
+10 2
 1
-1 2 67 2 -1 85
+1 3 7 3 -1 63
 0
 end_operator
 begin_operator
-move p3_2 p2_2
+push o10 p6-5 p6-6
 1
-3 95
+10 2
 1
-0 3 95 0
+1 0 2 0 -1 64
 0
 end_operator
 begin_operator
-move p3_2 p4_2
+push o1 p5-2 p4-2
 1
-3 95
+10 58
 1
-0 3 95 71
+1 1 22 1 -1 50
 0
 end_operator
 begin_operator
-move p3_2 p3_1
+push o2 p5-2 p4-2
 1
-3 95
+10 58
 1
-0 3 95 48
+1 4 60 4 -1 3
 0
 end_operator
 begin_operator
-move p3_2 p3_3
+push o3 p5-2 p4-2
 1
-3 95
+10 58
 1
-0 3 95 38
+1 2 42 2 -1 22
 0
 end_operator
 begin_operator
-pickup o1 p3_2
+push o4 p5-2 p4-2
 1
-3 95
+10 58
 1
-1 0 101 0 -1 50
+1 5 17 5 -1 6
 0
 end_operator
 begin_operator
-pickup o2 p3_2
+push o5 p5-2 p4-2
 1
-3 95
+10 58
 1
-1 1 88 1 -1 80
+1 8 15 8 -1 21
 0
 end_operator
 begin_operator
-pickup o3 p3_2
+push o6 p5-2 p4-2
 1
-3 95
+10 58
 1
-1 2 1 2 -1 85
+1 6 55 6 -1 41
 0
 end_operator
 begin_operator
-move p3_8 p2_8
+push o7 p5-2 p4-2
 1
-3 37
+10 58
 1
-0 3 37 64
+1 9 55 9 -1 6
 0
 end_operator
 begin_operator
-move p3_8 p4_8
+push o8 p5-2 p4-2
 1
-3 37
+10 58
 1
-0 3 37 32
+1 7 42 7 -1 29
 0
 end_operator
 begin_operator
-move p3_8 p3_7
+push o9 p5-2 p4-2
 1
-3 37
+10 58
 1
-0 3 37 19
+1 3 62 3 -1 14
 0
 end_operator
 begin_operator
-move p3_8 p3_9
+push o10 p5-2 p4-2
 1
-3 37
+10 58
 1
-0 3 37 83
+1 0 31 0 -1 9
 0
 end_operator
 begin_operator
-pickup o1 p3_8
+push o1 p5-2 p6-2
 1
-3 37
+10 58
 1
-1 0 60 0 -1 50
+1 1 22 1 -1 55
 0
 end_operator
 begin_operator
-pickup o2 p3_8
+push o2 p5-2 p6-2
 1
-3 37
+10 58
 1
-1 1 44 1 -1 80
+1 4 60 4 -1 38
 0
 end_operator
 begin_operator
-pickup o3 p3_8
+push o3 p5-2 p6-2
 1
-3 37
+10 58
 1
-1 2 18 2 -1 85
+1 2 42 2 -1 17
 0
 end_operator
 begin_operator
-move p4_1 p3_1
+push o4 p5-2 p6-2
 1
-3 23
+10 58
 1
-0 3 23 48
+1 5 17 5 -1 20
 0
 end_operator
 begin_operator
-move p4_1 p5_1
+push o5 p5-2 p6-2
 1
-3 23
+10 58
 1
-0 3 23 7
+1 8 15 8 -1 20
 0
 end_operator
 begin_operator
-move p4_1 p4_2
+push o6 p5-2 p6-2
 1
-3 23
+10 58
 1
-0 3 23 71
+1 6 55 6 -1 56
 0
 end_operator
 begin_operator
-pickup o1 p4_1
+push o7 p5-2 p6-2
 1
-3 23
+10 58
 1
-1 0 73 0 -1 50
+1 9 55 9 -1 19
 0
 end_operator
 begin_operator
-pickup o2 p4_1
+push o8 p5-2 p6-2
 1
-3 23
+10 58
 1
-1 1 72 1 -1 80
+1 7 42 7 -1 35
 0
 end_operator
 begin_operator
-pickup o3 p4_1
+push o9 p5-2 p6-2
 1
-3 23
+10 58
 1
-1 2 44 2 -1 85
+1 3 62 3 -1 43
 0
 end_operator
 begin_operator
-move p4_9 p3_9
+push o10 p5-2 p6-2
 1
-3 87
+10 58
 1
-0 3 87 83
+1 0 31 0 -1 62
 0
 end_operator
 begin_operator
-move p4_9 p5_9
+push o1 p5-2 p5-1
 1
-3 87
+10 58
 1
-0 3 87 36
+1 1 22 1 -1 48
 0
 end_operator
 begin_operator
-move p4_9 p4_8
+push o2 p5-2 p5-1
 1
-3 87
+10 58
 1
-0 3 87 32
+1 4 60 4 -1 12
 0
 end_operator
 begin_operator
-move p4_9 p4_10
+push o3 p5-2 p5-1
 1
-3 87
+10 58
 1
-0 3 87 77
+1 2 42 2 -1 52
 0
 end_operator
 begin_operator
-pickup o1 p4_9
+push o4 p5-2 p5-1
 1
-3 87
+10 58
 1
-1 0 52 0 -1 50
+1 5 17 5 -1 13
 0
 end_operator
 begin_operator
-pickup o2 p4_9
+push o5 p5-2 p5-1
 1
-3 87
+10 58
 1
-1 1 97 1 -1 80
+1 8 15 8 -1 46
 0
 end_operator
 begin_operator
-pickup o3 p4_9
+push o6 p5-2 p5-1
 1
-3 87
+10 58
 1
-1 2 55 2 -1 85
+1 6 55 6 -1 45
 0
 end_operator
 begin_operator
-move p10_5 p9_5
+push o7 p5-2 p5-1
 1
-3 25
+10 58
 1
-0 3 25 56
+1 9 55 9 -1 56
 0
 end_operator
 begin_operator
-move p10_5 p10_4
+push o8 p5-2 p5-1
 1
-3 25
+10 58
 1
-0 3 25 90
+1 7 42 7 -1 3
 0
 end_operator
 begin_operator
-move p10_5 p10_6
+push o9 p5-2 p5-1
 1
-3 25
+10 58
 1
-0 3 25 75
+1 3 62 3 -1 33
 0
 end_operator
 begin_operator
-pickup o1 p10_5
+push o10 p5-2 p5-1
 1
-3 25
+10 58
 1
-1 0 93 0 -1 50
+1 0 31 0 -1 51
 0
 end_operator
 begin_operator
-pickup o2 p10_5
+push o1 p5-2 p5-3
 1
-3 25
+10 58
 1
-1 1 61 1 -1 80
+1 1 22 1 -1 37
 0
 end_operator
 begin_operator
-pickup o3 p10_5
+push o2 p5-2 p5-3
 1
-3 25
+10 58
 1
-1 2 87 2 -1 85
+1 4 60 4 -1 30
 0
 end_operator
 begin_operator
-move p9_4 p8_4
+push o3 p5-2 p5-3
 1
-3 16
+10 58
 1
-0 3 16 89
+1 2 42 2 -1 1
 0
 end_operator
 begin_operator
-move p9_4 p10_4
+push o4 p5-2 p5-3
 1
-3 16
+10 58
 1
-0 3 16 90
+1 5 17 5 -1 28
 0
 end_operator
 begin_operator
-move p9_4 p9_3
+push o5 p5-2 p5-3
 1
-3 16
+10 58
 1
-0 3 16 43
+1 8 15 8 -1 54
 0
 end_operator
 begin_operator
-move p9_4 p9_5
+push o6 p5-2 p5-3
 1
-3 16
+10 58
 1
-0 3 16 56
+1 6 55 6 -1 22
 0
 end_operator
 begin_operator
-pickup o1 p9_4
+push o7 p5-2 p5-3
 1
-3 16
+10 58
+1
+1 9 55 9 -1 40
+0
+end_operator
+begin_operator
+push o8 p5-2 p5-3
+1
+10 58
+1
+1 7 42 7 -1 1
+0
+end_operator
+begin_operator
+push o9 p5-2 p5-3
+1
+10 58
+1
+1 3 62 3 -1 17
+0
+end_operator
+begin_operator
+push o10 p5-2 p5-3
+1
+10 58
 1
 1 0 31 0 -1 50
 0
 end_operator
 begin_operator
-pickup o2 p9_4
+push o1 p5-6 p4-6
 1
-3 16
+10 12
 1
-1 1 79 1 -1 80
+1 1 60 1 -1 32
 0
 end_operator
 begin_operator
-pickup o3 p9_4
+push o2 p5-6 p4-6
 1
-3 16
+10 12
 1
-1 2 75 2 -1 85
+1 4 47 4 -1 14
 0
 end_operator
 begin_operator
-move p9_6 p8_6
+push o3 p5-6 p4-6
 1
-3 26
+10 12
 1
-0 3 26 1
+1 2 27 2 -1 40
 0
 end_operator
 begin_operator
-move p9_6 p10_6
+push o4 p5-6 p4-6
 1
-3 26
+10 12
 1
-0 3 26 75
+1 5 24 5 -1 47
 0
 end_operator
 begin_operator
-move p9_6 p9_5
+push o5 p5-6 p4-6
 1
-3 26
+10 12
 1
-0 3 26 56
+1 8 25 8 -1 6
 0
 end_operator
 begin_operator
-move p9_6 p9_7
+push o6 p5-6 p4-6
 1
-3 26
+10 12
 1
-0 3 26 65
+1 6 60 6 -1 44
 0
 end_operator
 begin_operator
-pickup o1 p9_6
+push o7 p5-6 p4-6
 1
-3 26
+10 12
 1
-1 0 94 0 -1 50
+1 9 8 9 -1 21
 0
 end_operator
 begin_operator
-pickup o2 p9_6
+push o8 p5-6 p4-6
 1
-3 26
+10 12
 1
-1 1 58 1 -1 80
+1 7 23 7 -1 51
 0
 end_operator
 begin_operator
-pickup o3 p9_6
+push o9 p5-6 p4-6
 1
-3 26
+10 12
 1
-1 2 6 2 -1 85
+1 3 5 3 -1 28
 0
 end_operator
 begin_operator
-move p8_3 p7_3
+push o10 p5-6 p4-6
 1
-3 12
+10 12
 1
-0 3 12 66
+1 0 61 0 -1 63
 0
 end_operator
 begin_operator
-move p8_3 p9_3
+push o1 p5-6 p6-6
 1
-3 12
+10 12
 1
-0 3 12 43
+1 1 60 1 -1 11
 0
 end_operator
 begin_operator
-move p8_3 p8_2
+push o2 p5-6 p6-6
 1
-3 12
+10 12
 1
-0 3 12 73
+1 4 47 4 -1 17
 0
 end_operator
 begin_operator
-move p8_3 p8_4
+push o3 p5-6 p6-6
 1
-3 12
+10 12
 1
-0 3 12 89
+1 2 27 2 -1 60
 0
 end_operator
 begin_operator
-pickup o1 p8_3
+push o4 p5-6 p6-6
 1
-3 12
+10 12
 1
-1 0 29 0 -1 50
+1 5 24 5 -1 61
 0
 end_operator
 begin_operator
-pickup o2 p8_3
+push o5 p5-6 p6-6
 1
-3 12
+10 12
 1
-1 1 68 1 -1 80
+1 8 25 8 -1 30
 0
 end_operator
 begin_operator
-pickup o3 p8_3
+push o6 p5-6 p6-6
 1
-3 12
+10 12
 1
-1 2 78 2 -1 85
+1 6 60 6 -1 42
 0
 end_operator
 begin_operator
-move p8_7 p7_7
+push o7 p5-6 p6-6
 1
-3 53
+10 12
 1
-0 3 53 94
+1 9 8 9 -1 39
 0
 end_operator
 begin_operator
-move p8_7 p9_7
+push o8 p5-6 p6-6
 1
-3 53
+10 12
 1
-0 3 53 65
+1 7 23 7 -1 38
 0
 end_operator
 begin_operator
-move p8_7 p8_6
+push o9 p5-6 p6-6
 1
-3 53
+10 12
 1
-0 3 53 1
+1 3 5 3 -1 63
 0
 end_operator
 begin_operator
-move p8_7 p8_8
+push o10 p5-6 p6-6
 1
-3 53
+10 12
 1
-0 3 53 98
+1 0 61 0 -1 64
 0
 end_operator
 begin_operator
-pickup o1 p8_7
+push o1 p5-6 p5-5
 1
-3 53
+10 12
 1
-1 0 91 0 -1 50
+1 1 60 1 -1 47
 0
 end_operator
 begin_operator
-pickup o2 p8_7
+push o2 p5-6 p5-5
 1
-3 53
+10 12
 1
-1 1 11 1 -1 80
+1 4 47 4 -1 46
 0
 end_operator
 begin_operator
-pickup o3 p8_7
+push o3 p5-6 p5-5
 1
-3 53
+10 12
 1
-1 2 14 2 -1 85
+1 2 27 2 -1 37
 0
 end_operator
 begin_operator
-move p7_2 p6_2
+push o4 p5-6 p5-5
 1
-3 6
+10 12
 1
-0 3 6 68
+1 5 24 5 -1 14
 0
 end_operator
 begin_operator
-move p7_2 p8_2
+push o5 p5-6 p5-5
 1
-3 6
+10 12
 1
-0 3 6 73
+1 8 25 8 -1 17
 0
 end_operator
 begin_operator
-move p7_2 p7_1
+push o6 p5-6 p5-5
 1
-3 6
+10 12
 1
-0 3 6 80
+1 6 60 6 -1 8
 0
 end_operator
 begin_operator
-move p7_2 p7_3
+push o7 p5-6 p5-5
 1
-3 6
+10 12
 1
-0 3 6 66
+1 9 8 9 -1 48
 0
 end_operator
 begin_operator
-pickup o1 p7_2
+push o8 p5-6 p5-5
 1
-3 6
+10 12
 1
-1 0 0 0 -1 50
+1 7 23 7 -1 48
 0
 end_operator
 begin_operator
-pickup o2 p7_2
+push o9 p5-6 p5-5
 1
-3 6
+10 12
 1
-1 1 5 1 -1 80
+1 3 5 3 -1 30
 0
 end_operator
 begin_operator
-pickup o3 p7_2
+push o10 p5-6 p5-5
 1
-3 6
+10 12
 1
-1 2 100 2 -1 85
+1 0 61 0 -1 60
 0
 end_operator
 begin_operator
-move p7_8 p6_8
+push o1 p5-6 p5-7
 1
-3 82
+10 12
 1
-0 3 82 20
+1 1 60 1 -1 44
 0
 end_operator
 begin_operator
-move p7_8 p8_8
+push o2 p5-6 p5-7
 1
-3 82
+10 12
 1
-0 3 82 98
+1 4 47 4 -1 13
 0
 end_operator
 begin_operator
-move p7_8 p7_7
+push o3 p5-6 p5-7
 1
-3 82
+10 12
 1
-0 3 82 94
+1 2 27 2 -1 62
 0
 end_operator
 begin_operator
-move p7_8 p7_9
+push o4 p5-6 p5-7
 1
-3 82
+10 12
 1
-0 3 82 45
+1 5 24 5 -1 23
 0
 end_operator
 begin_operator
-pickup o1 p7_8
+push o5 p5-6 p5-7
 1
-3 82
+10 12
 1
-1 0 53 0 -1 50
+1 8 25 8 -1 57
 0
 end_operator
 begin_operator
-pickup o2 p7_8
+push o6 p5-6 p5-7
 1
-3 82
+10 12
 1
-1 1 101 1 -1 80
+1 6 60 6 -1 12
 0
 end_operator
 begin_operator
-pickup o3 p7_8
+push o7 p5-6 p5-7
 1
-3 82
+10 12
 1
-1 2 48 2 -1 85
+1 9 8 9 -1 44
 0
 end_operator
 begin_operator
-move p6_1 p5_1
+push o8 p5-6 p5-7
 1
-3 22
+10 12
 1
-0 3 22 7
+1 7 23 7 -1 62
 0
 end_operator
 begin_operator
-move p6_1 p7_1
+push o9 p5-6 p5-7
 1
-3 22
+10 12
 1
-0 3 22 80
+1 3 5 3 -1 23
 0
 end_operator
 begin_operator
-move p6_1 p6_2
+push o10 p5-6 p5-7
 1
-3 22
+10 12
 1
-0 3 22 68
+1 0 61 0 -1 47
 0
 end_operator
 begin_operator
-pickup o1 p6_1
+push o1 p4-1 p3-1
 1
-3 22
+10 29
 1
-1 0 24 0 -1 50
+1 1 43 1 -1 49
 0
 end_operator
 begin_operator
-pickup o2 p6_1
+push o2 p4-1 p3-1
 1
-3 22
+10 29
 1
-1 1 63 1 -1 80
+1 4 53 4 -1 42
 0
 end_operator
 begin_operator
-pickup o3 p6_1
+push o3 p4-1 p3-1
 1
-3 22
+10 29
 1
-1 2 89 2 -1 85
+1 2 32 2 -1 6
 0
 end_operator
 begin_operator
-move p6_9 p5_9
+push o4 p4-1 p3-1
 1
-3 47
+10 29
 1
-0 3 47 36
+1 5 62 5 -1 41
 0
 end_operator
 begin_operator
-move p6_9 p7_9
+push o5 p4-1 p3-1
 1
-3 47
+10 29
 1
-0 3 47 45
+1 8 9 8 -1 32
 0
 end_operator
 begin_operator
-move p6_9 p6_8
+push o6 p4-1 p3-1
 1
-3 47
+10 29
 1
-0 3 47 20
+1 6 34 6 -1 2
 0
 end_operator
 begin_operator
-move p6_9 p6_10
+push o7 p4-1 p3-1
 1
-3 47
+10 29
 1
-0 3 47 74
+1 9 14 9 -1 26
 0
 end_operator
 begin_operator
-pickup o1 p6_9
+push o8 p4-1 p3-1
 1
-3 47
+10 29
 1
-1 0 43 0 -1 50
+1 7 55 7 -1 16
 0
 end_operator
 begin_operator
-pickup o2 p6_9
+push o9 p4-1 p3-1
 1
-3 47
+10 29
 1
-1 1 49 1 -1 80
+1 3 25 3 -1 6
 0
 end_operator
 begin_operator
-pickup o3 p6_9
+push o10 p4-1 p3-1
 1
-3 47
+10 29
 1
-1 2 73 2 -1 85
+1 0 0 0 -1 58
 0
 end_operator
 begin_operator
-move p5_10 p4_10
+push o1 p4-1 p5-1
 1
-3 33
+10 29
 1
-0 3 33 77
+1 1 43 1 -1 48
 0
 end_operator
 begin_operator
-move p5_10 p6_10
+push o2 p4-1 p5-1
 1
-3 33
+10 29
 1
-0 3 33 74
+1 4 53 4 -1 12
 0
 end_operator
 begin_operator
-move p5_10 p5_9
+push o3 p4-1 p5-1
 1
-3 33
+10 29
 1
-0 3 33 36
+1 2 32 2 -1 52
 0
 end_operator
 begin_operator
-pickup o1 p5_10
+push o4 p4-1 p5-1
 1
-3 33
+10 29
 1
-1 0 13 0 -1 50
+1 5 62 5 -1 13
 0
 end_operator
 begin_operator
-pickup o2 p5_10
+push o5 p4-1 p5-1
 1
-3 33
+10 29
 1
-1 1 21 1 -1 80
+1 8 9 8 -1 46
 0
 end_operator
 begin_operator
-pickup o3 p5_10
+push o6 p4-1 p5-1
 1
-3 33
+10 29
 1
-1 2 57 2 -1 85
+1 6 34 6 -1 45
 0
 end_operator
 begin_operator
-move p1_3 p2_3
+push o7 p4-1 p5-1
 1
-3 60
+10 29
 1
-0 3 60 52
+1 9 14 9 -1 56
 0
 end_operator
 begin_operator
-move p1_3 p1_2
+push o8 p4-1 p5-1
 1
-3 60
+10 29
 1
-0 3 60 97
+1 7 55 7 -1 3
 0
 end_operator
 begin_operator
-move p1_3 p1_4
+push o9 p4-1 p5-1
 1
-3 60
+10 29
 1
-0 3 60 29
+1 3 25 3 -1 33
 0
 end_operator
 begin_operator
-pickup o1 p1_3
+push o10 p4-1 p5-1
 1
-3 60
+10 29
 1
-1 0 90 0 -1 50
+1 0 0 0 -1 51
 0
 end_operator
 begin_operator
-pickup o2 p1_3
+push o1 p4-1 p4-2
 1
-3 60
+10 29
 1
-1 1 14 1 -1 80
+1 1 43 1 -1 50
 0
 end_operator
 begin_operator
-pickup o3 p1_3
+push o2 p4-1 p4-2
 1
-3 60
+10 29
 1
-1 2 19 2 -1 85
+1 4 53 4 -1 3
 0
 end_operator
 begin_operator
-move p1_7 p2_7
+push o3 p4-1 p4-2
 1
-3 86
+10 29
 1
-0 3 86 11
+1 2 32 2 -1 22
 0
 end_operator
 begin_operator
-move p1_7 p1_6
+push o4 p4-1 p4-2
 1
-3 86
+10 29
 1
-0 3 86 40
+1 5 62 5 -1 6
 0
 end_operator
 begin_operator
-move p1_7 p1_8
+push o5 p4-1 p4-2
 1
-3 86
+10 29
 1
-0 3 86 21
+1 8 9 8 -1 21
 0
 end_operator
 begin_operator
-pickup o1 p1_7
+push o6 p4-1 p4-2
 1
-3 86
+10 29
 1
-1 0 47 0 -1 50
+1 6 34 6 -1 41
 0
 end_operator
 begin_operator
-pickup o2 p1_7
+push o7 p4-1 p4-2
 1
-3 86
+10 29
 1
-1 1 59 1 -1 80
+1 9 14 9 -1 6
 0
 end_operator
 begin_operator
-pickup o3 p1_7
+push o8 p4-1 p4-2
 1
-3 86
+10 29
 1
-1 2 56 2 -1 85
+1 7 55 7 -1 29
 0
 end_operator
 begin_operator
-move p2_2 p1_2
+push o9 p4-1 p4-2
 1
-3 0
+10 29
 1
-0 3 0 97
+1 3 25 3 -1 14
 0
 end_operator
 begin_operator
-move p2_2 p3_2
+push o10 p4-1 p4-2
 1
-3 0
+10 29
 1
-0 3 0 95
+1 0 0 0 -1 9
 0
 end_operator
 begin_operator
-move p2_2 p2_1
+push o1 p4-7 p3-7
 1
-3 0
+10 55
 1
-0 3 0 61
+1 1 8 1 -1 52
 0
 end_operator
 begin_operator
-move p2_2 p2_3
+push o2 p4-7 p3-7
 1
-3 0
+10 55
 1
-0 3 0 52
+1 4 52 4 -1 40
 0
 end_operator
 begin_operator
-pickup o1 p2_2
+push o3 p4-7 p3-7
 1
-3 0
+10 55
 1
-1 0 26 0 -1 50
+1 2 31 2 -1 20
 0
 end_operator
 begin_operator
-pickup o2 p2_2
+push o4 p4-7 p3-7
 1
-3 0
+10 55
 1
-1 1 83 1 -1 80
+1 5 63 5 -1 43
 0
 end_operator
 begin_operator
-pickup o3 p2_2
+push o5 p4-7 p3-7
 1
-3 0
+10 55
 1
-1 2 83 2 -1 85
+1 8 37 8 -1 22
 0
 end_operator
 begin_operator
-move p2_8 p1_8
+push o6 p4-7 p3-7
 1
-3 64
+10 55
 1
-0 3 64 21
+1 6 58 6 -1 5
 0
 end_operator
 begin_operator
-move p2_8 p3_8
+push o7 p4-7 p3-7
 1
-3 64
+10 55
 1
-0 3 64 37
+1 9 5 9 -1 34
 0
 end_operator
 begin_operator
-move p2_8 p2_7
+push o8 p4-7 p3-7
 1
-3 64
+10 55
 1
-0 3 64 11
+1 7 33 7 -1 27
 0
 end_operator
 begin_operator
-move p2_8 p2_9
+push o9 p4-7 p3-7
 1
-3 64
+10 55
 1
-0 3 64 4
+1 3 48 3 -1 54
 0
 end_operator
 begin_operator
-pickup o1 p2_8
+push o10 p4-7 p3-7
 1
-3 64
+10 55
 1
-1 0 89 0 -1 50
+1 0 23 0 -1 39
 0
 end_operator
 begin_operator
-pickup o2 p2_8
+push o1 p4-7 p5-7
 1
-3 64
+10 55
 1
-1 1 64 1 -1 80
+1 1 8 1 -1 44
 0
 end_operator
 begin_operator
-pickup o3 p2_8
+push o2 p4-7 p5-7
 1
-3 64
+10 55
 1
-1 2 40 2 -1 85
+1 4 52 4 -1 13
 0
 end_operator
 begin_operator
-move p3_1 p2_1
+push o3 p4-7 p5-7
 1
-3 48
+10 55
 1
-0 3 48 61
+1 2 31 2 -1 62
 0
 end_operator
 begin_operator
-move p3_1 p4_1
+push o4 p4-7 p5-7
 1
-3 48
+10 55
 1
-0 3 48 23
+1 5 63 5 -1 23
 0
 end_operator
 begin_operator
-move p3_1 p3_2
+push o5 p4-7 p5-7
 1
-3 48
+10 55
 1
-0 3 48 95
+1 8 37 8 -1 57
 0
 end_operator
 begin_operator
-pickup o1 p3_1
+push o6 p4-7 p5-7
 1
-3 48
+10 55
 1
-1 0 7 0 -1 50
+1 6 58 6 -1 12
 0
 end_operator
 begin_operator
-pickup o2 p3_1
+push o7 p4-7 p5-7
 1
-3 48
+10 55
 1
-1 1 94 1 -1 80
+1 9 5 9 -1 44
 0
 end_operator
 begin_operator
-pickup o3 p3_1
+push o8 p4-7 p5-7
 1
-3 48
+10 55
 1
-1 2 98 2 -1 85
+1 7 33 7 -1 62
 0
 end_operator
 begin_operator
-move p3_9 p2_9
+push o9 p4-7 p5-7
 1
-3 83
+10 55
 1
-0 3 83 4
+1 3 48 3 -1 23
 0
 end_operator
 begin_operator
-move p3_9 p4_9
+push o10 p4-7 p5-7
 1
-3 83
+10 55
 1
-0 3 83 87
+1 0 23 0 -1 47
 0
 end_operator
 begin_operator
-move p3_9 p3_8
+push o1 p4-7 p4-6
 1
-3 83
+10 55
 1
-0 3 83 37
+1 1 8 1 -1 32
 0
 end_operator
 begin_operator
-move p3_9 p3_10
+push o2 p4-7 p4-6
 1
-3 83
+10 55
 1
-0 3 83 44
+1 4 52 4 -1 14
 0
 end_operator
 begin_operator
-pickup o1 p3_9
+push o3 p4-7 p4-6
 1
-3 83
+10 55
 1
-1 0 28 0 -1 50
+1 2 31 2 -1 40
 0
 end_operator
 begin_operator
-pickup o2 p3_9
+push o4 p4-7 p4-6
 1
-3 83
+10 55
 1
-1 1 69 1 -1 80
+1 5 63 5 -1 47
 0
 end_operator
 begin_operator
-pickup o3 p3_9
+push o5 p4-7 p4-6
 1
-3 83
+10 55
 1
-1 2 80 2 -1 85
+1 8 37 8 -1 6
 0
 end_operator
 begin_operator
-move p4_10 p3_10
+push o6 p4-7 p4-6
 1
-3 77
+10 55
 1
-0 3 77 44
+1 6 58 6 -1 44
 0
 end_operator
 begin_operator
-move p4_10 p5_10
+push o7 p4-7 p4-6
 1
-3 77
+10 55
 1
-0 3 77 33
+1 9 5 9 -1 21
 0
 end_operator
 begin_operator
-move p4_10 p4_9
+push o8 p4-7 p4-6
 1
-3 77
+10 55
 1
-0 3 77 87
+1 7 33 7 -1 51
 0
 end_operator
 begin_operator
-pickup o1 p4_10
+push o9 p4-7 p4-6
 1
-3 77
+10 55
 1
-1 0 21 0 -1 50
+1 3 48 3 -1 28
 0
 end_operator
 begin_operator
-pickup o2 p4_10
+push o10 p4-7 p4-6
 1
-3 77
+10 55
 1
-1 1 28 1 -1 80
+1 0 23 0 -1 63
 0
 end_operator
 begin_operator
-pickup o3 p4_10
+push o1 p4-7 p4-8
 1
-3 77
+10 55
 1
-1 2 60 2 -1 85
+1 1 8 1 -1 51
 0
 end_operator
 begin_operator
-move p10_4 p9_4
+push o2 p4-7 p4-8
 1
-3 90
+10 55
 1
-0 3 90 16
+1 4 52 4 -1 33
 0
 end_operator
 begin_operator
-move p10_4 p10_3
+push o3 p4-7 p4-8
 1
-3 90
+10 55
 1
-0 3 90 54
+1 2 31 2 -1 56
 0
 end_operator
 begin_operator
-move p10_4 p10_5
+push o4 p4-7 p4-8
 1
-3 90
+10 55
 1
-0 3 90 25
+1 5 63 5 -1 10
 0
 end_operator
 begin_operator
-pickup o1 p10_4
+push o5 p4-7 p4-8
 1
-3 90
+10 55
 1
-1 0 63 0 -1 50
+1 8 37 8 -1 64
 0
 end_operator
 begin_operator
-pickup o2 p10_4
+push o6 p4-7 p4-8
 1
-3 90
+10 55
 1
-1 1 93 1 -1 80
+1 6 58 6 -1 28
 0
 end_operator
 begin_operator
-pickup o3 p10_4
+push o7 p4-7 p4-8
 1
-3 90
+10 55
 1
-1 2 46 2 -1 85
+1 9 5 9 -1 52
 0
 end_operator
 begin_operator
-move p10_6 p9_6
+push o8 p4-7 p4-8
 1
-3 75
+10 55
 1
-0 3 75 26
+1 7 33 7 -1 54
 0
 end_operator
 begin_operator
-move p10_6 p10_5
+push o9 p4-7 p4-8
 1
-3 75
+10 55
 1
-0 3 75 25
+1 3 48 3 -1 11
 0
 end_operator
 begin_operator
-move p10_6 p10_7
+push o10 p4-7 p4-8
 1
-3 75
+10 55
 1
-0 3 75 13
+1 0 23 0 -1 41
 0
 end_operator
 begin_operator
-pickup o1 p10_6
+move p1-3 p2-3
 1
-3 75
+10 6
 1
-1 0 88 0 -1 50
+0 10 6 10
 0
 end_operator
 begin_operator
-pickup o2 p10_6
+move p1-3 p1-2
 1
-3 75
+10 6
 1
-1 1 22 1 -1 80
+0 10 6 0
 0
 end_operator
 begin_operator
-pickup o3 p10_6
+move p1-3 p1-4
 1
-3 75
+10 6
 1
-1 2 21 2 -1 85
+0 10 6 7
 0
 end_operator
 begin_operator
-move p9_3 p8_3
+move p1-5 p2-5
 1
-3 43
+10 24
 1
-0 3 43 12
+0 10 24 25
 0
 end_operator
 begin_operator
-move p9_3 p10_3
+move p1-5 p1-4
 1
-3 43
+10 24
 1
-0 3 43 54
+0 10 24 7
 0
 end_operator
 begin_operator
-move p9_3 p9_2
+move p1-5 p1-6
 1
-3 43
+10 24
 1
-0 3 43 78
+0 10 24 38
 0
 end_operator
 begin_operator
-move p9_3 p9_4
+move p2-2 p1-2
 1
-3 43
+10 18
 1
-0 3 43 16
+0 10 18 0
 0
 end_operator
 begin_operator
-pickup o1 p9_3
+move p2-2 p3-2
 1
-3 43
+10 18
 1
-1 0 2 0 -1 50
+0 10 18 27
 0
 end_operator
 begin_operator
-pickup o2 p9_3
+move p2-2 p2-1
 1
-3 43
+10 18
 1
-1 1 46 1 -1 80
+0 10 18 39
 0
 end_operator
 begin_operator
-pickup o3 p9_3
+move p2-2 p2-3
 1
-3 43
+10 18
 1
-1 2 24 2 -1 85
+0 10 18 10
 0
 end_operator
 begin_operator
-move p9_7 p8_7
+move p2-6 p1-6
 1
-3 65
+10 60
 1
-0 3 65 53
+0 10 60 38
 0
 end_operator
 begin_operator
-move p9_7 p10_7
+move p2-6 p3-6
 1
-3 65
+10 60
 1
-0 3 65 13
+0 10 60 41
 0
 end_operator
 begin_operator
-move p9_7 p9_6
+move p2-6 p2-5
 1
-3 65
+10 60
 1
-0 3 65 26
+0 10 60 25
 0
 end_operator
 begin_operator
-move p9_7 p9_8
+move p2-6 p2-7
 1
-3 65
+10 60
 1
-0 3 65 35
+0 10 60 46
 0
 end_operator
 begin_operator
-pickup o1 p9_7
+move p3-1 p2-1
 1
-3 65
+10 1
 1
-1 0 67 0 -1 50
+0 10 1 39
 0
 end_operator
 begin_operator
-pickup o2 p9_7
+move p3-1 p4-1
 1
-3 65
+10 1
 1
-1 1 90 1 -1 80
+0 10 1 29
 0
 end_operator
 begin_operator
-pickup o3 p9_7
+move p3-1 p3-2
 1
-3 65
+10 1
 1
-1 2 64 2 -1 85
+0 10 1 27
 0
 end_operator
 begin_operator
-move p8_2 p7_2
+move p3-7 p2-7
 1
-3 73
+10 63
 1
-0 3 73 6
+0 10 63 46
 0
 end_operator
 begin_operator
-move p8_2 p9_2
+move p3-7 p4-7
 1
-3 73
+10 63
 1
-0 3 73 78
+0 10 63 55
 0
 end_operator
 begin_operator
-move p8_2 p8_1
+move p3-7 p3-6
 1
-3 73
+10 63
 1
-0 3 73 99
+0 10 63 41
 0
 end_operator
 begin_operator
-move p8_2 p8_3
+move p3-7 p3-8
 1
-3 73
+10 63
 1
-0 3 73 12
+0 10 63 43
 0
 end_operator
 begin_operator
-pickup o1 p8_2
+move p8-4 p7-4
 1
-3 73
+10 3
 1
-1 0 97 0 -1 50
+0 10 3 22
 0
 end_operator
 begin_operator
-pickup o2 p8_2
+move p8-4 p8-3
 1
-3 73
+10 3
 1
-1 1 3 1 -1 80
+0 10 3 61
 0
 end_operator
 begin_operator
-pickup o3 p8_2
+move p8-4 p8-5
 1
-3 73
+10 3
 1
-1 2 33 2 -1 85
+0 10 3 49
 0
 end_operator
 begin_operator
-move p8_8 p7_8
+move p7-3 p6-3
 1
-3 98
+10 30
 1
-0 3 98 82
+0 10 30 17
 0
 end_operator
 begin_operator
-move p8_8 p9_8
+move p7-3 p8-3
 1
-3 98
+10 30
 1
-0 3 98 35
+0 10 30 61
 0
 end_operator
 begin_operator
-move p8_8 p8_7
+move p7-3 p7-2
 1
-3 98
+10 30
 1
-0 3 98 53
+0 10 30 4
 0
 end_operator
 begin_operator
-move p8_8 p8_9
+move p7-3 p7-4
 1
-3 98
+10 30
 1
-0 3 98 31
+0 10 30 22
 0
 end_operator
 begin_operator
-pickup o1 p8_8
+move p7-5 p6-5
 1
-3 98
+10 37
 1
-1 0 41 0 -1 50
+0 10 37 2
 0
 end_operator
 begin_operator
-pickup o2 p8_8
+move p7-5 p8-5
 1
-3 98
+10 37
 1
-1 1 18 1 -1 80
+0 10 37 49
 0
 end_operator
 begin_operator
-pickup o3 p8_8
+move p7-5 p7-4
 1
-3 98
+10 37
 1
-1 2 93 2 -1 85
+0 10 37 22
 0
 end_operator
 begin_operator
-move p7_1 p6_1
+move p7-5 p7-6
 1
-3 80
+10 37
 1
-0 3 80 22
+0 10 37 50
 0
 end_operator
 begin_operator
-move p7_1 p8_1
+move p6-2 p5-2
 1
-3 80
+10 33
 1
-0 3 80 99
+0 10 33 58
 0
 end_operator
 begin_operator
-move p7_1 p7_2
+move p6-2 p7-2
 1
-3 80
+10 33
 1
-0 3 80 6
+0 10 33 4
 0
 end_operator
 begin_operator
-pickup o1 p7_1
+move p6-2 p6-1
 1
-3 80
+10 33
 1
-1 0 42 0 -1 50
+0 10 33 45
 0
 end_operator
 begin_operator
-pickup o2 p7_1
+move p6-2 p6-3
 1
-3 80
+10 33
 1
-1 1 9 1 -1 80
+0 10 33 17
 0
 end_operator
 begin_operator
-pickup o3 p7_1
+move p6-6 p5-6
 1
-3 80
+10 52
 1
-1 2 92 2 -1 85
+0 10 52 12
 0
 end_operator
 begin_operator
-move p7_9 p6_9
+move p6-6 p7-6
 1
-3 45
+10 52
 1
-0 3 45 47
+0 10 52 50
 0
 end_operator
 begin_operator
-move p7_9 p8_9
+move p6-6 p6-5
 1
-3 45
+10 52
 1
-0 3 45 31
+0 10 52 2
 0
 end_operator
 begin_operator
-move p7_9 p7_8
+move p6-6 p6-7
 1
-3 45
+10 52
 1
-0 3 45 82
+0 10 52 32
 0
 end_operator
 begin_operator
-move p7_9 p7_10
+move p5-1 p4-1
 1
-3 45
+10 14
 1
-0 3 45 81
+0 10 14 29
 0
 end_operator
 begin_operator
-pickup o1 p7_9
+move p5-1 p6-1
 1
-3 45
+10 14
 1
-1 0 23 0 -1 50
+0 10 14 45
 0
 end_operator
 begin_operator
-pickup o2 p7_9
+move p5-1 p5-2
 1
-3 45
+10 14
 1
-1 1 29 1 -1 80
+0 10 14 58
 0
 end_operator
 begin_operator
-pickup o3 p7_9
+move p5-7 p4-7
 1
-3 45
+10 20
 1
-1 2 7 2 -1 85
+0 10 20 55
 0
 end_operator
 begin_operator
-move p6_10 p5_10
+move p5-7 p6-7
 1
-3 74
+10 20
 1
-0 3 74 33
+0 10 20 32
 0
 end_operator
 begin_operator
-move p6_10 p7_10
+move p5-7 p5-6
 1
-3 74
+10 20
 1
-0 3 74 81
+0 10 20 12
 0
 end_operator
 begin_operator
-move p6_10 p6_9
+move p5-7 p5-8
 1
-3 74
+10 20
 1
-0 3 74 47
+0 10 20 31
 0
 end_operator
 begin_operator
-pickup o1 p6_10
+move p4-8 p3-8
 1
-3 74
+10 57
 1
-1 0 96 0 -1 50
+0 10 57 43
 0
 end_operator
 begin_operator
-pickup o2 p6_10
+move p4-8 p5-8
 1
-3 74
+10 57
 1
-1 1 4 1 -1 80
+0 10 57 31
 0
 end_operator
 begin_operator
-pickup o3 p6_10
+move p4-8 p4-7
 1
-3 74
+10 57
 1
-1 2 20 2 -1 85
+0 10 57 55
 0
 end_operator
 begin_operator
-move p1_2 p2_2
+push o1 p1-3 p2-3
 1
-3 97
+10 6
 1
-0 3 97 0
+1 1 56 1 -1 29
 0
 end_operator
 begin_operator
-move p1_2 p1_1
+push o2 p1-3 p2-3
 1
-3 97
+10 6
 1
-0 3 97 50
+1 4 55 4 -1 58
 0
 end_operator
 begin_operator
-move p1_2 p1_3
+push o3 p1-3 p2-3
 1
-3 97
+10 6
 1
-0 3 97 60
+1 2 0 2 -1 45
 0
 end_operator
 begin_operator
-pickup o1 p1_2
+push o4 p1-3 p2-3
 1
-3 97
+10 6
 1
-1 0 14 0 -1 50
+1 5 16 5 -1 44
 0
 end_operator
 begin_operator
-pickup o2 p1_2
+push o5 p1-3 p2-3
 1
-3 97
+10 6
 1
-1 1 89 1 -1 80
+1 8 26 8 -1 34
 0
 end_operator
 begin_operator
-pickup o3 p1_2
+push o6 p1-3 p2-3
 1
-3 97
+10 6
 1
-1 2 54 2 -1 85
+1 6 1 6 -1 10
 0
 end_operator
 begin_operator
-move p1_8 p2_8
+push o7 p1-3 p2-3
 1
-3 21
+10 6
 1
-0 3 21 64
+1 9 32 9 -1 60
 0
 end_operator
 begin_operator
-move p1_8 p1_7
+push o8 p1-3 p2-3
 1
-3 21
+10 6
 1
-0 3 21 86
+1 7 21 7 -1 8
 0
 end_operator
 begin_operator
-move p1_8 p1_9
+push o9 p1-3 p2-3
 1
-3 21
+10 6
 1
-0 3 21 84
+1 3 60 3 -1 40
 0
 end_operator
 begin_operator
-pickup o1 p1_8
+push o10 p1-3 p2-3
 1
-3 21
+10 6
 1
-1 0 71 0 -1 50
+1 0 52 0 -1 32
 0
 end_operator
 begin_operator
-pickup o2 p1_8
+push o1 p1-3 p1-2
 1
-3 21
+10 6
 1
-1 1 96 1 -1 80
+1 1 56 1 -1 42
 0
 end_operator
 begin_operator
-pickup o3 p1_8
+push o2 p1-3 p1-2
 1
-3 21
+10 6
 1
-1 2 9 2 -1 85
+1 4 55 4 -1 31
 0
 end_operator
 begin_operator
-move p2_1 p1_1
+push o3 p1-3 p1-2
 1
-3 61
+10 6
 1
-0 3 61 50
+1 2 0 2 -1 59
 0
 end_operator
 begin_operator
-move p2_1 p3_1
+push o4 p1-3 p1-2
 1
-3 61
+10 6
 1
-0 3 61 48
+1 5 16 5 -1 21
 0
 end_operator
 begin_operator
-move p2_1 p2_2
+push o5 p1-3 p1-2
 1
-3 61
+10 6
 1
-0 3 61 0
+1 8 26 8 -1 19
 0
 end_operator
 begin_operator
-pickup o1 p2_1
+push o6 p1-3 p1-2
 1
-3 61
+10 6
 1
-1 0 34 0 -1 50
+1 6 1 6 -1 43
 0
 end_operator
 begin_operator
-pickup o2 p2_1
+push o7 p1-3 p1-2
 1
-3 61
+10 6
 1
-1 1 16 1 -1 80
+1 9 32 9 -1 27
 0
 end_operator
 begin_operator
-pickup o3 p2_1
+push o8 p1-3 p1-2
 1
-3 61
+10 6
 1
-1 2 45 2 -1 85
+1 7 21 7 -1 46
 0
 end_operator
 begin_operator
-move p2_9 p1_9
+push o9 p1-3 p1-2
 1
-3 4
+10 6
 1
-0 3 4 84
+1 3 60 3 -1 13
 0
 end_operator
 begin_operator
-move p2_9 p3_9
+push o10 p1-3 p1-2
 1
-3 4
+10 6
 1
-0 3 4 83
+1 0 52 0 -1 57
 0
 end_operator
 begin_operator
-move p2_9 p2_8
+push o1 p1-3 p1-4
 1
-3 4
+10 6
 1
-0 3 4 64
+1 1 56 1 -1 41
 0
 end_operator
 begin_operator
-move p2_9 p2_10
+push o2 p1-3 p1-4
 1
-3 4
+10 6
 1
-0 3 4 55
+1 4 55 4 -1 20
 0
 end_operator
 begin_operator
-pickup o1 p2_9
+push o3 p1-3 p1-4
 1
-3 4
+10 6
 1
-1 0 77 0 -1 50
+1 2 0 2 -1 61
 0
 end_operator
 begin_operator
-pickup o2 p2_9
+push o4 p1-3 p1-4
 1
-3 4
+10 6
 1
-1 1 36 1 -1 80
+1 5 16 5 -1 34
 0
 end_operator
 begin_operator
-pickup o3 p2_9
+push o5 p1-3 p1-4
 1
-3 4
+10 6
 1
-1 2 86 2 -1 85
+1 8 26 8 -1 23
 0
 end_operator
 begin_operator
-move p3_10 p2_10
+push o6 p1-3 p1-4
 1
-3 44
+10 6
 1
-0 3 44 55
+1 6 1 6 -1 32
 0
 end_operator
 begin_operator
-move p3_10 p4_10
+push o7 p1-3 p1-4
 1
-3 44
+10 6
 1
-0 3 44 77
+1 9 32 9 -1 23
 0
 end_operator
 begin_operator
-move p3_10 p3_9
+push o8 p1-3 p1-4
 1
-3 44
+10 6
 1
-0 3 44 83
+1 7 21 7 -1 39
 0
 end_operator
 begin_operator
-pickup o1 p3_10
+push o9 p1-3 p1-4
 1
-3 44
+10 6
 1
-1 0 65 0 -1 50
+1 3 60 3 -1 12
 0
 end_operator
 begin_operator
-pickup o2 p3_10
+push o10 p1-3 p1-4
 1
-3 44
+10 6
 1
-1 1 81 1 -1 80
+1 0 52 0 -1 22
 0
 end_operator
 begin_operator
-pickup o3 p3_10
+push o1 p1-5 p2-5
 1
-3 44
+10 24
 1
-1 2 36 2 -1 85
+1 1 45 1 -1 7
 0
 end_operator
 begin_operator
-move p10_3 p9_3
+push o2 p1-5 p2-5
 1
-3 54
+10 24
 1
-0 3 54 43
+1 4 16 4 -1 43
 0
 end_operator
 begin_operator
-move p10_3 p10_2
+push o3 p1-5 p2-5
 1
-3 54
+10 24
 1
-0 3 54 3
+1 2 58 2 -1 23
 0
 end_operator
 begin_operator
-move p10_3 p10_4
+push o4 p1-5 p2-5
 1
-3 54
+10 24
 1
-0 3 54 90
+1 5 29 5 -1 35
 0
 end_operator
 begin_operator
-pickup o1 p10_3
+push o5 p1-5 p2-5
 1
-3 54
+10 24
 1
-1 0 86 0 -1 50
+1 8 29 8 -1 61
 0
 end_operator
 begin_operator
-pickup o2 p10_3
+push o6 p1-5 p2-5
 1
-3 54
+10 24
 1
-1 1 24 1 -1 80
+1 6 26 6 -1 31
 0
 end_operator
 begin_operator
-pickup o3 p10_3
+push o7 p1-5 p2-5
 1
-3 54
+10 24
 1
-1 2 94 2 -1 85
+1 9 29 9 -1 59
 0
 end_operator
 begin_operator
-move p10_7 p9_7
+push o8 p1-5 p2-5
 1
-3 13
+10 24
 1
-0 3 13 65
+1 7 41 7 -1 11
 0
 end_operator
 begin_operator
-move p10_7 p10_6
+push o9 p1-5 p2-5
 1
-3 13
+10 24
 1
-0 3 13 75
+1 3 18 3 -1 37
 0
 end_operator
 begin_operator
-move p10_7 p10_8
+push o10 p1-5 p2-5
 1
-3 13
+10 24
 1
-0 3 13 42
+1 0 25 0 -1 24
 0
 end_operator
 begin_operator
-pickup o1 p10_7
+push o1 p1-5 p1-4
 1
-3 13
+10 24
 1
-1 0 25 0 -1 50
+1 1 45 1 -1 41
 0
 end_operator
 begin_operator
-pickup o2 p10_7
+push o2 p1-5 p1-4
 1
-3 13
+10 24
 1
-1 1 85 1 -1 80
+1 4 16 4 -1 20
 0
 end_operator
 begin_operator
-pickup o3 p10_7
+push o3 p1-5 p1-4
 1
-3 13
+10 24
 1
-1 2 50 2 -1 85
+1 2 58 2 -1 61
 0
 end_operator
 begin_operator
-move p9_2 p8_2
+push o4 p1-5 p1-4
 1
-3 78
+10 24
 1
-0 3 78 73
+1 5 29 5 -1 34
 0
 end_operator
 begin_operator
-move p9_2 p10_2
+push o5 p1-5 p1-4
 1
-3 78
+10 24
 1
-0 3 78 3
+1 8 29 8 -1 23
 0
 end_operator
 begin_operator
-move p9_2 p9_1
+push o6 p1-5 p1-4
 1
-3 78
+10 24
 1
-0 3 78 34
+1 6 26 6 -1 32
 0
 end_operator
 begin_operator
-move p9_2 p9_3
+push o7 p1-5 p1-4
 1
-3 78
+10 24
 1
-0 3 78 43
+1 9 29 9 -1 23
 0
 end_operator
 begin_operator
-pickup o1 p9_2
+push o8 p1-5 p1-4
 1
-3 78
+10 24
 1
-1 0 38 0 -1 50
+1 7 41 7 -1 39
 0
 end_operator
 begin_operator
-pickup o2 p9_2
+push o9 p1-5 p1-4
 1
-3 78
+10 24
 1
-1 1 13 1 -1 80
+1 3 18 3 -1 12
 0
 end_operator
 begin_operator
-pickup o3 p9_2
+push o10 p1-5 p1-4
 1
-3 78
+10 24
 1
-1 2 62 2 -1 85
+1 0 25 0 -1 22
 0
 end_operator
 begin_operator
-move p9_8 p8_8
+push o1 p1-5 p1-6
 1
-3 35
+10 24
 1
-0 3 35 98
+1 1 45 1 -1 30
 0
 end_operator
 begin_operator
-move p9_8 p10_8
+push o2 p1-5 p1-6
 1
-3 35
+10 24
 1
-0 3 35 42
+1 4 16 4 -1 23
 0
 end_operator
 begin_operator
-move p9_8 p9_7
+push o3 p1-5 p1-6
 1
-3 35
+10 24
 1
-0 3 35 65
+1 2 58 2 -1 49
 0
 end_operator
 begin_operator
-move p9_8 p9_9
+push o4 p1-5 p1-6
 1
-3 35
+10 24
 1
-0 3 35 5
+1 5 29 5 -1 31
 0
 end_operator
 begin_operator
-pickup o1 p9_8
+push o5 p1-5 p1-6
 1
-3 35
+10 24
 1
-1 0 54 0 -1 50
+1 8 29 8 -1 36
 0
 end_operator
 begin_operator
-pickup o2 p9_8
+push o6 p1-5 p1-6
 1
-3 35
+10 24
 1
-1 1 57 1 -1 80
+1 6 26 6 -1 57
 0
 end_operator
 begin_operator
-pickup o3 p9_8
+push o7 p1-5 p1-6
 1
-3 35
+10 24
 1
-1 2 47 2 -1 85
+1 9 29 9 -1 61
 0
 end_operator
 begin_operator
-move p8_1 p7_1
+push o8 p1-5 p1-6
 1
-3 99
+10 24
 1
-0 3 99 80
+1 7 41 7 -1 37
 0
 end_operator
 begin_operator
-move p8_1 p9_1
+push o9 p1-5 p1-6
 1
-3 99
+10 24
 1
-0 3 99 34
+1 3 18 3 -1 15
 0
 end_operator
 begin_operator
-move p8_1 p8_2
+push o10 p1-5 p1-6
 1
-3 99
+10 24
 1
-0 3 99 73
+1 0 25 0 -1 18
 0
 end_operator
 begin_operator
-pickup o1 p8_1
+push o1 p2-2 p1-2
 1
-3 99
+10 18
 1
-1 0 64 0 -1 50
+1 1 35 1 -1 42
 0
 end_operator
 begin_operator
-pickup o2 p8_1
+push o2 p2-2 p1-2
 1
-3 99
+10 18
 1
-1 1 99 1 -1 80
+1 4 28 4 -1 31
 0
 end_operator
 begin_operator
-pickup o3 p8_1
+push o3 p2-2 p1-2
 1
-3 99
+10 18
 1
-1 2 39 2 -1 85
+1 2 24 2 -1 59
 0
 end_operator
 begin_operator
-move p8_9 p7_9
+push o4 p2-2 p1-2
 1
-3 31
+10 18
 1
-0 3 31 45
+1 5 1 5 -1 21
 0
 end_operator
 begin_operator
-move p8_9 p9_9
+push o5 p2-2 p1-2
 1
-3 31
+10 18
 1
-0 3 31 5
+1 8 0 8 -1 19
 0
 end_operator
 begin_operator
-move p8_9 p8_8
+push o6 p2-2 p1-2
 1
-3 31
+10 18
 1
-0 3 31 98
+1 6 16 6 -1 43
 0
 end_operator
 begin_operator
-move p8_9 p8_10
+push o7 p2-2 p1-2
 1
-3 31
+10 18
 1
-0 3 31 63
+1 9 58 9 -1 27
 0
 end_operator
 begin_operator
-pickup o1 p8_9
+push o8 p2-2 p1-2
 1
-3 31
+10 18
 1
-1 0 82 0 -1 50
+1 7 2 7 -1 46
 0
 end_operator
 begin_operator
-pickup o2 p8_9
+push o9 p2-2 p1-2
 1
-3 31
+10 18
 1
-1 1 76 1 -1 80
+1 3 45 3 -1 13
 0
 end_operator
 begin_operator
-pickup o3 p8_9
+push o10 p2-2 p1-2
 1
-3 31
+10 18
 1
-1 2 22 2 -1 85
+1 0 12 0 -1 57
 0
 end_operator
 begin_operator
-move p7_10 p6_10
+push o1 p2-2 p3-2
 1
-3 81
+10 18
 1
-0 3 81 74
+1 1 35 1 -1 57
 0
 end_operator
 begin_operator
-move p7_10 p8_10
+push o2 p2-2 p3-2
 1
-3 81
+10 18
 1
-0 3 81 63
+1 4 28 4 -1 35
 0
 end_operator
 begin_operator
-move p7_10 p7_9
+push o3 p2-2 p3-2
 1
-3 81
+10 18
 1
-0 3 81 45
+1 2 24 2 -1 12
 0
 end_operator
 begin_operator
-pickup o1 p7_10
+push o4 p2-2 p3-2
 1
-3 81
+10 18
 1
-1 0 35 0 -1 50
+1 5 1 5 -1 51
 0
 end_operator
 begin_operator
-pickup o2 p7_10
+push o5 p2-2 p3-2
 1
-3 81
+10 18
 1
-1 1 26 1 -1 80
+1 8 0 8 -1 42
 0
 end_operator
 begin_operator
-pickup o3 p7_10
+push o6 p2-2 p3-2
 1
-3 81
+10 18
 1
-1 2 43 2 -1 85
+1 6 16 6 -1 53
 0
 end_operator
 begin_operator
-move p1_1 p2_1
+push o7 p2-2 p3-2
 1
-3 50
+10 18
 1
-0 3 50 61
+1 9 58 9 -1 36
 0
 end_operator
 begin_operator
-move p1_1 p1_2
+push o8 p2-2 p3-2
 1
-3 50
+10 18
 1
-0 3 50 97
+1 7 2 7 -1 22
 0
 end_operator
 begin_operator
-pickup o1 p1_1
+push o9 p2-2 p3-2
 1
-3 50
+10 18
 1
-1 0 6 0 -1 50
+1 3 45 3 -1 59
 0
 end_operator
 begin_operator
-pickup o2 p1_1
+push o10 p2-2 p3-2
 1
-3 50
+10 18
 1
-1 1 52 1 -1 80
+1 0 12 0 -1 3
 0
 end_operator
 begin_operator
-pickup o3 p1_1
+push o1 p2-2 p2-1
 1
-3 50
+10 18
 1
-1 2 99 2 -1 85
+1 1 35 1 -1 39
 0
 end_operator
 begin_operator
-move p1_9 p2_9
+push o2 p2-2 p2-1
 1
-3 84
+10 18
 1
-0 3 84 4
+1 4 28 4 -1 56
 0
 end_operator
 begin_operator
-move p1_9 p1_8
+push o3 p2-2 p2-1
 1
-3 84
+10 18
 1
-0 3 84 21
+1 2 24 2 -1 64
 0
 end_operator
 begin_operator
-move p1_9 p1_10
+push o4 p2-2 p2-1
 1
-3 84
+10 18
 1
-0 3 84 91
+1 5 1 5 -1 60
 0
 end_operator
 begin_operator
-pickup o1 p1_9
+push o5 p2-2 p2-1
 1
-3 84
+10 18
 1
-1 0 27 0 -1 50
+1 8 0 8 -1 63
 0
 end_operator
 begin_operator
-pickup o2 p1_9
+push o6 p2-2 p2-1
 1
-3 84
+10 18
 1
-1 1 32 1 -1 80
+1 6 16 6 -1 23
 0
 end_operator
 begin_operator
-pickup o3 p1_9
+push o7 p2-2 p2-1
 1
-3 84
+10 18
 1
-1 2 82 2 -1 85
+1 9 58 9 -1 51
 0
 end_operator
 begin_operator
-move p2_10 p1_10
+push o8 p2-2 p2-1
 1
-3 55
+10 18
 1
-0 3 55 91
+1 7 2 7 -1 50
 0
 end_operator
 begin_operator
-move p2_10 p3_10
+push o9 p2-2 p2-1
 1
-3 55
+10 18
 1
-0 3 55 44
+1 3 45 3 -1 49
 0
 end_operator
 begin_operator
-move p2_10 p2_9
+push o10 p2-2 p2-1
 1
-3 55
+10 18
 1
-0 3 55 4
+1 0 12 0 -1 30
 0
 end_operator
 begin_operator
-pickup o1 p2_10
+push o1 p2-2 p2-3
 1
-3 55
+10 18
 1
-1 0 100 0 -1 50
+1 1 35 1 -1 29
 0
 end_operator
 begin_operator
-pickup o2 p2_10
+push o2 p2-2 p2-3
 1
-3 55
+10 18
 1
-1 1 38 1 -1 80
+1 4 28 4 -1 58
 0
 end_operator
 begin_operator
-pickup o3 p2_10
+push o3 p2-2 p2-3
 1
-3 55
+10 18
 1
-1 2 68 2 -1 85
+1 2 24 2 -1 45
 0
 end_operator
 begin_operator
-move p10_2 p9_2
+push o4 p2-2 p2-3
 1
-3 3
+10 18
 1
-0 3 3 78
+1 5 1 5 -1 44
 0
 end_operator
 begin_operator
-move p10_2 p10_1
+push o5 p2-2 p2-3
 1
-3 3
+10 18
 1
-0 3 3 62
+1 8 0 8 -1 34
 0
 end_operator
 begin_operator
-move p10_2 p10_3
+push o6 p2-2 p2-3
 1
-3 3
+10 18
 1
-0 3 3 54
+1 6 16 6 -1 10
 0
 end_operator
 begin_operator
-pickup o1 p10_2
+push o7 p2-2 p2-3
 1
-3 3
+10 18
 1
-1 0 45 0 -1 50
+1 9 58 9 -1 60
 0
 end_operator
 begin_operator
-pickup o2 p10_2
+push o8 p2-2 p2-3
 1
-3 3
+10 18
 1
-1 1 65 1 -1 80
+1 7 2 7 -1 8
 0
 end_operator
 begin_operator
-pickup o3 p10_2
+push o9 p2-2 p2-3
 1
-3 3
+10 18
 1
-1 2 59 2 -1 85
+1 3 45 3 -1 40
 0
 end_operator
 begin_operator
-move p10_8 p9_8
+push o10 p2-2 p2-3
 1
-3 42
+10 18
 1
-0 3 42 35
+1 0 12 0 -1 32
 0
 end_operator
 begin_operator
-move p10_8 p10_7
+push o1 p2-6 p1-6
 1
-3 42
+10 60
 1
-0 3 42 13
+1 1 9 1 -1 30
 0
 end_operator
 begin_operator
-move p10_8 p10_9
+push o2 p2-6 p1-6
 1
-3 42
+10 60
 1
-0 3 42 2
+1 4 54 4 -1 23
 0
 end_operator
 begin_operator
-pickup o1 p10_8
+push o3 p2-6 p1-6
 1
-3 42
+10 60
 1
-1 0 39 0 -1 50
+1 2 13 2 -1 49
 0
 end_operator
 begin_operator
-pickup o2 p10_8
+push o4 p2-6 p1-6
 1
-3 42
+10 60
 1
-1 1 12 1 -1 80
+1 5 50 5 -1 31
 0
 end_operator
 begin_operator
-pickup o3 p10_8
+push o5 p2-6 p1-6
 1
-3 42
+10 60
 1
-1 2 69 2 -1 85
+1 8 7 8 -1 36
 0
 end_operator
 begin_operator
-move p9_1 p8_1
+push o6 p2-6 p1-6
 1
-3 34
+10 60
 1
-0 3 34 99
+1 6 24 6 -1 57
 0
 end_operator
 begin_operator
-move p9_1 p10_1
+push o7 p2-6 p1-6
 1
-3 34
+10 60
 1
-0 3 34 62
+1 9 3 9 -1 61
 0
 end_operator
 begin_operator
-move p9_1 p9_2
+push o8 p2-6 p1-6
 1
-3 34
+10 60
 1
-0 3 34 78
+1 7 15 7 -1 37
 0
 end_operator
 begin_operator
-pickup o1 p9_1
+push o9 p2-6 p1-6
 1
-3 34
+10 60
 1
-1 0 33 0 -1 50
+1 3 24 3 -1 15
 0
 end_operator
 begin_operator
-pickup o2 p9_1
+push o10 p2-6 p1-6
 1
-3 34
+10 60
 1
-1 1 77 1 -1 80
+1 0 28 0 -1 18
 0
 end_operator
 begin_operator
-pickup o3 p9_1
+push o1 p2-6 p3-6
 1
-3 34
+10 60
 1
-1 2 0 2 -1 85
+1 1 9 1 -1 46
 0
 end_operator
 begin_operator
-move p9_9 p8_9
+push o2 p2-6 p3-6
 1
-3 5
+10 60
 1
-0 3 5 31
+1 4 54 4 -1 48
 0
 end_operator
 begin_operator
-move p9_9 p10_9
+push o3 p2-6 p3-6
 1
-3 5
+10 60
 1
-0 3 5 2
+1 2 13 2 -1 14
 0
 end_operator
 begin_operator
-move p9_9 p9_8
+push o4 p2-6 p3-6
 1
-3 5
+10 60
 1
-0 3 5 35
+1 5 50 5 -1 39
 0
 end_operator
 begin_operator
-move p9_9 p9_10
+push o5 p2-6 p3-6
 1
-3 5
+10 60
 1
-0 3 5 15
+1 8 7 8 -1 14
 0
 end_operator
 begin_operator
-pickup o1 p9_9
+push o6 p2-6 p3-6
 1
-3 5
+10 60
 1
-1 0 11 0 -1 50
+1 6 24 6 -1 11
 0
 end_operator
 begin_operator
-pickup o2 p9_9
+push o7 p2-6 p3-6
 1
-3 5
+10 60
 1
-1 1 100 1 -1 80
+1 9 3 9 -1 50
 0
 end_operator
 begin_operator
-pickup o3 p9_9
+push o8 p2-6 p3-6
 1
-3 5
+10 60
 1
-1 2 16 2 -1 85
+1 7 15 7 -1 34
 0
 end_operator
 begin_operator
-move p8_10 p7_10
+push o9 p2-6 p3-6
 1
-3 63
+10 60
 1
-0 3 63 81
+1 3 24 3 -1 50
 0
 end_operator
 begin_operator
-move p8_10 p9_10
+push o10 p2-6 p3-6
 1
-3 63
+10 60
 1
-0 3 63 15
+1 0 28 0 -1 45
 0
 end_operator
 begin_operator
-move p8_10 p8_9
+push o1 p2-6 p2-5
 1
-3 63
+10 60
 1
-0 3 63 31
+1 1 9 1 -1 7
 0
 end_operator
 begin_operator
-pickup o1 p8_10
+push o2 p2-6 p2-5
 1
-3 63
+10 60
 1
-1 0 98 0 -1 50
+1 4 54 4 -1 43
 0
 end_operator
 begin_operator
-pickup o2 p8_10
+push o3 p2-6 p2-5
 1
-3 63
+10 60
 1
-1 1 50 1 -1 80
+1 2 13 2 -1 23
 0
 end_operator
 begin_operator
-pickup o3 p8_10
+push o4 p2-6 p2-5
 1
-3 63
+10 60
 1
-1 2 71 2 -1 85
+1 5 50 5 -1 35
 0
 end_operator
 begin_operator
-move p1_10 p2_10
+push o5 p2-6 p2-5
 1
-3 91
+10 60
 1
-0 3 91 55
+1 8 7 8 -1 61
 0
 end_operator
 begin_operator
-move p1_10 p1_9
+push o6 p2-6 p2-5
 1
-3 91
+10 60
 1
-0 3 91 84
+1 6 24 6 -1 31
 0
 end_operator
 begin_operator
-pickup o1 p1_10
+push o7 p2-6 p2-5
 1
-3 91
+10 60
 1
-1 0 32 0 -1 50
+1 9 3 9 -1 59
 0
 end_operator
 begin_operator
-pickup o2 p1_10
+push o8 p2-6 p2-5
 1
-3 91
+10 60
 1
-1 1 8 1 -1 80
+1 7 15 7 -1 11
 0
 end_operator
 begin_operator
-pickup o3 p1_10
+push o9 p2-6 p2-5
 1
-3 91
+10 60
 1
-1 2 10 2 -1 85
+1 3 24 3 -1 37
 0
 end_operator
 begin_operator
-move p10_1 p9_1
+push o10 p2-6 p2-5
 1
-3 62
+10 60
 1
-0 3 62 34
+1 0 28 0 -1 24
 0
 end_operator
 begin_operator
-move p10_1 p10_2
+push o1 p2-6 p2-7
 1
-3 62
+10 60
 1
-0 3 62 3
+1 1 9 1 -1 2
 0
 end_operator
 begin_operator
-pickup o1 p10_1
+push o2 p2-6 p2-7
 1
-3 62
+10 60
 1
-1 0 49 0 -1 50
+1 4 54 4 -1 59
 0
 end_operator
 begin_operator
-pickup o2 p10_1
+push o3 p2-6 p2-7
 1
-3 62
+10 60
 1
-1 1 1 1 -1 80
+1 2 13 2 -1 30
 0
 end_operator
 begin_operator
-pickup o3 p10_1
+push o4 p2-6 p2-7
 1
-3 62
+10 60
 1
-1 2 25 2 -1 85
+1 5 50 5 -1 56
 0
 end_operator
 begin_operator
-move p10_9 p9_9
+push o5 p2-6 p2-7
 1
-3 2
+10 60
 1
-0 3 2 5
+1 8 7 8 -1 52
 0
 end_operator
 begin_operator
-move p10_9 p10_8
+push o6 p2-6 p2-7
 1
-3 2
+10 60
 1
-0 3 2 42
+1 6 24 6 -1 27
 0
 end_operator
 begin_operator
-move p10_9 p10_10
+push o7 p2-6 p2-7
 1
-3 2
+10 60
 1
-0 3 2 76
+1 9 3 9 -1 63
 0
 end_operator
 begin_operator
-pickup o1 p10_9
+push o8 p2-6 p2-7
 1
-3 2
+10 60
 1
-1 0 68 0 -1 50
+1 7 15 7 -1 63
 0
 end_operator
 begin_operator
-pickup o2 p10_9
+push o9 p2-6 p2-7
 1
-3 2
+10 60
 1
-1 1 87 1 -1 80
+1 3 24 3 -1 16
 0
 end_operator
 begin_operator
-pickup o3 p10_9
+push o10 p2-6 p2-7
 1
-3 2
+10 60
 1
-1 2 13 2 -1 85
+1 0 28 0 -1 38
 0
 end_operator
 begin_operator
-move p9_10 p8_10
+push o1 p3-1 p2-1
 1
-3 15
+10 1
 1
-0 3 15 63
+1 1 49 1 -1 39
 0
 end_operator
 begin_operator
-move p9_10 p10_10
+push o2 p3-1 p2-1
 1
-3 15
+10 1
 1
-0 3 15 76
+1 4 42 4 -1 56
 0
 end_operator
 begin_operator
-move p9_10 p9_9
+push o3 p3-1 p2-1
 1
-3 15
+10 1
 1
-0 3 15 5
+1 2 6 2 -1 64
 0
 end_operator
 begin_operator
-pickup o1 p9_10
+push o4 p3-1 p2-1
 1
-3 15
+10 1
 1
-1 0 20 0 -1 50
+1 5 41 5 -1 60
 0
 end_operator
 begin_operator
-pickup o2 p9_10
+push o5 p3-1 p2-1
 1
-3 15
+10 1
 1
-1 1 66 1 -1 80
+1 8 32 8 -1 63
 0
 end_operator
 begin_operator
-pickup o3 p9_10
+push o6 p3-1 p2-1
 1
-3 15
+10 1
 1
-1 2 15 2 -1 85
+1 6 2 6 -1 23
 0
 end_operator
 begin_operator
-move p10_10 p9_10
+push o7 p3-1 p2-1
 1
-3 76
+10 1
 1
-0 3 76 15
+1 9 26 9 -1 51
 0
 end_operator
 begin_operator
-move p10_10 p10_9
+push o8 p3-1 p2-1
 1
-3 76
+10 1
 1
-0 3 76 2
+1 7 16 7 -1 50
 0
 end_operator
 begin_operator
-pickup o1 p10_10
+push o9 p3-1 p2-1
 1
-3 76
+10 1
 1
-1 0 61 0 -1 50
+1 3 6 3 -1 49
 0
 end_operator
 begin_operator
-pickup o2 p10_10
+push o10 p3-1 p2-1
 1
-3 76
+10 1
 1
-1 1 78 1 -1 80
+1 0 58 0 -1 30
 0
 end_operator
 begin_operator
-pickup o3 p10_10
+push o1 p3-1 p4-1
 1
-3 76
+10 1
 1
-1 2 12 2 -1 85
+1 1 49 1 -1 43
+0
+end_operator
+begin_operator
+push o2 p3-1 p4-1
+1
+10 1
+1
+1 4 42 4 -1 53
+0
+end_operator
+begin_operator
+push o3 p3-1 p4-1
+1
+10 1
+1
+1 2 6 2 -1 32
+0
+end_operator
+begin_operator
+push o4 p3-1 p4-1
+1
+10 1
+1
+1 5 41 5 -1 62
+0
+end_operator
+begin_operator
+push o5 p3-1 p4-1
+1
+10 1
+1
+1 8 32 8 -1 9
+0
+end_operator
+begin_operator
+push o6 p3-1 p4-1
+1
+10 1
+1
+1 6 2 6 -1 34
+0
+end_operator
+begin_operator
+push o7 p3-1 p4-1
+1
+10 1
+1
+1 9 26 9 -1 14
+0
+end_operator
+begin_operator
+push o8 p3-1 p4-1
+1
+10 1
+1
+1 7 16 7 -1 55
+0
+end_operator
+begin_operator
+push o9 p3-1 p4-1
+1
+10 1
+1
+1 3 6 3 -1 25
+0
+end_operator
+begin_operator
+push o10 p3-1 p4-1
+1
+10 1
+1
+1 0 58 0 -1 0
+0
+end_operator
+begin_operator
+push o1 p3-1 p3-2
+1
+10 1
+1
+1 1 49 1 -1 57
+0
+end_operator
+begin_operator
+push o2 p3-1 p3-2
+1
+10 1
+1
+1 4 42 4 -1 35
+0
+end_operator
+begin_operator
+push o3 p3-1 p3-2
+1
+10 1
+1
+1 2 6 2 -1 12
+0
+end_operator
+begin_operator
+push o4 p3-1 p3-2
+1
+10 1
+1
+1 5 41 5 -1 51
+0
+end_operator
+begin_operator
+push o5 p3-1 p3-2
+1
+10 1
+1
+1 8 32 8 -1 42
+0
+end_operator
+begin_operator
+push o6 p3-1 p3-2
+1
+10 1
+1
+1 6 2 6 -1 53
+0
+end_operator
+begin_operator
+push o7 p3-1 p3-2
+1
+10 1
+1
+1 9 26 9 -1 36
+0
+end_operator
+begin_operator
+push o8 p3-1 p3-2
+1
+10 1
+1
+1 7 16 7 -1 22
+0
+end_operator
+begin_operator
+push o9 p3-1 p3-2
+1
+10 1
+1
+1 3 6 3 -1 59
+0
+end_operator
+begin_operator
+push o10 p3-1 p3-2
+1
+10 1
+1
+1 0 58 0 -1 3
+0
+end_operator
+begin_operator
+push o1 p3-7 p2-7
+1
+10 63
+1
+1 1 52 1 -1 2
+0
+end_operator
+begin_operator
+push o2 p3-7 p2-7
+1
+10 63
+1
+1 4 40 4 -1 59
+0
+end_operator
+begin_operator
+push o3 p3-7 p2-7
+1
+10 63
+1
+1 2 20 2 -1 30
+0
+end_operator
+begin_operator
+push o4 p3-7 p2-7
+1
+10 63
+1
+1 5 43 5 -1 56
+0
+end_operator
+begin_operator
+push o5 p3-7 p2-7
+1
+10 63
+1
+1 8 22 8 -1 52
+0
+end_operator
+begin_operator
+push o6 p3-7 p2-7
+1
+10 63
+1
+1 6 5 6 -1 27
+0
+end_operator
+begin_operator
+push o7 p3-7 p2-7
+1
+10 63
+1
+1 9 34 9 -1 63
+0
+end_operator
+begin_operator
+push o8 p3-7 p2-7
+1
+10 63
+1
+1 7 27 7 -1 63
+0
+end_operator
+begin_operator
+push o9 p3-7 p2-7
+1
+10 63
+1
+1 3 54 3 -1 16
+0
+end_operator
+begin_operator
+push o10 p3-7 p2-7
+1
+10 63
+1
+1 0 39 0 -1 38
+0
+end_operator
+begin_operator
+push o1 p3-7 p4-7
+1
+10 63
+1
+1 1 52 1 -1 8
+0
+end_operator
+begin_operator
+push o2 p3-7 p4-7
+1
+10 63
+1
+1 4 40 4 -1 52
+0
+end_operator
+begin_operator
+push o3 p3-7 p4-7
+1
+10 63
+1
+1 2 20 2 -1 31
+0
+end_operator
+begin_operator
+push o4 p3-7 p4-7
+1
+10 63
+1
+1 5 43 5 -1 63
+0
+end_operator
+begin_operator
+push o5 p3-7 p4-7
+1
+10 63
+1
+1 8 22 8 -1 37
+0
+end_operator
+begin_operator
+push o6 p3-7 p4-7
+1
+10 63
+1
+1 6 5 6 -1 58
+0
+end_operator
+begin_operator
+push o7 p3-7 p4-7
+1
+10 63
+1
+1 9 34 9 -1 5
+0
+end_operator
+begin_operator
+push o8 p3-7 p4-7
+1
+10 63
+1
+1 7 27 7 -1 33
+0
+end_operator
+begin_operator
+push o9 p3-7 p4-7
+1
+10 63
+1
+1 3 54 3 -1 48
+0
+end_operator
+begin_operator
+push o10 p3-7 p4-7
+1
+10 63
+1
+1 0 39 0 -1 23
+0
+end_operator
+begin_operator
+push o1 p3-7 p3-6
+1
+10 63
+1
+1 1 52 1 -1 46
+0
+end_operator
+begin_operator
+push o2 p3-7 p3-6
+1
+10 63
+1
+1 4 40 4 -1 48
+0
+end_operator
+begin_operator
+push o3 p3-7 p3-6
+1
+10 63
+1
+1 2 20 2 -1 14
+0
+end_operator
+begin_operator
+push o4 p3-7 p3-6
+1
+10 63
+1
+1 5 43 5 -1 39
+0
+end_operator
+begin_operator
+push o5 p3-7 p3-6
+1
+10 63
+1
+1 8 22 8 -1 14
+0
+end_operator
+begin_operator
+push o6 p3-7 p3-6
+1
+10 63
+1
+1 6 5 6 -1 11
+0
+end_operator
+begin_operator
+push o7 p3-7 p3-6
+1
+10 63
+1
+1 9 34 9 -1 50
+0
+end_operator
+begin_operator
+push o8 p3-7 p3-6
+1
+10 63
+1
+1 7 27 7 -1 34
+0
+end_operator
+begin_operator
+push o9 p3-7 p3-6
+1
+10 63
+1
+1 3 54 3 -1 50
+0
+end_operator
+begin_operator
+push o10 p3-7 p3-6
+1
+10 63
+1
+1 0 39 0 -1 45
+0
+end_operator
+begin_operator
+push o1 p3-7 p3-8
+1
+10 63
+1
+1 1 52 1 -1 25
+0
+end_operator
+begin_operator
+push o2 p3-7 p3-8
+1
+10 63
+1
+1 4 40 4 -1 62
+0
+end_operator
+begin_operator
+push o3 p3-7 p3-8
+1
+10 63
+1
+1 2 20 2 -1 34
+0
+end_operator
+begin_operator
+push o4 p3-7 p3-8
+1
+10 63
+1
+1 5 43 5 -1 53
+0
+end_operator
+begin_operator
+push o5 p3-7 p3-8
+1
+10 63
+1
+1 8 22 8 -1 10
+0
+end_operator
+begin_operator
+push o6 p3-7 p3-8
+1
+10 63
+1
+1 6 5 6 -1 52
+0
+end_operator
+begin_operator
+push o7 p3-7 p3-8
+1
+10 63
+1
+1 9 34 9 -1 12
+0
+end_operator
+begin_operator
+push o8 p3-7 p3-8
+1
+10 63
+1
+1 7 27 7 -1 58
+0
+end_operator
+begin_operator
+push o9 p3-7 p3-8
+1
+10 63
+1
+1 3 54 3 -1 20
+0
+end_operator
+begin_operator
+push o10 p3-7 p3-8
+1
+10 63
+1
+1 0 39 0 -1 4
+0
+end_operator
+begin_operator
+push o1 p8-4 p7-4
+1
+10 3
+1
+1 1 31 1 -1 64
+0
+end_operator
+begin_operator
+push o2 p8-4 p7-4
+1
+10 3
+1
+1 4 18 4 -1 8
+0
+end_operator
+begin_operator
+push o3 p8-4 p7-4
+1
+10 3
+1
+1 2 11 2 -1 44
+0
+end_operator
+begin_operator
+push o4 p8-4 p7-4
+1
+10 3
+1
+1 5 5 5 -1 15
+0
+end_operator
+begin_operator
+push o5 p8-4 p7-4
+1
+10 3
+1
+1 8 48 8 -1 40
+0
+end_operator
+begin_operator
+push o6 p8-4 p7-4
+1
+10 3
+1
+1 6 62 6 -1 36
+0
+end_operator
+begin_operator
+push o7 p8-4 p7-4
+1
+10 3
+1
+1 9 54 9 -1 49
+0
+end_operator
+begin_operator
+push o8 p8-4 p7-4
+1
+10 3
+1
+1 7 52 7 -1 53
+0
+end_operator
+begin_operator
+push o9 p8-4 p7-4
+1
+10 3
+1
+1 3 47 3 -1 55
+0
+end_operator
+begin_operator
+push o10 p8-4 p7-4
+1
+10 3
+1
+1 0 48 0 -1 21
+0
+end_operator
+begin_operator
+push o1 p8-4 p8-3
+1
+10 3
+1
+1 1 31 1 -1 19
+0
+end_operator
+begin_operator
+push o2 p8-4 p8-3
+1
+10 3
+1
+1 4 18 4 -1 2
+0
+end_operator
+begin_operator
+push o3 p8-4 p8-3
+1
+10 3
+1
+1 2 11 2 -1 25
+0
+end_operator
+begin_operator
+push o4 p8-4 p8-3
+1
+10 3
+1
+1 5 5 5 -1 37
+0
+end_operator
+begin_operator
+push o5 p8-4 p8-3
+1
+10 3
+1
+1 8 48 8 -1 45
+0
+end_operator
+begin_operator
+push o6 p8-4 p8-3
+1
+10 3
+1
+1 6 62 6 -1 0
+0
+end_operator
+begin_operator
+push o7 p8-4 p8-3
+1
+10 3
+1
+1 9 54 9 -1 41
+0
+end_operator
+begin_operator
+push o8 p8-4 p8-3
+1
+10 3
+1
+1 7 52 7 -1 14
+0
+end_operator
+begin_operator
+push o9 p8-4 p8-3
+1
+10 3
+1
+1 3 47 3 -1 26
+0
+end_operator
+begin_operator
+push o10 p8-4 p8-3
+1
+10 3
+1
+1 0 48 0 -1 40
+0
+end_operator
+begin_operator
+push o1 p8-4 p8-5
+1
+10 3
+1
+1 1 31 1 -1 24
+0
+end_operator
+begin_operator
+push o2 p8-4 p8-5
+1
+10 3
+1
+1 4 18 4 -1 37
+0
+end_operator
+begin_operator
+push o3 p8-4 p8-5
+1
+10 3
+1
+1 2 11 2 -1 36
+0
+end_operator
+begin_operator
+push o4 p8-4 p8-5
+1
+10 3
+1
+1 5 5 5 -1 3
+0
+end_operator
+begin_operator
+push o5 p8-4 p8-5
+1
+10 3
+1
+1 8 48 8 -1 43
+0
+end_operator
+begin_operator
+push o6 p8-4 p8-5
+1
+10 3
+1
+1 6 62 6 -1 3
+0
+end_operator
+begin_operator
+push o7 p8-4 p8-5
+1
+10 3
+1
+1 9 54 9 -1 43
+0
+end_operator
+begin_operator
+push o8 p8-4 p8-5
+1
+10 3
+1
+1 7 52 7 -1 60
+0
+end_operator
+begin_operator
+push o9 p8-4 p8-5
+1
+10 3
+1
+1 3 47 3 -1 44
+0
+end_operator
+begin_operator
+push o10 p8-4 p8-5
+1
+10 3
+1
+1 0 48 0 -1 53
+0
+end_operator
+begin_operator
+push o1 p7-3 p6-3
+1
+10 30
+1
+1 1 20 1 -1 34
+0
+end_operator
+begin_operator
+push o2 p7-3 p6-3
+1
+10 30
+1
+1 4 10 4 -1 45
+0
+end_operator
+begin_operator
+push o3 p7-3 p6-3
+1
+10 30
+1
+1 2 51 2 -1 21
+0
+end_operator
+begin_operator
+push o4 p7-3 p6-3
+1
+10 30
+1
+1 5 0 5 -1 26
+0
+end_operator
+begin_operator
+push o5 p7-3 p6-3
+1
+10 30
+1
+1 8 38 8 -1 11
+0
+end_operator
+begin_operator
+push o6 p7-3 p6-3
+1
+10 30
+1
+1 6 33 6 -1 61
+0
+end_operator
+begin_operator
+push o7 p7-3 p6-3
+1
+10 30
+1
+1 9 62 9 -1 10
+0
+end_operator
+begin_operator
+push o8 p7-3 p6-3
+1
+10 30
+1
+1 7 64 7 -1 32
+0
+end_operator
+begin_operator
+push o9 p7-3 p6-3
+1
+10 30
+1
+1 3 27 3 -1 38
+0
+end_operator
+begin_operator
+push o10 p7-3 p6-3
+1
+10 30
+1
+1 0 8 0 -1 59
+0
+end_operator
+begin_operator
+push o1 p7-3 p8-3
+1
+10 30
+1
+1 1 20 1 -1 19
+0
+end_operator
+begin_operator
+push o2 p7-3 p8-3
+1
+10 30
+1
+1 4 10 4 -1 2
+0
+end_operator
+begin_operator
+push o3 p7-3 p8-3
+1
+10 30
+1
+1 2 51 2 -1 25
+0
+end_operator
+begin_operator
+push o4 p7-3 p8-3
+1
+10 30
+1
+1 5 0 5 -1 37
+0
+end_operator
+begin_operator
+push o5 p7-3 p8-3
+1
+10 30
+1
+1 8 38 8 -1 45
+0
+end_operator
+begin_operator
+push o6 p7-3 p8-3
+1
+10 30
+1
+1 6 33 6 -1 0
+0
+end_operator
+begin_operator
+push o7 p7-3 p8-3
+1
+10 30
+1
+1 9 62 9 -1 41
+0
+end_operator
+begin_operator
+push o8 p7-3 p8-3
+1
+10 30
+1
+1 7 64 7 -1 14
+0
+end_operator
+begin_operator
+push o9 p7-3 p8-3
+1
+10 30
+1
+1 3 27 3 -1 26
+0
+end_operator
+begin_operator
+push o10 p7-3 p8-3
+1
+10 30
+1
+1 0 8 0 -1 40
+0
+end_operator
+begin_operator
+push o1 p7-3 p7-2
+1
+10 30
+1
+1 1 20 1 -1 18
+0
+end_operator
+begin_operator
+push o2 p7-3 p7-2
+1
+10 30
+1
+1 4 10 4 -1 15
+0
+end_operator
+begin_operator
+push o3 p7-3 p7-2
+1
+10 30
+1
+1 2 51 2 -1 43
+0
+end_operator
+begin_operator
+push o4 p7-3 p7-2
+1
+10 30
+1
+1 5 0 5 -1 8
+0
+end_operator
+begin_operator
+push o5 p7-3 p7-2
+1
+10 30
+1
+1 8 38 8 -1 51
+0
+end_operator
+begin_operator
+push o6 p7-3 p7-2
+1
+10 30
+1
+1 6 33 6 -1 39
+0
+end_operator
+begin_operator
+push o7 p7-3 p7-2
+1
+10 30
+1
+1 9 62 9 -1 20
+0
+end_operator
+begin_operator
+push o8 p7-3 p7-2
+1
+10 30
+1
+1 7 64 7 -1 4
+0
+end_operator
+begin_operator
+push o9 p7-3 p7-2
+1
+10 30
+1
+1 3 27 3 -1 19
+0
+end_operator
+begin_operator
+push o10 p7-3 p7-2
+1
+10 30
+1
+1 0 8 0 -1 13
+0
+end_operator
+begin_operator
+push o1 p7-3 p7-4
+1
+10 30
+1
+1 1 20 1 -1 64
+0
+end_operator
+begin_operator
+push o2 p7-3 p7-4
+1
+10 30
+1
+1 4 10 4 -1 8
+0
+end_operator
+begin_operator
+push o3 p7-3 p7-4
+1
+10 30
+1
+1 2 51 2 -1 44
+0
+end_operator
+begin_operator
+push o4 p7-3 p7-4
+1
+10 30
+1
+1 5 0 5 -1 15
+0
+end_operator
+begin_operator
+push o5 p7-3 p7-4
+1
+10 30
+1
+1 8 38 8 -1 40
+0
+end_operator
+begin_operator
+push o6 p7-3 p7-4
+1
+10 30
+1
+1 6 33 6 -1 36
+0
+end_operator
+begin_operator
+push o7 p7-3 p7-4
+1
+10 30
+1
+1 9 62 9 -1 49
+0
+end_operator
+begin_operator
+push o8 p7-3 p7-4
+1
+10 30
+1
+1 7 64 7 -1 53
+0
+end_operator
+begin_operator
+push o9 p7-3 p7-4
+1
+10 30
+1
+1 3 27 3 -1 55
+0
+end_operator
+begin_operator
+push o10 p7-3 p7-4
+1
+10 30
+1
+1 0 8 0 -1 21
+0
+end_operator
+begin_operator
+push o1 p7-5 p6-5
+1
+10 37
+1
+1 1 15 1 -1 16
+0
+end_operator
+begin_operator
+push o2 p7-5 p6-5
+1
+10 37
+1
+1 4 11 4 -1 25
+0
+end_operator
+begin_operator
+push o3 p7-5 p6-5
+1
+10 37
+1
+1 2 35 2 -1 50
+0
+end_operator
+begin_operator
+push o4 p7-5 p6-5
+1
+10 37
+1
+1 5 48 5 -1 46
+0
+end_operator
+begin_operator
+push o5 p7-5 p6-5
+1
+10 37
+1
+1 8 62 8 -1 24
+0
+end_operator
+begin_operator
+push o6 p7-5 p6-5
+1
+10 37
+1
+1 6 29 6 -1 6
+0
+end_operator
+begin_operator
+push o7 p7-5 p6-5
+1
+10 37
+1
+1 9 53 9 -1 15
+0
+end_operator
+begin_operator
+push o8 p7-5 p6-5
+1
+10 37
+1
+1 7 47 7 -1 9
+0
+end_operator
+begin_operator
+push o9 p7-5 p6-5
+1
+10 37
+1
+1 3 39 3 -1 7
+0
+end_operator
+begin_operator
+push o10 p7-5 p6-5
+1
+10 37
+1
+1 0 29 0 -1 2
+0
+end_operator
+begin_operator
+push o1 p7-5 p8-5
+1
+10 37
+1
+1 1 15 1 -1 24
+0
+end_operator
+begin_operator
+push o2 p7-5 p8-5
+1
+10 37
+1
+1 4 11 4 -1 37
+0
+end_operator
+begin_operator
+push o3 p7-5 p8-5
+1
+10 37
+1
+1 2 35 2 -1 36
+0
+end_operator
+begin_operator
+push o4 p7-5 p8-5
+1
+10 37
+1
+1 5 48 5 -1 3
+0
+end_operator
+begin_operator
+push o5 p7-5 p8-5
+1
+10 37
+1
+1 8 62 8 -1 43
+0
+end_operator
+begin_operator
+push o6 p7-5 p8-5
+1
+10 37
+1
+1 6 29 6 -1 3
+0
+end_operator
+begin_operator
+push o7 p7-5 p8-5
+1
+10 37
+1
+1 9 53 9 -1 43
+0
+end_operator
+begin_operator
+push o8 p7-5 p8-5
+1
+10 37
+1
+1 7 47 7 -1 60
+0
+end_operator
+begin_operator
+push o9 p7-5 p8-5
+1
+10 37
+1
+1 3 39 3 -1 44
+0
+end_operator
+begin_operator
+push o10 p7-5 p8-5
+1
+10 37
+1
+1 0 29 0 -1 53
+0
+end_operator
+begin_operator
+push o1 p7-5 p7-4
+1
+10 37
+1
+1 1 15 1 -1 64
+0
+end_operator
+begin_operator
+push o2 p7-5 p7-4
+1
+10 37
+1
+1 4 11 4 -1 8
+0
+end_operator
+begin_operator
+push o3 p7-5 p7-4
+1
+10 37
+1
+1 2 35 2 -1 44
+0
+end_operator
+begin_operator
+push o4 p7-5 p7-4
+1
+10 37
+1
+1 5 48 5 -1 15
+0
+end_operator
+begin_operator
+push o5 p7-5 p7-4
+1
+10 37
+1
+1 8 62 8 -1 40
+0
+end_operator
+begin_operator
+push o6 p7-5 p7-4
+1
+10 37
+1
+1 6 29 6 -1 36
+0
+end_operator
+begin_operator
+push o7 p7-5 p7-4
+1
+10 37
+1
+1 9 53 9 -1 49
+0
+end_operator
+begin_operator
+push o8 p7-5 p7-4
+1
+10 37
+1
+1 7 47 7 -1 53
+0
+end_operator
+begin_operator
+push o9 p7-5 p7-4
+1
+10 37
+1
+1 3 39 3 -1 55
+0
+end_operator
+begin_operator
+push o10 p7-5 p7-4
+1
+10 37
+1
+1 0 29 0 -1 21
+0
+end_operator
+begin_operator
+push o1 p7-5 p7-6
+1
+10 37
+1
+1 1 15 1 -1 26
+0
+end_operator
+begin_operator
+push o2 p7-5 p7-6
+1
+10 37
+1
+1 4 11 4 -1 6
+0
+end_operator
+begin_operator
+push o3 p7-5 p7-6
+1
+10 37
+1
+1 2 35 2 -1 41
+0
+end_operator
+begin_operator
+push o4 p7-5 p7-6
+1
+10 37
+1
+1 5 48 5 -1 18
+0
+end_operator
+begin_operator
+push o5 p7-5 p7-6
+1
+10 37
+1
+1 8 62 8 -1 49
+0
+end_operator
+begin_operator
+push o6 p7-5 p7-6
+1
+10 37
+1
+1 6 29 6 -1 18
+0
+end_operator
+begin_operator
+push o7 p7-5 p7-6
+1
+10 37
+1
+1 9 53 9 -1 2
+0
+end_operator
+begin_operator
+push o8 p7-5 p7-6
+1
+10 37
+1
+1 7 47 7 -1 57
+0
+end_operator
+begin_operator
+push o9 p7-5 p7-6
+1
+10 37
+1
+1 3 39 3 -1 31
+0
+end_operator
+begin_operator
+push o10 p7-5 p7-6
+1
+10 37
+1
+1 0 29 0 -1 34
+0
+end_operator
+begin_operator
+push o1 p6-2 p5-2
+1
+10 33
+1
+1 1 55 1 -1 22
+0
+end_operator
+begin_operator
+push o2 p6-2 p5-2
+1
+10 33
+1
+1 4 38 4 -1 60
+0
+end_operator
+begin_operator
+push o3 p6-2 p5-2
+1
+10 33
+1
+1 2 17 2 -1 42
+0
+end_operator
+begin_operator
+push o4 p6-2 p5-2
+1
+10 33
+1
+1 5 20 5 -1 17
+0
+end_operator
+begin_operator
+push o5 p6-2 p5-2
+1
+10 33
+1
+1 8 20 8 -1 15
+0
+end_operator
+begin_operator
+push o6 p6-2 p5-2
+1
+10 33
+1
+1 6 56 6 -1 55
+0
+end_operator
+begin_operator
+push o7 p6-2 p5-2
+1
+10 33
+1
+1 9 19 9 -1 55
+0
+end_operator
+begin_operator
+push o8 p6-2 p5-2
+1
+10 33
+1
+1 7 35 7 -1 42
+0
+end_operator
+begin_operator
+push o9 p6-2 p5-2
+1
+10 33
+1
+1 3 43 3 -1 62
+0
+end_operator
+begin_operator
+push o10 p6-2 p5-2
+1
+10 33
+1
+1 0 62 0 -1 31
+0
+end_operator
+begin_operator
+push o1 p6-2 p7-2
+1
+10 33
+1
+1 1 55 1 -1 18
+0
+end_operator
+begin_operator
+push o2 p6-2 p7-2
+1
+10 33
+1
+1 4 38 4 -1 15
+0
+end_operator
+begin_operator
+push o3 p6-2 p7-2
+1
+10 33
+1
+1 2 17 2 -1 43
+0
+end_operator
+begin_operator
+push o4 p6-2 p7-2
+1
+10 33
+1
+1 5 20 5 -1 8
+0
+end_operator
+begin_operator
+push o5 p6-2 p7-2
+1
+10 33
+1
+1 8 20 8 -1 51
+0
+end_operator
+begin_operator
+push o6 p6-2 p7-2
+1
+10 33
+1
+1 6 56 6 -1 39
+0
+end_operator
+begin_operator
+push o7 p6-2 p7-2
+1
+10 33
+1
+1 9 19 9 -1 20
+0
+end_operator
+begin_operator
+push o8 p6-2 p7-2
+1
+10 33
+1
+1 7 35 7 -1 4
+0
+end_operator
+begin_operator
+push o9 p6-2 p7-2
+1
+10 33
+1
+1 3 43 3 -1 19
+0
+end_operator
+begin_operator
+push o10 p6-2 p7-2
+1
+10 33
+1
+1 0 62 0 -1 13
+0
+end_operator
+begin_operator
+push o1 p6-2 p6-1
+1
+10 33
+1
+1 1 55 1 -1 1
+0
+end_operator
+begin_operator
+push o2 p6-2 p6-1
+1
+10 33
+1
+1 4 38 4 -1 50
+0
+end_operator
+begin_operator
+push o3 p6-2 p6-1
+1
+10 33
+1
+1 2 17 2 -1 8
+0
+end_operator
+begin_operator
+push o4 p6-2 p6-1
+1
+10 33
+1
+1 5 20 5 -1 22
+0
+end_operator
+begin_operator
+push o5 p6-2 p6-1
+1
+10 33
+1
+1 8 20 8 -1 27
+0
+end_operator
+begin_operator
+push o6 p6-2 p6-1
+1
+10 33
+1
+1 6 56 6 -1 47
+0
+end_operator
+begin_operator
+push o7 p6-2 p6-1
+1
+10 33
+1
+1 9 19 9 -1 28
+0
+end_operator
+begin_operator
+push o8 p6-2 p6-1
+1
+10 33
+1
+1 7 35 7 -1 28
+0
+end_operator
+begin_operator
+push o9 p6-2 p6-1
+1
+10 33
+1
+1 3 43 3 -1 41
+0
+end_operator
+begin_operator
+push o10 p6-2 p6-1
+1
+10 33
+1
+1 0 62 0 -1 56
+0
+end_operator
+begin_operator
+push o1 p6-2 p6-3
+1
+10 33
+1
+1 1 55 1 -1 34
+0
+end_operator
+begin_operator
+push o2 p6-2 p6-3
+1
+10 33
+1
+1 4 38 4 -1 45
+0
+end_operator
+begin_operator
+push o3 p6-2 p6-3
+1
+10 33
+1
+1 2 17 2 -1 21
+0
+end_operator
+begin_operator
+push o4 p6-2 p6-3
+1
+10 33
+1
+1 5 20 5 -1 26
+0
+end_operator
+begin_operator
+push o5 p6-2 p6-3
+1
+10 33
+1
+1 8 20 8 -1 11
+0
+end_operator
+begin_operator
+push o6 p6-2 p6-3
+1
+10 33
+1
+1 6 56 6 -1 61
+0
+end_operator
+begin_operator
+push o7 p6-2 p6-3
+1
+10 33
+1
+1 9 19 9 -1 10
+0
+end_operator
+begin_operator
+push o8 p6-2 p6-3
+1
+10 33
+1
+1 7 35 7 -1 32
+0
+end_operator
+begin_operator
+push o9 p6-2 p6-3
+1
+10 33
+1
+1 3 43 3 -1 38
+0
+end_operator
+begin_operator
+push o10 p6-2 p6-3
+1
+10 33
+1
+1 0 62 0 -1 59
+0
+end_operator
+begin_operator
+push o1 p6-6 p5-6
+1
+10 52
+1
+1 1 11 1 -1 60
+0
+end_operator
+begin_operator
+push o2 p6-6 p5-6
+1
+10 52
+1
+1 4 17 4 -1 47
+0
+end_operator
+begin_operator
+push o3 p6-6 p5-6
+1
+10 52
+1
+1 2 60 2 -1 27
+0
+end_operator
+begin_operator
+push o4 p6-6 p5-6
+1
+10 52
+1
+1 5 61 5 -1 24
+0
+end_operator
+begin_operator
+push o5 p6-6 p5-6
+1
+10 52
+1
+1 8 30 8 -1 25
+0
+end_operator
+begin_operator
+push o6 p6-6 p5-6
+1
+10 52
+1
+1 6 42 6 -1 60
+0
+end_operator
+begin_operator
+push o7 p6-6 p5-6
+1
+10 52
+1
+1 9 39 9 -1 8
+0
+end_operator
+begin_operator
+push o8 p6-6 p5-6
+1
+10 52
+1
+1 7 38 7 -1 23
+0
+end_operator
+begin_operator
+push o9 p6-6 p5-6
+1
+10 52
+1
+1 3 63 3 -1 5
+0
+end_operator
+begin_operator
+push o10 p6-6 p5-6
+1
+10 52
+1
+1 0 64 0 -1 61
+0
+end_operator
+begin_operator
+push o1 p6-6 p7-6
+1
+10 52
+1
+1 1 11 1 -1 26
+0
+end_operator
+begin_operator
+push o2 p6-6 p7-6
+1
+10 52
+1
+1 4 17 4 -1 6
+0
+end_operator
+begin_operator
+push o3 p6-6 p7-6
+1
+10 52
+1
+1 2 60 2 -1 41
+0
+end_operator
+begin_operator
+push o4 p6-6 p7-6
+1
+10 52
+1
+1 5 61 5 -1 18
+0
+end_operator
+begin_operator
+push o5 p6-6 p7-6
+1
+10 52
+1
+1 8 30 8 -1 49
+0
+end_operator
+begin_operator
+push o6 p6-6 p7-6
+1
+10 52
+1
+1 6 42 6 -1 18
+0
+end_operator
+begin_operator
+push o7 p6-6 p7-6
+1
+10 52
+1
+1 9 39 9 -1 2
+0
+end_operator
+begin_operator
+push o8 p6-6 p7-6
+1
+10 52
+1
+1 7 38 7 -1 57
+0
+end_operator
+begin_operator
+push o9 p6-6 p7-6
+1
+10 52
+1
+1 3 63 3 -1 31
+0
+end_operator
+begin_operator
+push o10 p6-6 p7-6
+1
+10 52
+1
+1 0 64 0 -1 34
+0
+end_operator
+begin_operator
+push o1 p6-6 p6-5
+1
+10 52
+1
+1 1 11 1 -1 16
+0
+end_operator
+begin_operator
+push o2 p6-6 p6-5
+1
+10 52
+1
+1 4 17 4 -1 25
+0
+end_operator
+begin_operator
+push o3 p6-6 p6-5
+1
+10 52
+1
+1 2 60 2 -1 50
+0
+end_operator
+begin_operator
+push o4 p6-6 p6-5
+1
+10 52
+1
+1 5 61 5 -1 46
+0
+end_operator
+begin_operator
+push o5 p6-6 p6-5
+1
+10 52
+1
+1 8 30 8 -1 24
+0
+end_operator
+begin_operator
+push o6 p6-6 p6-5
+1
+10 52
+1
+1 6 42 6 -1 6
+0
+end_operator
+begin_operator
+push o7 p6-6 p6-5
+1
+10 52
+1
+1 9 39 9 -1 15
+0
+end_operator
+begin_operator
+push o8 p6-6 p6-5
+1
+10 52
+1
+1 7 38 7 -1 9
+0
+end_operator
+begin_operator
+push o9 p6-6 p6-5
+1
+10 52
+1
+1 3 63 3 -1 7
+0
+end_operator
+begin_operator
+push o10 p6-6 p6-5
+1
+10 52
+1
+1 0 64 0 -1 2
+0
+end_operator
+begin_operator
+push o1 p6-6 p6-7
+1
+10 52
+1
+1 1 11 1 -1 5
+0
+end_operator
+begin_operator
+push o2 p6-6 p6-7
+1
+10 52
+1
+1 4 17 4 -1 22
+0
+end_operator
+begin_operator
+push o3 p6-6 p6-7
+1
+10 52
+1
+1 2 60 2 -1 54
+0
+end_operator
+begin_operator
+push o4 p6-6 p6-7
+1
+10 52
+1
+1 5 61 5 -1 49
+0
+end_operator
+begin_operator
+push o5 p6-6 p6-7
+1
+10 52
+1
+1 8 30 8 -1 59
+0
+end_operator
+begin_operator
+push o6 p6-6 p6-7
+1
+10 52
+1
+1 6 42 6 -1 51
+0
+end_operator
+begin_operator
+push o7 p6-6 p6-7
+1
+10 52
+1
+1 9 39 9 -1 30
+0
+end_operator
+begin_operator
+push o8 p6-6 p6-7
+1
+10 52
+1
+1 7 38 7 -1 12
+0
+end_operator
+begin_operator
+push o9 p6-6 p6-7
+1
+10 52
+1
+1 3 63 3 -1 57
+0
+end_operator
+begin_operator
+push o10 p6-6 p6-7
+1
+10 52
+1
+1 0 64 0 -1 6
+0
+end_operator
+begin_operator
+push o1 p5-1 p4-1
+1
+10 14
+1
+1 1 48 1 -1 43
+0
+end_operator
+begin_operator
+push o2 p5-1 p4-1
+1
+10 14
+1
+1 4 12 4 -1 53
+0
+end_operator
+begin_operator
+push o3 p5-1 p4-1
+1
+10 14
+1
+1 2 52 2 -1 32
+0
+end_operator
+begin_operator
+push o4 p5-1 p4-1
+1
+10 14
+1
+1 5 13 5 -1 62
+0
+end_operator
+begin_operator
+push o5 p5-1 p4-1
+1
+10 14
+1
+1 8 46 8 -1 9
+0
+end_operator
+begin_operator
+push o6 p5-1 p4-1
+1
+10 14
+1
+1 6 45 6 -1 34
+0
+end_operator
+begin_operator
+push o7 p5-1 p4-1
+1
+10 14
+1
+1 9 56 9 -1 14
+0
+end_operator
+begin_operator
+push o8 p5-1 p4-1
+1
+10 14
+1
+1 7 3 7 -1 55
+0
+end_operator
+begin_operator
+push o9 p5-1 p4-1
+1
+10 14
+1
+1 3 33 3 -1 25
+0
+end_operator
+begin_operator
+push o10 p5-1 p4-1
+1
+10 14
+1
+1 0 51 0 -1 0
+0
+end_operator
+begin_operator
+push o1 p5-1 p6-1
+1
+10 14
+1
+1 1 48 1 -1 1
+0
+end_operator
+begin_operator
+push o2 p5-1 p6-1
+1
+10 14
+1
+1 4 12 4 -1 50
+0
+end_operator
+begin_operator
+push o3 p5-1 p6-1
+1
+10 14
+1
+1 2 52 2 -1 8
+0
+end_operator
+begin_operator
+push o4 p5-1 p6-1
+1
+10 14
+1
+1 5 13 5 -1 22
+0
+end_operator
+begin_operator
+push o5 p5-1 p6-1
+1
+10 14
+1
+1 8 46 8 -1 27
+0
+end_operator
+begin_operator
+push o6 p5-1 p6-1
+1
+10 14
+1
+1 6 45 6 -1 47
+0
+end_operator
+begin_operator
+push o7 p5-1 p6-1
+1
+10 14
+1
+1 9 56 9 -1 28
+0
+end_operator
+begin_operator
+push o8 p5-1 p6-1
+1
+10 14
+1
+1 7 3 7 -1 28
+0
+end_operator
+begin_operator
+push o9 p5-1 p6-1
+1
+10 14
+1
+1 3 33 3 -1 41
+0
+end_operator
+begin_operator
+push o10 p5-1 p6-1
+1
+10 14
+1
+1 0 51 0 -1 56
+0
+end_operator
+begin_operator
+push o1 p5-1 p5-2
+1
+10 14
+1
+1 1 48 1 -1 22
+0
+end_operator
+begin_operator
+push o2 p5-1 p5-2
+1
+10 14
+1
+1 4 12 4 -1 60
+0
+end_operator
+begin_operator
+push o3 p5-1 p5-2
+1
+10 14
+1
+1 2 52 2 -1 42
+0
+end_operator
+begin_operator
+push o4 p5-1 p5-2
+1
+10 14
+1
+1 5 13 5 -1 17
+0
+end_operator
+begin_operator
+push o5 p5-1 p5-2
+1
+10 14
+1
+1 8 46 8 -1 15
+0
+end_operator
+begin_operator
+push o6 p5-1 p5-2
+1
+10 14
+1
+1 6 45 6 -1 55
+0
+end_operator
+begin_operator
+push o7 p5-1 p5-2
+1
+10 14
+1
+1 9 56 9 -1 55
+0
+end_operator
+begin_operator
+push o8 p5-1 p5-2
+1
+10 14
+1
+1 7 3 7 -1 42
+0
+end_operator
+begin_operator
+push o9 p5-1 p5-2
+1
+10 14
+1
+1 3 33 3 -1 62
+0
+end_operator
+begin_operator
+push o10 p5-1 p5-2
+1
+10 14
+1
+1 0 51 0 -1 31
+0
+end_operator
+begin_operator
+push o1 p5-7 p4-7
+1
+10 20
+1
+1 1 44 1 -1 8
+0
+end_operator
+begin_operator
+push o2 p5-7 p4-7
+1
+10 20
+1
+1 4 13 4 -1 52
+0
+end_operator
+begin_operator
+push o3 p5-7 p4-7
+1
+10 20
+1
+1 2 62 2 -1 31
+0
+end_operator
+begin_operator
+push o4 p5-7 p4-7
+1
+10 20
+1
+1 5 23 5 -1 63
+0
+end_operator
+begin_operator
+push o5 p5-7 p4-7
+1
+10 20
+1
+1 8 57 8 -1 37
+0
+end_operator
+begin_operator
+push o6 p5-7 p4-7
+1
+10 20
+1
+1 6 12 6 -1 58
+0
+end_operator
+begin_operator
+push o7 p5-7 p4-7
+1
+10 20
+1
+1 9 44 9 -1 5
+0
+end_operator
+begin_operator
+push o8 p5-7 p4-7
+1
+10 20
+1
+1 7 62 7 -1 33
+0
+end_operator
+begin_operator
+push o9 p5-7 p4-7
+1
+10 20
+1
+1 3 23 3 -1 48
+0
+end_operator
+begin_operator
+push o10 p5-7 p4-7
+1
+10 20
+1
+1 0 47 0 -1 23
+0
+end_operator
+begin_operator
+push o1 p5-7 p6-7
+1
+10 20
+1
+1 1 44 1 -1 5
+0
+end_operator
+begin_operator
+push o2 p5-7 p6-7
+1
+10 20
+1
+1 4 13 4 -1 22
+0
+end_operator
+begin_operator
+push o3 p5-7 p6-7
+1
+10 20
+1
+1 2 62 2 -1 54
+0
+end_operator
+begin_operator
+push o4 p5-7 p6-7
+1
+10 20
+1
+1 5 23 5 -1 49
+0
+end_operator
+begin_operator
+push o5 p5-7 p6-7
+1
+10 20
+1
+1 8 57 8 -1 59
+0
+end_operator
+begin_operator
+push o6 p5-7 p6-7
+1
+10 20
+1
+1 6 12 6 -1 51
+0
+end_operator
+begin_operator
+push o7 p5-7 p6-7
+1
+10 20
+1
+1 9 44 9 -1 30
+0
+end_operator
+begin_operator
+push o8 p5-7 p6-7
+1
+10 20
+1
+1 7 62 7 -1 12
+0
+end_operator
+begin_operator
+push o9 p5-7 p6-7
+1
+10 20
+1
+1 3 23 3 -1 57
+0
+end_operator
+begin_operator
+push o10 p5-7 p6-7
+1
+10 20
+1
+1 0 47 0 -1 6
+0
+end_operator
+begin_operator
+push o1 p5-7 p5-6
+1
+10 20
+1
+1 1 44 1 -1 60
+0
+end_operator
+begin_operator
+push o2 p5-7 p5-6
+1
+10 20
+1
+1 4 13 4 -1 47
+0
+end_operator
+begin_operator
+push o3 p5-7 p5-6
+1
+10 20
+1
+1 2 62 2 -1 27
+0
+end_operator
+begin_operator
+push o4 p5-7 p5-6
+1
+10 20
+1
+1 5 23 5 -1 24
+0
+end_operator
+begin_operator
+push o5 p5-7 p5-6
+1
+10 20
+1
+1 8 57 8 -1 25
+0
+end_operator
+begin_operator
+push o6 p5-7 p5-6
+1
+10 20
+1
+1 6 12 6 -1 60
+0
+end_operator
+begin_operator
+push o7 p5-7 p5-6
+1
+10 20
+1
+1 9 44 9 -1 8
+0
+end_operator
+begin_operator
+push o8 p5-7 p5-6
+1
+10 20
+1
+1 7 62 7 -1 23
+0
+end_operator
+begin_operator
+push o9 p5-7 p5-6
+1
+10 20
+1
+1 3 23 3 -1 5
+0
+end_operator
+begin_operator
+push o10 p5-7 p5-6
+1
+10 20
+1
+1 0 47 0 -1 61
+0
+end_operator
+begin_operator
+push o1 p5-7 p5-8
+1
+10 20
+1
+1 1 44 1 -1 13
+0
+end_operator
+begin_operator
+push o2 p5-7 p5-8
+1
+10 20
+1
+1 4 13 4 -1 39
+0
+end_operator
+begin_operator
+push o3 p5-7 p5-8
+1
+10 20
+1
+1 2 62 2 -1 53
+0
+end_operator
+begin_operator
+push o4 p5-7 p5-8
+1
+10 20
+1
+1 5 23 5 -1 57
+0
+end_operator
+begin_operator
+push o5 p5-7 p5-8
+1
+10 20
+1
+1 8 57 8 -1 53
+0
+end_operator
+begin_operator
+push o6 p5-7 p5-8
+1
+10 20
+1
+1 6 12 6 -1 64
+0
+end_operator
+begin_operator
+push o7 p5-7 p5-8
+1
+10 20
+1
+1 9 44 9 -1 18
+0
+end_operator
+begin_operator
+push o8 p5-7 p5-8
+1
+10 20
+1
+1 7 62 7 -1 18
+0
+end_operator
+begin_operator
+push o9 p5-7 p5-8
+1
+10 20
+1
+1 3 23 3 -1 52
+0
+end_operator
+begin_operator
+push o10 p5-7 p5-8
+1
+10 20
+1
+1 0 47 0 -1 14
+0
+end_operator
+begin_operator
+push o1 p4-8 p3-8
+1
+10 57
+1
+1 1 51 1 -1 25
+0
+end_operator
+begin_operator
+push o2 p4-8 p3-8
+1
+10 57
+1
+1 4 33 4 -1 62
+0
+end_operator
+begin_operator
+push o3 p4-8 p3-8
+1
+10 57
+1
+1 2 56 2 -1 34
+0
+end_operator
+begin_operator
+push o4 p4-8 p3-8
+1
+10 57
+1
+1 5 10 5 -1 53
+0
+end_operator
+begin_operator
+push o5 p4-8 p3-8
+1
+10 57
+1
+1 8 64 8 -1 10
+0
+end_operator
+begin_operator
+push o6 p4-8 p3-8
+1
+10 57
+1
+1 6 28 6 -1 52
+0
+end_operator
+begin_operator
+push o7 p4-8 p3-8
+1
+10 57
+1
+1 9 52 9 -1 12
+0
+end_operator
+begin_operator
+push o8 p4-8 p3-8
+1
+10 57
+1
+1 7 54 7 -1 58
+0
+end_operator
+begin_operator
+push o9 p4-8 p3-8
+1
+10 57
+1
+1 3 11 3 -1 20
+0
+end_operator
+begin_operator
+push o10 p4-8 p3-8
+1
+10 57
+1
+1 0 41 0 -1 4
+0
+end_operator
+begin_operator
+push o1 p4-8 p5-8
+1
+10 57
+1
+1 1 51 1 -1 13
+0
+end_operator
+begin_operator
+push o2 p4-8 p5-8
+1
+10 57
+1
+1 4 33 4 -1 39
+0
+end_operator
+begin_operator
+push o3 p4-8 p5-8
+1
+10 57
+1
+1 2 56 2 -1 53
+0
+end_operator
+begin_operator
+push o4 p4-8 p5-8
+1
+10 57
+1
+1 5 10 5 -1 57
+0
+end_operator
+begin_operator
+push o5 p4-8 p5-8
+1
+10 57
+1
+1 8 64 8 -1 53
+0
+end_operator
+begin_operator
+push o6 p4-8 p5-8
+1
+10 57
+1
+1 6 28 6 -1 64
+0
+end_operator
+begin_operator
+push o7 p4-8 p5-8
+1
+10 57
+1
+1 9 52 9 -1 18
+0
+end_operator
+begin_operator
+push o8 p4-8 p5-8
+1
+10 57
+1
+1 7 54 7 -1 18
+0
+end_operator
+begin_operator
+push o9 p4-8 p5-8
+1
+10 57
+1
+1 3 11 3 -1 52
+0
+end_operator
+begin_operator
+push o10 p4-8 p5-8
+1
+10 57
+1
+1 0 41 0 -1 14
+0
+end_operator
+begin_operator
+push o1 p4-8 p4-7
+1
+10 57
+1
+1 1 51 1 -1 8
+0
+end_operator
+begin_operator
+push o2 p4-8 p4-7
+1
+10 57
+1
+1 4 33 4 -1 52
+0
+end_operator
+begin_operator
+push o3 p4-8 p4-7
+1
+10 57
+1
+1 2 56 2 -1 31
+0
+end_operator
+begin_operator
+push o4 p4-8 p4-7
+1
+10 57
+1
+1 5 10 5 -1 63
+0
+end_operator
+begin_operator
+push o5 p4-8 p4-7
+1
+10 57
+1
+1 8 64 8 -1 37
+0
+end_operator
+begin_operator
+push o6 p4-8 p4-7
+1
+10 57
+1
+1 6 28 6 -1 58
+0
+end_operator
+begin_operator
+push o7 p4-8 p4-7
+1
+10 57
+1
+1 9 52 9 -1 5
+0
+end_operator
+begin_operator
+push o8 p4-8 p4-7
+1
+10 57
+1
+1 7 54 7 -1 33
+0
+end_operator
+begin_operator
+push o9 p4-8 p4-7
+1
+10 57
+1
+1 3 11 3 -1 48
+0
+end_operator
+begin_operator
+push o10 p4-8 p4-7
+1
+10 57
+1
+1 0 41 0 -1 23
+0
+end_operator
+begin_operator
+move p1-2 p2-2
+1
+10 0
+1
+0 10 0 18
+0
+end_operator
+begin_operator
+move p1-2 p1-1
+1
+10 0
+1
+0 10 0 47
+0
+end_operator
+begin_operator
+move p1-2 p1-3
+1
+10 0
+1
+0 10 0 6
+0
+end_operator
+begin_operator
+move p1-6 p2-6
+1
+10 38
+1
+0 10 38 60
+0
+end_operator
+begin_operator
+move p1-6 p1-5
+1
+10 38
+1
+0 10 38 24
+0
+end_operator
+begin_operator
+move p1-6 p1-7
+1
+10 38
+1
+0 10 38 51
+0
+end_operator
+begin_operator
+move p2-1 p1-1
+1
+10 39
+1
+0 10 39 47
+0
+end_operator
+begin_operator
+move p2-1 p3-1
+1
+10 39
+1
+0 10 39 1
+0
+end_operator
+begin_operator
+move p2-1 p2-2
+1
+10 39
+1
+0 10 39 18
+0
+end_operator
+begin_operator
+move p2-7 p1-7
+1
+10 46
+1
+0 10 46 51
+0
+end_operator
+begin_operator
+move p2-7 p3-7
+1
+10 46
+1
+0 10 46 63
+0
+end_operator
+begin_operator
+move p2-7 p2-6
+1
+10 46
+1
+0 10 46 60
+0
+end_operator
+begin_operator
+move p2-7 p2-8
+1
+10 46
+1
+0 10 46 59
+0
+end_operator
+begin_operator
+move p3-8 p2-8
+1
+10 43
+1
+0 10 43 59
+0
+end_operator
+begin_operator
+move p3-8 p4-8
+1
+10 43
+1
+0 10 43 57
+0
+end_operator
+begin_operator
+move p3-8 p3-7
+1
+10 43
+1
+0 10 43 63
+0
+end_operator
+begin_operator
+move p8-3 p7-3
+1
+10 61
+1
+0 10 61 30
+0
+end_operator
+begin_operator
+move p8-3 p8-2
+1
+10 61
+1
+0 10 61 9
+0
+end_operator
+begin_operator
+move p8-3 p8-4
+1
+10 61
+1
+0 10 61 3
+0
+end_operator
+begin_operator
+move p8-5 p7-5
+1
+10 49
+1
+0 10 49 37
+0
+end_operator
+begin_operator
+move p8-5 p8-4
+1
+10 49
+1
+0 10 49 3
+0
+end_operator
+begin_operator
+move p8-5 p8-6
+1
+10 49
+1
+0 10 49 34
+0
+end_operator
+begin_operator
+move p7-2 p6-2
+1
+10 4
+1
+0 10 4 33
+0
+end_operator
+begin_operator
+move p7-2 p8-2
+1
+10 4
+1
+0 10 4 9
+0
+end_operator
+begin_operator
+move p7-2 p7-1
+1
+10 4
+1
+0 10 4 56
+0
+end_operator
+begin_operator
+move p7-2 p7-3
+1
+10 4
+1
+0 10 4 30
+0
+end_operator
+begin_operator
+move p7-6 p6-6
+1
+10 50
+1
+0 10 50 52
+0
+end_operator
+begin_operator
+move p7-6 p8-6
+1
+10 50
+1
+0 10 50 34
+0
+end_operator
+begin_operator
+move p7-6 p7-5
+1
+10 50
+1
+0 10 50 37
+0
+end_operator
+begin_operator
+move p7-6 p7-7
+1
+10 50
+1
+0 10 50 5
+0
+end_operator
+begin_operator
+move p6-1 p5-1
+1
+10 45
+1
+0 10 45 14
+0
+end_operator
+begin_operator
+move p6-1 p7-1
+1
+10 45
+1
+0 10 45 56
+0
+end_operator
+begin_operator
+move p6-1 p6-2
+1
+10 45
+1
+0 10 45 33
+0
+end_operator
+begin_operator
+move p6-7 p5-7
+1
+10 32
+1
+0 10 32 20
+0
+end_operator
+begin_operator
+move p6-7 p7-7
+1
+10 32
+1
+0 10 32 5
+0
+end_operator
+begin_operator
+move p6-7 p6-6
+1
+10 32
+1
+0 10 32 52
+0
+end_operator
+begin_operator
+move p6-7 p6-8
+1
+10 32
+1
+0 10 32 48
+0
+end_operator
+begin_operator
+move p5-8 p4-8
+1
+10 31
+1
+0 10 31 57
+0
+end_operator
+begin_operator
+move p5-8 p6-8
+1
+10 31
+1
+0 10 31 48
+0
+end_operator
+begin_operator
+move p5-8 p5-7
+1
+10 31
+1
+0 10 31 20
+0
+end_operator
+begin_operator
+push o1 p1-2 p2-2
+1
+10 0
+1
+1 1 42 1 -1 35
+0
+end_operator
+begin_operator
+push o2 p1-2 p2-2
+1
+10 0
+1
+1 4 31 4 -1 28
+0
+end_operator
+begin_operator
+push o3 p1-2 p2-2
+1
+10 0
+1
+1 2 59 2 -1 24
+0
+end_operator
+begin_operator
+push o4 p1-2 p2-2
+1
+10 0
+1
+1 5 21 5 -1 1
+0
+end_operator
+begin_operator
+push o5 p1-2 p2-2
+1
+10 0
+1
+1 8 19 8 -1 0
+0
+end_operator
+begin_operator
+push o6 p1-2 p2-2
+1
+10 0
+1
+1 6 43 6 -1 16
+0
+end_operator
+begin_operator
+push o7 p1-2 p2-2
+1
+10 0
+1
+1 9 27 9 -1 58
+0
+end_operator
+begin_operator
+push o8 p1-2 p2-2
+1
+10 0
+1
+1 7 46 7 -1 2
+0
+end_operator
+begin_operator
+push o9 p1-2 p2-2
+1
+10 0
+1
+1 3 13 3 -1 45
+0
+end_operator
+begin_operator
+push o10 p1-2 p2-2
+1
+10 0
+1
+1 0 57 0 -1 12
+0
+end_operator
+begin_operator
+push o1 p1-2 p1-1
+1
+10 0
+1
+1 1 42 1 -1 38
+0
+end_operator
+begin_operator
+push o2 p1-2 p1-1
+1
+10 0
+1
+1 4 31 4 -1 24
+0
+end_operator
+begin_operator
+push o3 p1-2 p1-1
+1
+10 0
+1
+1 2 59 2 -1 3
+0
+end_operator
+begin_operator
+push o4 p1-2 p1-1
+1
+10 0
+1
+1 5 21 5 -1 27
+0
+end_operator
+begin_operator
+push o5 p1-2 p1-1
+1
+10 0
+1
+1 8 19 8 -1 2
+0
+end_operator
+begin_operator
+push o6 p1-2 p1-1
+1
+10 0
+1
+1 6 43 6 -1 54
+0
+end_operator
+begin_operator
+push o7 p1-2 p1-1
+1
+10 0
+1
+1 9 27 9 -1 16
+0
+end_operator
+begin_operator
+push o8 p1-2 p1-1
+1
+10 0
+1
+1 7 46 7 -1 44
+0
+end_operator
+begin_operator
+push o9 p1-2 p1-1
+1
+10 0
+1
+1 3 13 3 -1 9
+0
+end_operator
+begin_operator
+push o10 p1-2 p1-1
+1
+10 0
+1
+1 0 57 0 -1 55
+0
+end_operator
+begin_operator
+push o1 p1-2 p1-3
+1
+10 0
+1
+1 1 42 1 -1 56
+0
+end_operator
+begin_operator
+push o2 p1-2 p1-3
+1
+10 0
+1
+1 4 31 4 -1 55
+0
+end_operator
+begin_operator
+push o3 p1-2 p1-3
+1
+10 0
+1
+1 2 59 2 -1 0
+0
+end_operator
+begin_operator
+push o4 p1-2 p1-3
+1
+10 0
+1
+1 5 21 5 -1 16
+0
+end_operator
+begin_operator
+push o5 p1-2 p1-3
+1
+10 0
+1
+1 8 19 8 -1 26
+0
+end_operator
+begin_operator
+push o6 p1-2 p1-3
+1
+10 0
+1
+1 6 43 6 -1 1
+0
+end_operator
+begin_operator
+push o7 p1-2 p1-3
+1
+10 0
+1
+1 9 27 9 -1 32
+0
+end_operator
+begin_operator
+push o8 p1-2 p1-3
+1
+10 0
+1
+1 7 46 7 -1 21
+0
+end_operator
+begin_operator
+push o9 p1-2 p1-3
+1
+10 0
+1
+1 3 13 3 -1 60
+0
+end_operator
+begin_operator
+push o10 p1-2 p1-3
+1
+10 0
+1
+1 0 57 0 -1 52
+0
+end_operator
+begin_operator
+push o1 p1-6 p2-6
+1
+10 38
+1
+1 1 30 1 -1 9
+0
+end_operator
+begin_operator
+push o2 p1-6 p2-6
+1
+10 38
+1
+1 4 23 4 -1 54
+0
+end_operator
+begin_operator
+push o3 p1-6 p2-6
+1
+10 38
+1
+1 2 49 2 -1 13
+0
+end_operator
+begin_operator
+push o4 p1-6 p2-6
+1
+10 38
+1
+1 5 31 5 -1 50
+0
+end_operator
+begin_operator
+push o5 p1-6 p2-6
+1
+10 38
+1
+1 8 36 8 -1 7
+0
+end_operator
+begin_operator
+push o6 p1-6 p2-6
+1
+10 38
+1
+1 6 57 6 -1 24
+0
+end_operator
+begin_operator
+push o7 p1-6 p2-6
+1
+10 38
+1
+1 9 61 9 -1 3
+0
+end_operator
+begin_operator
+push o8 p1-6 p2-6
+1
+10 38
+1
+1 7 37 7 -1 15
+0
+end_operator
+begin_operator
+push o9 p1-6 p2-6
+1
+10 38
+1
+1 3 15 3 -1 24
+0
+end_operator
+begin_operator
+push o10 p1-6 p2-6
+1
+10 38
+1
+1 0 18 0 -1 28
+0
+end_operator
+begin_operator
+push o1 p1-6 p1-5
+1
+10 38
+1
+1 1 30 1 -1 45
+0
+end_operator
+begin_operator
+push o2 p1-6 p1-5
+1
+10 38
+1
+1 4 23 4 -1 16
+0
+end_operator
+begin_operator
+push o3 p1-6 p1-5
+1
+10 38
+1
+1 2 49 2 -1 58
+0
+end_operator
+begin_operator
+push o4 p1-6 p1-5
+1
+10 38
+1
+1 5 31 5 -1 29
+0
+end_operator
+begin_operator
+push o5 p1-6 p1-5
+1
+10 38
+1
+1 8 36 8 -1 29
+0
+end_operator
+begin_operator
+push o6 p1-6 p1-5
+1
+10 38
+1
+1 6 57 6 -1 26
+0
+end_operator
+begin_operator
+push o7 p1-6 p1-5
+1
+10 38
+1
+1 9 61 9 -1 29
+0
+end_operator
+begin_operator
+push o8 p1-6 p1-5
+1
+10 38
+1
+1 7 37 7 -1 41
+0
+end_operator
+begin_operator
+push o9 p1-6 p1-5
+1
+10 38
+1
+1 3 15 3 -1 18
+0
+end_operator
+begin_operator
+push o10 p1-6 p1-5
+1
+10 38
+1
+1 0 18 0 -1 25
+0
+end_operator
+begin_operator
+push o1 p1-6 p1-7
+1
+10 38
+1
+1 1 30 1 -1 36
+0
+end_operator
+begin_operator
+push o2 p1-6 p1-7
+1
+10 38
+1
+1 4 23 4 -1 26
+0
+end_operator
+begin_operator
+push o3 p1-6 p1-7
+1
+10 38
+1
+1 2 49 2 -1 55
+0
+end_operator
+begin_operator
+push o4 p1-6 p1-7
+1
+10 38
+1
+1 5 31 5 -1 25
+0
+end_operator
+begin_operator
+push o5 p1-6 p1-7
+1
+10 38
+1
+1 8 36 8 -1 12
+0
+end_operator
+begin_operator
+push o6 p1-6 p1-7
+1
+10 38
+1
+1 6 57 6 -1 50
+0
+end_operator
+begin_operator
+push o7 p1-6 p1-7
+1
+10 38
+1
+1 9 61 9 -1 4
+0
+end_operator
+begin_operator
+push o8 p1-6 p1-7
+1
+10 38
+1
+1 7 37 7 -1 31
+0
+end_operator
+begin_operator
+push o9 p1-6 p1-7
+1
+10 38
+1
+1 3 15 3 -1 22
+0
+end_operator
+begin_operator
+push o10 p1-6 p1-7
+1
+10 38
+1
+1 0 18 0 -1 11
+0
+end_operator
+begin_operator
+push o1 p2-1 p1-1
+1
+10 39
+1
+1 1 39 1 -1 38
+0
+end_operator
+begin_operator
+push o2 p2-1 p1-1
+1
+10 39
+1
+1 4 56 4 -1 24
+0
+end_operator
+begin_operator
+push o3 p2-1 p1-1
+1
+10 39
+1
+1 2 64 2 -1 3
+0
+end_operator
+begin_operator
+push o4 p2-1 p1-1
+1
+10 39
+1
+1 5 60 5 -1 27
+0
+end_operator
+begin_operator
+push o5 p2-1 p1-1
+1
+10 39
+1
+1 8 63 8 -1 2
+0
+end_operator
+begin_operator
+push o6 p2-1 p1-1
+1
+10 39
+1
+1 6 23 6 -1 54
+0
+end_operator
+begin_operator
+push o7 p2-1 p1-1
+1
+10 39
+1
+1 9 51 9 -1 16
+0
+end_operator
+begin_operator
+push o8 p2-1 p1-1
+1
+10 39
+1
+1 7 50 7 -1 44
+0
+end_operator
+begin_operator
+push o9 p2-1 p1-1
+1
+10 39
+1
+1 3 49 3 -1 9
+0
+end_operator
+begin_operator
+push o10 p2-1 p1-1
+1
+10 39
+1
+1 0 30 0 -1 55
+0
+end_operator
+begin_operator
+push o1 p2-1 p3-1
+1
+10 39
+1
+1 1 39 1 -1 49
+0
+end_operator
+begin_operator
+push o2 p2-1 p3-1
+1
+10 39
+1
+1 4 56 4 -1 42
+0
+end_operator
+begin_operator
+push o3 p2-1 p3-1
+1
+10 39
+1
+1 2 64 2 -1 6
+0
+end_operator
+begin_operator
+push o4 p2-1 p3-1
+1
+10 39
+1
+1 5 60 5 -1 41
+0
+end_operator
+begin_operator
+push o5 p2-1 p3-1
+1
+10 39
+1
+1 8 63 8 -1 32
+0
+end_operator
+begin_operator
+push o6 p2-1 p3-1
+1
+10 39
+1
+1 6 23 6 -1 2
+0
+end_operator
+begin_operator
+push o7 p2-1 p3-1
+1
+10 39
+1
+1 9 51 9 -1 26
+0
+end_operator
+begin_operator
+push o8 p2-1 p3-1
+1
+10 39
+1
+1 7 50 7 -1 16
+0
+end_operator
+begin_operator
+push o9 p2-1 p3-1
+1
+10 39
+1
+1 3 49 3 -1 6
+0
+end_operator
+begin_operator
+push o10 p2-1 p3-1
+1
+10 39
+1
+1 0 30 0 -1 58
+0
+end_operator
+begin_operator
+push o1 p2-1 p2-2
+1
+10 39
+1
+1 1 39 1 -1 35
+0
+end_operator
+begin_operator
+push o2 p2-1 p2-2
+1
+10 39
+1
+1 4 56 4 -1 28
+0
+end_operator
+begin_operator
+push o3 p2-1 p2-2
+1
+10 39
+1
+1 2 64 2 -1 24
+0
+end_operator
+begin_operator
+push o4 p2-1 p2-2
+1
+10 39
+1
+1 5 60 5 -1 1
+0
+end_operator
+begin_operator
+push o5 p2-1 p2-2
+1
+10 39
+1
+1 8 63 8 -1 0
+0
+end_operator
+begin_operator
+push o6 p2-1 p2-2
+1
+10 39
+1
+1 6 23 6 -1 16
+0
+end_operator
+begin_operator
+push o7 p2-1 p2-2
+1
+10 39
+1
+1 9 51 9 -1 58
+0
+end_operator
+begin_operator
+push o8 p2-1 p2-2
+1
+10 39
+1
+1 7 50 7 -1 2
+0
+end_operator
+begin_operator
+push o9 p2-1 p2-2
+1
+10 39
+1
+1 3 49 3 -1 45
+0
+end_operator
+begin_operator
+push o10 p2-1 p2-2
+1
+10 39
+1
+1 0 30 0 -1 12
+0
+end_operator
+begin_operator
+push o1 p2-7 p1-7
+1
+10 46
+1
+1 1 2 1 -1 36
+0
+end_operator
+begin_operator
+push o2 p2-7 p1-7
+1
+10 46
+1
+1 4 59 4 -1 26
+0
+end_operator
+begin_operator
+push o3 p2-7 p1-7
+1
+10 46
+1
+1 2 30 2 -1 55
+0
+end_operator
+begin_operator
+push o4 p2-7 p1-7
+1
+10 46
+1
+1 5 56 5 -1 25
+0
+end_operator
+begin_operator
+push o5 p2-7 p1-7
+1
+10 46
+1
+1 8 52 8 -1 12
+0
+end_operator
+begin_operator
+push o6 p2-7 p1-7
+1
+10 46
+1
+1 6 27 6 -1 50
+0
+end_operator
+begin_operator
+push o7 p2-7 p1-7
+1
+10 46
+1
+1 9 63 9 -1 4
+0
+end_operator
+begin_operator
+push o8 p2-7 p1-7
+1
+10 46
+1
+1 7 63 7 -1 31
+0
+end_operator
+begin_operator
+push o9 p2-7 p1-7
+1
+10 46
+1
+1 3 16 3 -1 22
+0
+end_operator
+begin_operator
+push o10 p2-7 p1-7
+1
+10 46
+1
+1 0 38 0 -1 11
+0
+end_operator
+begin_operator
+push o1 p2-7 p3-7
+1
+10 46
+1
+1 1 2 1 -1 52
+0
+end_operator
+begin_operator
+push o2 p2-7 p3-7
+1
+10 46
+1
+1 4 59 4 -1 40
+0
+end_operator
+begin_operator
+push o3 p2-7 p3-7
+1
+10 46
+1
+1 2 30 2 -1 20
+0
+end_operator
+begin_operator
+push o4 p2-7 p3-7
+1
+10 46
+1
+1 5 56 5 -1 43
+0
+end_operator
+begin_operator
+push o5 p2-7 p3-7
+1
+10 46
+1
+1 8 52 8 -1 22
+0
+end_operator
+begin_operator
+push o6 p2-7 p3-7
+1
+10 46
+1
+1 6 27 6 -1 5
+0
+end_operator
+begin_operator
+push o7 p2-7 p3-7
+1
+10 46
+1
+1 9 63 9 -1 34
+0
+end_operator
+begin_operator
+push o8 p2-7 p3-7
+1
+10 46
+1
+1 7 63 7 -1 27
+0
+end_operator
+begin_operator
+push o9 p2-7 p3-7
+1
+10 46
+1
+1 3 16 3 -1 54
+0
+end_operator
+begin_operator
+push o10 p2-7 p3-7
+1
+10 46
+1
+1 0 38 0 -1 39
+0
+end_operator
+begin_operator
+push o1 p2-7 p2-6
+1
+10 46
+1
+1 1 2 1 -1 9
+0
+end_operator
+begin_operator
+push o2 p2-7 p2-6
+1
+10 46
+1
+1 4 59 4 -1 54
+0
+end_operator
+begin_operator
+push o3 p2-7 p2-6
+1
+10 46
+1
+1 2 30 2 -1 13
+0
+end_operator
+begin_operator
+push o4 p2-7 p2-6
+1
+10 46
+1
+1 5 56 5 -1 50
+0
+end_operator
+begin_operator
+push o5 p2-7 p2-6
+1
+10 46
+1
+1 8 52 8 -1 7
+0
+end_operator
+begin_operator
+push o6 p2-7 p2-6
+1
+10 46
+1
+1 6 27 6 -1 24
+0
+end_operator
+begin_operator
+push o7 p2-7 p2-6
+1
+10 46
+1
+1 9 63 9 -1 3
+0
+end_operator
+begin_operator
+push o8 p2-7 p2-6
+1
+10 46
+1
+1 7 63 7 -1 15
+0
+end_operator
+begin_operator
+push o9 p2-7 p2-6
+1
+10 46
+1
+1 3 16 3 -1 24
+0
+end_operator
+begin_operator
+push o10 p2-7 p2-6
+1
+10 46
+1
+1 0 38 0 -1 28
+0
+end_operator
+begin_operator
+push o1 p2-7 p2-8
+1
+10 46
+1
+1 1 2 1 -1 3
+0
+end_operator
+begin_operator
+push o2 p2-7 p2-8
+1
+10 46
+1
+1 4 59 4 -1 27
+0
+end_operator
+begin_operator
+push o3 p2-7 p2-8
+1
+10 46
+1
+1 2 30 2 -1 5
+0
+end_operator
+begin_operator
+push o4 p2-7 p2-8
+1
+10 46
+1
+1 5 56 5 -1 38
+0
+end_operator
+begin_operator
+push o5 p2-7 p2-8
+1
+10 46
+1
+1 8 52 8 -1 16
+0
+end_operator
+begin_operator
+push o6 p2-7 p2-8
+1
+10 46
+1
+1 6 27 6 -1 4
+0
+end_operator
+begin_operator
+push o7 p2-7 p2-8
+1
+10 46
+1
+1 9 63 9 -1 64
+0
+end_operator
+begin_operator
+push o8 p2-7 p2-8
+1
+10 46
+1
+1 7 63 7 -1 40
+0
+end_operator
+begin_operator
+push o9 p2-7 p2-8
+1
+10 46
+1
+1 3 16 3 -1 10
+0
+end_operator
+begin_operator
+push o10 p2-7 p2-8
+1
+10 46
+1
+1 0 38 0 -1 54
+0
+end_operator
+begin_operator
+push o1 p3-8 p2-8
+1
+10 43
+1
+1 1 25 1 -1 3
+0
+end_operator
+begin_operator
+push o2 p3-8 p2-8
+1
+10 43
+1
+1 4 62 4 -1 27
+0
+end_operator
+begin_operator
+push o3 p3-8 p2-8
+1
+10 43
+1
+1 2 34 2 -1 5
+0
+end_operator
+begin_operator
+push o4 p3-8 p2-8
+1
+10 43
+1
+1 5 53 5 -1 38
+0
+end_operator
+begin_operator
+push o5 p3-8 p2-8
+1
+10 43
+1
+1 8 10 8 -1 16
+0
+end_operator
+begin_operator
+push o6 p3-8 p2-8
+1
+10 43
+1
+1 6 52 6 -1 4
+0
+end_operator
+begin_operator
+push o7 p3-8 p2-8
+1
+10 43
+1
+1 9 12 9 -1 64
+0
+end_operator
+begin_operator
+push o8 p3-8 p2-8
+1
+10 43
+1
+1 7 58 7 -1 40
+0
+end_operator
+begin_operator
+push o9 p3-8 p2-8
+1
+10 43
+1
+1 3 20 3 -1 10
+0
+end_operator
+begin_operator
+push o10 p3-8 p2-8
+1
+10 43
+1
+1 0 4 0 -1 54
+0
+end_operator
+begin_operator
+push o1 p3-8 p4-8
+1
+10 43
+1
+1 1 25 1 -1 51
+0
+end_operator
+begin_operator
+push o2 p3-8 p4-8
+1
+10 43
+1
+1 4 62 4 -1 33
+0
+end_operator
+begin_operator
+push o3 p3-8 p4-8
+1
+10 43
+1
+1 2 34 2 -1 56
+0
+end_operator
+begin_operator
+push o4 p3-8 p4-8
+1
+10 43
+1
+1 5 53 5 -1 10
+0
+end_operator
+begin_operator
+push o5 p3-8 p4-8
+1
+10 43
+1
+1 8 10 8 -1 64
+0
+end_operator
+begin_operator
+push o6 p3-8 p4-8
+1
+10 43
+1
+1 6 52 6 -1 28
+0
+end_operator
+begin_operator
+push o7 p3-8 p4-8
+1
+10 43
+1
+1 9 12 9 -1 52
+0
+end_operator
+begin_operator
+push o8 p3-8 p4-8
+1
+10 43
+1
+1 7 58 7 -1 54
+0
+end_operator
+begin_operator
+push o9 p3-8 p4-8
+1
+10 43
+1
+1 3 20 3 -1 11
+0
+end_operator
+begin_operator
+push o10 p3-8 p4-8
+1
+10 43
+1
+1 0 4 0 -1 41
+0
+end_operator
+begin_operator
+push o1 p3-8 p3-7
+1
+10 43
+1
+1 1 25 1 -1 52
+0
+end_operator
+begin_operator
+push o2 p3-8 p3-7
+1
+10 43
+1
+1 4 62 4 -1 40
+0
+end_operator
+begin_operator
+push o3 p3-8 p3-7
+1
+10 43
+1
+1 2 34 2 -1 20
+0
+end_operator
+begin_operator
+push o4 p3-8 p3-7
+1
+10 43
+1
+1 5 53 5 -1 43
+0
+end_operator
+begin_operator
+push o5 p3-8 p3-7
+1
+10 43
+1
+1 8 10 8 -1 22
+0
+end_operator
+begin_operator
+push o6 p3-8 p3-7
+1
+10 43
+1
+1 6 52 6 -1 5
+0
+end_operator
+begin_operator
+push o7 p3-8 p3-7
+1
+10 43
+1
+1 9 12 9 -1 34
+0
+end_operator
+begin_operator
+push o8 p3-8 p3-7
+1
+10 43
+1
+1 7 58 7 -1 27
+0
+end_operator
+begin_operator
+push o9 p3-8 p3-7
+1
+10 43
+1
+1 3 20 3 -1 54
+0
+end_operator
+begin_operator
+push o10 p3-8 p3-7
+1
+10 43
+1
+1 0 4 0 -1 39
+0
+end_operator
+begin_operator
+push o1 p8-3 p7-3
+1
+10 61
+1
+1 1 19 1 -1 20
+0
+end_operator
+begin_operator
+push o2 p8-3 p7-3
+1
+10 61
+1
+1 4 2 4 -1 10
+0
+end_operator
+begin_operator
+push o3 p8-3 p7-3
+1
+10 61
+1
+1 2 25 2 -1 51
+0
+end_operator
+begin_operator
+push o4 p8-3 p7-3
+1
+10 61
+1
+1 5 37 5 -1 0
+0
+end_operator
+begin_operator
+push o5 p8-3 p7-3
+1
+10 61
+1
+1 8 45 8 -1 38
+0
+end_operator
+begin_operator
+push o6 p8-3 p7-3
+1
+10 61
+1
+1 6 0 6 -1 33
+0
+end_operator
+begin_operator
+push o7 p8-3 p7-3
+1
+10 61
+1
+1 9 41 9 -1 62
+0
+end_operator
+begin_operator
+push o8 p8-3 p7-3
+1
+10 61
+1
+1 7 14 7 -1 64
+0
+end_operator
+begin_operator
+push o9 p8-3 p7-3
+1
+10 61
+1
+1 3 26 3 -1 27
+0
+end_operator
+begin_operator
+push o10 p8-3 p7-3
+1
+10 61
+1
+1 0 40 0 -1 8
+0
+end_operator
+begin_operator
+push o1 p8-3 p8-2
+1
+10 61
+1
+1 1 19 1 -1 27
+0
+end_operator
+begin_operator
+push o2 p8-3 p8-2
+1
+10 61
+1
+1 4 2 4 -1 4
+0
+end_operator
+begin_operator
+push o3 p8-3 p8-2
+1
+10 61
+1
+1 2 25 2 -1 29
+0
+end_operator
+begin_operator
+push o4 p8-3 p8-2
+1
+10 61
+1
+1 5 37 5 -1 33
+0
+end_operator
+begin_operator
+push o5 p8-3 p8-2
+1
+10 61
+1
+1 8 45 8 -1 55
+0
+end_operator
+begin_operator
+push o6 p8-3 p8-2
+1
+10 61
+1
+1 6 0 6 -1 59
+0
+end_operator
+begin_operator
+push o7 p8-3 p8-2
+1
+10 61
+1
+1 9 41 9 -1 47
+0
+end_operator
+begin_operator
+push o8 p8-3 p8-2
+1
+10 61
+1
+1 7 14 7 -1 10
+0
+end_operator
+begin_operator
+push o9 p8-3 p8-2
+1
+10 61
+1
+1 3 26 3 -1 32
+0
+end_operator
+begin_operator
+push o10 p8-3 p8-2
+1
+10 61
+1
+1 0 40 0 -1 33
+0
+end_operator
+begin_operator
+push o1 p8-3 p8-4
+1
+10 61
+1
+1 1 19 1 -1 31
+0
+end_operator
+begin_operator
+push o2 p8-3 p8-4
+1
+10 61
+1
+1 4 2 4 -1 18
+0
+end_operator
+begin_operator
+push o3 p8-3 p8-4
+1
+10 61
+1
+1 2 25 2 -1 11
+0
+end_operator
+begin_operator
+push o4 p8-3 p8-4
+1
+10 61
+1
+1 5 37 5 -1 5
+0
+end_operator
+begin_operator
+push o5 p8-3 p8-4
+1
+10 61
+1
+1 8 45 8 -1 48
+0
+end_operator
+begin_operator
+push o6 p8-3 p8-4
+1
+10 61
+1
+1 6 0 6 -1 62
+0
+end_operator
+begin_operator
+push o7 p8-3 p8-4
+1
+10 61
+1
+1 9 41 9 -1 54
+0
+end_operator
+begin_operator
+push o8 p8-3 p8-4
+1
+10 61
+1
+1 7 14 7 -1 52
+0
+end_operator
+begin_operator
+push o9 p8-3 p8-4
+1
+10 61
+1
+1 3 26 3 -1 47
+0
+end_operator
+begin_operator
+push o10 p8-3 p8-4
+1
+10 61
+1
+1 0 40 0 -1 48
+0
+end_operator
+begin_operator
+push o1 p8-5 p7-5
+1
+10 49
+1
+1 1 24 1 -1 15
+0
+end_operator
+begin_operator
+push o2 p8-5 p7-5
+1
+10 49
+1
+1 4 37 4 -1 11
+0
+end_operator
+begin_operator
+push o3 p8-5 p7-5
+1
+10 49
+1
+1 2 36 2 -1 35
+0
+end_operator
+begin_operator
+push o4 p8-5 p7-5
+1
+10 49
+1
+1 5 3 5 -1 48
+0
+end_operator
+begin_operator
+push o5 p8-5 p7-5
+1
+10 49
+1
+1 8 43 8 -1 62
+0
+end_operator
+begin_operator
+push o6 p8-5 p7-5
+1
+10 49
+1
+1 6 3 6 -1 29
+0
+end_operator
+begin_operator
+push o7 p8-5 p7-5
+1
+10 49
+1
+1 9 43 9 -1 53
+0
+end_operator
+begin_operator
+push o8 p8-5 p7-5
+1
+10 49
+1
+1 7 60 7 -1 47
+0
+end_operator
+begin_operator
+push o9 p8-5 p7-5
+1
+10 49
+1
+1 3 44 3 -1 39
+0
+end_operator
+begin_operator
+push o10 p8-5 p7-5
+1
+10 49
+1
+1 0 53 0 -1 29
+0
+end_operator
+begin_operator
+push o1 p8-5 p8-4
+1
+10 49
+1
+1 1 24 1 -1 31
+0
+end_operator
+begin_operator
+push o2 p8-5 p8-4
+1
+10 49
+1
+1 4 37 4 -1 18
+0
+end_operator
+begin_operator
+push o3 p8-5 p8-4
+1
+10 49
+1
+1 2 36 2 -1 11
+0
+end_operator
+begin_operator
+push o4 p8-5 p8-4
+1
+10 49
+1
+1 5 3 5 -1 5
+0
+end_operator
+begin_operator
+push o5 p8-5 p8-4
+1
+10 49
+1
+1 8 43 8 -1 48
+0
+end_operator
+begin_operator
+push o6 p8-5 p8-4
+1
+10 49
+1
+1 6 3 6 -1 62
+0
+end_operator
+begin_operator
+push o7 p8-5 p8-4
+1
+10 49
+1
+1 9 43 9 -1 54
+0
+end_operator
+begin_operator
+push o8 p8-5 p8-4
+1
+10 49
+1
+1 7 60 7 -1 52
+0
+end_operator
+begin_operator
+push o9 p8-5 p8-4
+1
+10 49
+1
+1 3 44 3 -1 47
+0
+end_operator
+begin_operator
+push o10 p8-5 p8-4
+1
+10 49
+1
+1 0 53 0 -1 48
+0
+end_operator
+begin_operator
+push o1 p8-5 p8-6
+1
+10 49
+1
+1 1 24 1 -1 14
+0
+end_operator
+begin_operator
+push o2 p8-5 p8-6
+1
+10 49
+1
+1 4 37 4 -1 34
+0
+end_operator
+begin_operator
+push o3 p8-5 p8-6
+1
+10 49
+1
+1 2 36 2 -1 7
+0
+end_operator
+begin_operator
+push o4 p8-5 p8-6
+1
+10 49
+1
+1 5 3 5 -1 54
+0
+end_operator
+begin_operator
+push o5 p8-5 p8-6
+1
+10 49
+1
+1 8 43 8 -1 35
+0
+end_operator
+begin_operator
+push o6 p8-5 p8-6
+1
+10 49
+1
+1 6 3 6 -1 7
+0
+end_operator
+begin_operator
+push o7 p8-5 p8-6
+1
+10 49
+1
+1 9 43 9 -1 37
+0
+end_operator
+begin_operator
+push o8 p8-5 p8-6
+1
+10 49
+1
+1 7 60 7 -1 49
+0
+end_operator
+begin_operator
+push o9 p8-5 p8-6
+1
+10 49
+1
+1 3 44 3 -1 51
+0
+end_operator
+begin_operator
+push o10 p8-5 p8-6
+1
+10 49
+1
+1 0 53 0 -1 44
+0
+end_operator
+begin_operator
+push o1 p7-2 p6-2
+1
+10 4
+1
+1 1 18 1 -1 55
+0
+end_operator
+begin_operator
+push o2 p7-2 p6-2
+1
+10 4
+1
+1 4 15 4 -1 38
+0
+end_operator
+begin_operator
+push o3 p7-2 p6-2
+1
+10 4
+1
+1 2 43 2 -1 17
+0
+end_operator
+begin_operator
+push o4 p7-2 p6-2
+1
+10 4
+1
+1 5 8 5 -1 20
+0
+end_operator
+begin_operator
+push o5 p7-2 p6-2
+1
+10 4
+1
+1 8 51 8 -1 20
+0
+end_operator
+begin_operator
+push o6 p7-2 p6-2
+1
+10 4
+1
+1 6 39 6 -1 56
+0
+end_operator
+begin_operator
+push o7 p7-2 p6-2
+1
+10 4
+1
+1 9 20 9 -1 19
+0
+end_operator
+begin_operator
+push o8 p7-2 p6-2
+1
+10 4
+1
+1 7 4 7 -1 35
+0
+end_operator
+begin_operator
+push o9 p7-2 p6-2
+1
+10 4
+1
+1 3 19 3 -1 43
+0
+end_operator
+begin_operator
+push o10 p7-2 p6-2
+1
+10 4
+1
+1 0 13 0 -1 62
+0
+end_operator
+begin_operator
+push o1 p7-2 p8-2
+1
+10 4
+1
+1 1 18 1 -1 27
+0
+end_operator
+begin_operator
+push o2 p7-2 p8-2
+1
+10 4
+1
+1 4 15 4 -1 4
+0
+end_operator
+begin_operator
+push o3 p7-2 p8-2
+1
+10 4
+1
+1 2 43 2 -1 29
+0
+end_operator
+begin_operator
+push o4 p7-2 p8-2
+1
+10 4
+1
+1 5 8 5 -1 33
+0
+end_operator
+begin_operator
+push o5 p7-2 p8-2
+1
+10 4
+1
+1 8 51 8 -1 55
+0
+end_operator
+begin_operator
+push o6 p7-2 p8-2
+1
+10 4
+1
+1 6 39 6 -1 59
+0
+end_operator
+begin_operator
+push o7 p7-2 p8-2
+1
+10 4
+1
+1 9 20 9 -1 47
+0
+end_operator
+begin_operator
+push o8 p7-2 p8-2
+1
+10 4
+1
+1 7 4 7 -1 10
+0
+end_operator
+begin_operator
+push o9 p7-2 p8-2
+1
+10 4
+1
+1 3 19 3 -1 32
+0
+end_operator
+begin_operator
+push o10 p7-2 p8-2
+1
+10 4
+1
+1 0 13 0 -1 33
+0
+end_operator
+begin_operator
+push o1 p7-2 p7-1
+1
+10 4
+1
+1 1 18 1 -1 40
+0
+end_operator
+begin_operator
+push o2 p7-2 p7-1
+1
+10 4
+1
+1 4 15 4 -1 21
+0
+end_operator
+begin_operator
+push o3 p7-2 p7-1
+1
+10 4
+1
+1 2 43 2 -1 48
+0
+end_operator
+begin_operator
+push o4 p7-2 p7-1
+1
+10 4
+1
+1 5 8 5 -1 2
+0
+end_operator
+begin_operator
+push o5 p7-2 p7-1
+1
+10 4
+1
+1 8 51 8 -1 5
+0
+end_operator
+begin_operator
+push o6 p7-2 p7-1
+1
+10 4
+1
+1 6 39 6 -1 48
+0
+end_operator
+begin_operator
+push o7 p7-2 p7-1
+1
+10 4
+1
+1 9 20 9 -1 11
+0
+end_operator
+begin_operator
+push o8 p7-2 p7-1
+1
+10 4
+1
+1 7 4 7 -1 59
+0
+end_operator
+begin_operator
+push o9 p7-2 p7-1
+1
+10 4
+1
+1 3 19 3 -1 29
+0
+end_operator
+begin_operator
+push o10 p7-2 p7-1
+1
+10 4
+1
+1 0 13 0 -1 5
+0
+end_operator
+begin_operator
+push o1 p7-2 p7-3
+1
+10 4
+1
+1 1 18 1 -1 20
+0
+end_operator
+begin_operator
+push o2 p7-2 p7-3
+1
+10 4
+1
+1 4 15 4 -1 10
+0
+end_operator
+begin_operator
+push o3 p7-2 p7-3
+1
+10 4
+1
+1 2 43 2 -1 51
+0
+end_operator
+begin_operator
+push o4 p7-2 p7-3
+1
+10 4
+1
+1 5 8 5 -1 0
+0
+end_operator
+begin_operator
+push o5 p7-2 p7-3
+1
+10 4
+1
+1 8 51 8 -1 38
+0
+end_operator
+begin_operator
+push o6 p7-2 p7-3
+1
+10 4
+1
+1 6 39 6 -1 33
+0
+end_operator
+begin_operator
+push o7 p7-2 p7-3
+1
+10 4
+1
+1 9 20 9 -1 62
+0
+end_operator
+begin_operator
+push o8 p7-2 p7-3
+1
+10 4
+1
+1 7 4 7 -1 64
+0
+end_operator
+begin_operator
+push o9 p7-2 p7-3
+1
+10 4
+1
+1 3 19 3 -1 27
+0
+end_operator
+begin_operator
+push o10 p7-2 p7-3
+1
+10 4
+1
+1 0 13 0 -1 8
+0
+end_operator
+begin_operator
+push o1 p7-6 p6-6
+1
+10 50
+1
+1 1 26 1 -1 11
+0
+end_operator
+begin_operator
+push o2 p7-6 p6-6
+1
+10 50
+1
+1 4 6 4 -1 17
+0
+end_operator
+begin_operator
+push o3 p7-6 p6-6
+1
+10 50
+1
+1 2 41 2 -1 60
+0
+end_operator
+begin_operator
+push o4 p7-6 p6-6
+1
+10 50
+1
+1 5 18 5 -1 61
+0
+end_operator
+begin_operator
+push o5 p7-6 p6-6
+1
+10 50
+1
+1 8 49 8 -1 30
+0
+end_operator
+begin_operator
+push o6 p7-6 p6-6
+1
+10 50
+1
+1 6 18 6 -1 42
+0
+end_operator
+begin_operator
+push o7 p7-6 p6-6
+1
+10 50
+1
+1 9 2 9 -1 39
+0
+end_operator
+begin_operator
+push o8 p7-6 p6-6
+1
+10 50
+1
+1 7 57 7 -1 38
+0
+end_operator
+begin_operator
+push o9 p7-6 p6-6
+1
+10 50
+1
+1 3 31 3 -1 63
+0
+end_operator
+begin_operator
+push o10 p7-6 p6-6
+1
+10 50
+1
+1 0 34 0 -1 64
+0
+end_operator
+begin_operator
+push o1 p7-6 p8-6
+1
+10 50
+1
+1 1 26 1 -1 14
+0
+end_operator
+begin_operator
+push o2 p7-6 p8-6
+1
+10 50
+1
+1 4 6 4 -1 34
+0
+end_operator
+begin_operator
+push o3 p7-6 p8-6
+1
+10 50
+1
+1 2 41 2 -1 7
+0
+end_operator
+begin_operator
+push o4 p7-6 p8-6
+1
+10 50
+1
+1 5 18 5 -1 54
+0
+end_operator
+begin_operator
+push o5 p7-6 p8-6
+1
+10 50
+1
+1 8 49 8 -1 35
+0
+end_operator
+begin_operator
+push o6 p7-6 p8-6
+1
+10 50
+1
+1 6 18 6 -1 7
+0
+end_operator
+begin_operator
+push o7 p7-6 p8-6
+1
+10 50
+1
+1 9 2 9 -1 37
+0
+end_operator
+begin_operator
+push o8 p7-6 p8-6
+1
+10 50
+1
+1 7 57 7 -1 49
+0
+end_operator
+begin_operator
+push o9 p7-6 p8-6
+1
+10 50
+1
+1 3 31 3 -1 51
+0
+end_operator
+begin_operator
+push o10 p7-6 p8-6
+1
+10 50
+1
+1 0 34 0 -1 44
+0
+end_operator
+begin_operator
+push o1 p7-6 p7-5
+1
+10 50
+1
+1 1 26 1 -1 15
+0
+end_operator
+begin_operator
+push o2 p7-6 p7-5
+1
+10 50
+1
+1 4 6 4 -1 11
+0
+end_operator
+begin_operator
+push o3 p7-6 p7-5
+1
+10 50
+1
+1 2 41 2 -1 35
+0
+end_operator
+begin_operator
+push o4 p7-6 p7-5
+1
+10 50
+1
+1 5 18 5 -1 48
+0
+end_operator
+begin_operator
+push o5 p7-6 p7-5
+1
+10 50
+1
+1 8 49 8 -1 62
+0
+end_operator
+begin_operator
+push o6 p7-6 p7-5
+1
+10 50
+1
+1 6 18 6 -1 29
+0
+end_operator
+begin_operator
+push o7 p7-6 p7-5
+1
+10 50
+1
+1 9 2 9 -1 53
+0
+end_operator
+begin_operator
+push o8 p7-6 p7-5
+1
+10 50
+1
+1 7 57 7 -1 47
+0
+end_operator
+begin_operator
+push o9 p7-6 p7-5
+1
+10 50
+1
+1 3 31 3 -1 39
+0
+end_operator
+begin_operator
+push o10 p7-6 p7-5
+1
+10 50
+1
+1 0 34 0 -1 29
+0
+end_operator
+begin_operator
+push o1 p7-6 p7-7
+1
+10 50
+1
+1 1 26 1 -1 33
+0
+end_operator
+begin_operator
+push o2 p7-6 p7-7
+1
+10 50
+1
+1 4 6 4 -1 1
+0
+end_operator
+begin_operator
+push o3 p7-6 p7-7
+1
+10 50
+1
+1 2 41 2 -1 39
+0
+end_operator
+begin_operator
+push o4 p7-6 p7-7
+1
+10 50
+1
+1 5 18 5 -1 12
+0
+end_operator
+begin_operator
+push o5 p7-6 p7-7
+1
+10 50
+1
+1 8 49 8 -1 8
+0
+end_operator
+begin_operator
+push o6 p7-6 p7-7
+1
+10 50
+1
+1 6 18 6 -1 14
+0
+end_operator
+begin_operator
+push o7 p7-6 p7-7
+1
+10 50
+1
+1 9 2 9 -1 7
+0
+end_operator
+begin_operator
+push o8 p7-6 p7-7
+1
+10 50
+1
+1 7 57 7 -1 61
+0
+end_operator
+begin_operator
+push o9 p7-6 p7-7
+1
+10 50
+1
+1 3 31 3 -1 35
+0
+end_operator
+begin_operator
+push o10 p7-6 p7-7
+1
+10 50
+1
+1 0 34 0 -1 36
+0
+end_operator
+begin_operator
+push o1 p6-1 p5-1
+1
+10 45
+1
+1 1 1 1 -1 48
+0
+end_operator
+begin_operator
+push o2 p6-1 p5-1
+1
+10 45
+1
+1 4 50 4 -1 12
+0
+end_operator
+begin_operator
+push o3 p6-1 p5-1
+1
+10 45
+1
+1 2 8 2 -1 52
+0
+end_operator
+begin_operator
+push o4 p6-1 p5-1
+1
+10 45
+1
+1 5 22 5 -1 13
+0
+end_operator
+begin_operator
+push o5 p6-1 p5-1
+1
+10 45
+1
+1 8 27 8 -1 46
+0
+end_operator
+begin_operator
+push o6 p6-1 p5-1
+1
+10 45
+1
+1 6 47 6 -1 45
+0
+end_operator
+begin_operator
+push o7 p6-1 p5-1
+1
+10 45
+1
+1 9 28 9 -1 56
+0
+end_operator
+begin_operator
+push o8 p6-1 p5-1
+1
+10 45
+1
+1 7 28 7 -1 3
+0
+end_operator
+begin_operator
+push o9 p6-1 p5-1
+1
+10 45
+1
+1 3 41 3 -1 33
+0
+end_operator
+begin_operator
+push o10 p6-1 p5-1
+1
+10 45
+1
+1 0 56 0 -1 51
+0
+end_operator
+begin_operator
+push o1 p6-1 p7-1
+1
+10 45
+1
+1 1 1 1 -1 40
+0
+end_operator
+begin_operator
+push o2 p6-1 p7-1
+1
+10 45
+1
+1 4 50 4 -1 21
+0
+end_operator
+begin_operator
+push o3 p6-1 p7-1
+1
+10 45
+1
+1 2 8 2 -1 48
+0
+end_operator
+begin_operator
+push o4 p6-1 p7-1
+1
+10 45
+1
+1 5 22 5 -1 2
+0
+end_operator
+begin_operator
+push o5 p6-1 p7-1
+1
+10 45
+1
+1 8 27 8 -1 5
+0
+end_operator
+begin_operator
+push o6 p6-1 p7-1
+1
+10 45
+1
+1 6 47 6 -1 48
+0
+end_operator
+begin_operator
+push o7 p6-1 p7-1
+1
+10 45
+1
+1 9 28 9 -1 11
+0
+end_operator
+begin_operator
+push o8 p6-1 p7-1
+1
+10 45
+1
+1 7 28 7 -1 59
+0
+end_operator
+begin_operator
+push o9 p6-1 p7-1
+1
+10 45
+1
+1 3 41 3 -1 29
+0
+end_operator
+begin_operator
+push o10 p6-1 p7-1
+1
+10 45
+1
+1 0 56 0 -1 5
+0
+end_operator
+begin_operator
+push o1 p6-1 p6-2
+1
+10 45
+1
+1 1 1 1 -1 55
+0
+end_operator
+begin_operator
+push o2 p6-1 p6-2
+1
+10 45
+1
+1 4 50 4 -1 38
+0
+end_operator
+begin_operator
+push o3 p6-1 p6-2
+1
+10 45
+1
+1 2 8 2 -1 17
+0
+end_operator
+begin_operator
+push o4 p6-1 p6-2
+1
+10 45
+1
+1 5 22 5 -1 20
+0
+end_operator
+begin_operator
+push o5 p6-1 p6-2
+1
+10 45
+1
+1 8 27 8 -1 20
+0
+end_operator
+begin_operator
+push o6 p6-1 p6-2
+1
+10 45
+1
+1 6 47 6 -1 56
+0
+end_operator
+begin_operator
+push o7 p6-1 p6-2
+1
+10 45
+1
+1 9 28 9 -1 19
+0
+end_operator
+begin_operator
+push o8 p6-1 p6-2
+1
+10 45
+1
+1 7 28 7 -1 35
+0
+end_operator
+begin_operator
+push o9 p6-1 p6-2
+1
+10 45
+1
+1 3 41 3 -1 43
+0
+end_operator
+begin_operator
+push o10 p6-1 p6-2
+1
+10 45
+1
+1 0 56 0 -1 62
+0
+end_operator
+begin_operator
+push o1 p6-7 p5-7
+1
+10 32
+1
+1 1 5 1 -1 44
+0
+end_operator
+begin_operator
+push o2 p6-7 p5-7
+1
+10 32
+1
+1 4 22 4 -1 13
+0
+end_operator
+begin_operator
+push o3 p6-7 p5-7
+1
+10 32
+1
+1 2 54 2 -1 62
+0
+end_operator
+begin_operator
+push o4 p6-7 p5-7
+1
+10 32
+1
+1 5 49 5 -1 23
+0
+end_operator
+begin_operator
+push o5 p6-7 p5-7
+1
+10 32
+1
+1 8 59 8 -1 57
+0
+end_operator
+begin_operator
+push o6 p6-7 p5-7
+1
+10 32
+1
+1 6 51 6 -1 12
+0
+end_operator
+begin_operator
+push o7 p6-7 p5-7
+1
+10 32
+1
+1 9 30 9 -1 44
+0
+end_operator
+begin_operator
+push o8 p6-7 p5-7
+1
+10 32
+1
+1 7 12 7 -1 62
+0
+end_operator
+begin_operator
+push o9 p6-7 p5-7
+1
+10 32
+1
+1 3 57 3 -1 23
+0
+end_operator
+begin_operator
+push o10 p6-7 p5-7
+1
+10 32
+1
+1 0 6 0 -1 47
+0
+end_operator
+begin_operator
+push o1 p6-7 p7-7
+1
+10 32
+1
+1 1 5 1 -1 33
+0
+end_operator
+begin_operator
+push o2 p6-7 p7-7
+1
+10 32
+1
+1 4 22 4 -1 1
+0
+end_operator
+begin_operator
+push o3 p6-7 p7-7
+1
+10 32
+1
+1 2 54 2 -1 39
+0
+end_operator
+begin_operator
+push o4 p6-7 p7-7
+1
+10 32
+1
+1 5 49 5 -1 12
+0
+end_operator
+begin_operator
+push o5 p6-7 p7-7
+1
+10 32
+1
+1 8 59 8 -1 8
+0
+end_operator
+begin_operator
+push o6 p6-7 p7-7
+1
+10 32
+1
+1 6 51 6 -1 14
+0
+end_operator
+begin_operator
+push o7 p6-7 p7-7
+1
+10 32
+1
+1 9 30 9 -1 7
+0
+end_operator
+begin_operator
+push o8 p6-7 p7-7
+1
+10 32
+1
+1 7 12 7 -1 61
+0
+end_operator
+begin_operator
+push o9 p6-7 p7-7
+1
+10 32
+1
+1 3 57 3 -1 35
+0
+end_operator
+begin_operator
+push o10 p6-7 p7-7
+1
+10 32
+1
+1 0 6 0 -1 36
+0
+end_operator
+begin_operator
+push o1 p6-7 p6-6
+1
+10 32
+1
+1 1 5 1 -1 11
+0
+end_operator
+begin_operator
+push o2 p6-7 p6-6
+1
+10 32
+1
+1 4 22 4 -1 17
+0
+end_operator
+begin_operator
+push o3 p6-7 p6-6
+1
+10 32
+1
+1 2 54 2 -1 60
+0
+end_operator
+begin_operator
+push o4 p6-7 p6-6
+1
+10 32
+1
+1 5 49 5 -1 61
+0
+end_operator
+begin_operator
+push o5 p6-7 p6-6
+1
+10 32
+1
+1 8 59 8 -1 30
+0
+end_operator
+begin_operator
+push o6 p6-7 p6-6
+1
+10 32
+1
+1 6 51 6 -1 42
+0
+end_operator
+begin_operator
+push o7 p6-7 p6-6
+1
+10 32
+1
+1 9 30 9 -1 39
+0
+end_operator
+begin_operator
+push o8 p6-7 p6-6
+1
+10 32
+1
+1 7 12 7 -1 38
+0
+end_operator
+begin_operator
+push o9 p6-7 p6-6
+1
+10 32
+1
+1 3 57 3 -1 63
+0
+end_operator
+begin_operator
+push o10 p6-7 p6-6
+1
+10 32
+1
+1 0 6 0 -1 64
+0
+end_operator
+begin_operator
+push o1 p6-7 p6-8
+1
+10 32
+1
+1 1 5 1 -1 53
+0
+end_operator
+begin_operator
+push o2 p6-7 p6-8
+1
+10 32
+1
+1 4 22 4 -1 57
+0
+end_operator
+begin_operator
+push o3 p6-7 p6-8
+1
+10 32
+1
+1 2 54 2 -1 19
+0
+end_operator
+begin_operator
+push o4 p6-7 p6-8
+1
+10 32
+1
+1 5 49 5 -1 55
+0
+end_operator
+begin_operator
+push o5 p6-7 p6-8
+1
+10 32
+1
+1 8 59 8 -1 18
+0
+end_operator
+begin_operator
+push o6 p6-7 p6-8
+1
+10 32
+1
+1 6 51 6 -1 20
+0
+end_operator
+begin_operator
+push o7 p6-7 p6-8
+1
+10 32
+1
+1 9 30 9 -1 57
+0
+end_operator
+begin_operator
+push o8 p6-7 p6-8
+1
+10 32
+1
+1 7 12 7 -1 26
+0
+end_operator
+begin_operator
+push o9 p6-7 p6-8
+1
+10 32
+1
+1 3 57 3 -1 0
+0
+end_operator
+begin_operator
+push o10 p6-7 p6-8
+1
+10 32
+1
+1 0 6 0 -1 26
+0
+end_operator
+begin_operator
+push o1 p5-8 p4-8
+1
+10 31
+1
+1 1 13 1 -1 51
+0
+end_operator
+begin_operator
+push o2 p5-8 p4-8
+1
+10 31
+1
+1 4 39 4 -1 33
+0
+end_operator
+begin_operator
+push o3 p5-8 p4-8
+1
+10 31
+1
+1 2 53 2 -1 56
+0
+end_operator
+begin_operator
+push o4 p5-8 p4-8
+1
+10 31
+1
+1 5 57 5 -1 10
+0
+end_operator
+begin_operator
+push o5 p5-8 p4-8
+1
+10 31
+1
+1 8 53 8 -1 64
+0
+end_operator
+begin_operator
+push o6 p5-8 p4-8
+1
+10 31
+1
+1 6 64 6 -1 28
+0
+end_operator
+begin_operator
+push o7 p5-8 p4-8
+1
+10 31
+1
+1 9 18 9 -1 52
+0
+end_operator
+begin_operator
+push o8 p5-8 p4-8
+1
+10 31
+1
+1 7 18 7 -1 54
+0
+end_operator
+begin_operator
+push o9 p5-8 p4-8
+1
+10 31
+1
+1 3 52 3 -1 11
+0
+end_operator
+begin_operator
+push o10 p5-8 p4-8
+1
+10 31
+1
+1 0 14 0 -1 41
+0
+end_operator
+begin_operator
+push o1 p5-8 p6-8
+1
+10 31
+1
+1 1 13 1 -1 53
+0
+end_operator
+begin_operator
+push o2 p5-8 p6-8
+1
+10 31
+1
+1 4 39 4 -1 57
+0
+end_operator
+begin_operator
+push o3 p5-8 p6-8
+1
+10 31
+1
+1 2 53 2 -1 19
+0
+end_operator
+begin_operator
+push o4 p5-8 p6-8
+1
+10 31
+1
+1 5 57 5 -1 55
+0
+end_operator
+begin_operator
+push o5 p5-8 p6-8
+1
+10 31
+1
+1 8 53 8 -1 18
+0
+end_operator
+begin_operator
+push o6 p5-8 p6-8
+1
+10 31
+1
+1 6 64 6 -1 20
+0
+end_operator
+begin_operator
+push o7 p5-8 p6-8
+1
+10 31
+1
+1 9 18 9 -1 57
+0
+end_operator
+begin_operator
+push o8 p5-8 p6-8
+1
+10 31
+1
+1 7 18 7 -1 26
+0
+end_operator
+begin_operator
+push o9 p5-8 p6-8
+1
+10 31
+1
+1 3 52 3 -1 0
+0
+end_operator
+begin_operator
+push o10 p5-8 p6-8
+1
+10 31
+1
+1 0 14 0 -1 26
+0
+end_operator
+begin_operator
+push o1 p5-8 p5-7
+1
+10 31
+1
+1 1 13 1 -1 44
+0
+end_operator
+begin_operator
+push o2 p5-8 p5-7
+1
+10 31
+1
+1 4 39 4 -1 13
+0
+end_operator
+begin_operator
+push o3 p5-8 p5-7
+1
+10 31
+1
+1 2 53 2 -1 62
+0
+end_operator
+begin_operator
+push o4 p5-8 p5-7
+1
+10 31
+1
+1 5 57 5 -1 23
+0
+end_operator
+begin_operator
+push o5 p5-8 p5-7
+1
+10 31
+1
+1 8 53 8 -1 57
+0
+end_operator
+begin_operator
+push o6 p5-8 p5-7
+1
+10 31
+1
+1 6 64 6 -1 12
+0
+end_operator
+begin_operator
+push o7 p5-8 p5-7
+1
+10 31
+1
+1 9 18 9 -1 44
+0
+end_operator
+begin_operator
+push o8 p5-8 p5-7
+1
+10 31
+1
+1 7 18 7 -1 62
+0
+end_operator
+begin_operator
+push o9 p5-8 p5-7
+1
+10 31
+1
+1 3 52 3 -1 23
+0
+end_operator
+begin_operator
+push o10 p5-8 p5-7
+1
+10 31
+1
+1 0 14 0 -1 47
+0
+end_operator
+begin_operator
+move p1-1 p2-1
+1
+10 47
+1
+0 10 47 39
+0
+end_operator
+begin_operator
+move p1-1 p1-2
+1
+10 47
+1
+0 10 47 0
+0
+end_operator
+begin_operator
+pickup o1 p1-1
+1
+10 47
+1
+1 1 38 1 -1 4
+0
+end_operator
+begin_operator
+pickup o2 p1-1
+1
+10 47
+1
+1 4 24 4 -1 61
+0
+end_operator
+begin_operator
+pickup o3 p1-1
+1
+10 47
+1
+1 2 3 2 -1 46
+0
+end_operator
+begin_operator
+pickup o4 p1-1
+1
+10 47
+1
+1 5 27 5 -1 11
+0
+end_operator
+begin_operator
+pickup o5 p1-1
+1
+10 47
+1
+1 8 2 8 -1 56
+0
+end_operator
+begin_operator
+pickup o6 p1-1
+1
+10 47
+1
+1 6 54 6 -1 35
+0
+end_operator
+begin_operator
+pickup o7 p1-1
+1
+10 47
+1
+1 9 16 9 -1 22
+0
+end_operator
+begin_operator
+pickup o8 p1-1
+1
+10 47
+1
+1 7 44 7 -1 7
+0
+end_operator
+begin_operator
+pickup o9 p1-1
+1
+10 47
+1
+1 3 9 3 -1 56
+0
+end_operator
+begin_operator
+pickup o10 p1-1
+1
+10 47
+1
+1 0 55 0 -1 17
+0
+end_operator
+begin_operator
+move p1-7 p2-7
+1
+10 51
+1
+0 10 51 46
+0
+end_operator
+begin_operator
+move p1-7 p1-6
+1
+10 51
+1
+0 10 51 38
+0
+end_operator
+begin_operator
+move p1-7 p1-8
+1
+10 51
+1
+0 10 51 8
+0
+end_operator
+begin_operator
+move p2-8 p1-8
+1
+10 59
+1
+0 10 59 8
+0
+end_operator
+begin_operator
+move p2-8 p3-8
+1
+10 59
+1
+0 10 59 43
+0
+end_operator
+begin_operator
+move p2-8 p2-7
+1
+10 59
+1
+0 10 59 46
+0
+end_operator
+begin_operator
+move p8-2 p7-2
+1
+10 9
+1
+0 10 9 4
+0
+end_operator
+begin_operator
+move p8-2 p8-1
+1
+10 9
+1
+0 10 9 35
+0
+end_operator
+begin_operator
+move p8-2 p8-3
+1
+10 9
+1
+0 10 9 61
+0
+end_operator
+begin_operator
+move p8-6 p7-6
+1
+10 34
+1
+0 10 34 50
+0
+end_operator
+begin_operator
+move p8-6 p8-5
+1
+10 34
+1
+0 10 34 49
+0
+end_operator
+begin_operator
+move p8-6 p8-7
+1
+10 34
+1
+0 10 34 28
+0
+end_operator
+begin_operator
+move p7-1 p6-1
+1
+10 56
+1
+0 10 56 45
+0
+end_operator
+begin_operator
+move p7-1 p8-1
+1
+10 56
+1
+0 10 56 35
+0
+end_operator
+begin_operator
+move p7-1 p7-2
+1
+10 56
+1
+0 10 56 4
+0
+end_operator
+begin_operator
+move p7-7 p6-7
+1
+10 5
+1
+0 10 5 32
+0
+end_operator
+begin_operator
+move p7-7 p8-7
+1
+10 5
+1
+0 10 5 28
+0
+end_operator
+begin_operator
+move p7-7 p7-6
+1
+10 5
+1
+0 10 5 50
+0
+end_operator
+begin_operator
+move p7-7 p7-8
+1
+10 5
+1
+0 10 5 23
+0
+end_operator
+begin_operator
+move p6-8 p5-8
+1
+10 48
+1
+0 10 48 31
+0
+end_operator
+begin_operator
+move p6-8 p7-8
+1
+10 48
+1
+0 10 48 23
+0
+end_operator
+begin_operator
+move p6-8 p6-7
+1
+10 48
+1
+0 10 48 32
+0
+end_operator
+begin_operator
+push o1 p1-1 p2-1
+1
+10 47
+1
+1 1 38 1 -1 39
+0
+end_operator
+begin_operator
+push o2 p1-1 p2-1
+1
+10 47
+1
+1 4 24 4 -1 56
+0
+end_operator
+begin_operator
+push o3 p1-1 p2-1
+1
+10 47
+1
+1 2 3 2 -1 64
+0
+end_operator
+begin_operator
+push o4 p1-1 p2-1
+1
+10 47
+1
+1 5 27 5 -1 60
+0
+end_operator
+begin_operator
+push o5 p1-1 p2-1
+1
+10 47
+1
+1 8 2 8 -1 63
+0
+end_operator
+begin_operator
+push o6 p1-1 p2-1
+1
+10 47
+1
+1 6 54 6 -1 23
+0
+end_operator
+begin_operator
+push o7 p1-1 p2-1
+1
+10 47
+1
+1 9 16 9 -1 51
+0
+end_operator
+begin_operator
+push o8 p1-1 p2-1
+1
+10 47
+1
+1 7 44 7 -1 50
+0
+end_operator
+begin_operator
+push o9 p1-1 p2-1
+1
+10 47
+1
+1 3 9 3 -1 49
+0
+end_operator
+begin_operator
+push o10 p1-1 p2-1
+1
+10 47
+1
+1 0 55 0 -1 30
+0
+end_operator
+begin_operator
+push o1 p1-1 p1-2
+1
+10 47
+1
+1 1 38 1 -1 42
+0
+end_operator
+begin_operator
+push o2 p1-1 p1-2
+1
+10 47
+1
+1 4 24 4 -1 31
+0
+end_operator
+begin_operator
+push o3 p1-1 p1-2
+1
+10 47
+1
+1 2 3 2 -1 59
+0
+end_operator
+begin_operator
+push o4 p1-1 p1-2
+1
+10 47
+1
+1 5 27 5 -1 21
+0
+end_operator
+begin_operator
+push o5 p1-1 p1-2
+1
+10 47
+1
+1 8 2 8 -1 19
+0
+end_operator
+begin_operator
+push o6 p1-1 p1-2
+1
+10 47
+1
+1 6 54 6 -1 43
+0
+end_operator
+begin_operator
+push o7 p1-1 p1-2
+1
+10 47
+1
+1 9 16 9 -1 27
+0
+end_operator
+begin_operator
+push o8 p1-1 p1-2
+1
+10 47
+1
+1 7 44 7 -1 46
+0
+end_operator
+begin_operator
+push o9 p1-1 p1-2
+1
+10 47
+1
+1 3 9 3 -1 13
+0
+end_operator
+begin_operator
+push o10 p1-1 p1-2
+1
+10 47
+1
+1 0 55 0 -1 57
+0
+end_operator
+begin_operator
+push o1 p1-7 p2-7
+1
+10 51
+1
+1 1 36 1 -1 2
+0
+end_operator
+begin_operator
+push o2 p1-7 p2-7
+1
+10 51
+1
+1 4 26 4 -1 59
+0
+end_operator
+begin_operator
+push o3 p1-7 p2-7
+1
+10 51
+1
+1 2 55 2 -1 30
+0
+end_operator
+begin_operator
+push o4 p1-7 p2-7
+1
+10 51
+1
+1 5 25 5 -1 56
+0
+end_operator
+begin_operator
+push o5 p1-7 p2-7
+1
+10 51
+1
+1 8 12 8 -1 52
+0
+end_operator
+begin_operator
+push o6 p1-7 p2-7
+1
+10 51
+1
+1 6 50 6 -1 27
+0
+end_operator
+begin_operator
+push o7 p1-7 p2-7
+1
+10 51
+1
+1 9 4 9 -1 63
+0
+end_operator
+begin_operator
+push o8 p1-7 p2-7
+1
+10 51
+1
+1 7 31 7 -1 63
+0
+end_operator
+begin_operator
+push o9 p1-7 p2-7
+1
+10 51
+1
+1 3 22 3 -1 16
+0
+end_operator
+begin_operator
+push o10 p1-7 p2-7
+1
+10 51
+1
+1 0 11 0 -1 38
+0
+end_operator
+begin_operator
+push o1 p1-7 p1-6
+1
+10 51
+1
+1 1 36 1 -1 30
+0
+end_operator
+begin_operator
+push o2 p1-7 p1-6
+1
+10 51
+1
+1 4 26 4 -1 23
+0
+end_operator
+begin_operator
+push o3 p1-7 p1-6
+1
+10 51
+1
+1 2 55 2 -1 49
+0
+end_operator
+begin_operator
+push o4 p1-7 p1-6
+1
+10 51
+1
+1 5 25 5 -1 31
+0
+end_operator
+begin_operator
+push o5 p1-7 p1-6
+1
+10 51
+1
+1 8 12 8 -1 36
+0
+end_operator
+begin_operator
+push o6 p1-7 p1-6
+1
+10 51
+1
+1 6 50 6 -1 57
+0
+end_operator
+begin_operator
+push o7 p1-7 p1-6
+1
+10 51
+1
+1 9 4 9 -1 61
+0
+end_operator
+begin_operator
+push o8 p1-7 p1-6
+1
+10 51
+1
+1 7 31 7 -1 37
+0
+end_operator
+begin_operator
+push o9 p1-7 p1-6
+1
+10 51
+1
+1 3 22 3 -1 15
+0
+end_operator
+begin_operator
+push o10 p1-7 p1-6
+1
+10 51
+1
+1 0 11 0 -1 18
+0
+end_operator
+begin_operator
+push o1 p1-7 p1-8
+1
+10 51
+1
+1 1 36 1 -1 10
+0
+end_operator
+begin_operator
+push o2 p1-7 p1-8
+1
+10 51
+1
+1 4 26 4 -1 32
+0
+end_operator
+begin_operator
+push o3 p1-7 p1-8
+1
+10 51
+1
+1 2 55 2 -1 18
+0
+end_operator
+begin_operator
+push o4 p1-7 p1-8
+1
+10 51
+1
+1 5 25 5 -1 19
+0
+end_operator
+begin_operator
+push o5 p1-7 p1-8
+1
+10 51
+1
+1 8 12 8 -1 60
+0
+end_operator
+begin_operator
+push o6 p1-7 p1-8
+1
+10 51
+1
+1 6 50 6 -1 21
+0
+end_operator
+begin_operator
+push o7 p1-7 p1-8
+1
+10 51
+1
+1 9 4 9 -1 46
+0
+end_operator
+begin_operator
+push o8 p1-7 p1-8
+1
+10 51
+1
+1 7 31 7 -1 45
+0
+end_operator
+begin_operator
+push o9 p1-7 p1-8
+1
+10 51
+1
+1 3 22 3 -1 36
+0
+end_operator
+begin_operator
+push o10 p1-7 p1-8
+1
+10 51
+1
+1 0 11 0 -1 19
+0
+end_operator
+begin_operator
+push o1 p2-8 p1-8
+1
+10 59
+1
+1 1 3 1 -1 10
+0
+end_operator
+begin_operator
+push o2 p2-8 p1-8
+1
+10 59
+1
+1 4 27 4 -1 32
+0
+end_operator
+begin_operator
+push o3 p2-8 p1-8
+1
+10 59
+1
+1 2 5 2 -1 18
+0
+end_operator
+begin_operator
+push o4 p2-8 p1-8
+1
+10 59
+1
+1 5 38 5 -1 19
+0
+end_operator
+begin_operator
+push o5 p2-8 p1-8
+1
+10 59
+1
+1 8 16 8 -1 60
+0
+end_operator
+begin_operator
+push o6 p2-8 p1-8
+1
+10 59
+1
+1 6 4 6 -1 21
+0
+end_operator
+begin_operator
+push o7 p2-8 p1-8
+1
+10 59
+1
+1 9 64 9 -1 46
+0
+end_operator
+begin_operator
+push o8 p2-8 p1-8
+1
+10 59
+1
+1 7 40 7 -1 45
+0
+end_operator
+begin_operator
+push o9 p2-8 p1-8
+1
+10 59
+1
+1 3 10 3 -1 36
+0
+end_operator
+begin_operator
+push o10 p2-8 p1-8
+1
+10 59
+1
+1 0 54 0 -1 19
+0
+end_operator
+begin_operator
+push o1 p2-8 p3-8
+1
+10 59
+1
+1 1 3 1 -1 25
+0
+end_operator
+begin_operator
+push o2 p2-8 p3-8
+1
+10 59
+1
+1 4 27 4 -1 62
+0
+end_operator
+begin_operator
+push o3 p2-8 p3-8
+1
+10 59
+1
+1 2 5 2 -1 34
+0
+end_operator
+begin_operator
+push o4 p2-8 p3-8
+1
+10 59
+1
+1 5 38 5 -1 53
+0
+end_operator
+begin_operator
+push o5 p2-8 p3-8
+1
+10 59
+1
+1 8 16 8 -1 10
+0
+end_operator
+begin_operator
+push o6 p2-8 p3-8
+1
+10 59
+1
+1 6 4 6 -1 52
+0
+end_operator
+begin_operator
+push o7 p2-8 p3-8
+1
+10 59
+1
+1 9 64 9 -1 12
+0
+end_operator
+begin_operator
+push o8 p2-8 p3-8
+1
+10 59
+1
+1 7 40 7 -1 58
+0
+end_operator
+begin_operator
+push o9 p2-8 p3-8
+1
+10 59
+1
+1 3 10 3 -1 20
+0
+end_operator
+begin_operator
+push o10 p2-8 p3-8
+1
+10 59
+1
+1 0 54 0 -1 4
+0
+end_operator
+begin_operator
+push o1 p2-8 p2-7
+1
+10 59
+1
+1 1 3 1 -1 2
+0
+end_operator
+begin_operator
+push o2 p2-8 p2-7
+1
+10 59
+1
+1 4 27 4 -1 59
+0
+end_operator
+begin_operator
+push o3 p2-8 p2-7
+1
+10 59
+1
+1 2 5 2 -1 30
+0
+end_operator
+begin_operator
+push o4 p2-8 p2-7
+1
+10 59
+1
+1 5 38 5 -1 56
+0
+end_operator
+begin_operator
+push o5 p2-8 p2-7
+1
+10 59
+1
+1 8 16 8 -1 52
+0
+end_operator
+begin_operator
+push o6 p2-8 p2-7
+1
+10 59
+1
+1 6 4 6 -1 27
+0
+end_operator
+begin_operator
+push o7 p2-8 p2-7
+1
+10 59
+1
+1 9 64 9 -1 63
+0
+end_operator
+begin_operator
+push o8 p2-8 p2-7
+1
+10 59
+1
+1 7 40 7 -1 63
+0
+end_operator
+begin_operator
+push o9 p2-8 p2-7
+1
+10 59
+1
+1 3 10 3 -1 16
+0
+end_operator
+begin_operator
+push o10 p2-8 p2-7
+1
+10 59
+1
+1 0 54 0 -1 38
+0
+end_operator
+begin_operator
+push o1 p8-2 p7-2
+1
+10 9
+1
+1 1 27 1 -1 18
+0
+end_operator
+begin_operator
+push o2 p8-2 p7-2
+1
+10 9
+1
+1 4 4 4 -1 15
+0
+end_operator
+begin_operator
+push o3 p8-2 p7-2
+1
+10 9
+1
+1 2 29 2 -1 43
+0
+end_operator
+begin_operator
+push o4 p8-2 p7-2
+1
+10 9
+1
+1 5 33 5 -1 8
+0
+end_operator
+begin_operator
+push o5 p8-2 p7-2
+1
+10 9
+1
+1 8 55 8 -1 51
+0
+end_operator
+begin_operator
+push o6 p8-2 p7-2
+1
+10 9
+1
+1 6 59 6 -1 39
+0
+end_operator
+begin_operator
+push o7 p8-2 p7-2
+1
+10 9
+1
+1 9 47 9 -1 20
+0
+end_operator
+begin_operator
+push o8 p8-2 p7-2
+1
+10 9
+1
+1 7 10 7 -1 4
+0
+end_operator
+begin_operator
+push o9 p8-2 p7-2
+1
+10 9
+1
+1 3 32 3 -1 19
+0
+end_operator
+begin_operator
+push o10 p8-2 p7-2
+1
+10 9
+1
+1 0 33 0 -1 13
+0
+end_operator
+begin_operator
+push o1 p8-2 p8-1
+1
+10 9
+1
+1 1 27 1 -1 62
+0
+end_operator
+begin_operator
+push o2 p8-2 p8-1
+1
+10 9
+1
+1 4 4 4 -1 64
+0
+end_operator
+begin_operator
+push o3 p8-2 p8-1
+1
+10 9
+1
+1 2 29 2 -1 33
+0
+end_operator
+begin_operator
+push o4 p8-2 p8-1
+1
+10 9
+1
+1 5 33 5 -1 42
+0
+end_operator
+begin_operator
+push o5 p8-2 p8-1
+1
+10 9
+1
+1 8 55 8 -1 31
+0
+end_operator
+begin_operator
+push o6 p8-2 p8-1
+1
+10 9
+1
+1 6 59 6 -1 13
+0
+end_operator
+begin_operator
+push o7 p8-2 p8-1
+1
+10 9
+1
+1 9 47 9 -1 31
+0
+end_operator
+begin_operator
+push o8 p8-2 p8-1
+1
+10 9
+1
+1 7 10 7 -1 17
+0
+end_operator
+begin_operator
+push o9 p8-2 p8-1
+1
+10 9
+1
+1 3 32 3 -1 21
+0
+end_operator
+begin_operator
+push o10 p8-2 p8-1
+1
+10 9
+1
+1 0 33 0 -1 43
+0
+end_operator
+begin_operator
+push o1 p8-2 p8-3
+1
+10 9
+1
+1 1 27 1 -1 19
+0
+end_operator
+begin_operator
+push o2 p8-2 p8-3
+1
+10 9
+1
+1 4 4 4 -1 2
+0
+end_operator
+begin_operator
+push o3 p8-2 p8-3
+1
+10 9
+1
+1 2 29 2 -1 25
+0
+end_operator
+begin_operator
+push o4 p8-2 p8-3
+1
+10 9
+1
+1 5 33 5 -1 37
+0
+end_operator
+begin_operator
+push o5 p8-2 p8-3
+1
+10 9
+1
+1 8 55 8 -1 45
+0
+end_operator
+begin_operator
+push o6 p8-2 p8-3
+1
+10 9
+1
+1 6 59 6 -1 0
+0
+end_operator
+begin_operator
+push o7 p8-2 p8-3
+1
+10 9
+1
+1 9 47 9 -1 41
+0
+end_operator
+begin_operator
+push o8 p8-2 p8-3
+1
+10 9
+1
+1 7 10 7 -1 14
+0
+end_operator
+begin_operator
+push o9 p8-2 p8-3
+1
+10 9
+1
+1 3 32 3 -1 26
+0
+end_operator
+begin_operator
+push o10 p8-2 p8-3
+1
+10 9
+1
+1 0 33 0 -1 40
+0
+end_operator
+begin_operator
+push o1 p8-6 p7-6
+1
+10 34
+1
+1 1 14 1 -1 26
+0
+end_operator
+begin_operator
+push o2 p8-6 p7-6
+1
+10 34
+1
+1 4 34 4 -1 6
+0
+end_operator
+begin_operator
+push o3 p8-6 p7-6
+1
+10 34
+1
+1 2 7 2 -1 41
+0
+end_operator
+begin_operator
+push o4 p8-6 p7-6
+1
+10 34
+1
+1 5 54 5 -1 18
+0
+end_operator
+begin_operator
+push o5 p8-6 p7-6
+1
+10 34
+1
+1 8 35 8 -1 49
+0
+end_operator
+begin_operator
+push o6 p8-6 p7-6
+1
+10 34
+1
+1 6 7 6 -1 18
+0
+end_operator
+begin_operator
+push o7 p8-6 p7-6
+1
+10 34
+1
+1 9 37 9 -1 2
+0
+end_operator
+begin_operator
+push o8 p8-6 p7-6
+1
+10 34
+1
+1 7 49 7 -1 57
+0
+end_operator
+begin_operator
+push o9 p8-6 p7-6
+1
+10 34
+1
+1 3 51 3 -1 31
+0
+end_operator
+begin_operator
+push o10 p8-6 p7-6
+1
+10 34
+1
+1 0 44 0 -1 34
+0
+end_operator
+begin_operator
+push o1 p8-6 p8-5
+1
+10 34
+1
+1 1 14 1 -1 24
+0
+end_operator
+begin_operator
+push o2 p8-6 p8-5
+1
+10 34
+1
+1 4 34 4 -1 37
+0
+end_operator
+begin_operator
+push o3 p8-6 p8-5
+1
+10 34
+1
+1 2 7 2 -1 36
+0
+end_operator
+begin_operator
+push o4 p8-6 p8-5
+1
+10 34
+1
+1 5 54 5 -1 3
+0
+end_operator
+begin_operator
+push o5 p8-6 p8-5
+1
+10 34
+1
+1 8 35 8 -1 43
+0
+end_operator
+begin_operator
+push o6 p8-6 p8-5
+1
+10 34
+1
+1 6 7 6 -1 3
+0
+end_operator
+begin_operator
+push o7 p8-6 p8-5
+1
+10 34
+1
+1 9 37 9 -1 43
+0
+end_operator
+begin_operator
+push o8 p8-6 p8-5
+1
+10 34
+1
+1 7 49 7 -1 60
+0
+end_operator
+begin_operator
+push o9 p8-6 p8-5
+1
+10 34
+1
+1 3 51 3 -1 44
+0
+end_operator
+begin_operator
+push o10 p8-6 p8-5
+1
+10 34
+1
+1 0 44 0 -1 53
+0
+end_operator
+begin_operator
+push o1 p8-6 p8-7
+1
+10 34
+1
+1 1 14 1 -1 17
+0
+end_operator
+begin_operator
+push o2 p8-6 p8-7
+1
+10 34
+1
+1 4 34 4 -1 41
+0
+end_operator
+begin_operator
+push o3 p8-6 p8-7
+1
+10 34
+1
+1 2 7 2 -1 2
+0
+end_operator
+begin_operator
+push o4 p8-6 p8-7
+1
+10 34
+1
+1 5 54 5 -1 64
+0
+end_operator
+begin_operator
+push o5 p8-6 p8-7
+1
+10 34
+1
+1 8 35 8 -1 28
+0
+end_operator
+begin_operator
+push o6 p8-6 p8-7
+1
+10 34
+1
+1 6 7 6 -1 19
+0
+end_operator
+begin_operator
+push o7 p8-6 p8-7
+1
+10 34
+1
+1 9 37 9 -1 33
+0
+end_operator
+begin_operator
+push o8 p8-6 p8-7
+1
+10 34
+1
+1 7 49 7 -1 56
+0
+end_operator
+begin_operator
+push o9 p8-6 p8-7
+1
+10 34
+1
+1 3 51 3 -1 53
+0
+end_operator
+begin_operator
+push o10 p8-6 p8-7
+1
+10 34
+1
+1 0 44 0 -1 49
+0
+end_operator
+begin_operator
+push o1 p7-1 p6-1
+1
+10 56
+1
+1 1 40 1 -1 1
+0
+end_operator
+begin_operator
+push o2 p7-1 p6-1
+1
+10 56
+1
+1 4 21 4 -1 50
+0
+end_operator
+begin_operator
+push o3 p7-1 p6-1
+1
+10 56
+1
+1 2 48 2 -1 8
+0
+end_operator
+begin_operator
+push o4 p7-1 p6-1
+1
+10 56
+1
+1 5 2 5 -1 22
+0
+end_operator
+begin_operator
+push o5 p7-1 p6-1
+1
+10 56
+1
+1 8 5 8 -1 27
+0
+end_operator
+begin_operator
+push o6 p7-1 p6-1
+1
+10 56
+1
+1 6 48 6 -1 47
+0
+end_operator
+begin_operator
+push o7 p7-1 p6-1
+1
+10 56
+1
+1 9 11 9 -1 28
+0
+end_operator
+begin_operator
+push o8 p7-1 p6-1
+1
+10 56
+1
+1 7 59 7 -1 28
+0
+end_operator
+begin_operator
+push o9 p7-1 p6-1
+1
+10 56
+1
+1 3 29 3 -1 41
+0
+end_operator
+begin_operator
+push o10 p7-1 p6-1
+1
+10 56
+1
+1 0 5 0 -1 56
+0
+end_operator
+begin_operator
+push o1 p7-1 p8-1
+1
+10 56
+1
+1 1 40 1 -1 62
+0
+end_operator
+begin_operator
+push o2 p7-1 p8-1
+1
+10 56
+1
+1 4 21 4 -1 64
+0
+end_operator
+begin_operator
+push o3 p7-1 p8-1
+1
+10 56
+1
+1 2 48 2 -1 33
+0
+end_operator
+begin_operator
+push o4 p7-1 p8-1
+1
+10 56
+1
+1 5 2 5 -1 42
+0
+end_operator
+begin_operator
+push o5 p7-1 p8-1
+1
+10 56
+1
+1 8 5 8 -1 31
+0
+end_operator
+begin_operator
+push o6 p7-1 p8-1
+1
+10 56
+1
+1 6 48 6 -1 13
+0
+end_operator
+begin_operator
+push o7 p7-1 p8-1
+1
+10 56
+1
+1 9 11 9 -1 31
+0
+end_operator
+begin_operator
+push o8 p7-1 p8-1
+1
+10 56
+1
+1 7 59 7 -1 17
+0
+end_operator
+begin_operator
+push o9 p7-1 p8-1
+1
+10 56
+1
+1 3 29 3 -1 21
+0
+end_operator
+begin_operator
+push o10 p7-1 p8-1
+1
+10 56
+1
+1 0 5 0 -1 43
+0
+end_operator
+begin_operator
+push o1 p7-1 p7-2
+1
+10 56
+1
+1 1 40 1 -1 18
+0
+end_operator
+begin_operator
+push o2 p7-1 p7-2
+1
+10 56
+1
+1 4 21 4 -1 15
+0
+end_operator
+begin_operator
+push o3 p7-1 p7-2
+1
+10 56
+1
+1 2 48 2 -1 43
+0
+end_operator
+begin_operator
+push o4 p7-1 p7-2
+1
+10 56
+1
+1 5 2 5 -1 8
+0
+end_operator
+begin_operator
+push o5 p7-1 p7-2
+1
+10 56
+1
+1 8 5 8 -1 51
+0
+end_operator
+begin_operator
+push o6 p7-1 p7-2
+1
+10 56
+1
+1 6 48 6 -1 39
+0
+end_operator
+begin_operator
+push o7 p7-1 p7-2
+1
+10 56
+1
+1 9 11 9 -1 20
+0
+end_operator
+begin_operator
+push o8 p7-1 p7-2
+1
+10 56
+1
+1 7 59 7 -1 4
+0
+end_operator
+begin_operator
+push o9 p7-1 p7-2
+1
+10 56
+1
+1 3 29 3 -1 19
+0
+end_operator
+begin_operator
+push o10 p7-1 p7-2
+1
+10 56
+1
+1 0 5 0 -1 13
+0
+end_operator
+begin_operator
+push o1 p7-7 p6-7
+1
+10 5
+1
+1 1 33 1 -1 5
+0
+end_operator
+begin_operator
+push o2 p7-7 p6-7
+1
+10 5
+1
+1 4 1 4 -1 22
+0
+end_operator
+begin_operator
+push o3 p7-7 p6-7
+1
+10 5
+1
+1 2 39 2 -1 54
+0
+end_operator
+begin_operator
+push o4 p7-7 p6-7
+1
+10 5
+1
+1 5 12 5 -1 49
+0
+end_operator
+begin_operator
+push o5 p7-7 p6-7
+1
+10 5
+1
+1 8 8 8 -1 59
+0
+end_operator
+begin_operator
+push o6 p7-7 p6-7
+1
+10 5
+1
+1 6 14 6 -1 51
+0
+end_operator
+begin_operator
+push o7 p7-7 p6-7
+1
+10 5
+1
+1 9 7 9 -1 30
+0
+end_operator
+begin_operator
+push o8 p7-7 p6-7
+1
+10 5
+1
+1 7 61 7 -1 12
+0
+end_operator
+begin_operator
+push o9 p7-7 p6-7
+1
+10 5
+1
+1 3 35 3 -1 57
+0
+end_operator
+begin_operator
+push o10 p7-7 p6-7
+1
+10 5
+1
+1 0 36 0 -1 6
+0
+end_operator
+begin_operator
+push o1 p7-7 p8-7
+1
+10 5
+1
+1 1 33 1 -1 17
+0
+end_operator
+begin_operator
+push o2 p7-7 p8-7
+1
+10 5
+1
+1 4 1 4 -1 41
+0
+end_operator
+begin_operator
+push o3 p7-7 p8-7
+1
+10 5
+1
+1 2 39 2 -1 2
+0
+end_operator
+begin_operator
+push o4 p7-7 p8-7
+1
+10 5
+1
+1 5 12 5 -1 64
+0
+end_operator
+begin_operator
+push o5 p7-7 p8-7
+1
+10 5
+1
+1 8 8 8 -1 28
+0
+end_operator
+begin_operator
+push o6 p7-7 p8-7
+1
+10 5
+1
+1 6 14 6 -1 19
+0
+end_operator
+begin_operator
+push o7 p7-7 p8-7
+1
+10 5
+1
+1 9 7 9 -1 33
+0
+end_operator
+begin_operator
+push o8 p7-7 p8-7
+1
+10 5
+1
+1 7 61 7 -1 56
+0
+end_operator
+begin_operator
+push o9 p7-7 p8-7
+1
+10 5
+1
+1 3 35 3 -1 53
+0
+end_operator
+begin_operator
+push o10 p7-7 p8-7
+1
+10 5
+1
+1 0 36 0 -1 49
+0
+end_operator
+begin_operator
+push o1 p7-7 p7-6
+1
+10 5
+1
+1 1 33 1 -1 26
+0
+end_operator
+begin_operator
+push o2 p7-7 p7-6
+1
+10 5
+1
+1 4 1 4 -1 6
+0
+end_operator
+begin_operator
+push o3 p7-7 p7-6
+1
+10 5
+1
+1 2 39 2 -1 41
+0
+end_operator
+begin_operator
+push o4 p7-7 p7-6
+1
+10 5
+1
+1 5 12 5 -1 18
+0
+end_operator
+begin_operator
+push o5 p7-7 p7-6
+1
+10 5
+1
+1 8 8 8 -1 49
+0
+end_operator
+begin_operator
+push o6 p7-7 p7-6
+1
+10 5
+1
+1 6 14 6 -1 18
+0
+end_operator
+begin_operator
+push o7 p7-7 p7-6
+1
+10 5
+1
+1 9 7 9 -1 2
+0
+end_operator
+begin_operator
+push o8 p7-7 p7-6
+1
+10 5
+1
+1 7 61 7 -1 57
+0
+end_operator
+begin_operator
+push o9 p7-7 p7-6
+1
+10 5
+1
+1 3 35 3 -1 31
+0
+end_operator
+begin_operator
+push o10 p7-7 p7-6
+1
+10 5
+1
+1 0 36 0 -1 34
+0
+end_operator
+begin_operator
+push o1 p7-7 p7-8
+1
+10 5
+1
+1 1 33 1 -1 23
+0
+end_operator
+begin_operator
+push o2 p7-7 p7-8
+1
+10 5
+1
+1 4 1 4 -1 36
+0
+end_operator
+begin_operator
+push o3 p7-7 p7-8
+1
+10 5
+1
+1 2 39 2 -1 38
+0
+end_operator
+begin_operator
+push o4 p7-7 p7-8
+1
+10 5
+1
+1 5 12 5 -1 40
+0
+end_operator
+begin_operator
+push o5 p7-7 p7-8
+1
+10 5
+1
+1 8 8 8 -1 50
+0
+end_operator
+begin_operator
+push o6 p7-7 p7-8
+1
+10 5
+1
+1 6 14 6 -1 9
+0
+end_operator
+begin_operator
+push o7 p7-7 p7-8
+1
+10 5
+1
+1 9 7 9 -1 35
+0
+end_operator
+begin_operator
+push o8 p7-7 p7-8
+1
+10 5
+1
+1 7 61 7 -1 5
+0
+end_operator
+begin_operator
+push o9 p7-7 p7-8
+1
+10 5
+1
+1 3 35 3 -1 1
+0
+end_operator
+begin_operator
+push o10 p7-7 p7-8
+1
+10 5
+1
+1 0 36 0 -1 46
+0
+end_operator
+begin_operator
+push o1 p6-8 p5-8
+1
+10 48
+1
+1 1 53 1 -1 13
+0
+end_operator
+begin_operator
+push o2 p6-8 p5-8
+1
+10 48
+1
+1 4 57 4 -1 39
+0
+end_operator
+begin_operator
+push o3 p6-8 p5-8
+1
+10 48
+1
+1 2 19 2 -1 53
+0
+end_operator
+begin_operator
+push o4 p6-8 p5-8
+1
+10 48
+1
+1 5 55 5 -1 57
+0
+end_operator
+begin_operator
+push o5 p6-8 p5-8
+1
+10 48
+1
+1 8 18 8 -1 53
+0
+end_operator
+begin_operator
+push o6 p6-8 p5-8
+1
+10 48
+1
+1 6 20 6 -1 64
+0
+end_operator
+begin_operator
+push o7 p6-8 p5-8
+1
+10 48
+1
+1 9 57 9 -1 18
+0
+end_operator
+begin_operator
+push o8 p6-8 p5-8
+1
+10 48
+1
+1 7 26 7 -1 18
+0
+end_operator
+begin_operator
+push o9 p6-8 p5-8
+1
+10 48
+1
+1 3 0 3 -1 52
+0
+end_operator
+begin_operator
+push o10 p6-8 p5-8
+1
+10 48
+1
+1 0 26 0 -1 14
+0
+end_operator
+begin_operator
+push o1 p6-8 p7-8
+1
+10 48
+1
+1 1 53 1 -1 23
+0
+end_operator
+begin_operator
+push o2 p6-8 p7-8
+1
+10 48
+1
+1 4 57 4 -1 36
+0
+end_operator
+begin_operator
+push o3 p6-8 p7-8
+1
+10 48
+1
+1 2 19 2 -1 38
+0
+end_operator
+begin_operator
+push o4 p6-8 p7-8
+1
+10 48
+1
+1 5 55 5 -1 40
+0
+end_operator
+begin_operator
+push o5 p6-8 p7-8
+1
+10 48
+1
+1 8 18 8 -1 50
+0
+end_operator
+begin_operator
+push o6 p6-8 p7-8
+1
+10 48
+1
+1 6 20 6 -1 9
+0
+end_operator
+begin_operator
+push o7 p6-8 p7-8
+1
+10 48
+1
+1 9 57 9 -1 35
+0
+end_operator
+begin_operator
+push o8 p6-8 p7-8
+1
+10 48
+1
+1 7 26 7 -1 5
+0
+end_operator
+begin_operator
+push o9 p6-8 p7-8
+1
+10 48
+1
+1 3 0 3 -1 1
+0
+end_operator
+begin_operator
+push o10 p6-8 p7-8
+1
+10 48
+1
+1 0 26 0 -1 46
+0
+end_operator
+begin_operator
+push o1 p6-8 p6-7
+1
+10 48
+1
+1 1 53 1 -1 5
+0
+end_operator
+begin_operator
+push o2 p6-8 p6-7
+1
+10 48
+1
+1 4 57 4 -1 22
+0
+end_operator
+begin_operator
+push o3 p6-8 p6-7
+1
+10 48
+1
+1 2 19 2 -1 54
+0
+end_operator
+begin_operator
+push o4 p6-8 p6-7
+1
+10 48
+1
+1 5 55 5 -1 49
+0
+end_operator
+begin_operator
+push o5 p6-8 p6-7
+1
+10 48
+1
+1 8 18 8 -1 59
+0
+end_operator
+begin_operator
+push o6 p6-8 p6-7
+1
+10 48
+1
+1 6 20 6 -1 51
+0
+end_operator
+begin_operator
+push o7 p6-8 p6-7
+1
+10 48
+1
+1 9 57 9 -1 30
+0
+end_operator
+begin_operator
+push o8 p6-8 p6-7
+1
+10 48
+1
+1 7 26 7 -1 12
+0
+end_operator
+begin_operator
+push o9 p6-8 p6-7
+1
+10 48
+1
+1 3 0 3 -1 57
+0
+end_operator
+begin_operator
+push o10 p6-8 p6-7
+1
+10 48
+1
+1 0 26 0 -1 6
+0
+end_operator
+begin_operator
+move p1-8 p2-8
+1
+10 8
+1
+0 10 8 59
+0
+end_operator
+begin_operator
+move p1-8 p1-7
+1
+10 8
+1
+0 10 8 51
+0
+end_operator
+begin_operator
+move p8-1 p7-1
+1
+10 35
+1
+0 10 35 56
+0
+end_operator
+begin_operator
+move p8-1 p8-2
+1
+10 35
+1
+0 10 35 9
+0
+end_operator
+begin_operator
+move p8-7 p7-7
+1
+10 28
+1
+0 10 28 5
+0
+end_operator
+begin_operator
+move p8-7 p8-6
+1
+10 28
+1
+0 10 28 34
+0
+end_operator
+begin_operator
+move p8-7 p8-8
+1
+10 28
+1
+0 10 28 21
+0
+end_operator
+begin_operator
+move p7-8 p6-8
+1
+10 23
+1
+0 10 23 48
+0
+end_operator
+begin_operator
+move p7-8 p8-8
+1
+10 23
+1
+0 10 23 21
+0
+end_operator
+begin_operator
+move p7-8 p7-7
+1
+10 23
+1
+0 10 23 5
+0
+end_operator
+begin_operator
+push o1 p1-8 p2-8
+1
+10 8
+1
+1 1 10 1 -1 3
+0
+end_operator
+begin_operator
+push o2 p1-8 p2-8
+1
+10 8
+1
+1 4 32 4 -1 27
+0
+end_operator
+begin_operator
+push o3 p1-8 p2-8
+1
+10 8
+1
+1 2 18 2 -1 5
+0
+end_operator
+begin_operator
+push o4 p1-8 p2-8
+1
+10 8
+1
+1 5 19 5 -1 38
+0
+end_operator
+begin_operator
+push o5 p1-8 p2-8
+1
+10 8
+1
+1 8 60 8 -1 16
+0
+end_operator
+begin_operator
+push o6 p1-8 p2-8
+1
+10 8
+1
+1 6 21 6 -1 4
+0
+end_operator
+begin_operator
+push o7 p1-8 p2-8
+1
+10 8
+1
+1 9 46 9 -1 64
+0
+end_operator
+begin_operator
+push o8 p1-8 p2-8
+1
+10 8
+1
+1 7 45 7 -1 40
+0
+end_operator
+begin_operator
+push o9 p1-8 p2-8
+1
+10 8
+1
+1 3 36 3 -1 10
+0
+end_operator
+begin_operator
+push o10 p1-8 p2-8
+1
+10 8
+1
+1 0 19 0 -1 54
+0
+end_operator
+begin_operator
+push o1 p1-8 p1-7
+1
+10 8
+1
+1 1 10 1 -1 36
+0
+end_operator
+begin_operator
+push o2 p1-8 p1-7
+1
+10 8
+1
+1 4 32 4 -1 26
+0
+end_operator
+begin_operator
+push o3 p1-8 p1-7
+1
+10 8
+1
+1 2 18 2 -1 55
+0
+end_operator
+begin_operator
+push o4 p1-8 p1-7
+1
+10 8
+1
+1 5 19 5 -1 25
+0
+end_operator
+begin_operator
+push o5 p1-8 p1-7
+1
+10 8
+1
+1 8 60 8 -1 12
+0
+end_operator
+begin_operator
+push o6 p1-8 p1-7
+1
+10 8
+1
+1 6 21 6 -1 50
+0
+end_operator
+begin_operator
+push o7 p1-8 p1-7
+1
+10 8
+1
+1 9 46 9 -1 4
+0
+end_operator
+begin_operator
+push o8 p1-8 p1-7
+1
+10 8
+1
+1 7 45 7 -1 31
+0
+end_operator
+begin_operator
+push o9 p1-8 p1-7
+1
+10 8
+1
+1 3 36 3 -1 22
+0
+end_operator
+begin_operator
+push o10 p1-8 p1-7
+1
+10 8
+1
+1 0 19 0 -1 11
+0
+end_operator
+begin_operator
+push o1 p8-1 p7-1
+1
+10 35
+1
+1 1 62 1 -1 40
+0
+end_operator
+begin_operator
+push o2 p8-1 p7-1
+1
+10 35
+1
+1 4 64 4 -1 21
+0
+end_operator
+begin_operator
+push o3 p8-1 p7-1
+1
+10 35
+1
+1 2 33 2 -1 48
+0
+end_operator
+begin_operator
+push o4 p8-1 p7-1
+1
+10 35
+1
+1 5 42 5 -1 2
+0
+end_operator
+begin_operator
+push o5 p8-1 p7-1
+1
+10 35
+1
+1 8 31 8 -1 5
+0
+end_operator
+begin_operator
+push o6 p8-1 p7-1
+1
+10 35
+1
+1 6 13 6 -1 48
+0
+end_operator
+begin_operator
+push o7 p8-1 p7-1
+1
+10 35
+1
+1 9 31 9 -1 11
+0
+end_operator
+begin_operator
+push o8 p8-1 p7-1
+1
+10 35
+1
+1 7 17 7 -1 59
+0
+end_operator
+begin_operator
+push o9 p8-1 p7-1
+1
+10 35
+1
+1 3 21 3 -1 29
+0
+end_operator
+begin_operator
+push o10 p8-1 p7-1
+1
+10 35
+1
+1 0 43 0 -1 5
+0
+end_operator
+begin_operator
+push o1 p8-1 p8-2
+1
+10 35
+1
+1 1 62 1 -1 27
+0
+end_operator
+begin_operator
+push o2 p8-1 p8-2
+1
+10 35
+1
+1 4 64 4 -1 4
+0
+end_operator
+begin_operator
+push o3 p8-1 p8-2
+1
+10 35
+1
+1 2 33 2 -1 29
+0
+end_operator
+begin_operator
+push o4 p8-1 p8-2
+1
+10 35
+1
+1 5 42 5 -1 33
+0
+end_operator
+begin_operator
+push o5 p8-1 p8-2
+1
+10 35
+1
+1 8 31 8 -1 55
+0
+end_operator
+begin_operator
+push o6 p8-1 p8-2
+1
+10 35
+1
+1 6 13 6 -1 59
+0
+end_operator
+begin_operator
+push o7 p8-1 p8-2
+1
+10 35
+1
+1 9 31 9 -1 47
+0
+end_operator
+begin_operator
+push o8 p8-1 p8-2
+1
+10 35
+1
+1 7 17 7 -1 10
+0
+end_operator
+begin_operator
+push o9 p8-1 p8-2
+1
+10 35
+1
+1 3 21 3 -1 32
+0
+end_operator
+begin_operator
+push o10 p8-1 p8-2
+1
+10 35
+1
+1 0 43 0 -1 33
+0
+end_operator
+begin_operator
+push o1 p8-7 p7-7
+1
+10 28
+1
+1 1 17 1 -1 33
+0
+end_operator
+begin_operator
+push o2 p8-7 p7-7
+1
+10 28
+1
+1 4 41 4 -1 1
+0
+end_operator
+begin_operator
+push o3 p8-7 p7-7
+1
+10 28
+1
+1 2 2 2 -1 39
+0
+end_operator
+begin_operator
+push o4 p8-7 p7-7
+1
+10 28
+1
+1 5 64 5 -1 12
+0
+end_operator
+begin_operator
+push o5 p8-7 p7-7
+1
+10 28
+1
+1 8 28 8 -1 8
+0
+end_operator
+begin_operator
+push o6 p8-7 p7-7
+1
+10 28
+1
+1 6 19 6 -1 14
+0
+end_operator
+begin_operator
+push o7 p8-7 p7-7
+1
+10 28
+1
+1 9 33 9 -1 7
+0
+end_operator
+begin_operator
+push o8 p8-7 p7-7
+1
+10 28
+1
+1 7 56 7 -1 61
+0
+end_operator
+begin_operator
+push o9 p8-7 p7-7
+1
+10 28
+1
+1 3 53 3 -1 35
+0
+end_operator
+begin_operator
+push o10 p8-7 p7-7
+1
+10 28
+1
+1 0 49 0 -1 36
+0
+end_operator
+begin_operator
+push o1 p8-7 p8-6
+1
+10 28
+1
+1 1 17 1 -1 14
+0
+end_operator
+begin_operator
+push o2 p8-7 p8-6
+1
+10 28
+1
+1 4 41 4 -1 34
+0
+end_operator
+begin_operator
+push o3 p8-7 p8-6
+1
+10 28
+1
+1 2 2 2 -1 7
+0
+end_operator
+begin_operator
+push o4 p8-7 p8-6
+1
+10 28
+1
+1 5 64 5 -1 54
+0
+end_operator
+begin_operator
+push o5 p8-7 p8-6
+1
+10 28
+1
+1 8 28 8 -1 35
+0
+end_operator
+begin_operator
+push o6 p8-7 p8-6
+1
+10 28
+1
+1 6 19 6 -1 7
+0
+end_operator
+begin_operator
+push o7 p8-7 p8-6
+1
+10 28
+1
+1 9 33 9 -1 37
+0
+end_operator
+begin_operator
+push o8 p8-7 p8-6
+1
+10 28
+1
+1 7 56 7 -1 49
+0
+end_operator
+begin_operator
+push o9 p8-7 p8-6
+1
+10 28
+1
+1 3 53 3 -1 51
+0
+end_operator
+begin_operator
+push o10 p8-7 p8-6
+1
+10 28
+1
+1 0 49 0 -1 44
+0
+end_operator
+begin_operator
+push o1 p8-7 p8-8
+1
+10 28
+1
+1 1 17 1 -1 0
+0
+end_operator
+begin_operator
+push o2 p8-7 p8-8
+1
+10 28
+1
+1 4 41 4 -1 49
+0
+end_operator
+begin_operator
+push o3 p8-7 p8-8
+1
+10 28
+1
+1 2 2 2 -1 4
+0
+end_operator
+begin_operator
+push o4 p8-7 p8-8
+1
+10 28
+1
+1 5 64 5 -1 59
+0
+end_operator
+begin_operator
+push o5 p8-7 p8-8
+1
+10 28
+1
+1 8 28 8 -1 33
+0
+end_operator
+begin_operator
+push o6 p8-7 p8-8
+1
+10 28
+1
+1 6 19 6 -1 30
+0
+end_operator
+begin_operator
+push o7 p8-7 p8-8
+1
+10 28
+1
+1 9 33 9 -1 13
+0
+end_operator
+begin_operator
+push o8 p8-7 p8-8
+1
+10 28
+1
+1 7 56 7 -1 20
+0
+end_operator
+begin_operator
+push o9 p8-7 p8-8
+1
+10 28
+1
+1 3 53 3 -1 61
+0
+end_operator
+begin_operator
+push o10 p8-7 p8-8
+1
+10 28
+1
+1 0 49 0 -1 20
+0
+end_operator
+begin_operator
+push o1 p7-8 p6-8
+1
+10 23
+1
+1 1 23 1 -1 53
+0
+end_operator
+begin_operator
+push o2 p7-8 p6-8
+1
+10 23
+1
+1 4 36 4 -1 57
+0
+end_operator
+begin_operator
+push o3 p7-8 p6-8
+1
+10 23
+1
+1 2 38 2 -1 19
+0
+end_operator
+begin_operator
+push o4 p7-8 p6-8
+1
+10 23
+1
+1 5 40 5 -1 55
+0
+end_operator
+begin_operator
+push o5 p7-8 p6-8
+1
+10 23
+1
+1 8 50 8 -1 18
+0
+end_operator
+begin_operator
+push o6 p7-8 p6-8
+1
+10 23
+1
+1 6 9 6 -1 20
+0
+end_operator
+begin_operator
+push o7 p7-8 p6-8
+1
+10 23
+1
+1 9 35 9 -1 57
+0
+end_operator
+begin_operator
+push o8 p7-8 p6-8
+1
+10 23
+1
+1 7 5 7 -1 26
+0
+end_operator
+begin_operator
+push o9 p7-8 p6-8
+1
+10 23
+1
+1 3 1 3 -1 0
+0
+end_operator
+begin_operator
+push o10 p7-8 p6-8
+1
+10 23
+1
+1 0 46 0 -1 26
+0
+end_operator
+begin_operator
+push o1 p7-8 p8-8
+1
+10 23
+1
+1 1 23 1 -1 0
+0
+end_operator
+begin_operator
+push o2 p7-8 p8-8
+1
+10 23
+1
+1 4 36 4 -1 49
+0
+end_operator
+begin_operator
+push o3 p7-8 p8-8
+1
+10 23
+1
+1 2 38 2 -1 4
+0
+end_operator
+begin_operator
+push o4 p7-8 p8-8
+1
+10 23
+1
+1 5 40 5 -1 59
+0
+end_operator
+begin_operator
+push o5 p7-8 p8-8
+1
+10 23
+1
+1 8 50 8 -1 33
+0
+end_operator
+begin_operator
+push o6 p7-8 p8-8
+1
+10 23
+1
+1 6 9 6 -1 30
+0
+end_operator
+begin_operator
+push o7 p7-8 p8-8
+1
+10 23
+1
+1 9 35 9 -1 13
+0
+end_operator
+begin_operator
+push o8 p7-8 p8-8
+1
+10 23
+1
+1 7 5 7 -1 20
+0
+end_operator
+begin_operator
+push o9 p7-8 p8-8
+1
+10 23
+1
+1 3 1 3 -1 61
+0
+end_operator
+begin_operator
+push o10 p7-8 p8-8
+1
+10 23
+1
+1 0 46 0 -1 20
+0
+end_operator
+begin_operator
+push o1 p7-8 p7-7
+1
+10 23
+1
+1 1 23 1 -1 33
+0
+end_operator
+begin_operator
+push o2 p7-8 p7-7
+1
+10 23
+1
+1 4 36 4 -1 1
+0
+end_operator
+begin_operator
+push o3 p7-8 p7-7
+1
+10 23
+1
+1 2 38 2 -1 39
+0
+end_operator
+begin_operator
+push o4 p7-8 p7-7
+1
+10 23
+1
+1 5 40 5 -1 12
+0
+end_operator
+begin_operator
+push o5 p7-8 p7-7
+1
+10 23
+1
+1 8 50 8 -1 8
+0
+end_operator
+begin_operator
+push o6 p7-8 p7-7
+1
+10 23
+1
+1 6 9 6 -1 14
+0
+end_operator
+begin_operator
+push o7 p7-8 p7-7
+1
+10 23
+1
+1 9 35 9 -1 7
+0
+end_operator
+begin_operator
+push o8 p7-8 p7-7
+1
+10 23
+1
+1 7 5 7 -1 61
+0
+end_operator
+begin_operator
+push o9 p7-8 p7-7
+1
+10 23
+1
+1 3 1 3 -1 35
+0
+end_operator
+begin_operator
+push o10 p7-8 p7-7
+1
+10 23
+1
+1 0 46 0 -1 36
+0
+end_operator
+begin_operator
+move p8-8 p7-8
+1
+10 21
+1
+0 10 21 23
+0
+end_operator
+begin_operator
+move p8-8 p8-7
+1
+10 21
+1
+0 10 21 28
+0
+end_operator
+begin_operator
+pickup o1 p8-8
+1
+10 21
+1
+1 1 0 1 -1 4
+0
+end_operator
+begin_operator
+pickup o2 p8-8
+1
+10 21
+1
+1 4 49 4 -1 61
+0
+end_operator
+begin_operator
+pickup o3 p8-8
+1
+10 21
+1
+1 2 4 2 -1 46
+0
+end_operator
+begin_operator
+pickup o4 p8-8
+1
+10 21
+1
+1 5 59 5 -1 11
+0
+end_operator
+begin_operator
+pickup o5 p8-8
+1
+10 21
+1
+1 8 33 8 -1 56
+0
+end_operator
+begin_operator
+pickup o6 p8-8
+1
+10 21
+1
+1 6 30 6 -1 35
+0
+end_operator
+begin_operator
+pickup o7 p8-8
+1
+10 21
+1
+1 9 13 9 -1 22
+0
+end_operator
+begin_operator
+pickup o8 p8-8
+1
+10 21
+1
+1 7 20 7 -1 7
+0
+end_operator
+begin_operator
+pickup o9 p8-8
+1
+10 21
+1
+1 3 61 3 -1 56
+0
+end_operator
+begin_operator
+pickup o10 p8-8
+1
+10 21
+1
+1 0 20 0 -1 17
+0
+end_operator
+begin_operator
+push o1 p8-8 p7-8
+1
+10 21
+1
+1 1 0 1 -1 23
+0
+end_operator
+begin_operator
+push o2 p8-8 p7-8
+1
+10 21
+1
+1 4 49 4 -1 36
+0
+end_operator
+begin_operator
+push o3 p8-8 p7-8
+1
+10 21
+1
+1 2 4 2 -1 38
+0
+end_operator
+begin_operator
+push o4 p8-8 p7-8
+1
+10 21
+1
+1 5 59 5 -1 40
+0
+end_operator
+begin_operator
+push o5 p8-8 p7-8
+1
+10 21
+1
+1 8 33 8 -1 50
+0
+end_operator
+begin_operator
+push o6 p8-8 p7-8
+1
+10 21
+1
+1 6 30 6 -1 9
+0
+end_operator
+begin_operator
+push o7 p8-8 p7-8
+1
+10 21
+1
+1 9 13 9 -1 35
+0
+end_operator
+begin_operator
+push o8 p8-8 p7-8
+1
+10 21
+1
+1 7 20 7 -1 5
+0
+end_operator
+begin_operator
+push o9 p8-8 p7-8
+1
+10 21
+1
+1 3 61 3 -1 1
+0
+end_operator
+begin_operator
+push o10 p8-8 p7-8
+1
+10 21
+1
+1 0 20 0 -1 46
+0
+end_operator
+begin_operator
+push o1 p8-8 p8-7
+1
+10 21
+1
+1 1 0 1 -1 17
+0
+end_operator
+begin_operator
+push o2 p8-8 p8-7
+1
+10 21
+1
+1 4 49 4 -1 41
+0
+end_operator
+begin_operator
+push o3 p8-8 p8-7
+1
+10 21
+1
+1 2 4 2 -1 2
+0
+end_operator
+begin_operator
+push o4 p8-8 p8-7
+1
+10 21
+1
+1 5 59 5 -1 64
+0
+end_operator
+begin_operator
+push o5 p8-8 p8-7
+1
+10 21
+1
+1 8 33 8 -1 28
+0
+end_operator
+begin_operator
+push o6 p8-8 p8-7
+1
+10 21
+1
+1 6 30 6 -1 19
+0
+end_operator
+begin_operator
+push o7 p8-8 p8-7
+1
+10 21
+1
+1 9 13 9 -1 33
+0
+end_operator
+begin_operator
+push o8 p8-8 p8-7
+1
+10 21
+1
+1 7 20 7 -1 56
+0
+end_operator
+begin_operator
+push o9 p8-8 p8-7
+1
+10 21
+1
+1 3 61 3 -1 53
+0
+end_operator
+begin_operator
+push o10 p8-8 p8-7
+1
+10 21
+1
+1 0 20 0 -1 49
 0
 end_operator
 0
