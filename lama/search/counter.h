@@ -25,6 +25,15 @@ struct oneof_item
         val.clear();
     }
 };
+/*oneofs数据结构规则*/
+/*
+orlens:其中or子句的个数
+lens：oneof子句的个数
+oneof：表示每一个or或oneof
+       len-oneof中的参数个数
+       size-第i个参数中多值变量的个数
+       var/val-依次存取所有的多值变量
+*/
 
 struct ONEOFS
 {
@@ -162,6 +171,9 @@ public:
     void regretCurFact(const Operator *a,set<string> *preference_var,pair<int,int> now_facts,set<pair<int,int> > *new_facts,int time_stept);
     void optimizePlan(Plan plan);
     void optimizePlantest(Plan plan);
+    void testPlanisvalid(Plan plan);
+
+    void optimizePlanByConformant(Plan plan);
     bool invokeZ3();
     void clearAll(){
         init_smt.clear();

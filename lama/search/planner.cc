@@ -238,9 +238,9 @@ int main(int argc, const char **argv) {
 		bool ctask;
 		//times(&search_start);
 		/*不断对第一个状态进行求解，ctask为false时，一直循环*/
-		for(int i=0;i<g_variable_domain.size();i++){
-			cout<<i<<"-"<<g_variable_domain[i]<<endl;
-		}
+		// for(int i=0;i<g_variable_domain.size();i++){
+		// 	cout<<i<<"-"<<g_variable_domain[i]<<endl;
+		// }
 		/*这里要调用一次反例求解，得到一个初始状态*/
 		g_initial_state->dump();
 		vector<const Operator *> Plan;
@@ -373,13 +373,12 @@ bool sovle_counter(vector<const Operator *> oldplan){
      /*这个也是初始状态*/
 	 check_plan_state = new State();
      check_plan_state->assign(*g_initial_state);
-	 subplan.insert(subplan.end(),plan.begin(),plan.end());
 	 plan.clear();
+	 plan.insert(plan.end(),subplan.begin(),subplan.end());
 	 for(map<string,state_var>::iterator t=counter->appearcounter.begin();t!=counter->appearcounter.end();t++){
 		/*只处理被约束的状态*/
 		if(t->second.frequency<2)
 			continue;
-		plan.insert(plan.end(),subplan.begin(),subplan.end());
 		check_plan_state->vars=t->second.vars;
 		/*检查该状态是否能到达目标状态*/
 		for(int i=0;i<plan.size();i++)
@@ -399,10 +398,13 @@ bool sovle_counter(vector<const Operator *> oldplan){
 			}
 		}
 		/*检查该状态是否达到目标*/
+		
 		if(check_plan_state->satisfy_subgoal(g_goal))
 		{
+			cout<<"issatisfy:1"<<endl;
 			continue;
 		}
+		cout<<"issatisfy:0"<<endl;
 		
 		previous_state->assign(*g_initial_state);
 		current_state->vars=t->second.vars;		
@@ -535,14 +537,16 @@ bool sovle_counter(vector<const Operator *> oldplan){
 		
 		/*将新形成的plan与之前的plan连接*/
 		subplan.insert(subplan.end(),subsubengine->get_plan().begin(),subsubengine->get_plan().end());
+		plan.insert(plan.end(),subplan.begin(),subplan.end());
 		// cout<<"4.plan"<<endl;
 		// printPlan(subplan);
 		/*此状态前满足的状态*/
 		g_initial_state->vars=t->second.vars;
 		delete subsubengine;
 	}
-	plan.insert(plan.end(),subplan.begin(),subplan.end());
-	counter->optimizePlantest(plan);
+	counter->newplan.insert(counter->newplan.end(),plan.begin(),plan.end());
+
+
 	return true;
 }
 
@@ -563,11 +567,11 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	 int belief_size = 0;
      int last_modified = 0;
      bool valid_plan = false;
-     
+	
 	
 	 /*将s0的plan插入*/
      subplan.insert(subplan.end(),subengine->get_plan().begin(),subengine->get_plan().end());
-
+	 
 	 /*将当前状态赋值为初始状态*/
      current_state = new State(); 
      current_state->assign(*g_initial_state);
@@ -579,6 +583,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
      check_plan_state->assign(*g_initial_state);
 	//  subplan.insert(subplan.end(),plan.begin(),plan.end());
 	 printPlan(subplan);
+	 /*清空反例集*/
+	 counter->appearcounter.clear();
 	 plan.clear();
 	 for(;;){
 		iteration++;
@@ -808,7 +814,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	/*迭代完成后，判断反例集合是否能解决，如果有未完成的，还要对这一部分进行求解*/
 	if(!counter->counterissolvered){
 		cout<<"还不是最终解，对反例中不能解的状态继续求解"<<endl;
-		int sovle = sovle_counter(plan);
+		bool sovle = sovle_counter(plan);
 		plan.clear();
 		plan.insert(plan.end(),counter->newplan.begin(),counter->newplan.end());
 	}
@@ -820,7 +826,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
     outfile.open("finalplan", ios::out);
     for(int k=0;k<plan.size();k++)
     {
-		cout << plan[k]->get_name() << endl;
+		// cout << plan[k]->get_name() << endl;
 		outfile << plan[k]->get_name() << endl;
     }
     outfile.close();     
@@ -832,8 +838,9 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	for(map<string,state_var>::iterator t=counter->appearcounter.begin();t!=counter->appearcounter.end();t++){
 		// cout<<"状态"<<k<<"出现在反例集中的次数："<<t->second.frequency<<endl;
 		if(t->second.frequency>1)
-			k++;
+			k++; 
 	}
+	cout<<"最终反例集大小:"<<counter->appearcounter.size()<<endl;
 	cout<<"反例集中出现次数大于1的反例数:"<<k<<endl;
 	cout<<"检测到可精简plan次数:"<<counter->sum<<endl;
 	cout<<"belief_size:"<<counter->getBelief_size()<<endl;
@@ -842,6 +849,10 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	cout<<"iteration:"<<iteration<<endl;
 	cout<<"fail_time:"<<fail_time<<endl;
 	cout<<"counter time:"<<counter->getTotal_counter()/ 1000.0 << " seconds" << endl;
+
+	// counter->testPlanisvalid(plan);
+
+
 	//ofstream outfile;       
 	outfile.open("C_Plan", ios::out);
 	int numberofactions = 0;

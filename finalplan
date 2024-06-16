@@ -1,144 +1,18 @@
-goto_light l1 l3
-goto_light l3 l2
-open_gate l2 k0
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l1
-open_gate l1 k2
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l3
-open_gate l3 k1
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-open_gate l3 k0
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l2
-open_gate l2 k3
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l1
-open_gate l1 k2
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l2
-open_gate l2 k1
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-open_gate l2 k3
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l1
-open_gate l1 k2
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-open_gate l1 k0
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l2
-open_gate l2 k3
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l3
-open_gate l3 k1
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-open_gate l3 k3
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l2
-open_gate l2 k1
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l1
-open_gate l1 k2
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l3
-open_gate l3 k3
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l1
-open_gate l1 k1
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l3
-open_gate l3 k3
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l2
-open_gate l2 k2
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l1
-open_gate l1 k3
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l2
-open_gate l2 k1
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l3
-open_gate l3 k3
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l2
-open_gate l2 k3
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-open_gate l2 k2
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l3
-open_gate l3 k2
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l1
-open_gate l1 k3
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-open_gate l1 k1
-exchange_sunglasses 
-search_under_light l1
-exchange_sunglasses 
-goto_light l1 l2
-open_gate l2 k3
-exchange_sunglasses 
-search_under_light l2
-exchange_sunglasses 
-goto_light l2 l3
-open_gate l3 k1
-exchange_sunglasses 
-search_under_light l3
-exchange_sunglasses 
-goto_light l3 l2
-open_gate l2 k1
-exchange_sunglasses 
-search_under_light l2
+move p2_2 p2_1
+move p2_1 p1_1
+pickup o6 p1_1
+drop o6 p1_1
+pickup o5 p1_1
+drop o5 p1_1
+move p1_1 p1_2
+pickup o2 p1_2
+move p1_2 p1_1
+drop o2 p1_1
+pickup o1 p1_1
+drop o1 p1_1
+pickup o4 p1_1
+drop o4 p1_1
+pickup o7 p1_1
+drop o7 p1_1
+pickup o3 p1_1
+drop o3 p1_1
