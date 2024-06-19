@@ -187,7 +187,7 @@ public:
 		for(int i = 0; i < prevail.size(); i++) 
 			if(!prevail[i].is_applicable(state))
 				sub_goal.push_back(make_pair(prevail[i].var,prevail[i].prev));
-		/*还需满足条件影响*/
+
 		if(need_checking_all_conditions())
 		{
 			for(int i=0;i < pre_post.size(); i++)
@@ -203,11 +203,11 @@ public:
 		vector<pair <int,int> > sub_goal;	
 		for(int i=0; i < pre_post.size(); i++)
 		{
-			if(pre_post[i].cond.size()>1)
-			{
-				sub_goal.clear();
-				return sub_goal;
-			}
+			// if(pre_post[i].cond.size()>1)
+			// {
+			// 	sub_goal.clear();
+			// 	return sub_goal;
+			// }
 			if(pre_post[i].does_fire(state))
 			{
 				for(int j=0;j < pre_post[i].cond.size();j++)

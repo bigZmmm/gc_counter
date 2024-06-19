@@ -246,8 +246,19 @@ int main(int argc, const char **argv) {
 		vector<const Operator *> Plan;
 		counter = new Counter();
 		// counter->printfhello();
-		// cout<<1111<<endl;
 		counter->conputerCounter(Plan);
+		state_var firststate;
+		firststate.frequency=1;
+		firststate.vars=g_initial_state->vars;
+		string firststatestring = "";
+		for(int i=0;i<g_initial_state->vars.size();i++){
+			if(g_initial_state->vars[i]!=(g_variable_domain[i]-1)){
+				firststatestring+=to_string(i);
+				firststatestring+="-";
+				firststatestring+=to_string(g_initial_state->vars[i]);
+				firststatestring+='.';
+			}
+		}
 		
 		engine = new BestFirstSearchEngine;
 		if(ff_heuristic || ff_preferred_operators) {
@@ -290,6 +301,9 @@ int main(int argc, const char **argv) {
 			if (!ctask){
 				cout << "reach dead end!" << endl;
 				fail_time++;
+				/*清空反例集*/
+				counter->appearcounter.clear();
+				counter->appearcounter.insert(pair<string,state_var>(firststatestring,firststate));
 			}
 				
 			// j++;
@@ -560,6 +574,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
      vector<const Operator *> subplan;
      bool maintain_maximum = true;
      BestFirstSearchEngine *subsubengine;
+	 set<string> action_notreach;
 //     cout << "Initial " << endl;
 //     g_initial_state->dump();
      int iter = 0;
@@ -583,29 +598,62 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
      check_plan_state->assign(*g_initial_state);
 	//  subplan.insert(subplan.end(),plan.begin(),plan.end());
 	 printPlan(subplan);
-	 /*清空反例集*/
-	 counter->appearcounter.clear();
+	 int yinxian1=0,yinxian2=0,test1=0;
+	 
 	 plan.clear();
 	 for(;;){
 		iteration++;
 		cout<<"第"<<iteration<<"次迭代"<<endl;
-		
 		plan.insert(plan.end(),subplan.begin(),subplan.end());
 		cout<<"规划长度:"<<plan.size()<<endl;
 		
-		counter->optimizePlantest(plan);
-		plan.clear();
-		plan.insert(plan.end(),counter->newplan.begin(),counter->newplan.end());
-		counter->newplan.clear();
+		/*对当前的规划解进行化简，只有能找到反例才化简，不能找到反例只有两种情况(此时均以对初始状态约束放开)：1、前一次有约束时无反例，并且对这些约束进行了求解 2、前一次无约束时无反例*/
+		if(!counter->isfind){
+			counter->optimizePlantest(plan);
+			plan.clear();
+			plan.insert(plan.end(),counter->newplan.begin(),counter->newplan.end());
+			counter->newplan.clear();
+		}else{
+			counter->counterissolvered=true;
+		}
+		// counter->counterissolvered=true;
 
 		// cout<<"1.plan"<<endl;
 		// printPlan(plan);
-		/*判断是否还有反例*/
-		previous_state->assign(*g_initial_state);
-		if(!counter->conputerCounter(plan)){
-			valid_plan=true;
-			break;
+		/*求反例*/
+		/*前续状态换一个看看,换成只出现过一次的*/
+		string prestatestring = "";
+		for(int i=0;i<previous_state->vars.size();i++){
+			if(previous_state->vars[i]!=(g_variable_domain[i]-1)){
+				prestatestring+=to_string(i);
+				prestatestring+="-";
+				prestatestring+=to_string(previous_state->vars[i]);
+				prestatestring+='.';
+			}
 		}
+		if(counter->appearcounter[prestatestring].frequency>1){
+			for(map<string,state_var>::iterator t=counter->appearcounter.begin();t!=counter->appearcounter.end();t++){
+				if(t->second.frequency==1){
+					previous_state->vars=t->second.vars;
+				}
+			}
+		}
+		// previous_state->assign(*g_initial_state);
+
+		if(!counter->conputerCounter(plan)){
+			if(!counter->counterissolvered){
+				cout<<"还不是最终解，对反例中不能解的状态继续求解"<<endl;
+				bool sovle = sovle_counter(plan);
+				plan.clear();
+				plan.insert(plan.end(),counter->newplan.begin(),counter->newplan.end());
+				counter->newplan.clear();
+				continue;
+			}else{
+				valid_plan=true;
+				break;
+			}
+		}
+		/*上面的函数，会将g_initial_state更新*/
 		current_state->assign(*g_initial_state);
 		cout << "Initial State:" << endl;
     	g_initial_state->dump();
@@ -616,6 +664,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		int i=0;
 		/*之前的plan，不适用当前状态，在当前状态中进行插入*/
 		/**/
+		// maintain_maximum=true;
 		while(i<plan.size())
 		{
 			/*找到当前的opera下标*/
@@ -633,12 +682,27 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 			{
 				vector<pair <int, int> > sub_goal;
 				vector<const Operator *> sub_plan;					
+				
+				/*617待修改，这里可能前面的状态也不满足*/
 				/*前一个状态在该plan下的条件影响 */
 				sub_goal = g_operators[j].condition_sub_goal(*previous_state);
 				
 				/*如果有一个的条件影响是不满足的，那么后面的都不再进行子目标的求解*/
 				/*？？？？*/
-				if(maintain_maximum == false) sub_goal.clear();				
+				if(maintain_maximum == false) sub_goal.clear();	
+				
+				//add
+				if(action_notreach.find(g_operators[j].get_name())!=action_notreach.end()){
+					test1++;
+					sub_goal.clear();	
+				} 
+
+				/*test*/
+				// cout<<"当前的action_notreach"<<endl;
+				// for (auto it = action_notreach.begin(); it != action_notreach.end(); ++it)
+				// 	cout << *it << endl;
+				// cout<<g_operators[j].get_name()<<endl;
+				
 				// cout<<!current_state->satisfy_subgoal(sub_goal)<<endl;
 				/*当前状态不满足这个子目标*/
 				if(!current_state->satisfy_subgoal(sub_goal))
@@ -690,6 +754,10 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 					else
 					{
 						cout<<"没有找到！"<<endl;
+						yinxian1++;
+						
+						//add
+						action_notreach.insert(g_operators[j].get_name());
 						maintain_maximum = false;
 					}
 					
@@ -705,7 +773,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 				// current_state->dump();
 				i++;
 			}
-			/*不满足前置条件*/
+			/*不满足前置条件，或者前置条件中有一样的，不满足前置条件和条件影响*/
 			else
 			{
 				//cout << "not applicable";
@@ -731,7 +799,10 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 					{
 						cout << "No plan was found. Backtracking." << endl;
 					}
-					return false;
+					// return false;
+					yinxian2++;
+					i++;
+					continue;
 				}
 				sub_plan = subsubengine->get_plan();
 				/*将子plan插入第i个动作前*/
@@ -785,8 +856,8 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		
 		/*将新形成的plan与之前的plan连接*/
 		subplan.insert(subplan.end(),subsubengine->get_plan().begin(),subsubengine->get_plan().end());
-		// cout<<"4.plan"<<endl;
-		// printPlan(subplan);
+		cout<<"4.plan"<<endl;
+		printPlan(subplan);
 		/*此状态前满足的状态*/
 		
 		if(g_display)
@@ -812,12 +883,6 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		delete subsubengine;
 	}
 	/*迭代完成后，判断反例集合是否能解决，如果有未完成的，还要对这一部分进行求解*/
-	if(!counter->counterissolvered){
-		cout<<"还不是最终解，对反例中不能解的状态继续求解"<<endl;
-		bool sovle = sovle_counter(plan);
-		plan.clear();
-		plan.insert(plan.end(),counter->newplan.begin(),counter->newplan.end());
-	}
 
 	// plan.insert(plan.end(),subplan.begin(),subplan.end());
 	subplan.clear();
@@ -826,7 +891,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
     outfile.open("finalplan", ios::out);
     for(int k=0;k<plan.size();k++)
     {
-		// cout << plan[k]->get_name() << endl;
+		cout << plan[k]->get_name() << endl;
 		outfile << plan[k]->get_name() << endl;
     }
     outfile.close();     
@@ -840,6 +905,10 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 		if(t->second.frequency>1)
 			k++; 
 	}
+	counter->testPlanisvalid(plan);
+	cout<<"test1:"<<test1<<endl;
+	cout<<"影响1:"<<yinxian1<<endl;
+	cout<<"影响2:"<<yinxian2<<endl;
 	cout<<"最终反例集大小:"<<counter->appearcounter.size()<<endl;
 	cout<<"反例集中出现次数大于1的反例数:"<<k<<endl;
 	cout<<"检测到可精简plan次数:"<<counter->sum<<endl;
@@ -850,7 +919,7 @@ bool solve_belief_state_ite(BestFirstSearchEngine* subengine){
 	cout<<"fail_time:"<<fail_time<<endl;
 	cout<<"counter time:"<<counter->getTotal_counter()/ 1000.0 << " seconds" << endl;
 
-	// counter->testPlanisvalid(plan);
+	
 
 
 	//ofstream outfile;       

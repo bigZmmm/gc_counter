@@ -629,23 +629,23 @@ def write_oneof_file(translation_key, task, actions):
 
 	#  print >> oneof_file, "ORS\n",
 	#  print >> oneof_file, "%d\n" % len(belief_state),
-	#  for state in belief_state:
-	# 	print("state1: ")
-	# 	for atom in state:
-	# 		atom_valuename = atom.print_atom(-1)
-	# 		atom_valuename_str = str(atom_valuename)
-	# 		print(atom_valuename_str+" ")
-	# 		flag=0
-	# 		for var_no, var_key in enumerate(translation_key):
-	# 			for value, value_name in enumerate(var_key):
-	# 		    		if atom_valuename_str.find(value_name) != -1: 
-	# 					print >> belief_file, "var%d \n" % var_no,
-	# 					print >> belief_file, "%d \n" % value,
-	# 					print >> oneof_file, "var%d \n" % var_no,
-	# 					print >> oneof_file, "%d \n" % value,
-	# 					flag=1    
-	# 	print >> oneof_file, ", "
-	# 	print >> belief_file, "END_BELIEF"
+	 for state in belief_state:
+		print("state1: ")
+		for atom in state:
+			atom_valuename = atom.print_atom(-1)
+			atom_valuename_str = str(atom_valuename)
+			print(atom_valuename_str+" ")
+			flag=0
+			for var_no, var_key in enumerate(translation_key):
+				for value, value_name in enumerate(var_key):
+			    		if atom_valuename_str.find(value_name) != -1: 
+						print >> belief_file, "var%d \n" % var_no,
+						print >> belief_file, "%d \n" % value,
+						# print >> oneof_file, "var%d \n" % var_no,
+						# print >> oneof_file, "%d \n" % value,
+						flag=1    
+		# print >> oneof_file, ", "
+		print >> belief_file, "END_BELIEF"
 	#  print >> oneof_file, "END_ONEOF"
     else:
 	    with timers.timing("Detect oneof combinable"):
@@ -699,6 +699,8 @@ def write_oneof_file(translation_key, task, actions):
 		oneofsize = 1
 		for oneof in oneofs:
 			oneofsize = oneofsize * len(oneof.parts)
+		# oneofsize = 10000
+		print(oneofsize)
 		for n in range(0,oneofsize):
 			print("state2: ")
 			for i in range(0,len(oneofs)):
