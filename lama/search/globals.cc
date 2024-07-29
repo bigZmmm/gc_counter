@@ -117,13 +117,13 @@ void build_landmarks_graph(bool reasonable_orders) {
     g_lgraph = new LandmarksGraphNew();
     g_lgraph->read_external_inconsistencies();
     if(reasonable_orders) {
-	g_lgraph->use_reasonable_orders();
+	    g_lgraph->use_reasonable_orders();
     }
     g_lgraph->generate();
     cout << "Generated " << g_lgraph->number_of_landmarks() << " landmarks, of which "
 	 << g_lgraph->number_of_disj_landmarks() << " are disjunctive" << endl
 	 << "          " << g_lgraph->number_of_edges() << " edges\n";
-    //g_lgraph->dump();
+    g_lgraph->dump();
 }
 
 void read_everything(istream &in, bool generate_landmarks, bool reasonable_orders) {

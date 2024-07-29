@@ -790,7 +790,7 @@ def write_oneof_file(translation_key, task, actions):
 
 def write_mutex_key(mutex_key):
     invariants_file = file("all.groups", "w")
-    print >> invariants_file, "begi         n_groups"
+    print >> invariants_file, "begin_groups"
     print >> invariants_file, len(mutex_key)
     for group in mutex_key:
         #print map(str, group)

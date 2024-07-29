@@ -77,6 +77,9 @@ protected:
 public:
     BestFirstSearchEngine();
     ~BestFirstSearchEngine();
+    void setInitialState(State *state){
+        current_state.vars = state->vars;
+    }
 /*
     virtual void add_heuristic(Heuristic *heuristic, bool use_estimates,
 		       bool use_preferred_operators);

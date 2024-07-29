@@ -1,555 +1,139 @@
-begi         n_groups
-184
-group
-1
-0 0 x 1 p50 
-group
-1
-1 0 y 1 p76 
-group
-1
-2 0 x 1 p72 
-group
-1
-3 0 x 1 p52 
-group
-1
-4 0 x 1 p48 
-group
-1
-5 0 y 1 p6 
-group
-1
-6 0 x 1 p46 
-group
-1
-7 0 x 1 p40 
-group
-1
-8 0 x 1 p66 
-group
-1
-9 0 x 1 p37 
-group
-1
-10 0 y 1 p24 
-group
-1
-11 0 x 1 p7 
-group
-1
-12 0 y 1 p4 
-group
-1
-13 0 x 1 p30 
-group
-1
-14 0 y 1 p27 
-group
-1
-15 0 x 1 p54 
-group
-1
-16 0 x 1 p20 
-group
-1
-17 0 x 1 p58 
-group
-1
-18 0 y 1 p23 
-group
-1
-19 0 x 1 p70 
-group
-1
-20 0 x 1 p26 
-group
-1
-21 0 x 1 p25 
-group
-1
-22 0 x 1 p16 
-group
-1
-23 0 x 1 p33 
-group
-1
-24 0 x 1 p35 
-group
-1
-25 0 y 1 p5 
-group
-1
-26 0 y 1 p47 
-group
-1
-27 0 y 1 p14 
-group
-1
-28 0 x 1 p82 
-group
-1
-29 0 x 1 p38 
-group
-1
-30 0 x 1 p84 
-group
-1
-31 0 y 1 p22 
-group
-1
-32 0 y 1 p75 
-group
-1
-33 0 y 1 p65 
-group
-1
-34 0 x 1 p89 
-group
-1
-35 0 x 1 p15 
-group
-1
-36 0 x 1 p13 
-group
-1
-37 0 x 1 p90 
-group
-1
-38 0 x 1 p44 
-group
-1
-39 0 y 1 p67 
-group
-1
-40 0 x 1 p10 
-group
-1
-41 0 x 1 p62 
-group
-1
-42 0 y 1 p28 
-group
-1
-43 0 x 1 p41 
-group
-1
-44 0 x 1 p80 
-group
-1
-45 0 x 1 p3 
-group
-1
-46 0 y 1 p18 
-group
-1
-47 0 x 1 p61 
-group
-1
-48 0 x 1 p51 
-group
-1
-49 0 x 1 p79 
-group
-1
-50 0 x 1 p85 
-group
-1
-51 0 y 1 p36 
-group
-1
-52 0 x 1 p6 
-group
-1
-53 0 x 1 p56 
-group
-1
-54 0 y 1 p69 
-group
-1
-55 0 y 1 p72 
-group
-1
-56 0 x 1 p74 
-group
-1
-57 0 y 1 p66 
-group
-1
-58 0 y 1 p87 
-group
-1
-59 0 y 1 p49 
-group
-1
-60 0 y 1 p73 
-group
-1
-61 0 x 1 p29 
-group
-1
-62 0 y 1 p45 
-group
-1
-63 0 x 1 p64 
-group
-1
-64 0 y 1 p19 
-group
-1
-65 0 x 1 p31 
-group
-1
-66 0 y 1 p1 
-group
-1
-67 0 y 1 p70 
-group
-1
-68 0 x 1 p91 
-group
-1
-69 0 x 1 p55 
-group
-1
-70 0 y 1 p37 
-group
-1
-71 0 x 1 p53 
-group
-1
-72 0 x 1 p34 
-group
-1
-73 0 x 1 p71 
-group
-1
-74 0 x 1 p4 
-group
-1
-75 0 y 1 p86 
-group
-1
-76 0 y 1 p48 
-group
-1
-77 0 x 1 p78 
-group
-1
-78 0 x 1 p24 
-group
-1
-79 0 y 1 p59 
-group
-1
-80 0 y 1 p35 
-group
-1
-81 0 y 1 p12 
-group
-1
-82 0 x 1 p23 
-group
-1
-83 0 y 1 p25 
-group
-1
-84 0 x 1 p21 
-group
-1
-85 0 y 1 p84 
-group
-1
-86 0 y 1 p63 
-group
-1
-87 0 x 1 p39 
-group
-1
-88 0 y 1 p68 
-group
-1
-89 0 x 1 p88 
-group
-1
-90 0 y 1 p9 
-group
-1
-91 0 y 1 p42 
-group
-1
-92 0 y 1 p13 
-group
-1
-93 0 y 1 p7 
-group
-1
-94 0 y 1 p32 
-group
-1
-95 0 y 1 p41 
-group
-1
-96 0 y 1 p17 
-group
-1
-97 0 y 1 p50 
-group
-1
-98 0 y 1 p62 
-group
-1
-99 0 x 1 p11 
-group
-1
-100 0 y 1 p20 
-group
-1
-101 0 y 1 p83 
-group
-1
-102 0 y 1 p40 
-group
-1
-103 0 y 1 p77 
-group
-1
-104 0 x 1 p18 
-group
-1
-105 0 y 1 p30 
-group
-1
-106 0 x 1 p14 
-group
-1
-107 0 x 1 p60 
-group
-1
-108 0 y 1 p74 
-group
-1
-109 0 x 1 p43 
-group
-1
-110 0 y 1 p52 
-group
-1
-111 0 y 1 p81 
-group
-1
-112 0 y 1 p33 
-group
-1
-113 0 x 1 p57 
-group
-1
-114 0 x 1 p65 
-group
-1
-115 0 x 1 p68 
-group
-1
-116 0 x 1 p75 
-group
-1
-117 0 x 1 p87 
-group
-1
-118 0 y 1 p51 
-group
-1
-119 0 y 1 p82 
-group
-1
-120 0 y 1 p26 
-group
-1
-121 0 x 1 p8 
-group
-1
-122 0 x 1 p76 
-group
-1
-123 0 x 1 p28 
-group
-1
-124 0 y 1 p58 
-group
-1
-125 0 y 1 p31 
-group
-1
-126 0 y 1 p2 
-group
-1
-127 0 y 1 p29 
-group
-1
-128 0 y 1 p90 
-group
-1
-129 0 y 1 p53 
-group
-1
-130 0 y 1 p38 
-group
-1
-131 0 x 1 p49 
-group
-1
-132 0 y 1 p80 
-group
-1
-133 0 x 1 p47 
-group
-1
-134 0 x 1 p59 
-group
-1
-135 0 y 1 p64 
-group
-1
-136 0 x 1 p5 
-group
-1
-137 0 y 1 p89 
-group
-1
-138 0 x 1 p67 
-group
-1
-139 0 x 1 p36 
-group
-1
-140 0 x 1 p45 
-group
-1
-141 0 x 1 p92 
-group
-1
-142 0 y 1 p92 
-group
-1
-143 0 y 1 p46 
-group
-1
-144 0 y 1 p91 
-group
-1
-145 0 x 1 p22 
-group
-1
-146 0 y 1 p3 
-group
-1
-147 0 y 1 p39 
-group
-1
-148 0 y 1 p54 
-group
-1
-149 0 x 1 p69 
-group
-1
-150 0 y 1 p21 
-group
-1
-151 0 y 1 p44 
-group
-1
-152 0 x 1 p27 
-group
-1
-153 0 y 1 p88 
-group
-1
-154 0 y 1 p78 
-group
-1
-155 0 y 1 p10 
-group
-1
-156 0 x 1 p32 
-group
-1
-157 0 y 1 p56 
-group
-1
-158 0 y 1 p79 
-group
-1
-159 0 y 1 p61 
-group
-1
-160 0 x 1 p83 
-group
-1
-161 0 x 1 p73 
-group
-1
-162 0 y 1 p55 
-group
-1
-163 0 x 1 p17 
-group
-1
-164 0 x 1 p19 
-group
-1
-165 0 x 1 p77 
-group
-1
-166 0 x 1 p42 
-group
-1
-167 0 y 1 p11 
-group
-1
-168 0 y 1 p57 
-group
-1
-169 0 y 1 p34 
-group
-1
-170 0 x 1 p12 
-group
-1
-171 0 y 1 p8 
-group
-1
-172 0 y 1 p43 
-group
-1
-173 0 y 1 p15 
-group
-1
-174 0 x 1 p86 
-group
-1
-175 0 y 1 p60 
-group
-1
-176 0 x 1 p1 
-group
-1
-177 0 y 1 p85 
-group
-1
-178 0 x 1 p63 
-group
-1
-179 0 y 1 p71 
-group
-1
-180 0 x 1 p9 
-group
-1
-181 0 y 1 p16 
-group
-1
-182 0 x 1 p81 
-group
-1
-183 0 x 1 p2 
+begin_groups
+3
+group
+64
+1 49 at 1 p1-1 
+1 37 at 1 p1-2 
+1 17 at 1 p1-3 
+1 32 at 1 p1-4 
+1 8 at 1 p1-5 
+1 58 at 1 p1-6 
+1 38 at 1 p1-7 
+1 40 at 1 p1-8 
+1 56 at 1 p2-1 
+1 4 at 1 p2-2 
+1 28 at 1 p2-3 
+1 57 at 1 p2-4 
+1 16 at 1 p2-5 
+1 29 at 1 p2-6 
+1 48 at 1 p2-7 
+1 18 at 1 p2-8 
+1 23 at 1 p3-1 
+1 15 at 1 p3-2 
+1 55 at 1 p3-3 
+1 22 at 1 p3-4 
+1 61 at 1 p3-5 
+1 54 at 1 p3-6 
+1 35 at 1 p3-7 
+1 60 at 1 p3-8 
+1 11 at 1 p4-1 
+1 20 at 1 p4-2 
+1 42 at 1 p4-3 
+1 12 at 1 p4-4 
+1 34 at 1 p4-5 
+1 41 at 1 p4-6 
+1 45 at 1 p4-7 
+1 1 at 1 p4-8 
+1 19 at 1 p5-1 
+1 21 at 1 p5-2 
+1 44 at 1 p5-3 
+1 59 at 1 p5-4 
+1 52 at 1 p5-5 
+1 31 at 1 p5-6 
+1 5 at 1 p5-7 
+1 7 at 1 p5-8 
+1 50 at 1 p6-1 
+1 63 at 1 p6-2 
+1 24 at 1 p6-3 
+1 6 at 1 p6-4 
+1 30 at 1 p6-5 
+1 43 at 1 p6-6 
+1 62 at 1 p6-7 
+1 47 at 1 p6-8 
+1 33 at 1 p7-1 
+1 25 at 1 p7-2 
+1 0 at 1 p7-3 
+1 10 at 1 p7-4 
+1 51 at 1 p7-5 
+1 39 at 1 p7-6 
+1 26 at 1 p7-7 
+1 9 at 1 p7-8 
+1 3 at 1 p8-1 
+1 14 at 1 p8-2 
+1 36 at 1 p8-3 
+1 27 at 1 p8-4 
+1 46 at 1 p8-5 
+1 53 at 1 p8-6 
+1 13 at 1 p8-7 
+1 2 at 1 p8-8 
+group
+65
+0 15 holding 1 o1 
+0 53 obj-at 2 o1 p1-1 
+0 55 obj-at 2 o1 p1-2 
+0 19 obj-at 2 o1 p1-3 
+0 56 obj-at 2 o1 p1-4 
+0 44 obj-at 2 o1 p1-5 
+0 9 obj-at 2 o1 p1-6 
+0 64 obj-at 2 o1 p1-7 
+0 32 obj-at 2 o1 p1-8 
+0 1 obj-at 2 o1 p2-1 
+0 0 obj-at 2 o1 p2-2 
+0 11 obj-at 2 o1 p2-3 
+0 8 obj-at 2 o1 p2-4 
+0 23 obj-at 2 o1 p2-5 
+0 22 obj-at 2 o1 p2-6 
+0 33 obj-at 2 o1 p2-7 
+0 42 obj-at 2 o1 p2-8 
+0 49 obj-at 2 o1 p3-1 
+0 40 obj-at 2 o1 p3-2 
+0 27 obj-at 2 o1 p3-3 
+0 39 obj-at 2 o1 p3-4 
+0 25 obj-at 2 o1 p3-5 
+0 51 obj-at 2 o1 p3-6 
+0 36 obj-at 2 o1 p3-7 
+0 6 obj-at 2 o1 p3-8 
+0 62 obj-at 2 o1 p4-1 
+0 38 obj-at 2 o1 p4-2 
+0 52 obj-at 2 o1 p4-3 
+0 3 obj-at 2 o1 p4-4 
+0 20 obj-at 2 o1 p4-5 
+0 60 obj-at 2 o1 p4-6 
+0 47 obj-at 2 o1 p4-7 
+0 24 obj-at 2 o1 p4-8 
+0 37 obj-at 2 o1 p5-1 
+0 46 obj-at 2 o1 p5-2 
+0 54 obj-at 2 o1 p5-3 
+0 45 obj-at 2 o1 p5-4 
+0 50 obj-at 2 o1 p5-5 
+0 43 obj-at 2 o1 p5-6 
+0 30 obj-at 2 o1 p5-7 
+0 41 obj-at 2 o1 p5-8 
+0 35 obj-at 2 o1 p6-1 
+0 17 obj-at 2 o1 p6-2 
+0 48 obj-at 2 o1 p6-3 
+0 31 obj-at 2 o1 p6-4 
+0 12 obj-at 2 o1 p6-5 
+0 10 obj-at 2 o1 p6-6 
+0 21 obj-at 2 o1 p6-7 
+0 34 obj-at 2 o1 p6-8 
+0 58 obj-at 2 o1 p7-1 
+0 16 obj-at 2 o1 p7-2 
+0 2 obj-at 2 o1 p7-3 
+0 28 obj-at 2 o1 p7-4 
+0 14 obj-at 2 o1 p7-5 
+0 4 obj-at 2 o1 p7-6 
+0 59 obj-at 2 o1 p7-7 
+0 18 obj-at 2 o1 p7-8 
+0 57 obj-at 2 o1 p8-1 
+0 5 obj-at 2 o1 p8-2 
+0 13 obj-at 2 o1 p8-3 
+0 61 obj-at 2 o1 p8-4 
+0 7 obj-at 2 o1 p8-5 
+0 26 obj-at 2 o1 p8-6 
+0 63 obj-at 2 o1 p8-7 
+0 29 obj-at 2 o1 p8-8 
+group
+1
+2 0 handempty 0 
 end_groups

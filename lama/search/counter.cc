@@ -16,7 +16,61 @@
 #include <utility>
 #include "z3_counter.h"
 #include "state.h"
+#include "best_first_search.h"
 using namespace std;
+
+// void printPlan(vector<const Operator *> plan){
+// 	cout<<"规划长度："<<plan.size()<<endl;
+//     for(int i=0;i<plan.size();i++){
+//         cout<<plan[i]->get_name()<<" ";
+//     }
+//     cout<<endl;
+// }
+
+void actionIsSatisfy(int index,state_var s,vector<pair<int,int>>* addfacts,vector<pair<int, int>> tmpgoal,bool relax){
+    vector<Prevail> prevail = g_operators[index].get_prevail();
+    vector<PrePost> prepost = g_operators[index].get_pre_post();
+    bool satisfy=false;
+    for(int i=0;i<prevail.size();i++){
+        // cout<< s.vars[prevail[i].var] <<","<< prevail[i].prev<<endl;
+        if(relax && s.vars[prevail[i].var] == prevail[i].prev)
+            satisfy=true;
+        else if(!relax && s.vars[prevail[i].var] != prevail[i].prev){
+            return;
+        }
+    }
+    for(int i=0;i<prepost.size();i++){
+        bool havetmpgoal=false,inpreandpost=false;
+        satisfy = true;
+        // cout<< s.vars[prepost[i].var] <<","<< prepost[i].pre<<endl;
+        if(relax && s.vars[prepost[i].var]==prepost[i].pre)
+            satisfy=true;
+        else if(!relax && prepost[i].pre!=-1 && s.vars[prepost[i].var]!=prepost[i].pre){
+            return;
+        }
+        for(int j=0;j<prepost[i].cond.size();j++){
+            if(relax && s.vars[prepost[i].cond[j].var] == prepost[i].cond[j].prev)
+                satisfy=true;
+            else if(!relax && s.vars[prepost[i].cond[j].var] != prepost[i].cond[j].prev){
+                satisfy = false;
+            }
+            /*确保是在条件中*/
+            for(int t=0;t<tmpgoal.size();t++){
+                if(tmpgoal[t].first==prepost[i].cond[j].var&&tmpgoal[t].second==prepost[i].cond[j].prev)
+                    havetmpgoal = true;
+            }
+            /*要排除自己到自己的情况*/
+            if(prepost[i].cond[j].var==prepost[i].var&&prepost[i].cond[j].prev==prepost[i].post)
+                inpreandpost = true;
+            
+        }
+        // cout<<"satisfy:"<<satisfy<<"-have:"<<havetmpgoal<<endl;
+        if(satisfy&&havetmpgoal&&!inpreandpost){
+                addfacts->push_back(pair<int,int>(prepost[i].var,prepost[i].post));
+        }
+            
+    }
+}
 
 string Counter::varToSmt(int var,int l,int i){
     string a = "",b = "";
@@ -109,6 +163,12 @@ void applyAction(state_var *predecessor, const Operator &op){
             // cout<<"要改变的变量"<<i<<g_variable_name[prepost[i].var]<<"为"<<prepost[i].post<<endl;
         }
     }
+    else{
+
+        cout<<op.get_name()<<":不满足前置条件"<<endl;
+    }
+
+
     for(int i=0;i<changevar.size();i++){
         predecessor->vars[changevar[i].first] = changevar[i].second;
     }
@@ -120,29 +180,22 @@ void applyAction(state_var *predecessor, const Operator &op){
     // }
 }
 
-void Counter::optimizePlanByConformant(Plan plan){
-    int *samestate = new int[plan.size()+5];
-    /*识别出oneof中*/
-    ONEOFS curoneofs;
-    curoneofs.lens = oneofs.lens;
-    curoneofs.orlens = oneofs.orlens;
-    curoneofs.oneof = oneofs.oneof;
-    curoneofs.type = oneofs.type;
-
-
-    delete samestate; 
-}
-
 Counter::Counter(){
+    
     struct tms start, end;
     isfind=false;
     sum=0;
+    unapplyaction=0;
+    operateTimes=0;
     total_counter=0;
+    landmarktime=0;
+    findfinallandmark=false;
     times(&start);
     /*找到vari与var对应下标*/
     for(int i = 0 ; i < g_variable_name.size() ; i++){
         string name = g_variable_name[i];
         int j=0,var=0,namesize = name.size();
+        
         while(j<namesize){
             if(name[j]>=48&&name[j]<=57){
                 var*=10;
@@ -150,6 +203,7 @@ Counter::Counter(){
             }
             j++;
         }
+        
         indextovar.insert(pair<int,int>(i,var));
     }
     oneofs.orlens=0;
@@ -160,6 +214,7 @@ Counter::Counter(){
     string line;
     /*读取类型*/
     getline(infile, line);
+    
     // cout<<line<<endl;
     if(line=="ORS")
         oneofs.type=1;
@@ -189,6 +244,7 @@ Counter::Counter(){
         }   
     }
     int index=0,andsize=0,prevar=-1;
+    
     while(getline(infile, line)){
         // cout<<line<<endl;
         if(line==", "){
@@ -217,10 +273,11 @@ Counter::Counter(){
             for(int i = 0 ; i < g_variable_name.size() ; i++)
             {
                 /*读取的name后面有一个空格，长度会+1*/
+                // cout<<(line.find(g_variable_name[i]) == 0)<<" "<<(line.size() == g_variable_name[i].size()+1)<<endl;
                 if(line.find(g_variable_name[i]) == 0 && line.size() == g_variable_name[i].size()+1)
                 {
                     var = i;
-                    // cout << g_variable_name[i]<<" ";
+                    // cout << g_variable_name[i]<<"找到了";
                 }
             }
             getline(infile, line);
@@ -271,10 +328,337 @@ Counter::Counter(){
     // for(int i = 0 ; i < g_variable_name.size() ; i++){
     //     cout<<indextovar[i]<<" "<<i<<endl;
     // }
+    /*初始化tags*/
+    if(oneofs.type==2){
+        tags.lens = oneofs.lens;
+        tags.oneof = oneofs.oneof;
+        for(int i=0;i<tags.lens;i++){
+            tags.oneof[i].len = oneofs.oneof[i].len;
+            tags.oneof[i].size = oneofs.oneof[i].size;
+        }
+    }
+    /*初始化landmark*/
+    landmark.oneoflen = oneofs.lens;
+    for(int i=0;i<oneofs.lens;i++){
+        vector<Landmarkitem> landmarkitem; 
+        int m=0;
+        for(int j=0;j<oneofs.oneof[i].len;j++){
+            Landmarkitem lt;
+            lt.in=0;
+            lt.out=0;
+            landmarkitem.push_back(lt);
+        }
+        landmark.insidelandmarks.push_back(landmarkitem);
+    }
     times(&end);
     int total_ms = (end.tms_utime - start.tms_utime) * 10;
     total_counter+=total_ms;
 }
+
+bool Counter::selectLandmark(){
+    struct tms start,end;
+    times(&start);
+    bool findlandmark = false;
+    map<pair<int,int>,pair<int,int>> itemindex;
+    int nowindex=0;
+    vector<int> tmpvar=g_initial_state->vars;
+    for(int i=0;i<oneofs.lens;i++){
+        nowindex=0;
+        for(int j=0;j<oneofs.oneof[i].len;j++){
+            if(oneofs.oneof[i].val[nowindex]>=0)
+                itemindex.insert(pair<pair<int,int>,pair<int,int>>(pair<int,int>(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex]),pair<int,int>(i,j)));
+            else
+                itemindex.insert(pair<pair<int,int>,pair<int,int>>(pair<int,int>(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].var[nowindex]]-1),pair<int,int>(i,j)));
+            for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                tmpvar[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                nowindex++;
+            }
+            // nowindex+=oneofs.oneof[i].size[j];
+        }
+    }
+    
+
+    for(int i=0;i<oneofs.lens;i++){
+        // cout<<"第一步"<<endl;
+        /*1.初始化：（1）对于oneof每一个item构造一个map<pair<var,val>,index>，快速找到下标;(2)选择第1个和n/2个为所选的两个状态;(3)构造一个oenof内部所有元素全部设置为空的变量*/
+        nowindex=0;
+        
+        vector<int> candidatestate=g_initial_state->vars,rightstate=g_initial_state->vars;
+        vector<pair<int,int>> leftgoal,rightgoal;
+        
+        for(int j=0;j<oneofs.oneof[i].len;j++){
+            // cout<<oneofs.oneof[i].var[nowindex]<<" "<<oneofs.oneof[i].val[nowindex]<<endl;
+            
+            for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                candidatestate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                rightstate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                
+                if(j==0){
+                    if(oneofs.oneof[i].val[nowindex]>=0){
+                        // leftstate[oneofs.oneof[i].var[nowindex]] = oneofs.oneof[i].val[nowindex]-1;
+                        leftgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex]-1));
+                    }
+                    else{
+                        // leftstate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]];
+                        leftgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].var[nowindex]]));
+                    }
+                        
+                }
+                if(j==oneofs.oneof[i].len/2){
+                    if(oneofs.oneof[i].val[nowindex]>=0){
+                        rightstate[oneofs.oneof[i].var[nowindex]] = oneofs.oneof[i].val[nowindex];
+                        rightgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex]));
+                    }else{
+                        rightstate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].val[nowindex]]-1;
+                        rightgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].val[nowindex]]-1));
+                    }
+                    
+                }
+                nowindex++;
+            }
+        }
+        // cout<<"第二步"<<endl;
+        /*2.任意选择oneof的两个状态，判断是否可达到，有一边能到另一边就行*/
+        bool leftcan=true,rightcan=true;
+        // BestFirstSearchEngine *subengine1,*subengine2;
+        // vector<int> temp;
+        // temp = g_initial_state->vars;
+        vector<pair<int, int> > tmpgoal;
+        // tmpgoal.insert(tmpgoal.end(),g_goal.begin(),g_goal.end());
+        
+        // //计算左-》右
+        // g_initial_state->vars = leftstate;
+        // g_goal.clear();
+        // g_goal.insert(g_goal.begin(),rightgoal.begin(),rightgoal.end());
+        // subengine1 = new BestFirstSearchEngine;
+        // //启动一次搜索
+        // subengine1->add_heuristic(1, 1);
+        // subengine1->search();
+        // if(subengine1->found_solution())
+        //     leftcan = true;
+        // //计算右-》左       
+        // g_initial_state->vars = rightstate;
+        // g_goal.clear();
+        // g_goal.insert(g_goal.begin(),leftgoal.begin(),leftgoal.end());
+        // subengine2 = new BestFirstSearchEngine;
+        // //启动一次搜索
+        // subengine2->add_heuristic(1, 1);
+        // subengine2->search();
+        // if(subengine2->found_solution())
+        //     rightcan = true;
+
+        // g_goal.clear();
+        // g_goal.insert(g_goal.begin(),tmpgoal.begin(),tmpgoal.end());
+        // g_initial_state->vars = temp;
+        // delete subengine2;
+        // delete subengine1;
+
+        // cout<<"第三步"<<endl;
+        /*3.可达到（说明参考状态有用），继续下一步;否则continue*/
+        if(leftcan||rightcan){
+        /*4.对于每一个oneof的item，找到所有的包含其在内的所有动作（当前满足动作前置条件以及条件影响），把add的那个状态的in+1，自己的out+1（如果刚好是oneof内的）*/
+            nowindex = 0;
+            state_var nowstate;
+            nowstate.frequency = 0;
+            for(int j=0;j<oneofs.oneof[i].len;j++){
+                vector<pair<int,int>> addfacts;
+                tmpgoal.clear();
+                for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                    if(oneofs.oneof[i].val[nowindex]>=0){
+                        tmpgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex]));
+                        tmpvar[oneofs.oneof[i].var[nowindex]] = oneofs.oneof[i].val[nowindex];
+                    }
+                    else{
+                        tmpgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].var[nowindex]]-1));
+                        tmpvar[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                    }
+                    nowindex++;
+                }
+                // for(auto a:tmpgoal){
+                //     cout<<"oneofitem:"<<g_variable_name[a.first]<<","<<a.second<<endl;
+                // }
+                nowstate.vars = tmpvar;
+                for(int k=0;k<g_operators.size();k++){
+                    // cout<<g_operators[k].get_name()<<endl;
+                    actionIsSatisfy(k,nowstate,&addfacts,tmpgoal,false);
+                    // cout<<addfacts.size()<<endl;
+                    if(addfacts.size()>0){
+                        Landmarkitem landmarkitem;
+                        landmarkitem.in=0;
+                        landmarkitem.out=0;
+                        for(auto fact:addfacts){
+                            // cout<<g_variable_name[fact.first]<<" "<<fact.second<<"---";
+                            // cout<<g_variable_domain[fact.first]-1<<" "<<fact.second<<endl;
+
+                            // if(fact.second!=g_variable_domain[fact.first]-1){
+                                if(itemindex.find(pair<int,int>(fact.first,fact.second))!=itemindex.end()){
+                                    landmark.insidelandmarks[i][j].out++;
+                                    landmark.insidelandmarks[itemindex[pair<int,int>(fact.first,fact.second)].first][itemindex[pair<int,int>(fact.first,fact.second)].second].in++;
+                                }else{
+                                    // cout<<"??"<<endl;
+                                    // landmarkitem.item.push_back(pair<int,int>(fact.first,fact.second));
+                                    // landmarkitem.in++;
+                                }
+                            // }
+                        }
+                        // cout<<endl;
+                        // if(landmarkitem.item.size()>0)
+                        //     landmark.outsidelandmarks.push_back(landmarkitem);
+                    }
+                    addfacts.clear();
+                }   
+                for(auto a:tmpgoal){
+                    tmpvar[a.first] = g_variable_domain[a.first]-1;
+                }
+            }
+        }else{
+            continue;
+        }
+        
+       
+
+    }
+    for(int i=0;i<landmark.insidelandmarks.size();i++){
+        cout<<"第"<<i<<"个oneof:";
+        for(int j=0;j<landmark.insidelandmarks[i].size();j++){
+            cout<<"("<<landmark.insidelandmarks[i][j].in<<","<<landmark.insidelandmarks[i][j].out<<") ";
+        }
+        cout<<endl;
+        nowindex=0;
+        vector<pair<int,int>> tmpgoal;
+        vector<int> candidatestate=g_initial_state->vars;
+        for(int j=0;j<oneofs.oneof[i].len;j++){
+            // cout<<oneofs.oneof[i].var[nowindex]<<" "<<oneofs.oneof[i].val[nowindex]<<endl;
+            for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                candidatestate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                nowindex++;
+            }
+        }
+
+         /*5.选择每个oneof中出边+入边最少的里面选取离目标最近的作为landmark（这里只变这一个oeoof），这部分是一直不变的，其它可以随着previous变化*/
+        /*选择总边少的，总边一样，选择入边少的，如果都一样，那么加入到集合中，如果比原来的少，清空表格*/
+        // (1)找到候选的landmarks
+        vector<int> need2select;
+        bool findlandmark=false;
+        int finallandmark=0;
+        need2select.push_back(0);
+        if(landmark.insidelandmarks[i][0].in+landmark.insidelandmarks[i][0].out>0)
+            findlandmark=true;
+        for(int j=1;j<landmark.insidelandmarks[i].size();j++){
+            if((landmark.insidelandmarks[i][j].in+landmark.insidelandmarks[i][j].out)==0)
+                continue;
+            // cout<<"对比1:"<<(landmark.insidelandmarks[i][j].out+landmark.insidelandmarks[i][j].in)<<" "<<(landmark.insidelandmarks[i][need2select[0]].in+landmark.insidelandmarks[i][need2select[0]].out)<<endl;
+            if((landmark.insidelandmarks[i][j].in+landmark.insidelandmarks[i][j].out)<(landmark.insidelandmarks[i][need2select[0]].in+landmark.insidelandmarks[i][need2select[0]].out)){
+                need2select.clear();
+                need2select.push_back(j);
+                findlandmark = true;
+            }else if((landmark.insidelandmarks[i][j].in+landmark.insidelandmarks[i][j].out)==(landmark.insidelandmarks[i][need2select[0]].in+landmark.insidelandmarks[i][need2select[0]].out)){
+                if(landmark.insidelandmarks[i][j].out>landmark.insidelandmarks[i][need2select[0]].out){
+                    need2select.clear();
+                    need2select.push_back(j);
+                    findlandmark = true;
+                }else if(landmark.insidelandmarks[i][j].out==landmark.insidelandmarks[i][need2select[0]].out){
+                    need2select.push_back(j);
+                    findlandmark = true;
+                }
+            }
+        }
+        /*如果选择的点超过半数，那么不如不选。默认选择第0个*/
+        cout<<"选择的下标:";
+        for(int j=0;j<need2select.size();j++){
+            cout<<need2select[j]<<",";
+        }
+        cout<<endl;
+
+        // (2)判断是否有landmarks,如果有选出离目标最近的作为最终选择
+        if(findlandmark&&need2select.size()<=(oneofs.oneof[i].len/2)){
+            findfinallandmark = true;
+            if(need2select.size()>1){
+                int lastplansize=0;
+                for(int j=0;j<need2select.size();j++){
+                    tmpgoal.clear();
+                    nowindex=0;
+                    /*找到目标*/
+                    for(int k=0;k<oneofs.oneof[i].len;k++){
+                        if(k==need2select[j]){
+                            for(int m=0;m<oneofs.oneof[i].size[k];m++){
+                                if(oneofs.oneof[i].val[nowindex]<0){
+                                    candidatestate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                                    tmpgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].var[nowindex]]-1));
+                                }else{
+                                    tmpgoal.push_back(pair<int,int>(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex]));
+                                    candidatestate[oneofs.oneof[i].var[nowindex]] = oneofs.oneof[i].val[nowindex];
+                                }
+                                nowindex++;
+                            }
+                            break;
+                        }else{
+                            nowindex+=oneofs.oneof[i].size[k];
+                        }
+                    }
+                    BestFirstSearchEngine *subengine1;
+                    vector<int> temp;
+                    temp = g_initial_state->vars;
+                    g_initial_state->vars = candidatestate;
+                    subengine1 = new BestFirstSearchEngine;
+                    // //启动一次搜索
+                    subengine1->add_heuristic(1, 1);
+                    subengine1->search();
+                    if(subengine1->found_solution()){
+                        cout<<"第"<<j<<"个landmark到目标的plan长度"<<subengine1->get_plan().size()<<endl;
+                        if(j!=0&&(subengine1->get_plan().size()<lastplansize)){
+                            lastplansize = subengine1->get_plan().size();
+                            finallandmark = need2select[j];
+                        }else if(j==0){
+                            lastplansize = subengine1->get_plan().size();
+                        }
+                    }
+                    delete subengine1;
+                    g_initial_state->vars = temp;
+                    for(auto item:tmpgoal){
+                        candidatestate[item.first] = g_variable_domain[item.first]-1;
+                    }
+                }
+            }else{
+                finallandmark = need2select[0];
+            }
+            
+
+        }else{
+            finallandmark=0;
+        }
+        // (3)修改oneof的这个item为最终oneof中的
+        nowindex=0;
+        for(int k=0;k<oneofs.oneof[i].len;k++){
+            if(k==finallandmark){
+                for(int m=0;m<oneofs.oneof[i].size[k];m++){
+                    if(oneofs.oneof[i].val[nowindex]<0){
+                        candidatestate[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                    }else{
+                        candidatestate[oneofs.oneof[i].var[nowindex]] = oneofs.oneof[i].val[nowindex];
+                    }
+                    nowindex++;
+                }
+                break;
+            }else{
+                nowindex+=oneofs.oneof[i].size[k];
+            }
+        }
+        g_initial_state->vars = candidatestate;
+        cout<<"最终选择"<<finallandmark<<endl;
+    }
+    // for(int i=0;i<landmark.outsidelandmarks.size();i++){
+    //     cout<<"外部状态:";
+    //     cout<<"("<<landmark.outsidelandmarks[i].in<<","<<landmark.outsidelandmarks[i].out<<") ";
+    // }
+    // cout<<endl;
+
+    times(&end);
+    int total_ms = (end.tms_utime - start.tms_utime) * 10;
+    landmarktime+=total_ms;
+    return findlandmark;
+}
+
 
 /*不再使用*/
 void Counter::optimizePlan(Plan plan){
@@ -390,6 +774,16 @@ void Counter::optimizePlantest(Plan plan){
     // }
     // 初始反例集要和map中的一样
     
+    //test
+    // for(int i=0;i<counterset_new.size();i++){
+    //     cout<<endl<<"第"<<i<<"个状态"<<endl;
+    //     for(int j=0;j<counterset_new[i].vars.size();j++){
+    //         if(counterset_new[i].vars[j]!=g_variable_domain[j]-1)
+    //             cout<<g_variable_name[j]<<"-"<<counterset_new[i].vars[j]<<" ";
+    //     }
+    // }
+    
+    Plan tmp_plan = plan;
     int plansize = plan.size(),countersize = counterset_new.size();
     int planrepeat[plansize+10]={0};
     vector<state_var> curStates;
@@ -397,24 +791,62 @@ void Counter::optimizePlantest(Plan plan){
     string statesstring="";
     
     for(int i=0;i<countersize;i++){
+        statesstring+="(";
+        statesstring+=to_string(i);
+        statesstring+=")";
         statesstring+=stateToString2(curStates[i]);
     }
-    // cout<<statesstring<<endl;
+    cout<<countersize<<endl;
     everyplanvarset.push_back(statesstring);
     statesstring="";
     int now = 0;
-    for(int i=0;i<plansize;i++){
+    for(int i=0;i<tmp_plan.size();i++){
+        // cout<<tmp_plan.size()<<endl;
+        bool isApply =true;
+        int h;
+        for(h=0;h<g_operators.size();h++)
+        {
+            if(g_operators[h].get_name().compare(tmp_plan[i]->get_name()) == 0) break;
+        }
+
+        /*先判断该动作是否所有的状态都适用，不适用的话，直接删除*/
+        for(int j=0;j<countersize;j++){
+            /*第一步判断是否满足前置条件*/
+            vector<Prevail> prevail = g_operators[h].get_prevail();
+            if(prevail.size()==0)
+                isApply = true;
+            else{
+                for(int i=0;i<prevail.size();i++){
+                    if(prevail[i].prev!=curStates[j].vars[prevail[i].var]){
+                        isApply = false;
+                        break;
+                    }
+                }
+            }
+        }
+        if(!isApply){
+            cout<<g_operators[h].get_name()<<"动作不满足"<<endl;
+            tmp_plan.erase(tmp_plan.begin()+i);
+            unapplyaction++;
+            i--;
+            statesstring="";
+            continue;
+        }
+            
          /*所有的状态后移*/
         // cout<<plan[i]->get_name()<<":"<<endl;
         for(int j=0;j<countersize;j++){
-            int h;
-            for(h=0;h<g_operators.size();h++)
-            {
-                if(g_operators[h].get_name().compare(plan[i]->get_name()) == 0) break;
-            }
+            vector<int> addfacts;
+            vector<Prevail> prevail = g_operators[h].get_prevail();
             applyAction(&curStates[j],g_operators[h]);
+            statesstring+="(";
+            statesstring+=to_string(j);
+            statesstring+=")";
             statesstring+=stateToString2(curStates[j]);
         }
+        
+        // cout<<i<<endl;
+        // cout<<statesstring<<endl;
         everyplanvarset.push_back(statesstring);
         
         /*后移后，判断是否有与之前相同的状态*/
@@ -430,6 +862,7 @@ void Counter::optimizePlantest(Plan plan){
         }
         statesstring="";
     }
+    // cout<<"长度:"<<everyplanvarset.size()<<endl;
     
     /*test*/
     // for(int i=0;i<countersize;i++){
@@ -437,7 +870,7 @@ void Counter::optimizePlantest(Plan plan){
     //     planSet[plansize][i]->dump();
     // }
     // cout<<everyplanvarset[plansize]<<endl;
-    cout<<endl;
+    // cout<<endl;
     // for(int i=0;i<plansize+1;i++){
     //     cout<<everyplanvarset[i]<<endl;
     // }
@@ -475,12 +908,14 @@ void Counter::optimizePlantest(Plan plan){
         for(int j=0;j<g_goal.size();j++){
             /*test*/
             // cout<<"当前对比:"<<curStates[i].vars[g_goal[j].first]<<"与"<<g_goal[j].second<<endl;
-            if(curStates[i].vars[g_goal[j].first]!=g_goal[j].second)
+            if(curStates[i].vars[g_goal[j].first]!=g_goal[j].second){
                 isvalidplan=false;
+                cout<<"状态"<<i<<"不可解"<<endl;
+            }
+                
         }
 
     }
-    
     if(isvalidplan){
         cout<<"规划解能解反例集！"<<endl;
         counterissolvered=true;
@@ -489,17 +924,17 @@ void Counter::optimizePlantest(Plan plan){
         counterissolvered=false;
     }
     cout<<endl;
-    for(int i=0;i<plansize+1;i++){
+    for(int i=0;i<tmp_plan.size()+1;i++){
         cout<<planrepeat[i]<<" ";
     }
-    for(int i=0;i<plansize+1;i++){
+    for(int i=0;i<tmp_plan.size()+1;i++){
         if(i>0){
-            newplan.push_back(plan[i-1]);
+            newplan.push_back(tmp_plan[i-1]);
         }
         /*将动作往后移动*/
         while(planrepeat[i]>i){
             i = planrepeat[i];
-        }  
+        } 
     }
     cout<<"重复的次数："<<now<<endl;
     cout<<"规划解长度"<<newplan.size()<<endl;
@@ -512,7 +947,7 @@ void Counter::optimizePlantest(Plan plan){
 
 /*在生成oneof和or时，为实现其中的not a，如果为负数，则为not（var=val）
 ,为了避开val=0这一情况，在编译时将值减小1，这里再加上1为正确值*/
-void Counter::initToSmt(){
+void Counter::initToSmt(bool isfirst){
     init_smt="(assert (and\n";
     /*1.转换初始状态的SMT公式，并且记录所有的变量*/
     // dump_everything();
@@ -521,6 +956,7 @@ void Counter::initToSmt(){
     int *isunKnownFact = (int*)calloc(var_len,sizeof(int));
     memset(isunKnownFact,0,var_len);
     /*多种状态的oneof*/
+    /*目前未使用*/
     if(oneofs.type==1){
         /*第一次循环，识别known_fact*/
         for(int i=0;i<oneofs.lens;i++){
@@ -637,6 +1073,7 @@ void Counter::initToSmt(){
         /*添加known_fact*/
         for(int i=0;i<var_len;i++){
             if(isunKnownFact[i]==0){
+                /*处理时不要这个*/
                 if(axiomtovar.find(pair<int,int>(i,g_initial_state->vars[i]))==axiomtovar.end()){
                     string var0 = varToSmt(i,g_initial_state->vars[i],0);
                     variables.insert(var0);
@@ -653,29 +1090,55 @@ void Counter::initToSmt(){
         for(int i=0;i<oneofs.lens+oneofs.orlens;i++){
             int nowindex;
             /*判断是否oneof里面参数的变量都是一样的，只需要判定第一个每个oneof中的第一个var*/
-            int is1var = true;
-            nowindex = oneofs.oneof[i].size[0];
-            for(int j=1;j<oneofs.oneof[i].len;j++){
-                // cout<<oneofs.oneof[i].var[nowindex]<<"--_--"<<oneofs.oneof[i].var[nowindex-oneofs.oneof[i].size[j-1]]<<endl;
-                if(oneofs.oneof[i].var[nowindex]!=oneofs.oneof[i].var[nowindex-oneofs.oneof[i].size[j-1]]||oneofs.oneof[i].size[j]>1){
-                    is1var=false;
-                    break;
+            // int is1var = true;
+            // nowindex = oneofs.oneof[i].size[0];
+            set<int> oneofitem;
+
+            //add
+            nowindex=0;
+            /*存储oneof中的item，用于识别oneof中的item是否重复*/
+            map<int,int> items;
+            for(int j=0;j<oneofs.oneof[i].len;j++){
+                for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                    if(items.find(oneofs.oneof[i].var[nowindex])==items.end()){
+                        items.insert(pair<int,int>(oneofs.oneof[i].var[nowindex],0));
+                    }
+                    nowindex++;
                 }
-                nowindex+=oneofs.oneof[i].size[j];
             }
             
-            /*所有状态对应的SMT*/
+            /*所有oneof中的item对应的SMT*/
             vector<string> all_state;
             /*构建oneof的SMT*/
             // cout<<"is1var:"<<is1var<<endl;
             string first_or=" (or ";
             nowindex=0;
+           /*构造oneof的初始SMT*/
             for(int j=0;j<oneofs.oneof[i].len;j++){
                 string tmp="";
-                /*构造oneof的初始SMT*/
-                if(!is1var&&oneofs.type==2){
+                /*为oneof和or叠加的，或者oneof中只有一个var(同一个oneof的nota和a)*/
+                if(oneofs.type==3||items.size()==1){
+                    for(int m=0;m<oneofs.oneof[i].size[j];m++){
+                        string var0="";
+                        if(oneofs.oneof[i].val[nowindex]<0)
+                            var0+=varToSmt(oneofs.oneof[i].var[nowindex],-(oneofs.oneof[i].val[nowindex]+1),0);
+                        else
+                            var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
+                        variables.insert(var0);
+                        
+                        /*小于0是oneof中的『item*/
+                        if(oneofs.oneof[i].val[nowindex]<0)
+                            tmp+="(not ";
+                        tmp+=var0;
+                        if(oneofs.oneof[i].val[nowindex]<0)
+                            tmp+=")";
+                        tmp+=" ";
+                        nowindex++;
+                    }
+                }else if(items.size()>1){
                     tmp+="(and ";
                     nowindex=0;
+                    //首先将不同的加上
                     for(int k=0;k<oneofs.oneof[i].len;k++){
                         for(int m=0;m<oneofs.oneof[i].size[k];m++){
                             string var0="";
@@ -685,37 +1148,36 @@ void Counter::initToSmt(){
                                 }
                                 else
                                     var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
-                            }else{
-                                var0+=varToSmt(oneofs.oneof[i].var[nowindex],g_variable_domain[oneofs.oneof[i].var[nowindex]]-1,0);
+                                items[oneofs.oneof[i].var[nowindex]]=1;
+                                variables.insert(var0);
+                                
+                                if((k==j)&&(oneofs.oneof[i].val[nowindex]<0))
+                                    tmp+="(not ";
+                                tmp+=var0;
+                                if((k==j)&&(oneofs.oneof[i].val[nowindex]<0))
+                                    tmp+=")";
+                                tmp+=" ";
+
                             }
-                            variables.insert(var0);
-                            if((k==j)&&(oneofs.oneof[i].val[nowindex]<0))
-                                tmp+="(not ";
-                            tmp+=var0;
-                            if((k==j)&&(oneofs.oneof[i].val[nowindex]<0))
-                                tmp+=")";
-                            tmp+=" ";
                             nowindex++;
                         }
                     }
+                    //然后将oneof中其他为默认值的变量加入
+                    for(auto &it:items){
+                        string var0="";
+                        if(it.second==0){
+                            var0+=varToSmt(it.first,g_variable_domain[it.first]-1,0);
+                            variables.insert(var0);
+                            tmp+=var0;
+                            tmp+=" ";
+                        }else if(it.second==1){
+                            it.second=0;
+                        }
+                    }
+
                     tmp+=")";
                 }
-                else if(is1var||oneofs.type==3)
-                    for(int m=0;m<oneofs.oneof[i].size[j];m++){
-                        string var0="";
-                        if(oneofs.oneof[i].val[nowindex]<0)
-                            var0+=varToSmt(oneofs.oneof[i].var[nowindex],-(oneofs.oneof[i].val[nowindex]+1),0);
-                        else
-                            var0+=varToSmt(oneofs.oneof[i].var[nowindex],oneofs.oneof[i].val[nowindex],0);
-                        variables.insert(var0);
-                        if(oneofs.oneof[i].val[nowindex]<0)
-                            tmp+="(not ";
-                        tmp+=var0;
-                        if(oneofs.oneof[i].val[nowindex]<0)
-                            tmp+=")";
-                        tmp+=" ";
-                        nowindex++;
-                    }
+
                 first_or+=tmp;
                 first_or+=" ";
                 if(i>=oneofs.orlens)
@@ -744,13 +1206,28 @@ void Counter::initToSmt(){
             all_state.clear();
         }
         /*添加状态大于1的初始反例*/
-        if(!isfind)
-        for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
-            if(t->second.frequency>1){
+        if(!isfind&&!isfirst)
+            for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
+                if(t->second.frequency>1){
+                    string forbiden_initial=" (not (and ";
+                    for(int i=0;i<t->second.vars.size();i++){
+                        if(isunKnownFact[i]){
+                            forbiden_initial+=varToSmt(i,t->second.vars[i],0);
+                            forbiden_initial+=" ";
+                        }
+                    }
+                    forbiden_initial+="))";
+                    init_smt+=forbiden_initial;
+                    init_smt+="\n";
+                }
+            }
+        /*如果是寻找初始状态，那么要对之前作为过初始状态的状态进行约束*/
+        if(isfirst){
+            for(map<string,state_var>::iterator t=firststate.begin();t!=firststate.end();t++){
                 string forbiden_initial=" (not (and ";
-                for(int i=0;i<t->second.vars.size();i++){
-                    if(isunKnownFact[i]){
-                        forbiden_initial+=varToSmt(i,t->second.vars[i],0);
+                for(int j=0;j<t->second.vars.size();j++){
+                    if(isunKnownFact[j]){
+                        forbiden_initial+=varToSmt(j,t->second.vars[j],0);
                         forbiden_initial+=" ";
                     }
                 }
@@ -785,9 +1262,9 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
     /*满足前置条件并且满足条件影响，才能被添加或者被删除*/
     for(int i=0;i<prepost.size();i++){
         if(a->isadd(now_facts.first,now_facts.second,i)){
-            if(prepost[i].cond.size()+prevail.size()>1)
+            if(prepost[i].cond.size()>1)
                     add_smt+="(and ";
-            if(prepost[i].cond.size()>0||prevail.size()>0){
+            if(prepost[i].cond.size()>0){
                 for(int j=0;j<prepost[i].cond.size();j++){
                     string vari = varToSmt(prepost[i].cond[j].var,prepost[i].cond[j].prev,time_step-1);
                     variables.insert(vari);
@@ -796,26 +1273,26 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
                     new_facts->insert(pair<int,int>(prepost[i].cond[j].var,prepost[i].cond[j].prev));
                 }
                 /*还需要添加前置条件*/
-                for(int j=0;j<prevail.size();j++){
-                    string vari = varToSmt(prevail[j].var,prevail[j].prev,time_step-1);
-                    // preference_var->insert(vari);
-                    variables.insert(vari);
-                    add_smt+= vari;
-                    add_smt+=" ";
-                    new_facts->insert(pair<int,int>(prevail[j].var,prevail[j].prev));
-                }
+                // for(int j=0;j<prevail.size();j++){
+                //     string vari = varToSmt(prevail[j].var,prevail[j].prev,time_step-1);
+                //     // preference_var->insert(vari);
+                //     variables.insert(vari);
+                //     add_smt+= vari;
+                //     add_smt+=" ";
+                //     new_facts->insert(pair<int,int>(prevail[j].var,prevail[j].prev));
+                // }
             }
             else{
                 add_smt+= "true";
                 add_smt+=" ";
             }
-            if(prepost[i].cond.size()+prevail.size()>1)
+            if(prepost[i].cond.size()>1)
                 add_smt+=") ";
         }
         if(a->isdel(now_facts.first,now_facts.second,i)){
-            if(prepost[i].cond.size()+prevail.size()>1)
+            if(prepost[i].cond.size()>1)
                     notdel_smt+="(and ";
-            if(prepost[i].cond.size()>0||prevail.size()>0){
+            if(prepost[i].cond.size()>0){
                 for(int j=0;j<prepost[i].cond.size();j++){
                     string vari = varToSmt(prepost[i].cond[j].var,prepost[i].cond[j].prev,time_step-1);
                     variables.insert(vari);
@@ -824,20 +1301,20 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
                     new_facts->insert(pair<int,int>(prepost[i].cond[j].var,prepost[i].cond[j].prev));
                 }   
                 /*还需要添加前置条件*/
-                for(int j=0;j<prevail.size();j++){
-                    string vari = varToSmt(prevail[j].var,prevail[j].prev,time_step-1);
-                    // preference_var->insert(vari);
-                    variables.insert(vari);
-                    notdel_smt+= vari;
-                    notdel_smt+=" ";
-                    new_facts->insert(pair<int,int>(prevail[j].var,prevail[j].prev));
-                }
+                // for(int j=0;j<prevail.size();j++){
+                //     string vari = varToSmt(prevail[j].var,prevail[j].prev,time_step-1);
+                //     // preference_var->insert(vari);
+                //     variables.insert(vari);
+                //     notdel_smt+= vari;
+                //     notdel_smt+=" ";
+                //     new_facts->insert(pair<int,int>(prevail[j].var,prevail[j].prev));
+                // }
             }
             else{
                 notdel_smt+= "true";
                 notdel_smt+=" ";
             }
-            if(prepost[i].cond.size()+prevail.size()>1)
+            if(prepost[i].cond.size()>1)
                 notdel_smt+=") ";
         }
     }
@@ -845,12 +1322,12 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
     notdel_smt+="))";
     // cout<<"add:"<<add_smt<<" del:"<<notdel_smt<<endl<<endl;
     /*提取回归的前置条件*/
-    // for(int i=0;i<prevail.size();i++){
-    //     string vari = varToSmt(prevail[i].var,prevail[i].prev,time_step-1);
-    //     preference_var->insert(vari);
-    //     variables.insert(vari);
-    //     new_facts->insert(pair<int,int>(prevail[i].var,prevail[i].prev));
-    // }
+    for(int i=0;i<prevail.size();i++){
+        string vari = varToSmt(prevail[i].var,prevail[i].prev,time_step-1);
+        preference_var->insert(vari);
+        variables.insert(vari);
+        new_facts->insert(pair<int,int>(prevail[i].var,prevail[i].prev));
+    }
     fact_regret_smt+="(and ";
     fact_regret_smt+=add_smt;
     fact_regret_smt+=" ";
@@ -874,10 +1351,11 @@ void Counter::regretCurFact(const Operator *a,set<string> *preference_var,pair<i
 void Counter::addActionToGoal(Plan plan){
     // dump_everything();
     regret_smt = "(assert (and true ";
+    /*构成前置条件和目标的smt公式*/
     string preference = " (not (and ";
     set<string> preference_var;
     set<pair<int,int> > now_facts;
-    set< pair<int,int> > new_facts;
+    set<pair<int,int> > new_facts;
     int plan_size = plan.size();
     /*添加目标状态:*/
     for(int i = 0; i < g_goal.size(); i++){
@@ -885,11 +1363,10 @@ void Counter::addActionToGoal(Plan plan){
         preference_var.insert(var_goal);
         variables.insert(var_goal);
         now_facts.insert(pair<int, int>(g_goal[i].first, g_goal[i].second));
-        
     }
+    /*处理axiom，如果目标是axiom，需要加入其到变量的转换*/
     for(auto now_fact:now_facts){
         // cout<<now_fact.first<<" "<<now_fact.second<<endl;
-        new_facts.insert(now_fact);
         if(axiomtovar.find(now_fact)!=axiomtovar.end()){
             vector<PrePost> pre_post = axiomtovar[now_fact];
             string vari = varToSmt(now_fact.first,now_fact.second,plan_size);
@@ -921,6 +1398,8 @@ void Counter::addActionToGoal(Plan plan){
             // cout<<axiom_smt<<endl;
             regret_smt+=axiom_smt;
             // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
+        }else{
+            new_facts.insert(now_fact);
         }
     }
     now_facts.clear();
@@ -928,49 +1407,17 @@ void Counter::addActionToGoal(Plan plan){
     new_facts.clear();
     /*从目标状态开始进行回归*/
     for(int i=plan_size-1;i>=0;i--){
-        /*对nowfact添加axiom*/
-         /*添加axiom*/
+        /*对nowfact添加axiom*/ 
         //  cout<<"size:"<<now_facts.size()<<endl;
         
         for(set<pair<int, int> >::iterator iter=now_facts.begin(); iter!=now_facts.end(); iter++){
             regretCurFact(plan[i],&preference_var,pair<int,int>(iter->first,iter->second),&new_facts,i+1);
         }
         now_facts.clear();
+        
         for(auto new_fact:new_facts){
             // cout<<now_fact.first<<" "<<now_fact.second<<endl;
             now_facts.insert(new_fact);
-            if(axiomtovar.find(new_fact)!=axiomtovar.end()){
-                vector<PrePost> pre_post = axiomtovar[new_fact];
-                string vari = varToSmt(new_fact.first,new_fact.second,i+1);
-                variables.insert(vari);
-                string axiom_smt="(= ";
-                axiom_smt+=vari;
-                axiom_smt+=" (or ";
-                for(int k=0;k<pre_post.size();k++){
-                    string one_axiom="(and ";
-                    string varj = varToSmt(pre_post[k].var,pre_post[k].pre,i+1);
-                    // variables.insert(varj);
-                    // one_axiom+=varj;
-                    // one_axiom+=" ";
-                    // now_facts.insert(pair<int,int>(pre_post[k].var,pre_post[k].pre));
-                    // cout<<"(-["<<ot.second[i].var<<","<<ot.second[i].pre<<"]-";
-                    for(int j=0;j<pre_post[k].cond.size();j++){
-                        varj = varToSmt(pre_post[k].cond[j].var,pre_post[k].cond[j].prev,i+1);
-                        variables.insert(varj);
-                        one_axiom+=varj;
-                        one_axiom+=" ";
-                        now_facts.insert(pair<int,int>(pre_post[k].cond[j].var,pre_post[k].cond[j].prev));
-                        // cout<<"["<<ot.second[i].cond[j].var<<","<<ot.second[i].cond[j].prev<<"]-";
-                    }
-                    one_axiom+=") ";
-                    axiom_smt+=one_axiom;
-                    // cout<<")"<<endl;
-                }
-                axiom_smt+="))\n";
-                // cout<<axiom_smt<<endl;
-                regret_smt+=axiom_smt;
-                // cout<<"->["<<ot.first.first<<"-"<<ot.first.second<<"]"<<endl;
-            }
         }
         new_facts.clear();
     }
@@ -1022,7 +1469,6 @@ bool Counter::invokeZ3(){
     map<int,int> sample;
     Z3_counter *zz = new Z3_counter();
     bool isFind = zz->extracCounter(smt,&sample);
-    
     // cout<<"修改前："<<endl;
     // for(int i = 0 ; i < g_variable_name.size() ; i++){
     //     cout<<g_variable_name[i]<<" "<<g_initial_state->vars[i]<<endl;
@@ -1030,6 +1476,7 @@ bool Counter::invokeZ3(){
     cout<<isFind<<endl;
     if(isFind){
         isfind=false;
+        /*这一步找到的是所于除known fact外的fact，不用再将上一次的fact赋为-1*/
         for(int i=0;i<g_initial_state->vars.size();i++){
           int var = indextovar[i];
           if(sample.find(var)!=sample.end())
@@ -1055,7 +1502,6 @@ bool Counter::invokeZ3(){
             appearcounter[statestring].frequency++;
             cout<<"已经出现过"<<endl;
             /*如果出现过，那么再重新计算反例*/
-            // return invokeZ3();
         }
         /*test*/
         int k=1;
@@ -1063,6 +1509,17 @@ bool Counter::invokeZ3(){
             cout<<"状态"<<k<<"出现在反例集中的次数："<<t->second.frequency<<endl;
             k++;
         }
+        // cout << "寻找前：Initial State:" << endl;
+		// for(int v=0;v<g_initial_state->vars.size();v++){
+		// 	if(g_initial_state->vars[v]!=g_variable_domain[v]-1)
+		// 		cout << "  " << g_variable_name[v] << ": " << g_initial_state->vars[v] << endl;
+		// }
+        // superCounter();
+        // cout << "寻找后：Initial State:" << endl;
+		// for(int v=0;v<g_initial_state->vars.size();v++){
+		// 	if(g_initial_state->vars[v]!=g_variable_domain[v]-1)
+		// 		cout << "  " << g_variable_name[v] << ": " << g_initial_state->vars[v] << endl;
+		// }
         delete zz;
         return true;
     }else{
@@ -1088,28 +1545,23 @@ bool Counter::invokeZ3(){
     }
 }
 
-bool Counter::conputerCounter(Plan plan){
+bool Counter::conputerCounter(Plan plan,bool isfirst){
     struct tms start, end;
     times(&start);
-    
     // for(int i=0;i<counterset.size();i++){
     //     cout<<i<<"次"<<endl;
     //     counterset[i]->dump();
     // }
-    smt="";cout<<222<<endl;
+    smt="";
     /*转换初始状态为SMT公式*/
-    initToSmt();
-    
+    initToSmt(isfirst);
     addActionToGoal(plan);
     addRestraintToTime0();
     for(set<string>::iterator iter=variables.begin(); iter!=variables.end(); iter++){
-        // set<string> variable = counter->getVariables();
-	// for(set<string>::iterator var=variable.begin();var!=variable.end();var++)
 		smt+="(declare-const ";
         smt+=*iter;
         smt+=" Bool)\n";
         // cout<<"(declare-const "<<*iter<<" Bool)"<<endl;
-	// std::cout << __cplusplus << std::endl;
     }
     smt+=init_smt;
     // cout<<init_smt<<endl;
@@ -1126,13 +1578,319 @@ bool Counter::conputerCounter(Plan plan){
     int total_ms = (end.tms_utime - start.tms_utime) * 10;
     total_counter+=total_ms;
     return isvaliplan;
+}
+
+int  Counter::planType(){
+    /*1.获取到两个不同的状态*/
+
+    /*2.进行四次调用：分别求解两个状态的解，分别求解两个状态到互相的解*/
+
+    /*3.如果到互相的解有的，那么设置为1，否则，判断这个两个状态的解是否对对方有影响，有那么设置为2，否这设置为3*/
+
+}
+
+void Counter::superCounter(){
+    if(oneofs.type==2){
+        
+        for(int i=0;i<oneofs.lens;i++){
+            /*第一步：判断此反例中，oneof的哪个item已经出现*/
+            int appearindex=-1;
+            int nowindex = 0;
+            // cout<<endl;
+            // for(int j=0;j<oneofs.oneof[i].len;j++){
+            //     cout<<tags.oneof[i].size[j]<<" ";
+            // }
+            // cout<<endl;
+            for(int j=0;j<oneofs.oneof[i].len;j++){
+                /*判断是否出现*/
+                int flag = 1;
+                for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                    if(g_initial_state->vars[oneofs.oneof[i].var[nowindex]]!=oneofs.oneof[i].val[nowindex]){
+                        flag = 0;
+                    }
+                    nowindex++;
+                }
+                if(flag == 1){
+                    appearindex = j;
+                    break;
+                }
+            }
+            cout<<"appearindex:"<<appearindex<<endl;
+            nowindex=0;
+            /*第二步：判断这些出现的item，是否已经出现在反例集的tags中，出现那么修改为未出现的
+              -1表示已经出现，！=-1表示未出现*/
+            if(tags.oneof[i].size[appearindex]==-1){
+                int success = 0;
+                /*找到未出现过的，进行替换*/
+                for(int j=0;j<oneofs.oneof[i].len;j++){
+                    if(tags.oneof[i].size[j]==-1){
+                        nowindex+=oneofs.oneof[i].size[j];
+                    }else{
+                        success=1;
+                        for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                            g_initial_state->vars[oneofs.oneof[i].var[nowindex]] = oneofs.oneof[i].val[nowindex];
+                            
+                            nowindex++;
+                        }
+                        tags.oneof[i].size[j]=-1;
+                        break;
+                    }
+                }
+                /*要把原来的删除了*/
+                if(success==1){
+                    nowindex=0;
+                    for(int j=0;j<oneofs.oneof[i].len;j++){
+                        if(j!=appearindex)
+                            nowindex+=oneofs.oneof[i].size[j];
+                        else{
+                            for(int k=0;k<oneofs.oneof[i].size[j];k++){
+                                g_initial_state->vars[oneofs.oneof[i].var[nowindex]] = g_variable_domain[oneofs.oneof[i].var[nowindex]]-1;
+                                nowindex++;
+                            }
+                            break;
+                        }
+                    }
+                }
+            }else{
+                tags.oneof[i].size[appearindex]=-1;
+            }
+        }
+    }
+    string statestring = stateToString(g_initial_state);
+    if(appearcounter.find(statestring)==appearcounter.end()){
+        state_var tmp;
+        tmp.frequency=1;
+        tmp.vars = g_initial_state->vars;
+        appearcounter.insert(pair<string,state_var>(statestring,tmp));
+        /*不出现多次才能保存*/
+        counterset_new.push_back(tmp);
+    }else{
+        appearcounter[statestring].frequency++;
+        cout<<"已经出现过"<<endl;
+        /*如果出现过，那么再重新计算反例*/
+    }
+    /*test*/
+    int k=1;
+    for(map<string,state_var>::iterator t=appearcounter.begin();t!=appearcounter.end();t++){
+        cout<<"状态"<<k<<"出现在反例集中的次数："<<t->second.frequency<<endl;
+        k++;
+    }
+}
+
+void Counter::selectMinState(){
+    if(oneofs.type!=2)
+        return;
+    vector<int> var_tmp = g_original_values;
+    State* current_state = new State;
+    State* next_state= new State;
+    vector<pair<int,int>> nextgoal;
+    vector<pair<int,int>> oneofitem;
+    current_state->vars = g_initial_state->vars;
+    int var_len = g_initial_state->vars.size();
+    int *isunKnownFact = (int*)calloc(var_len,sizeof(int));
     
+    memset(isunKnownFact,0,var_len);
+    // int oneofi[25][100][100]={0};
+
+    /*只识别oneof中的*/
+    // for(int i=0;i<oneofs.lens;i++){
+    //     int nowindex=0;
+    //     int index = oneofs.orlens+i;
+    //     /*识别or中的*/
+    //     for(int j=0;j<oneofs.oneof[index].len;j++){
+    //         for(int k=0;k<oneofs.oneof[index].size[j];k++){
+    //             isunKnownFact[oneofs.oneof[index].var[nowindex]]=1;
+    //             g_initial_state->negate_var(oneofs.oneof[index].var[nowindex]);
+    //             nowindex++;
+    //         }
+    //     }
+    // }
+    // for(int i=0;i<var_len;i++){
+    //     if(isunKnownFact[i]){
+    //         var_tmp[i] = g_variable_domain[i]-1;
+    //         g_original_values[i] = g_variable_domain[i]-1;
+    //     }
+    // }
+    // g_goal.clear();
+    for(int i=0;i<oneofs.lens;i++){
+
+        int index = oneofs.orlens+i;        
+        int nowindex = 0;
+        int i_want;
+        if(i==0)
+            // i_want = 20;
+            i_want=oneofs.oneof[i].len-1;
+        else
+            // i_want = 20;
+            i_want=oneofs.oneof[i].len-1;
+        
+        for(int m=0;m<i_want;m++){
+            for(int k=0;k<oneofs.oneof[index].size[m];k++){   
+                nowindex++;
+            }
+        }
+        
+        for(int k=0;k<oneofs.oneof[index].size[i_want];k++){   
+            
+            if(oneofs.oneof[index].val[nowindex]<0){
+                // g_initial_state->vars[oneofs.oneof[index].var[nowindex]] = g_variable_domain[oneofs.oneof[index].var[nowindex]]-1;
+                nextgoal.push_back(pair<int,int>(oneofs.oneof[index].var[nowindex],g_variable_domain[oneofs.oneof[index].var[nowindex]]-1));
+            }
+
+            else{
+                nextgoal.push_back(pair<int,int>(oneofs.oneof[index].var[nowindex],oneofs.oneof[index].val[nowindex]));
+                // g_initial_state->vars[oneofs.oneof[index].var[nowindex]] = oneofs.oneof[index].val[nowindex];
+            }
+                
+            nowindex++;
+        }
+        
+        // for(int k=0;k<oneofs.oneof[index].size[i_want];k++){   
+        //     g_goal.push_back(pair<int,int>(oneofs.oneof[index].var[nowindex],oneofs.oneof[index].val[nowindex]));
+        //     // g_initial_state->vars[oneofs.oneof[index].var[nowindex]] = oneofs.oneof[index].val[nowindex];
+        //     nowindex++;
+        // }
+    }
+
+    //先判断子目标是否可达
+    State* temp;
+    temp = g_initial_state;
+    vector<pair<int, int> > tmpgoal;
+    
+    tmpgoal.insert(tmpgoal.end(),g_goal.begin(),g_goal.end());
+    g_goal.clear();
+    g_goal.insert(g_goal.begin(),nextgoal.begin(),nextgoal.end());
+
+    BestFirstSearchEngine *subengine;
+    subengine = new BestFirstSearchEngine;
+    /*再启动一次搜索*/
+    subengine->add_heuristic(1, 1);
+    subengine->search();
+    g_goal.clear();
+    g_goal.insert(g_goal.begin(),tmpgoal.begin(),tmpgoal.end());
+    // printPlan(subengine->get_plan());
+    //再判断子目标是否比原来的目标要小
+    //  &&nextgoal.size()<g_goal.size()
+    if(subengine->found_solution()){
+        g_goal =nextgoal;
+    }
+
+    delete subengine;
+    // state_var tmp;
+    // tmp.vars = g_initial_state->vars;
+    // tmp.frequency = -1;
+    // counterset_new.push_back(tmp);
+
+    /*old 不适用*/
+    // for(int i=0;i<oneofs.lens;i++){
+    //     int nowindex=0;
+    //     int index = oneofs.orlens+i;
+    //     /*识别or中的*/
+    //     for(int j=0;j<oneofs.oneof[index].len;j++){
+    //         nowindex=0;
+    //         for(int m=0;m<j;m++){
+    //             for(int k=0;k<oneofs.oneof[index].size[m];k++){   
+    //                 nowindex++;
+    //             }
+    //         }
+    //         for(int k=0;k<oneofs.oneof[index].size[j];k++){   
+    //             var_tmp[oneofs.oneof[index].var[nowindex]] = oneofs.oneof[index].val[nowindex];
+    //             nowindex++;
+    //         }
+    //         current_state->vars = var_tmp;
+    //         var_tmp = g_original_values;
+    //         for(int m=j;m<oneofs.oneof[index].len;m++){
+    //             if(m==j){
+    //                 nextgoal.insert(nextgoal.end(),g_goal.begin(),g_goal.end());
+    //             }else
+    //                 for(int k=0;k<oneofs.oneof[index].size[m];k++){   
+    //                     nextgoal.push_back(pair<int,int>(oneofs.oneof[index].var[nowindex],oneofs.oneof[index].val[nowindex]));
+    //                     nowindex++;
+    //                 }
+                
+    //             /*在这里计算规划解长度*/
+    //             State* temp;
+    //             temp = g_initial_state;
+    //             g_initial_state = current_state;
+    //             vector<pair<int, int> > tmpgoal;
+                
+    //             tmpgoal.insert(tmpgoal.end(),g_goal.begin(),g_goal.end());
+    //             g_goal.clear();
+    //             g_goal.insert(g_goal.begin(),nextgoal.begin(),nextgoal.end());
+
+    //             BestFirstSearchEngine *subengine;
+    //             subengine = new BestFirstSearchEngine;
+    //             /*再启动一次搜索*/
+    //             subengine->add_heuristic(1, 1);
+    //             subengine->search();
+
+    //             g_initial_state = temp;
+    //             g_goal.clear();
+    //             g_goal.insert(g_goal.begin(),tmpgoal.begin(),tmpgoal.end());
+    //             nextgoal.clear();
+    //             oneofi[i][j][m]=subengine->get_plan().size();
+    //         }
+    //     }
+    // }
+    
+    // for(int i=0;i<oneofs.lens;i++){
+    //     int minindex=0;
+    //     int sum = 0,min=0;
+    //     int index = oneofs.orlens+i;
+    //     /*识别距离最短的参考状态*/
+    //     for(int j=0;j<oneofs.oneof[index].len;j++){
+    //         sum=0;
+    //         for(int m=0;m<j;m++){
+    //             sum+=oneofi[i][m][j];
+    //         }
+    //         for(int m=j+1;m<oneofs.oneof[index].len;m++){
+    //             sum+=oneofi[i][j][m];
+    //         }
+    //         if(j==0){
+    //             min = sum;
+    //             minindex = 0;
+    //         }else{
+    //             if(sum<min){
+    //                 min = sum;
+    //                 minindex = j;
+    //             }
+    //         }
+    //         cout<<j<<":sum:"<<sum<<endl;
+    //     }
+    //     cout<<"minindex:"<<minindex<<endl;
+    //     cout<<endl;
+    //     /*改变为距离最小的初始状态*/
+        
+    //     int nowindex = 0;
+    //     for(int m=0;m<minindex;m++){
+    //         for(int k=0;k<oneofs.oneof[index].size[m];k++){   
+    //             nowindex++;
+    //         }
+    //     }
+    //     for(int k=0;k<oneofs.oneof[index].size[minindex];k++){   
+    //         g_initial_state->vars[oneofs.oneof[index].var[nowindex]] = oneofs.oneof[index].val[nowindex];
+    //         nowindex++;
+    //     }
+    // }
+
+    g_initial_state->dump();
+
+    // for(int i=0;i<3;i++){
+    //     for(int j=0;j<12;j++){
+    //         for(int k=0;k<12;k++){
+    //             cout<<oneofi[i][j][k]<<" ";
+    //         }
+    //         cout<<endl;
+    //     }
+    //     cout<<endl;
+    // }
+
+
+
 }
 
 
-
-
-void Counter::testPlanisvalid(Plan plan){   
+void Counter::testPlanisvalid(Plan plan){
     vector<int> var_tmp = g_original_values;
     vector<pair<int,int>> tmp;
     vector<state_var> curStates;
@@ -1209,7 +1967,7 @@ void Counter::testPlanisvalid(Plan plan){
         }
     }
     infile.close();
-    // cout<<curStates.size()<<endl;
+    cout<<curStates.size()<<endl;
     // cout<<endl;
     // for(int i=0;i<curStates.size();i++){
     //     cout<<"第"<<i<<"个状态"<<endl;
@@ -1217,9 +1975,9 @@ void Counter::testPlanisvalid(Plan plan){
     //         if(isunKnownFact[j]&&curStates[i].vars[j]!=g_variable_domain[j]-1)
     //             cout<<g_variable_name[j]<<"-"<<curStates[i].vars[j]<<" ";
     //     }
+    //     cout<<g_variable_name[g_goal[0].first]<<"-"<<curStates[i].vars[g_goal[0].first];
     //     cout<<endl;
     // }
-
 
     for(int i=0;i<plansize;i++){
          /*所有的状态后移*/
@@ -1230,12 +1988,21 @@ void Counter::testPlanisvalid(Plan plan){
             {
                 if(g_operators[h].get_name().compare(plan[i]->get_name()) == 0) break;
             }
+            State *tmp = new State();
+            tmp->vars = curStates[j].vars;
+            if(!g_operators[h].is_conformant_applicable(*tmp)){
+                cout<<g_operators[h].get_name()<<"动作不满"<<endl;
+                return;
+            }
+
             applyAction(&curStates[j],g_operators[h]);
         }
     }
 
     cout<<endl;
     /*再对目标状态运用axiom*/
+    
+
     for(int k=0;k<curStates.size();k++){
         for(auto ot : axiomtovar){
             bool issatisfy=false;
@@ -1283,6 +2050,9 @@ void Counter::testPlanisvalid(Plan plan){
             if(curStates[i].vars[g_goal[j].first]!=g_goal[j].second){
                 isvalidplan=false;
                 cout<<"状态"<<i<<"不能解决"<<endl;
+                for(int k=0;k<curStates[i].vars.size();k++){
+                    cout<<g_variable_name[k]<<"-"<<curStates[i].vars[k]<<" ";
+                }
                 for(int k=0;k<curStates[i].vars.size();k++){
                     cout<<g_variable_name[k]<<"-"<<curStates[i].vars[k]<<" ";
                 }

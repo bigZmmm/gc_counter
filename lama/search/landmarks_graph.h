@@ -71,17 +71,17 @@ public:
 class LandmarksGraph {
 public:
     class Pddl_proposition {
-    public:
-        string predicate;
-        vector<string> arguments;
-        string to_string() const {
-            string output = predicate;
-            for(unsigned int i = 0; i < arguments.size(); i++) {
-                output += " ";
-                output += arguments[i];
+        public:
+            string predicate;
+            vector<string> arguments;
+            string to_string() const {
+                string output = predicate;
+                for(unsigned int i = 0; i < arguments.size(); i++) {
+                    output += " ";
+                    output += arguments[i];
+                }
+                return output;
             }
-            return output;
-        }
     };
 
     LandmarksGraph();

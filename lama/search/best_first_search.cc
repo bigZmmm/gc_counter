@@ -112,7 +112,7 @@ int BestFirstSearchEngine::step() {
     // - current_operator is the operator which leads to current_state from predecessor.
   
 	/*检查当前状态是否已经在close中，在的话就不管了*/
-    if(!closed_list.contains(current_state)) {  
+    if(!closed_list.contains(current_state)) { 
 		/*不在，插入clsoe表中*/
 		const State *parent_ptr = closed_list.insert(current_state, current_predecessor, current_operator);
 
@@ -195,7 +195,7 @@ bool BestFirstSearchEngine::check_goal() {
 }
 
 /*如果启发式有更小的启发式值则返回true*/
-bool BestFirstSearchEngine::check_progress() {
+bool BestFirstSearchEngine::check_progress(){
     bool progress = false;
     for(int i = 0; i < heuristics.size(); i++) {
 		if(heuristics[i]->is_dead_end())

@@ -115,7 +115,7 @@ public:
 					if((pre_post[i].cond[j].var==var)&&(pre_post[i].cond[j].prev==val))
 						flag=true;
 				}
-				/*因为互斥组的存在，这个是成立的，所以这个的前置条件是不可能存在*/
+				/*因为互斥组的存在，这个是成立的，能证明在下一步中，这个值是不存在的*/
 				if(pre_post[i].post!=val)
 					flag = true;
 			}
@@ -150,22 +150,23 @@ public:
 		}
 		return false;
     }
-	/*如果前置条件不包含effect中需变化的变量，只需检查前置条件
-	  否则两个都需要检查（并且要检查条件影响）*/
+	/*原：如果前置条件不包含effect中需变化的变量，只需检查前置条件，否则两个都需要检查（并且要检查条件影响）*/
+	
+	/*修改为只判断前提条件*/
     bool is_conformant_applicable(const State &state) const {
 		/*前置条件的变量和effect中需变化的变量是一样的*/
 		if(need_checking_all_conditions())
 		{
 			for(int i = 0; i < prevail.size(); i++)
 				if(!prevail[i].is_applicable(state))
-				return false;
+					return false;
 			for(int i = 0; i < pre_post.size(); i++)
 			{
 				if(!pre_post[i].is_applicable(state))
 					return false;
 				/*比is_applicable多出来的-条件影响*/
-				if(!pre_post[i].does_fire(state))
-					return false;
+				// if(!pre_post[i].does_fire(state))
+				// 	return false;
 			}
 			return true;
 		}
@@ -193,7 +194,7 @@ public:
 			for(int i=0;i < pre_post.size(); i++)
 				for(int j=0;j < pre_post[i].cond.size();j++)
 						if(!pre_post[i].cond[j].is_applicable(state))
-						sub_goal.push_back(make_pair(pre_post[i].cond[j].var,pre_post[i].cond[j].prev));
+							sub_goal.push_back(make_pair(pre_post[i].cond[j].var,pre_post[i].cond[j].prev));
 		}
 		return sub_goal;
     }
@@ -201,6 +202,10 @@ public:
 	/*添加该动作在上个状态时的条件影响*/
     vector<pair <int,int> > condition_sub_goal(const State &state) const {
 		vector<pair <int,int> > sub_goal;	
+		for(int i=0;i<prevail.size();i++){
+			sub_goal.push_back(make_pair(prevail[i].var,prevail[i].prev));
+		}
+
 		for(int i=0; i < pre_post.size(); i++)
 		{
 			// if(pre_post[i].cond.size()>1)

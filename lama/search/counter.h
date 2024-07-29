@@ -47,6 +47,17 @@ struct ONEOFS
     }
 };
 
+struct Landmarkitem{
+    int in,out;
+    vector<pair<int,int>> item;
+};
+
+struct Landmark{
+    int oneoflen;
+    vector<vector<Landmarkitem>> insidelandmarks;
+    vector<Landmarkitem> outsidelandmarks;
+};
+
 struct state_var{
     vector<int> vars; 
     int frequency;
@@ -57,33 +68,50 @@ class Counter
 public:
     typedef std::vector<const Operator *> Plan;
     ONEOFS oneofs;
+    /*用于每次计算反例的tags,用oneof_item中的size[i]=-1来表示某个tag已经出现过*/
+    ONEOFS tags;
     int sum;
     Plan newplan;
-    /*表示删除部分例子后的SMT无反例*/
+    /*表示约束部分反例的SMT，已经找不到反例，=true时会放开初始状态的约束*/
     bool isfind;
+    int operateTimes;
     /*表示删除的例子是否能解*/
     bool counterissolvered;
-    set<string> variables;
+    
     vector<State*> counterset;
     vector<vector<State*>> planSet;
-
+    /*用于简化规划解*/
     vector<state_var> counterset_new;
     vector<string> everyplanvarset; 
-
+    /*存储下标与变量的映射*/
     map<int,int> indextovar;
     long long belief_size;
+    /*存储axiom与前置条件的映射*/
     map<pair<int,int>,vector<PrePost>> axiomtovar;
     
-    /*处理过的反例,如果重复三次处理这个,那么不再处理它,直到没有找到反例,再把他们放出来
-    考虑最后怎么放,一次性放完,或者是一个个放
-    */
+    /*反例集中的反例，记录了出现次数，如果大于2会限制其在后续迭代中不出现*/
     map<string,state_var> appearcounter;
-    
+    /*出现过的s0集合，用于变换s0的选择*/
+    map<string,state_var> firststate;
+    /*smt字符串公式*/
+    set<string> variables;
     string init_smt;
     string regret_smt;
     string smt;
     string sasrestraint_smt;
+    /*总反例时间*/
     int total_counter;
+    /*landmark time*/
+    int landmarktime;
+    /*1:固定前置状态为减少可以汇集的点 2:利用另一个解的最优部分解来解决当前问题 3:默认方式，前置状态一直变化*/
+    int plantype;
+    /*前置条件不满足时被删除的动作数*/
+    int unapplyaction;
+
+    Landmark landmark;
+    bool findfinallandmark;
+
+
 public:
     Counter();
     ~Counter(){
@@ -162,8 +190,8 @@ public:
     int getTotal_counter(){
         return total_counter;
     }
-    void initToSmt();
-    bool conputerCounter(Plan plan);
+    void initToSmt(bool isfirst);
+    bool conputerCounter(Plan plan,bool isfirst);
     void addActionToGoal(Plan plan);
     string varToSmt(int var,int l,int i);
     void addRestraintToTime0();
@@ -172,8 +200,12 @@ public:
     void optimizePlan(Plan plan);
     void optimizePlantest(Plan plan);
     void testPlanisvalid(Plan plan);
+    
+    int  planType();
+    void superCounter();
 
-    void optimizePlanByConformant(Plan plan);
+    void selectMinState();
+    bool selectLandmark();
     bool invokeZ3();
     void clearAll(){
         init_smt.clear();

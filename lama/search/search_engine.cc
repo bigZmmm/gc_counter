@@ -48,6 +48,10 @@ void SearchEngine::set_plan(const Plan &p) {
     plan = p;
 }
 
+void SearchEngine::set_plan_null(){
+    plan.clear();
+}
+
 void SearchEngine::search() {
     initialize();
     solved = false;

@@ -1,36 +1,33 @@
-Parsing...   Atom x(p1)
-  Atom x(p1)
-  Atom y(p1)
-  Atom y(p1)
-[0.020s CPU, 0.030s wall-clock]
+Parsing...   Atom obj-at(o1, p1-1)
+  Atom obj-at(o1, p1-1)
+[0.000s CPU, 0.001s wall-clock]
 1231
 
 Instantiating...
-Normalizing task... [0.000s CPU, 0.001s wall-clock]
-Generating Datalog program... [0.000s CPU, 0.001s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
 Normalizing Datalog program...
-Trivial rules: Converted to facts.
-Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
-Preparing model... [0.010s CPU, 0.002s wall-clock]
-Generated 365 rules.
-Computing model... [0.000s CPU, 0.001s wall-clock]
-467 relevant atoms
-0 auxiliary atoms
-467 final queue length
-833 total queue pushes
+Normalizing Datalog program: [0.000s CPU, 0.000s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 16 rules.
+Computing model... [0.010s CPU, 0.006s wall-clock]
+838 relevant atoms
+419 auxiliary atoms
+1257 final queue length
+5707 total queue pushes
 Completing instantiation... [0.000s CPU, 0.005s wall-clock]
-Instantiating: [0.010s CPU, 0.011s wall-clock]
+Instantiating: [0.010s CPU, 0.013s wall-clock]
 Computing fact groups...
-Finding invariants... 4 initial candidates
-[0.010s CPU, 0.007s wall-clock]
+Finding invariants... 8 initial candidates
+[0.000s CPU, 0.000s wall-clock]
 Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
 Instantiating groups... [0.000s CPU, 0.000s wall-clock]
 Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
 Choosing groups...
-184 uncovered facts
+1 uncovered facts
 Choosing groups: [0.000s CPU, 0.000s wall-clock]
 Building translation key... [0.000s CPU, 0.000s wall-clock]
-Computing fact groups: [0.010s CPU, 0.007s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
 Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
 Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
 Building implied facts dictionary...... [0.000s CPU, 0.000s wall-clock]
@@ -38,665 +35,275 @@ Translating task...
 Processing axioms...
 Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
 Processing axioms: [0.000s CPU, 0.000s wall-clock]
-Translating task: [0.000s CPU, 0.002s wall-clock]
+Translating task: [0.010s CPU, 0.004s wall-clock]
 0 implied effects removed
 0 effect conditions simplified
 0 implied preconditions added
 Building mutex information... [0.000s CPU, 0.000s wall-clock]
 Writing translation key... 111211
   Conjunction
-    Atom x(p1)
-    Atom x(p2)
-    Atom x(p3)
-    Atom x(p4)
-    Atom x(p5)
-    Atom x(p6)
-    Atom x(p7)
-    Atom x(p8)
-    Atom x(p9)
-    Atom x(p10)
-    Atom x(p11)
-    Atom x(p12)
-    Atom x(p13)
-    Atom x(p14)
-    Atom x(p15)
-    Atom x(p16)
-    Atom x(p17)
-    Atom x(p18)
-    Atom x(p19)
-    Atom x(p20)
-    Atom x(p21)
-    Atom x(p22)
-    Atom x(p23)
-    Atom x(p24)
-    Atom x(p25)
-    Atom x(p26)
-    Atom x(p27)
-    Atom x(p28)
-    Atom x(p29)
-    Atom x(p30)
-    Atom x(p31)
-    Atom x(p32)
-    Atom x(p33)
-    Atom x(p34)
-    Atom x(p35)
-    Atom x(p36)
-    Atom x(p37)
-    Atom x(p38)
-    Atom x(p39)
-    Atom x(p40)
-    Atom x(p41)
-    Atom x(p42)
-    Atom x(p43)
-    Atom x(p44)
-    Atom x(p45)
-    Atom x(p46)
-    Atom x(p47)
-    Atom x(p48)
-    Atom x(p49)
-    Atom x(p50)
-    Atom x(p51)
-    Atom x(p52)
-    Atom x(p53)
-    Atom x(p54)
-    Atom x(p55)
-    Atom x(p56)
-    Atom x(p57)
-    Atom x(p58)
-    Atom x(p59)
-    Atom x(p60)
-    Atom x(p61)
-    Atom x(p62)
-    Atom x(p63)
-    Atom x(p64)
-    Atom x(p65)
-    Atom x(p66)
-    Atom x(p67)
-    Atom x(p68)
-    Atom x(p69)
-    Atom x(p70)
-    Atom x(p71)
-    Atom x(p72)
-    Atom x(p73)
-    Atom x(p74)
-    Atom x(p75)
-    Atom x(p76)
-    Atom x(p77)
-    Atom x(p78)
-    Atom x(p79)
-    Atom x(p80)
-    Atom x(p81)
-    Atom x(p82)
-    Atom x(p83)
-    Atom x(p84)
-    Atom x(p85)
-    Atom x(p86)
-    Atom x(p87)
-    Atom x(p88)
-    Atom x(p89)
-    Atom x(p90)
-    Atom x(p91)
-    Atom x(p92)
-  Conjunction
-    Atom y(p1)
-    Atom y(p2)
-    Atom y(p3)
-    Atom y(p4)
-    Atom y(p5)
-    Atom y(p6)
-    Atom y(p7)
-    Atom y(p8)
-    Atom y(p9)
-    Atom y(p10)
-    Atom y(p11)
-    Atom y(p12)
-    Atom y(p13)
-    Atom y(p14)
-    Atom y(p15)
-    Atom y(p16)
-    Atom y(p17)
-    Atom y(p18)
-    Atom y(p19)
-    Atom y(p20)
-    Atom y(p21)
-    Atom y(p22)
-    Atom y(p23)
-    Atom y(p24)
-    Atom y(p25)
-    Atom y(p26)
-    Atom y(p27)
-    Atom y(p28)
-    Atom y(p29)
-    Atom y(p30)
-    Atom y(p31)
-    Atom y(p32)
-    Atom y(p33)
-    Atom y(p34)
-    Atom y(p35)
-    Atom y(p36)
-    Atom y(p37)
-    Atom y(p38)
-    Atom y(p39)
-    Atom y(p40)
-    Atom y(p41)
-    Atom y(p42)
-    Atom y(p43)
-    Atom y(p44)
-    Atom y(p45)
-    Atom y(p46)
-    Atom y(p47)
-    Atom y(p48)
-    Atom y(p49)
-    Atom y(p50)
-    Atom y(p51)
-    Atom y(p52)
-    Atom y(p53)
-    Atom y(p54)
-    Atom y(p55)
-    Atom y(p56)
-    Atom y(p57)
-    Atom y(p58)
-    Atom y(p59)
-    Atom y(p60)
-    Atom y(p61)
-    Atom y(p62)
-    Atom y(p63)
-    Atom y(p64)
-    Atom y(p65)
-    Atom y(p66)
-    Atom y(p67)
-    Atom y(p68)
-    Atom y(p69)
-    Atom y(p70)
-    Atom y(p71)
-    Atom y(p72)
-    Atom y(p73)
-    Atom y(p74)
-    Atom y(p75)
-    Atom y(p76)
-    Atom y(p77)
-    Atom y(p78)
-    Atom y(p79)
-    Atom y(p80)
-    Atom y(p81)
-    Atom y(p82)
-    Atom y(p83)
-    Atom y(p84)
-    Atom y(p85)
-    Atom y(p86)
-    Atom y(p87)
-    Atom y(p88)
-    Atom y(p89)
-    Atom y(p90)
-    Atom y(p91)
-    Atom y(p92)
+    Atom obj-at(o1, p1-1)
+    Atom obj-at(o1, p1-2)
+    Atom obj-at(o1, p1-3)
+    Atom obj-at(o1, p1-4)
+    Atom obj-at(o1, p1-5)
+    Atom obj-at(o1, p1-6)
+    Atom obj-at(o1, p1-7)
+    Atom obj-at(o1, p1-8)
+    Atom obj-at(o1, p2-1)
+    Atom obj-at(o1, p2-2)
+    Atom obj-at(o1, p2-3)
+    Atom obj-at(o1, p2-4)
+    Atom obj-at(o1, p2-5)
+    Atom obj-at(o1, p2-6)
+    Atom obj-at(o1, p2-7)
+    Atom obj-at(o1, p2-8)
+    Atom obj-at(o1, p3-1)
+    Atom obj-at(o1, p3-2)
+    Atom obj-at(o1, p3-3)
+    Atom obj-at(o1, p3-4)
+    Atom obj-at(o1, p3-5)
+    Atom obj-at(o1, p3-6)
+    Atom obj-at(o1, p3-7)
+    Atom obj-at(o1, p3-8)
+    Atom obj-at(o1, p4-1)
+    Atom obj-at(o1, p4-2)
+    Atom obj-at(o1, p4-3)
+    Atom obj-at(o1, p4-4)
+    Atom obj-at(o1, p4-5)
+    Atom obj-at(o1, p4-6)
+    Atom obj-at(o1, p4-7)
+    Atom obj-at(o1, p4-8)
+    Atom obj-at(o1, p5-1)
+    Atom obj-at(o1, p5-2)
+    Atom obj-at(o1, p5-3)
+    Atom obj-at(o1, p5-4)
+    Atom obj-at(o1, p5-5)
+    Atom obj-at(o1, p5-6)
+    Atom obj-at(o1, p5-7)
+    Atom obj-at(o1, p5-8)
+    Atom obj-at(o1, p6-1)
+    Atom obj-at(o1, p6-2)
+    Atom obj-at(o1, p6-3)
+    Atom obj-at(o1, p6-4)
+    Atom obj-at(o1, p6-5)
+    Atom obj-at(o1, p6-6)
+    Atom obj-at(o1, p6-7)
+    Atom obj-at(o1, p6-8)
+    Atom obj-at(o1, p7-1)
+    Atom obj-at(o1, p7-2)
+    Atom obj-at(o1, p7-3)
+    Atom obj-at(o1, p7-4)
+    Atom obj-at(o1, p7-5)
+    Atom obj-at(o1, p7-6)
+    Atom obj-at(o1, p7-7)
+    Atom obj-at(o1, p7-8)
+    Atom obj-at(o1, p8-1)
+    Atom obj-at(o1, p8-2)
+    Atom obj-at(o1, p8-3)
+    Atom obj-at(o1, p8-4)
+    Atom obj-at(o1, p8-5)
+    Atom obj-at(o1, p8-6)
+    Atom obj-at(o1, p8-7)
+    Atom obj-at(o1, p8-8)
 Detect oneof combinable... True
-[0.000s CPU, 0.000s wall-clock]
-maxlen: 92
+[0.000s CPU, 0.001s wall-clock]
+maxlen: 64
 state3: 
-((' Atom x(p1)',),)
-((' Atom y(p1)',),)
+((' Atom obj-at(o1, p1-1)',),)
 state3: 
-((' Atom x(p2)',),)
-((' Atom y(p2)',),)
+((' Atom obj-at(o1, p1-2)',),)
 state3: 
-((' Atom x(p3)',),)
-((' Atom y(p3)',),)
+((' Atom obj-at(o1, p1-3)',),)
 state3: 
-((' Atom x(p4)',),)
-((' Atom y(p4)',),)
+((' Atom obj-at(o1, p1-4)',),)
 state3: 
-((' Atom x(p5)',),)
-((' Atom y(p5)',),)
+((' Atom obj-at(o1, p1-5)',),)
 state3: 
-((' Atom x(p6)',),)
-((' Atom y(p6)',),)
+((' Atom obj-at(o1, p1-6)',),)
 state3: 
-((' Atom x(p7)',),)
-((' Atom y(p7)',),)
+((' Atom obj-at(o1, p1-7)',),)
 state3: 
-((' Atom x(p8)',),)
-((' Atom y(p8)',),)
+((' Atom obj-at(o1, p1-8)',),)
 state3: 
-((' Atom x(p9)',),)
-((' Atom y(p9)',),)
+((' Atom obj-at(o1, p2-1)',),)
 state3: 
-((' Atom x(p10)',),)
-((' Atom y(p10)',),)
+((' Atom obj-at(o1, p2-2)',),)
 state3: 
-((' Atom x(p11)',),)
-((' Atom y(p11)',),)
+((' Atom obj-at(o1, p2-3)',),)
 state3: 
-((' Atom x(p12)',),)
-((' Atom y(p12)',),)
+((' Atom obj-at(o1, p2-4)',),)
 state3: 
-((' Atom x(p13)',),)
-((' Atom y(p13)',),)
+((' Atom obj-at(o1, p2-5)',),)
 state3: 
-((' Atom x(p14)',),)
-((' Atom y(p14)',),)
+((' Atom obj-at(o1, p2-6)',),)
 state3: 
-((' Atom x(p15)',),)
-((' Atom y(p15)',),)
+((' Atom obj-at(o1, p2-7)',),)
 state3: 
-((' Atom x(p16)',),)
-((' Atom y(p16)',),)
+((' Atom obj-at(o1, p2-8)',),)
 state3: 
-((' Atom x(p17)',),)
-((' Atom y(p17)',),)
+((' Atom obj-at(o1, p3-1)',),)
 state3: 
-((' Atom x(p18)',),)
-((' Atom y(p18)',),)
+((' Atom obj-at(o1, p3-2)',),)
 state3: 
-((' Atom x(p19)',),)
-((' Atom y(p19)',),)
+((' Atom obj-at(o1, p3-3)',),)
 state3: 
-((' Atom x(p20)',),)
-((' Atom y(p20)',),)
+((' Atom obj-at(o1, p3-4)',),)
 state3: 
-((' Atom x(p21)',),)
-((' Atom y(p21)',),)
+((' Atom obj-at(o1, p3-5)',),)
 state3: 
-((' Atom x(p22)',),)
-((' Atom y(p22)',),)
+((' Atom obj-at(o1, p3-6)',),)
 state3: 
-((' Atom x(p23)',),)
-((' Atom y(p23)',),)
+((' Atom obj-at(o1, p3-7)',),)
 state3: 
-((' Atom x(p24)',),)
-((' Atom y(p24)',),)
+((' Atom obj-at(o1, p3-8)',),)
 state3: 
-((' Atom x(p25)',),)
-((' Atom y(p25)',),)
+((' Atom obj-at(o1, p4-1)',),)
 state3: 
-((' Atom x(p26)',),)
-((' Atom y(p26)',),)
+((' Atom obj-at(o1, p4-2)',),)
 state3: 
-((' Atom x(p27)',),)
-((' Atom y(p27)',),)
+((' Atom obj-at(o1, p4-3)',),)
 state3: 
-((' Atom x(p28)',),)
-((' Atom y(p28)',),)
+((' Atom obj-at(o1, p4-4)',),)
 state3: 
-((' Atom x(p29)',),)
-((' Atom y(p29)',),)
+((' Atom obj-at(o1, p4-5)',),)
 state3: 
-((' Atom x(p30)',),)
-((' Atom y(p30)',),)
+((' Atom obj-at(o1, p4-6)',),)
 state3: 
-((' Atom x(p31)',),)
-((' Atom y(p31)',),)
+((' Atom obj-at(o1, p4-7)',),)
 state3: 
-((' Atom x(p32)',),)
-((' Atom y(p32)',),)
+((' Atom obj-at(o1, p4-8)',),)
 state3: 
-((' Atom x(p33)',),)
-((' Atom y(p33)',),)
+((' Atom obj-at(o1, p5-1)',),)
 state3: 
-((' Atom x(p34)',),)
-((' Atom y(p34)',),)
+((' Atom obj-at(o1, p5-2)',),)
 state3: 
-((' Atom x(p35)',),)
-((' Atom y(p35)',),)
+((' Atom obj-at(o1, p5-3)',),)
 state3: 
-((' Atom x(p36)',),)
-((' Atom y(p36)',),)
+((' Atom obj-at(o1, p5-4)',),)
 state3: 
-((' Atom x(p37)',),)
-((' Atom y(p37)',),)
+((' Atom obj-at(o1, p5-5)',),)
 state3: 
-((' Atom x(p38)',),)
-((' Atom y(p38)',),)
+((' Atom obj-at(o1, p5-6)',),)
 state3: 
-((' Atom x(p39)',),)
-((' Atom y(p39)',),)
+((' Atom obj-at(o1, p5-7)',),)
 state3: 
-((' Atom x(p40)',),)
-((' Atom y(p40)',),)
+((' Atom obj-at(o1, p5-8)',),)
 state3: 
-((' Atom x(p41)',),)
-((' Atom y(p41)',),)
+((' Atom obj-at(o1, p6-1)',),)
 state3: 
-((' Atom x(p42)',),)
-((' Atom y(p42)',),)
+((' Atom obj-at(o1, p6-2)',),)
 state3: 
-((' Atom x(p43)',),)
-((' Atom y(p43)',),)
+((' Atom obj-at(o1, p6-3)',),)
 state3: 
-((' Atom x(p44)',),)
-((' Atom y(p44)',),)
+((' Atom obj-at(o1, p6-4)',),)
 state3: 
-((' Atom x(p45)',),)
-((' Atom y(p45)',),)
+((' Atom obj-at(o1, p6-5)',),)
 state3: 
-((' Atom x(p46)',),)
-((' Atom y(p46)',),)
+((' Atom obj-at(o1, p6-6)',),)
 state3: 
-((' Atom x(p47)',),)
-((' Atom y(p47)',),)
+((' Atom obj-at(o1, p6-7)',),)
 state3: 
-((' Atom x(p48)',),)
-((' Atom y(p48)',),)
+((' Atom obj-at(o1, p6-8)',),)
 state3: 
-((' Atom x(p49)',),)
-((' Atom y(p49)',),)
+((' Atom obj-at(o1, p7-1)',),)
 state3: 
-((' Atom x(p50)',),)
-((' Atom y(p50)',),)
+((' Atom obj-at(o1, p7-2)',),)
 state3: 
-((' Atom x(p51)',),)
-((' Atom y(p51)',),)
+((' Atom obj-at(o1, p7-3)',),)
 state3: 
-((' Atom x(p52)',),)
-((' Atom y(p52)',),)
+((' Atom obj-at(o1, p7-4)',),)
 state3: 
-((' Atom x(p53)',),)
-((' Atom y(p53)',),)
+((' Atom obj-at(o1, p7-5)',),)
 state3: 
-((' Atom x(p54)',),)
-((' Atom y(p54)',),)
+((' Atom obj-at(o1, p7-6)',),)
 state3: 
-((' Atom x(p55)',),)
-((' Atom y(p55)',),)
+((' Atom obj-at(o1, p7-7)',),)
 state3: 
-((' Atom x(p56)',),)
-((' Atom y(p56)',),)
+((' Atom obj-at(o1, p7-8)',),)
 state3: 
-((' Atom x(p57)',),)
-((' Atom y(p57)',),)
+((' Atom obj-at(o1, p8-1)',),)
 state3: 
-((' Atom x(p58)',),)
-((' Atom y(p58)',),)
+((' Atom obj-at(o1, p8-2)',),)
 state3: 
-((' Atom x(p59)',),)
-((' Atom y(p59)',),)
+((' Atom obj-at(o1, p8-3)',),)
 state3: 
-((' Atom x(p60)',),)
-((' Atom y(p60)',),)
+((' Atom obj-at(o1, p8-4)',),)
 state3: 
-((' Atom x(p61)',),)
-((' Atom y(p61)',),)
+((' Atom obj-at(o1, p8-5)',),)
 state3: 
-((' Atom x(p62)',),)
-((' Atom y(p62)',),)
+((' Atom obj-at(o1, p8-6)',),)
 state3: 
-((' Atom x(p63)',),)
-((' Atom y(p63)',),)
+((' Atom obj-at(o1, p8-7)',),)
 state3: 
-((' Atom x(p64)',),)
-((' Atom y(p64)',),)
-state3: 
-((' Atom x(p65)',),)
-((' Atom y(p65)',),)
-state3: 
-((' Atom x(p66)',),)
-((' Atom y(p66)',),)
-state3: 
-((' Atom x(p67)',),)
-((' Atom y(p67)',),)
-state3: 
-((' Atom x(p68)',),)
-((' Atom y(p68)',),)
-state3: 
-((' Atom x(p69)',),)
-((' Atom y(p69)',),)
-state3: 
-((' Atom x(p70)',),)
-((' Atom y(p70)',),)
-state3: 
-((' Atom x(p71)',),)
-((' Atom y(p71)',),)
-state3: 
-((' Atom x(p72)',),)
-((' Atom y(p72)',),)
-state3: 
-((' Atom x(p73)',),)
-((' Atom y(p73)',),)
-state3: 
-((' Atom x(p74)',),)
-((' Atom y(p74)',),)
-state3: 
-((' Atom x(p75)',),)
-((' Atom y(p75)',),)
-state3: 
-((' Atom x(p76)',),)
-((' Atom y(p76)',),)
-state3: 
-((' Atom x(p77)',),)
-((' Atom y(p77)',),)
-state3: 
-((' Atom x(p78)',),)
-((' Atom y(p78)',),)
-state3: 
-((' Atom x(p79)',),)
-((' Atom y(p79)',),)
-state3: 
-((' Atom x(p80)',),)
-((' Atom y(p80)',),)
-state3: 
-((' Atom x(p81)',),)
-((' Atom y(p81)',),)
-state3: 
-((' Atom x(p82)',),)
-((' Atom y(p82)',),)
-state3: 
-((' Atom x(p83)',),)
-((' Atom y(p83)',),)
-state3: 
-((' Atom x(p84)',),)
-((' Atom y(p84)',),)
-state3: 
-((' Atom x(p85)',),)
-((' Atom y(p85)',),)
-state3: 
-((' Atom x(p86)',),)
-((' Atom y(p86)',),)
-state3: 
-((' Atom x(p87)',),)
-((' Atom y(p87)',),)
-state3: 
-((' Atom x(p88)',),)
-((' Atom y(p88)',),)
-state3: 
-((' Atom x(p89)',),)
-((' Atom y(p89)',),)
-state3: 
-((' Atom x(p90)',),)
-((' Atom y(p90)',),)
-state3: 
-((' Atom x(p91)',),)
-((' Atom y(p91)',),)
-state3: 
-((' Atom x(p92)',),)
-((' Atom y(p92)',),)
+((' Atom obj-at(o1, p8-8)',),)
 ONEOFS:
 oneof(
-((' Atom x(p1)',),),
-((' Atom x(p2)',),),
-((' Atom x(p3)',),),
-((' Atom x(p4)',),),
-((' Atom x(p5)',),),
-((' Atom x(p6)',),),
-((' Atom x(p7)',),),
-((' Atom x(p8)',),),
-((' Atom x(p9)',),),
-((' Atom x(p10)',),),
-((' Atom x(p11)',),),
-((' Atom x(p12)',),),
-((' Atom x(p13)',),),
-((' Atom x(p14)',),),
-((' Atom x(p15)',),),
-((' Atom x(p16)',),),
-((' Atom x(p17)',),),
-((' Atom x(p18)',),),
-((' Atom x(p19)',),),
-((' Atom x(p20)',),),
-((' Atom x(p21)',),),
-((' Atom x(p22)',),),
-((' Atom x(p23)',),),
-((' Atom x(p24)',),),
-((' Atom x(p25)',),),
-((' Atom x(p26)',),),
-((' Atom x(p27)',),),
-((' Atom x(p28)',),),
-((' Atom x(p29)',),),
-((' Atom x(p30)',),),
-((' Atom x(p31)',),),
-((' Atom x(p32)',),),
-((' Atom x(p33)',),),
-((' Atom x(p34)',),),
-((' Atom x(p35)',),),
-((' Atom x(p36)',),),
-((' Atom x(p37)',),),
-((' Atom x(p38)',),),
-((' Atom x(p39)',),),
-((' Atom x(p40)',),),
-((' Atom x(p41)',),),
-((' Atom x(p42)',),),
-((' Atom x(p43)',),),
-((' Atom x(p44)',),),
-((' Atom x(p45)',),),
-((' Atom x(p46)',),),
-((' Atom x(p47)',),),
-((' Atom x(p48)',),),
-((' Atom x(p49)',),),
-((' Atom x(p50)',),),
-((' Atom x(p51)',),),
-((' Atom x(p52)',),),
-((' Atom x(p53)',),),
-((' Atom x(p54)',),),
-((' Atom x(p55)',),),
-((' Atom x(p56)',),),
-((' Atom x(p57)',),),
-((' Atom x(p58)',),),
-((' Atom x(p59)',),),
-((' Atom x(p60)',),),
-((' Atom x(p61)',),),
-((' Atom x(p62)',),),
-((' Atom x(p63)',),),
-((' Atom x(p64)',),),
-((' Atom x(p65)',),),
-((' Atom x(p66)',),),
-((' Atom x(p67)',),),
-((' Atom x(p68)',),),
-((' Atom x(p69)',),),
-((' Atom x(p70)',),),
-((' Atom x(p71)',),),
-((' Atom x(p72)',),),
-((' Atom x(p73)',),),
-((' Atom x(p74)',),),
-((' Atom x(p75)',),),
-((' Atom x(p76)',),),
-((' Atom x(p77)',),),
-((' Atom x(p78)',),),
-((' Atom x(p79)',),),
-((' Atom x(p80)',),),
-((' Atom x(p81)',),),
-((' Atom x(p82)',),),
-((' Atom x(p83)',),),
-((' Atom x(p84)',),),
-((' Atom x(p85)',),),
-((' Atom x(p86)',),),
-((' Atom x(p87)',),),
-((' Atom x(p88)',),),
-((' Atom x(p89)',),),
-((' Atom x(p90)',),),
-((' Atom x(p91)',),),
-((' Atom x(p92)',),)
-oneof(
-((' Atom y(p1)',),),
-((' Atom y(p2)',),),
-((' Atom y(p3)',),),
-((' Atom y(p4)',),),
-((' Atom y(p5)',),),
-((' Atom y(p6)',),),
-((' Atom y(p7)',),),
-((' Atom y(p8)',),),
-((' Atom y(p9)',),),
-((' Atom y(p10)',),),
-((' Atom y(p11)',),),
-((' Atom y(p12)',),),
-((' Atom y(p13)',),),
-((' Atom y(p14)',),),
-((' Atom y(p15)',),),
-((' Atom y(p16)',),),
-((' Atom y(p17)',),),
-((' Atom y(p18)',),),
-((' Atom y(p19)',),),
-((' Atom y(p20)',),),
-((' Atom y(p21)',),),
-((' Atom y(p22)',),),
-((' Atom y(p23)',),),
-((' Atom y(p24)',),),
-((' Atom y(p25)',),),
-((' Atom y(p26)',),),
-((' Atom y(p27)',),),
-((' Atom y(p28)',),),
-((' Atom y(p29)',),),
-((' Atom y(p30)',),),
-((' Atom y(p31)',),),
-((' Atom y(p32)',),),
-((' Atom y(p33)',),),
-((' Atom y(p34)',),),
-((' Atom y(p35)',),),
-((' Atom y(p36)',),),
-((' Atom y(p37)',),),
-((' Atom y(p38)',),),
-((' Atom y(p39)',),),
-((' Atom y(p40)',),),
-((' Atom y(p41)',),),
-((' Atom y(p42)',),),
-((' Atom y(p43)',),),
-((' Atom y(p44)',),),
-((' Atom y(p45)',),),
-((' Atom y(p46)',),),
-((' Atom y(p47)',),),
-((' Atom y(p48)',),),
-((' Atom y(p49)',),),
-((' Atom y(p50)',),),
-((' Atom y(p51)',),),
-((' Atom y(p52)',),),
-((' Atom y(p53)',),),
-((' Atom y(p54)',),),
-((' Atom y(p55)',),),
-((' Atom y(p56)',),),
-((' Atom y(p57)',),),
-((' Atom y(p58)',),),
-((' Atom y(p59)',),),
-((' Atom y(p60)',),),
-((' Atom y(p61)',),),
-((' Atom y(p62)',),),
-((' Atom y(p63)',),),
-((' Atom y(p64)',),),
-((' Atom y(p65)',),),
-((' Atom y(p66)',),),
-((' Atom y(p67)',),),
-((' Atom y(p68)',),),
-((' Atom y(p69)',),),
-((' Atom y(p70)',),),
-((' Atom y(p71)',),),
-((' Atom y(p72)',),),
-((' Atom y(p73)',),),
-((' Atom y(p74)',),),
-((' Atom y(p75)',),),
-((' Atom y(p76)',),),
-((' Atom y(p77)',),),
-((' Atom y(p78)',),),
-((' Atom y(p79)',),),
-((' Atom y(p80)',),),
-((' Atom y(p81)',),),
-((' Atom y(p82)',),),
-((' Atom y(p83)',),),
-((' Atom y(p84)',),),
-((' Atom y(p85)',),),
-((' Atom y(p86)',),),
-((' Atom y(p87)',),),
-((' Atom y(p88)',),),
-((' Atom y(p89)',),),
-((' Atom y(p90)',),),
-((' Atom y(p91)',),),
-((' Atom y(p92)',),)
-[0.030s CPU, 0.025s wall-clock]
+((' Atom obj-at(o1, p1-1)',),),
+((' Atom obj-at(o1, p1-2)',),),
+((' Atom obj-at(o1, p1-3)',),),
+((' Atom obj-at(o1, p1-4)',),),
+((' Atom obj-at(o1, p1-5)',),),
+((' Atom obj-at(o1, p1-6)',),),
+((' Atom obj-at(o1, p1-7)',),),
+((' Atom obj-at(o1, p1-8)',),),
+((' Atom obj-at(o1, p2-1)',),),
+((' Atom obj-at(o1, p2-2)',),),
+((' Atom obj-at(o1, p2-3)',),),
+((' Atom obj-at(o1, p2-4)',),),
+((' Atom obj-at(o1, p2-5)',),),
+((' Atom obj-at(o1, p2-6)',),),
+((' Atom obj-at(o1, p2-7)',),),
+((' Atom obj-at(o1, p2-8)',),),
+((' Atom obj-at(o1, p3-1)',),),
+((' Atom obj-at(o1, p3-2)',),),
+((' Atom obj-at(o1, p3-3)',),),
+((' Atom obj-at(o1, p3-4)',),),
+((' Atom obj-at(o1, p3-5)',),),
+((' Atom obj-at(o1, p3-6)',),),
+((' Atom obj-at(o1, p3-7)',),),
+((' Atom obj-at(o1, p3-8)',),),
+((' Atom obj-at(o1, p4-1)',),),
+((' Atom obj-at(o1, p4-2)',),),
+((' Atom obj-at(o1, p4-3)',),),
+((' Atom obj-at(o1, p4-4)',),),
+((' Atom obj-at(o1, p4-5)',),),
+((' Atom obj-at(o1, p4-6)',),),
+((' Atom obj-at(o1, p4-7)',),),
+((' Atom obj-at(o1, p4-8)',),),
+((' Atom obj-at(o1, p5-1)',),),
+((' Atom obj-at(o1, p5-2)',),),
+((' Atom obj-at(o1, p5-3)',),),
+((' Atom obj-at(o1, p5-4)',),),
+((' Atom obj-at(o1, p5-5)',),),
+((' Atom obj-at(o1, p5-6)',),),
+((' Atom obj-at(o1, p5-7)',),),
+((' Atom obj-at(o1, p5-8)',),),
+((' Atom obj-at(o1, p6-1)',),),
+((' Atom obj-at(o1, p6-2)',),),
+((' Atom obj-at(o1, p6-3)',),),
+((' Atom obj-at(o1, p6-4)',),),
+((' Atom obj-at(o1, p6-5)',),),
+((' Atom obj-at(o1, p6-6)',),),
+((' Atom obj-at(o1, p6-7)',),),
+((' Atom obj-at(o1, p6-8)',),),
+((' Atom obj-at(o1, p7-1)',),),
+((' Atom obj-at(o1, p7-2)',),),
+((' Atom obj-at(o1, p7-3)',),),
+((' Atom obj-at(o1, p7-4)',),),
+((' Atom obj-at(o1, p7-5)',),),
+((' Atom obj-at(o1, p7-6)',),),
+((' Atom obj-at(o1, p7-7)',),),
+((' Atom obj-at(o1, p7-8)',),),
+((' Atom obj-at(o1, p8-1)',),),
+((' Atom obj-at(o1, p8-2)',),),
+((' Atom obj-at(o1, p8-3)',),),
+((' Atom obj-at(o1, p8-4)',),),
+((' Atom obj-at(o1, p8-5)',),),
+((' Atom obj-at(o1, p8-6)',),),
+((' Atom obj-at(o1, p8-7)',),),
+((' Atom obj-at(o1, p8-8)',),)
+[0.000s CPU, 0.005s wall-clock]
 Writing mutex key... [0.000s CPU, 0.000s wall-clock]
 Writing output... [0.000s CPU, 0.001s wall-clock]
-Done! [0.070s CPU, 0.076s wall-clock]
+Done! [0.020s CPU, 0.025s wall-clock]

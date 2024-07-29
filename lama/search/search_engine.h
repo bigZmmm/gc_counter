@@ -36,7 +36,6 @@ protected:
     enum {FAILED, SOLVED, IN_PROGRESS};
     virtual void initialize() {}
     virtual int step() = 0;
-
     void set_plan(const Plan &plan);
 public:
     SearchEngine();
@@ -45,6 +44,7 @@ public:
     bool found_solution() const;
     const Plan &get_plan() const;
     void search();
+    void set_plan_null();
 };
 
 #endif

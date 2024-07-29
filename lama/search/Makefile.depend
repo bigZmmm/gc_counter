@@ -42,7 +42,8 @@ landmarks_count_heuristic.o: landmarks_count_heuristic.cc \
  closed_list.h closed_list.cc open_list.h open_list.cc search_engine.h \
  ff_heuristic.h successor_generator.h
 counter.o: counter.cc counter.h globals.h state.h landmarks_types.h \
- operator.h z3_counter.h
+ operator.h z3_counter.h best_first_search.h closed_list.h closed_list.cc \
+ open_list.h open_list.cc search_engine.h
 z3_counter.o: z3_counter.cc z3_counter.h
 planner.profile.o: planner.cc best_first_search.h closed_list.h closed_list.cc \
  open_list.h open_list.cc search_engine.h state.h landmarks_types.h \
@@ -88,5 +89,6 @@ landmarks_count_heuristic.profile.o: landmarks_count_heuristic.cc \
  closed_list.h closed_list.cc open_list.h open_list.cc search_engine.h \
  ff_heuristic.h successor_generator.h
 counter.profile.o: counter.cc counter.h globals.h state.h landmarks_types.h \
- operator.h z3_counter.h
+ operator.h z3_counter.h best_first_search.h closed_list.h closed_list.cc \
+ open_list.h open_list.cc search_engine.h
 z3_counter.profile.o: z3_counter.cc z3_counter.h

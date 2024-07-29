@@ -302,6 +302,7 @@ bool LandmarksGraph::relaxed_task_solvable(vector<vector<int> >& lvl_var,
     return true;
 }
 
+/*通过这些查找表，算法可以快速确定哪些操作符能够实现某个命题，或者哪些操作符需要某个命题作为前置条件，从而加快规划的过程。*/
 void LandmarksGraph::generate_operators_lookups() {
 /* Build datastructures for efficient landmark computation. Map propositions
    to the operators that achieve them or have them as preconditions */
